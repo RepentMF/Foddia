@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://gpb65m67g1qe"]
+
+[ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_x77fk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(1, 1.333)
+script = ExtResource("1_hgfsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -1.01328e-06)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_x77fk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_4ufxu")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(1, 0.750188)
+
+[node name="GrabArea2D_1" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(13, -12.7532)
+scale = Vector2(0.4, 0.300075)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/GrabArea2D_1"]
+shape = SubResource("RectangleShape2D_1opmy")
+
+[node name="GrabArea2D_2" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-13, -12.7532)
+scale = Vector2(0.4, 0.300075)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/GrabArea2D_2"]
+position = Vector2(-1.14441e-05, 0)
+shape = SubResource("RectangleShape2D_1opmy")
+
+[connection signal="body_entered" from="CharacterBody2D/GrabArea2D_1" to="CharacterBody2D" method="_on_grab_area_2d_1_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/GrabArea2D_2" to="CharacterBody2D" method="_on_grab_area_2d_2_body_entered"]

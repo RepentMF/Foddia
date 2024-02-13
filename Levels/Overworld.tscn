@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://1anuq87k0qy4"]
+
+[ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
+[ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
+[ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrab.tscn" id="3_ugyyv"]
+
+[node name="Overworld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_bbe1x")]
+position = Vector2(-56, -40)
+
+[node name="Floor" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(16, 16)
+scale = Vector2(30, 1)
+
+[node name="Floor2" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(976, -16)
+scale = Vector2(30, 1)
+
+[node name="Floor3" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(976, -48)
+scale = Vector2(30, 1)
+
+[node name="Floor4" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(-944, -16)
+scale = Vector2(30, 1)
+
+[node name="Floor5" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(-944, -48)
+scale = Vector2(30, 1)
+
+[node name="LedgeGrab" parent="." instance=ExtResource("3_ugyyv")]
+position = Vector2(512, -85)
+scale = Vector2(-1, 1)
+
+[node name="LedgeGrab2" parent="." instance=ExtResource("3_ugyyv")]
+position = Vector2(-480, -85)
