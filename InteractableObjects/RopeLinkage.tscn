@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1xtej1vo82ej"]
+
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_g5lg5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so3di"]
+radius = 1.0
+height = 28.0
+
+[node name="RopeLinkage" type="RigidBody2D"]
+center_of_mass_mode = 1
+gravity_scale = 0.0
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.0126953, 0.21875)
+texture = ExtResource("1_g5lg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_so3di")

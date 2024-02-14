@@ -4,41 +4,38 @@
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_x77fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
-size = Vector2(32, 32)
+size = Vector2(32, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
+size = Vector2(20, 47.5)
 
-[node name="Player" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-scale = Vector2(1, 1.333)
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hgfsl")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(0, -1.01328e-06)
-scale = Vector2(0.25, 0.25)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.3125)
 texture = ExtResource("2_x77fk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4ufxu")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 0.750188)
 
-[node name="GrabArea2D_1" type="Area2D" parent="CharacterBody2D"]
-position = Vector2(13, -12.7532)
+[node name="GrabArea2D_1" type="Area2D" parent="."]
+position = Vector2(17, -13)
 scale = Vector2(0.4, 0.300075)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/GrabArea2D_1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_1"]
 shape = SubResource("RectangleShape2D_1opmy")
 
-[node name="GrabArea2D_2" type="Area2D" parent="CharacterBody2D"]
-position = Vector2(-13, -12.7532)
+[node name="GrabArea2D_2" type="Area2D" parent="."]
+position = Vector2(-17, -13)
 scale = Vector2(0.4, 0.300075)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/GrabArea2D_2"]
-position = Vector2(-1.14441e-05, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_2"]
+position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_1opmy")
 
-[connection signal="body_entered" from="CharacterBody2D/GrabArea2D_1" to="CharacterBody2D" method="_on_grab_area_2d_1_body_entered"]
-[connection signal="body_entered" from="CharacterBody2D/GrabArea2D_2" to="CharacterBody2D" method="_on_grab_area_2d_2_body_entered"]
+[connection signal="body_entered" from="GrabArea2D_1" to="." method="_on_grab_area_2d_1_body_entered"]
+[connection signal="body_entered" from="GrabArea2D_2" to="." method="_on_grab_area_2d_2_body_entered"]

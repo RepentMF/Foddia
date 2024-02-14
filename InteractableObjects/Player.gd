@@ -6,13 +6,18 @@ const Up = Vector2(0, -1)
 
 var climbXValue = 0
 var climbYValue = 0
+var groundDirection = 0
 var gravity = 300
 var isClimbingLedge = false
 var isCrawlingLedge = false
+var isFalling = false
 var isGrabbingLedge = false
 var isRunning = false
+var isSwinging = false
 var jumpVelocity = 100
 var speed = 100
+var swingRope = null
+var wasJumping = false
 
 #func _ready():
 #	animatedSprite2D = $Sprite2D
@@ -24,8 +29,11 @@ func _process(delta):
 func _physics_process(delta):
 	#Handle death conditions
 	#if !isDead || !hasReset:
+		if isSwinging && swingRope != null:
+			global_position = global_position.move_toward(Vector2(swingRope.global_position.x, swingRope.global_position.y), 10)
+			$CollisionShape2D.disabled = true
 		# Handle climbing a ledge
-		if isGrabbingLedge:
+		elif isGrabbingLedge:
 			velocity.x = 0
 			velocity.y = 0
 			if isCrawlingLedge:
@@ -39,7 +47,15 @@ func _physics_process(delta):
 		elif !is_on_floor():
 			velocity.y += gravity * delta
 			isRunning = false
+			groundDirection = sign(velocity.x)
+			wasJumping = true
 		else:
+			if isFalling:
+				isFalling = false
+			elif wasJumping:
+				if groundDirection != sign(velocity.x):
+					speed = MinSpeed
+					wasJumping = false
 			# Enable running toggle
 			if Input.is_action_pressed("ui_cancel"):
 				isRunning = true
@@ -47,7 +63,7 @@ func _physics_process(delta):
 				isRunning = false
 			# Handle jumping
 			if Input.is_action_just_pressed("ui_accept"):
-				velocity.y = -jumpVelocity - (speed * .2)
+				velocity.y = -jumpVelocity - (speed * .25)
 			# Handle moving left and right speeds
 			if isRunning && speed < MaxSpeed:
 				speed += 2.5
@@ -66,6 +82,13 @@ func _physics_process(delta):
 				speed = MinSpeed
 		
 		move_and_slide()
+		
+		for n in get_slide_collision_count():
+			var i = get_slide_collision(n)
+			if i.get_collider() is RigidBody2D && i.get_collider().name.contains("RopeLinkage"):
+				i.get_collider().apply_impulse(Vector2(-i.get_normal().x, 0) * 0.25 * get_real_velocity().x)
+				isSwinging = true
+				#get_tree().paused = true
 		pass
 
 func ascend_ledge():
@@ -84,17 +107,30 @@ func crawl_ledge():
 
 func _on_grab_area_2d_1_body_entered(body):
 	if body.name.contains("LedgeGrab"):
-		climbYValue = body.global_position.y
-		climbXValue = body.global_position.x
-		isGrabbingLedge = true
-		print("right")
+		if velocity.x != MaxSpeed:
+			climbYValue = body.global_position.y + 1
+			climbXValue = body.global_position.x
+			isGrabbingLedge = true
+			isFalling = false
+		elif velocity.x == MaxSpeed:
+			isFalling = true
+	elif body.name.contains("Floor"):
+		isFalling = true
+	elif body.name.contains("RopeLinkage"):
+	#	isSwinging = true
+		swingRope = body
 	pass # Replace with function body.
 
 
 func _on_grab_area_2d_2_body_entered(body):
 	if body.name.contains("LedgeGrab"):
-		climbYValue = body.global_position.y
-		climbXValue = body.global_position.x
-		isGrabbingLedge = true
-		print("left")
+		if velocity.x != MaxSpeed:
+			climbYValue = body.global_position.y + 1
+			climbXValue = body.global_position.x
+			isGrabbingLedge = true
+			isFalling = false
+		else:
+			isFalling = true
+	elif body.name.contains("Floor"):
+		isFalling = true
 	pass # Replace with function body.
