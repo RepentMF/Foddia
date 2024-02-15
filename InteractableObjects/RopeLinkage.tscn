@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_g5lg5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so3di"]
-radius = 1.0
-height = 28.0
+radius = 3.84615
+height = 17.0307
 
 [node name="RopeLinkage" type="RigidBody2D"]
 center_of_mass_mode = 1
@@ -12,9 +12,10 @@ gravity_scale = 0.0
 can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -2.38419e-07)
-scale = Vector2(0.0126953, 0.21875)
+position = Vector2(-2.38419e-07, 5.96046e-08)
+scale = Vector2(0.0625, 0.078125)
 texture = ExtResource("1_g5lg5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.04, 0.587175)
 shape = SubResource("CapsuleShape2D_so3di")

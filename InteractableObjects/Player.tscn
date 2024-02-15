@@ -23,14 +23,14 @@ shape = SubResource("RectangleShape2D_4ufxu")
 scale = Vector2(1, 0.750188)
 
 [node name="GrabArea2D_1" type="Area2D" parent="."]
-position = Vector2(17, -13)
+position = Vector2(14, -13)
 scale = Vector2(0.4, 0.300075)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_1"]
 shape = SubResource("RectangleShape2D_1opmy")
 
 [node name="GrabArea2D_2" type="Area2D" parent="."]
-position = Vector2(-17, -13)
+position = Vector2(-14, -13)
 scale = Vector2(0.4, 0.300075)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_2"]
