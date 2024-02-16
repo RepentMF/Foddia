@@ -8,7 +8,7 @@
 [node name="Overworld" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(520, -176)
+position = Vector2(-378, -39)
 floor_constant_speed = true
 floor_block_on_wall = false
 
@@ -37,11 +37,11 @@ position = Vector2(-960, -96)
 scale = Vector2(30, 1)
 
 [node name="Floor7" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(960, -96)
-scale = Vector2(30, 1)
+position = Vector2(-443, 2569)
+scale = Vector2(26, 1)
 
 [node name="LedgeGrab" parent="." instance=ExtResource("3_ugyyv")]
-position = Vector2(496, -133)
+position = Vector2(496, -101)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
@@ -49,4 +49,4 @@ scale = Vector2(1, -1)
 position = Vector2(-496, -133)
 
 [node name="Rope" parent="." instance=ExtResource("4_h72h2")]
-position = Vector2(0, -197)
+position = Vector2(218, -215)
