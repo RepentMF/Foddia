@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci26g0a7cmr3f"]
+
+[ext_resource type="Script" path="res://InteractableObjects/RefillCharge.gd" id="1_hi8k4"]
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_lrpim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
+radius = 8.0
+
+[node name="RefillCharge" type="Area2D"]
+script = ExtResource("1_hi8k4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_lrpim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3goda")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

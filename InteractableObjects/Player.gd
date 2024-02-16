@@ -1,24 +1,36 @@
 extends CharacterBody2D
 
-var MinSpeed = 100
-var MaxSpeed = 400
+const MinSpeed = 100
+const MaxSpeed = 400
+const JetpackSpeed = 750
+const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
 
-var airTimeCount = 0
+var countAirTime = 0
+var countFallDistance = 0
+var countJetpackFuel = 1000
+var countRocketJumps = 2
+
 var climbXValue = 0
 var climbYValue = 0
-var fallDistanceCount = 0
 var groundDirection = 0
 var gravity = 300
+
+var hasJetpack = false
+var hasRocketJump = false
 var hasReleasedRope = false
+
 var isClimbingLedge = false
 var isCrawlingLedge = false
 var isFalling = false
 var isGrabbingLedge = false
 var isRunning = false
 var isSwinging = false
-var jumpVelocity = 100
-var speed = 100
+
+var jumpSpeed = 100
+var maxJetpackFuel = 1000
+var maxRocketJumps = 2
+var runSpeed = 100
 var swingSpeed = 0
 var swingRope = null
 var wasJumping = false
@@ -35,16 +47,14 @@ func _physics_process(delta):
 	#if !isDead || !hasReset:
 		# Handle releasing a rope
 		if hasReleasedRope:
-			airTimeCount += 1
-			if airTimeCount > 30:
-				airTimeCount = 0
-				$CollisionShape2D.disabled = false
+			countAirTime += 1
+			if countAirTime > 30:
+				countAirTime = 0
 				isSwinging = false
 				hasReleasedRope = false
 		# Handle swinging on a rope
 		if isSwinging && swingRope != null:
 			global_position = global_position.move_toward(Vector2(swingRope.global_position.x, swingRope.global_position.y), 10)
-			$CollisionShape2D.disabled = true
 			if Input.is_action_just_pressed("ui_right"):
 				swingRope.apply_impulse(Vector2(15, 0))
 			elif Input.is_action_just_pressed("ui_left"):
@@ -64,7 +74,7 @@ func _physics_process(delta):
 			elif Input.is_action_pressed("ui_accept"):
 				isClimbingLedge = true
 				ascend_ledge()
-		# Add the gravity
+		# Add the gravity, handle aerial movement and calculations
 		elif !is_on_floor():
 			velocity.y += gravity * delta
 			isRunning = false
@@ -72,35 +82,66 @@ func _physics_process(delta):
 			wasJumping = true
 			if velocity.y > 400:
 				isFalling = true
-				fallDistanceCount += 1
-				if fallDistanceCount > 150:
+				countFallDistance += 1
+				# Kill conidition still needs refinement
+				if countFallDistance > 150 || velocity.y > 600:
 					print("Player is kill")
-			# Handle rocket jumps
-			if Input.is_action_just_pressed("ui_accept"):
-				if Input.is_action_pressed("ui_right"):
-					velocity.x = 250
-				elif Input.is_action_pressed("ui_left"):
-					velocity.x = -250
-				else:
-					velocity.x = 0
-				if Input.is_action_pressed("ui_up"):
-					velocity.y = -250
-				elif Input.is_action_pressed("ui_down"):
-					velocity.y = 250
-				elif !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
-					velocity.y = -250
-				print(velocity)
-				if abs(velocity.x) == abs(velocity.y):
-					velocity = velocity * 4 / 3
+			# Handle jetpack or rocket jumps
+			if !isFalling:
+				if hasJetpack:
+					if Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
+						countJetpackFuel -= 1
+						if Input.is_action_pressed("ui_right"):
+							velocity.x += 10
+						elif Input.is_action_pressed("ui_left"):
+							velocity.x += -10
+						if Input.is_action_pressed("ui_up"):
+							velocity.y += -10
+						elif Input.is_action_pressed("ui_down"):
+							velocity.y += 10
+						elif !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
+							velocity.y += -10
+						else:
+							velocity.y += -1
+						if abs(velocity.x) > JetpackSpeed:
+							velocity.x =  sign(velocity.x) * JetpackSpeed
+						if abs(velocity.y) > JetpackSpeed:
+							velocity.y = sign(velocity.y) * JetpackSpeed
+				elif hasRocketJump:
+					if Input.is_action_just_pressed("ui_accept") && countRocketJumps > 0:
+						countRocketJumps -= 1
+						if Input.is_action_pressed("ui_right"):
+							if velocity.x > RocketJumpSpeed:
+								velocity.x = velocity.x + RocketJumpSpeed
+							else:
+								velocity.x = RocketJumpSpeed
+						elif Input.is_action_pressed("ui_left"):
+							if velocity.x < -RocketJumpSpeed:
+								velocity.x = velocity.x - RocketJumpSpeed
+							else:
+								velocity.x = -RocketJumpSpeed
+						else:
+							velocity.x = 0
+						if Input.is_action_pressed("ui_up"):
+							velocity.y = -RocketJumpSpeed
+						elif Input.is_action_pressed("ui_down"):
+							velocity.y = RocketJumpSpeed
+						elif !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
+							velocity.y = -RocketJumpSpeed
+						else:
+							velocity.y = -60
+						if abs(velocity.x) == abs(velocity.y):
+							velocity = velocity * 3 / 4
 		# Handle grounded movement
 		else:
-			fallDistanceCount = 0
+			countFallDistance = 0
+			countRocketJumps = maxRocketJumps
 			isSwinging = false
 			if isFalling:
 				isFalling = false
 			elif wasJumping:
 				if groundDirection != sign(velocity.x):
-					speed = MinSpeed
+					runSpeed = MinSpeed
 					wasJumping = false
 			# Enable running toggle
 			if Input.is_action_pressed("ui_select"):
@@ -109,34 +150,34 @@ func _physics_process(delta):
 				isRunning = false
 			# Handle jumping
 			if Input.is_action_just_pressed("ui_accept"):
-				velocity.y = -jumpVelocity - (speed * .25)
+				velocity.y = -jumpSpeed - (runSpeed * .25)
 			# Handle moving left and right speeds
-			if isRunning && speed < MaxSpeed:
-				speed += 2.5
-			elif !isRunning && speed > MinSpeed:
-				speed -= 5
+			if isRunning && runSpeed < MaxSpeed:
+				runSpeed += 2.5
+			elif !isRunning && runSpeed > MinSpeed:
+				runSpeed -= 5
 			if Input.is_action_just_pressed("ui_right"):
-				speed = MinSpeed
+				runSpeed = MinSpeed
 			elif Input.is_action_just_pressed("ui_left"):
-				speed = MinSpeed
+				runSpeed = MinSpeed
 			if Input.is_action_pressed("ui_right"):
-				velocity.x = speed
+				velocity.x = runSpeed
 			elif Input.is_action_pressed("ui_left"):
-				velocity.x = -speed
+				velocity.x = -runSpeed
 			else:
 				velocity.x = 0
-				speed = MinSpeed
+				runSpeed = MinSpeed
 		
 		move_and_slide()
 		
 		# Apply initial force to rope
-		for n in get_slide_collision_count():
-			var i = get_slide_collision(n)
-			if i.get_collider() is RigidBody2D && i.get_collider().name.contains("RopeLinkage"):
-				i.get_collider().apply_impulse(Vector2(0.25 * swingSpeed, 1))
-				if Input.is_action_pressed("ui_cancel"):
-					isSwinging = true
-					swingRope = i.get_collider()
+		#for n in get_slide_collision_count():
+		#	var i = get_slide_collision(n)
+		#	if i.get_collider() is RigidBody2D && i.get_collider().name.contains("RopeLinkage"):
+		#		i.get_collider().apply_impulse(Vector2(0.25 * swingSpeed, 1))
+		#		if Input.is_action_pressed("ui_cancel"):
+		#			isSwinging = true
+		#			swingRope = i.get_collider()
 		if isSwinging && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
 		else:
@@ -155,7 +196,7 @@ func crawl_ledge():
 		isGrabbingLedge = false
 		isClimbingLedge = false
 		isCrawlingLedge = false
-		speed = MinSpeed
+		runSpeed = MinSpeed
 
 func use_hands(body):
 	if body.name.contains("LedgeGrab"):
@@ -167,9 +208,15 @@ func use_hands(body):
 		elif velocity.x == MaxSpeed:
 			velocity.y = 0
 			isFalling = true
-	elif body.name.contains("Floor"):
+	elif body.name.contains("Floor") && !isFalling:
 		velocity.y = 0
 		isFalling = true
+	elif body.name.contains("RopeLinkage") && !isSwinging:
+		print("yeah")
+		body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
+		if Input.is_action_pressed("ui_cancel"):
+			isSwinging = true
+			swingRope = body
 	
 func _on_grab_area_2d_1_body_entered(body):
 	use_hands(body)

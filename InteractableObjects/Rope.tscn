@@ -15,6 +15,7 @@ position = Vector2(0, 16)
 node_a = NodePath("../Block")
 node_b = NodePath("../RopeLinkage")
 bias = 0.9
+disable_collision = false
 
 [node name="RopeLinkage" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 21)
@@ -28,6 +29,7 @@ position = Vector2(0, 26)
 node_a = NodePath("../RopeLinkage")
 node_b = NodePath("../RopeLinkage2")
 bias = 0.9
+disable_collision = false
 
 [node name="RopeLinkage2" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 31)
@@ -39,6 +41,7 @@ freeze_mode = 1
 position = Vector2(0, 36)
 node_a = NodePath("../RopeLinkage2")
 node_b = NodePath("../RopeLinkage3")
+disable_collision = false
 
 [node name="RopeLinkage3" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 41)
@@ -50,6 +53,7 @@ freeze_mode = 1
 position = Vector2(0, 46)
 node_a = NodePath("../RopeLinkage3")
 node_b = NodePath("../RopeLinkage4")
+disable_collision = false
 
 [node name="RopeLinkage4" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 51)
@@ -61,6 +65,7 @@ freeze_mode = 1
 position = Vector2(0, 56)
 node_a = NodePath("../RopeLinkage4")
 node_b = NodePath("../RopeLinkage5")
+disable_collision = false
 
 [node name="RopeLinkage5" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 61)
@@ -72,6 +77,7 @@ freeze_mode = 1
 position = Vector2(0, 66)
 node_a = NodePath("../RopeLinkage5")
 node_b = NodePath("../RopeLinkage6")
+disable_collision = false
 
 [node name="RopeLinkage6" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 71)
@@ -83,6 +89,7 @@ freeze_mode = 1
 position = Vector2(0, 76)
 node_a = NodePath("../RopeLinkage6")
 node_b = NodePath("../RopeLinkage7")
+disable_collision = false
 
 [node name="RopeLinkage7" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 81)
@@ -94,10 +101,11 @@ freeze_mode = 1
 position = Vector2(0, 86)
 node_a = NodePath("../RopeLinkage7")
 node_b = NodePath("../RopeLinkage8")
+disable_collision = false
 
 [node name="RopeLinkage8" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 91)
-mass = 0.1
+mass = 0.12
 gravity_scale = 1.0
 freeze_mode = 1
 
@@ -105,10 +113,11 @@ freeze_mode = 1
 position = Vector2(0, 96)
 node_a = NodePath("../RopeLinkage8")
 node_b = NodePath("../RopeLinkage9")
+disable_collision = false
 
 [node name="RopeLinkage9" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 101)
-mass = 0.1
+mass = 0.14
 gravity_scale = 1.0
 freeze_mode = 1
 
@@ -116,10 +125,11 @@ freeze_mode = 1
 position = Vector2(0, 106)
 node_a = NodePath("../RopeLinkage9")
 node_b = NodePath("../RopeLinkage10")
+disable_collision = false
 
 [node name="RopeLinkage10" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 111)
-mass = 0.1
+mass = 0.16
 gravity_scale = 1.0
 freeze_mode = 1
 
@@ -127,10 +137,11 @@ freeze_mode = 1
 position = Vector2(0, 116)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkage11")
+disable_collision = false
 
 [node name="RopeLinkage11" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 121)
-mass = 0.1
+mass = 0.18
 gravity_scale = 1.0
 freeze_mode = 1
 
@@ -138,6 +149,7 @@ freeze_mode = 1
 position = Vector2(0, 126)
 node_a = NodePath("../RopeLinkage11")
 node_b = NodePath("../RopeLinkage12")
+disable_collision = false
 
 [node name="RopeLinkage12" parent="." instance=ExtResource("3_e3jrc")]
 position = Vector2(0, 134)
