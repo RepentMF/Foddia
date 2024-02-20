@@ -22,8 +22,9 @@ var hasReleasedRope = false
 
 var isClimbingLedge = false
 var isCrawlingLedge = false
-var isFalling = false
+var isFreefalling = false
 var isGrabbingLedge = false
+var isNearRope = false
 var isRunning = false
 var isSwinging = false
 
@@ -33,6 +34,9 @@ var maxRocketJumps = 2
 var runSpeed = 100
 var swingSpeed = 0
 var swingRope = null
+var ropeBottomPosition = Vector2(0, 113)
+var ropeTempPosition = 0
+var ropeTopPosition = Vector2(0, 0)
 var wasJumping = false
 
 #func _ready():
@@ -40,29 +44,51 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if swingRope != null:
+		if isSwinging && swingRope.get_parent().name.contains("Swinging"):
+			rotation = swingRope.rotation
+	else:
+		rotation = 0
 	pass
 
 func _physics_process(delta):
 	#Handle death conditions
 	#if !isDead || !hasReset:
-		# Handle releasing a rope
+		# Handle releasing rope
 		if hasReleasedRope:
 			countAirTime += 1
-			if countAirTime > 30:
+			if countAirTime > 15:
 				countAirTime = 0
 				isSwinging = false
 				hasReleasedRope = false
-		# Handle swinging on a rope
-		if isSwinging && swingRope != null:
-			global_position = global_position.move_toward(Vector2(swingRope.global_position.x, swingRope.global_position.y), 10)
-			if Input.is_action_just_pressed("ui_right"):
-				swingRope.apply_impulse(Vector2(15, 0))
-			elif Input.is_action_just_pressed("ui_left"):
-				swingRope.apply_impulse(Vector2(-15, 0))
-			elif Input.is_action_just_released("ui_cancel"):
-				velocity = swingRope.linear_velocity
-				swingRope = null
-				hasReleasedRope = true
+		# Handle grabbing rope
+		if Input.is_action_pressed("ui_cancel") && isNearRope:
+			isSwinging = true
+		elif Input.is_action_just_released("ui_cancel"):
+			hasReleasedRope = true
+		# Handle physics on a rope
+		if swingRope != null && isSwinging:
+			if isSwinging && swingRope.get_parent().name.contains("Swinging"):
+				global_position = global_position.move_toward(Vector2(swingRope.global_position.x, swingRope.global_position.y), 10)
+				if Input.is_action_just_pressed("ui_right"):
+					swingRope.apply_impulse(Vector2(15, 0))
+				elif Input.is_action_just_pressed("ui_left"):
+					swingRope.apply_impulse(Vector2(-15, 0))
+				elif hasReleasedRope:
+					velocity = swingRope.linear_velocity
+					swingRope = null
+			elif isSwinging && swingRope.get_parent().name.contains("Static"):
+				global_position = global_position.move_toward(Vector2(swingRope.global_position.x, ropeTempPosition.y), 10)
+				if global_position.y > ropeBottomPosition.y + 20 || global_position.y < ropeTopPosition.y - 25 || Input.is_action_just_released("ui_cancel"):
+					velocity = swingRope.linear_velocity
+					swingRope = null
+					ropeTempPosition = 0
+				elif Input.is_action_pressed("ui_up"):
+					global_position.y = ropeTempPosition.y - 2
+					ropeTempPosition.y = global_position.y
+				elif Input.is_action_pressed("ui_down"):
+					global_position.y = ropeTempPosition.y + 2
+					ropeTempPosition.y = global_position.y
 		# Handle climbing a ledge
 		elif isGrabbingLedge:
 			velocity.x = 0
@@ -81,13 +107,13 @@ func _physics_process(delta):
 			groundDirection = sign(velocity.x)
 			wasJumping = true
 			if velocity.y > 400:
-				isFalling = true
+				isFreefalling = true
 				countFallDistance += 1
 				# Kill conidition still needs refinement
 				if countFallDistance > 150 || velocity.y > 600:
 					print("Player is kill")
 			# Handle jetpack or rocket jumps
-			if !isFalling:
+			if !isFreefalling:
 				if hasJetpack:
 					if Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
 						countJetpackFuel -= 1
@@ -137,12 +163,13 @@ func _physics_process(delta):
 			countFallDistance = 0
 			countRocketJumps = maxRocketJumps
 			isSwinging = false
-			if isFalling:
-				isFalling = false
+			if isFreefalling:
+				isFreefalling = false
 			elif wasJumping:
 				if groundDirection != sign(velocity.x):
 					runSpeed = MinSpeed
 					wasJumping = false
+			
 			# Enable running toggle
 			if Input.is_action_pressed("ui_select"):
 				isRunning = true
@@ -170,14 +197,6 @@ func _physics_process(delta):
 		
 		move_and_slide()
 		
-		# Apply initial force to rope
-		#for n in get_slide_collision_count():
-		#	var i = get_slide_collision(n)
-		#	if i.get_collider() is RigidBody2D && i.get_collider().name.contains("RopeLinkage"):
-		#		i.get_collider().apply_impulse(Vector2(0.25 * swingSpeed, 1))
-		#		if Input.is_action_pressed("ui_cancel"):
-		#			isSwinging = true
-		#			swingRope = i.get_collider()
 		if isSwinging && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
 		else:
@@ -204,25 +223,27 @@ func use_hands(body):
 			climbYValue = body.global_position.y + 1
 			climbXValue = body.global_position.x
 			isGrabbingLedge = true
-			isFalling = false
+			isFreefalling = false
 		elif velocity.x == MaxSpeed:
 			velocity.y = 0
-			isFalling = true
-	elif body.name.contains("Floor") && !isFalling:
+			isFreefalling = true
+	elif body.name.contains("Floor") && !isFreefalling:
 		velocity.y = 0
-		isFalling = true
+		isFreefalling = true
 	elif body.name.contains("RopeLinkage") && !isSwinging:
-		print("yeah")
 		body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
-		if Input.is_action_pressed("ui_cancel"):
-			isSwinging = true
-			swingRope = body
-	
-func _on_grab_area_2d_1_body_entered(body):
+		isNearRope = true
+		swingRope = body
+		ropeTempPosition = global_position
+		ropeBottomPosition = body.get_parent().get_node("RopeLinkageBottom").global_position
+		ropeTopPosition = body.get_parent().get_node("RopeLinkageTop").global_position
+
+func _on_grab_area_2d_body(body):
 	use_hands(body)
 	pass # Replace with function body.
 
-
-func _on_grab_area_2d_2_body_entered(body):
-	use_hands(body)
-	pass # Replace with function body.
+func _on_grab_area_2d_body_exit(body):
+	if body.name.contains("RopeLinkage") && !isSwinging:
+		isNearRope = false
+		swingRope = null
+		ropeTempPosition = 0

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dycxk34c23v45"]
+
+[ext_resource type="Script" path="res://InteractableObjects/RocketArms.gd" id="1_m1k8y"]
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_sxhay"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
+radius = 8.0
+
+[node name="RocketArms" type="Area2D"]
+script = ExtResource("1_m1k8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.827451, 0, 0.945098, 1)
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_sxhay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3goda")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

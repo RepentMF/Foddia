@@ -7,7 +7,7 @@
 size = Vector2(32, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
-size = Vector2(20, 47.5)
+size = Vector2(91.875, 43.745)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hgfsl")
@@ -20,15 +20,8 @@ texture = ExtResource("2_x77fk")
 shape = SubResource("RectangleShape2D_4ufxu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1, 0.750188)
-
-[node name="GrabArea2D_1" type="Area2D" parent="."]
-position = Vector2(15, -13)
-scale = Vector2(0.4, 0.300075)
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_1"]
-shape = SubResource("RectangleShape2D_1opmy")
+scale = Vector2(1.333, 1)
+zoom = Vector2(0.75, 0.75)
 
 [node name="GrabArea2D_2" type="Area2D" parent="."]
 position = Vector2(-15, -13)
@@ -36,8 +29,9 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_2"]
-position = Vector2(0, -3.8147e-06)
+position = Vector2(37.5, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1opmy")
 
-[connection signal="body_entered" from="GrabArea2D_1" to="." method="_on_grab_area_2d_1_body_entered"]
-[connection signal="body_entered" from="GrabArea2D_2" to="." method="_on_grab_area_2d_2_body_entered"]
+[connection signal="body_entered" from="GrabArea2D_2" to="." method="_on_grab_area_2d_body"]
+[connection signal="body_exited" from="GrabArea2D_2" to="." method="_on_grab_area_2d_body_exit"]
