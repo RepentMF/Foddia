@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-const MinSpeed = 100
-const MaxSpeed = 400
 const JetpackSpeed = 750
 const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
@@ -31,6 +29,8 @@ var isSwinging = false
 var jumpSpeed = 100
 var maxJetpackFuel = 1000
 var maxRocketJumps = 2
+var maxRunSpeed = 350
+var minRunSpeed = 100
 var runSpeed = 100
 var swingSpeed = 0
 var swingRope = null
@@ -54,6 +54,11 @@ func _process(delta):
 func _physics_process(delta):
 	#Handle death conditions
 	#if !isDead || !hasReset:
+		# Handle grabbing rope
+		if Input.is_action_pressed("ui_cancel") && isNearRope:
+			isSwinging = true
+		elif Input.is_action_just_released("ui_cancel"):
+			hasReleasedRope = true
 		# Handle releasing rope
 		if hasReleasedRope:
 			countAirTime += 1
@@ -61,11 +66,6 @@ func _physics_process(delta):
 				countAirTime = 0
 				isSwinging = false
 				hasReleasedRope = false
-		# Handle grabbing rope
-		if Input.is_action_pressed("ui_cancel") && isNearRope:
-			isSwinging = true
-		elif Input.is_action_just_released("ui_cancel"):
-			hasReleasedRope = true
 		# Handle physics on a rope
 		if swingRope != null && isSwinging:
 			if isSwinging && swingRope.get_parent().name.contains("Swinging"):
@@ -79,16 +79,21 @@ func _physics_process(delta):
 					swingRope = null
 			elif isSwinging && swingRope.get_parent().name.contains("Static"):
 				global_position = global_position.move_toward(Vector2(swingRope.global_position.x, ropeTempPosition.y), 10)
-				if global_position.y > ropeBottomPosition.y + 20 || global_position.y < ropeTopPosition.y - 25 || Input.is_action_just_released("ui_cancel"):
+				if global_position.y > ropeBottomPosition.y + 20 || global_position.y < ropeTopPosition.y - 26 || Input.is_action_just_released("ui_cancel"):
 					velocity = swingRope.linear_velocity
-					swingRope = null
-					ropeTempPosition = 0
+					hasReleasedRope = true
 				elif Input.is_action_pressed("ui_up"):
 					global_position.y = ropeTempPosition.y - 2
 					ropeTempPosition.y = global_position.y
+					if global_position.y < ropeTopPosition.y - 26:
+						global_position.y = ropeTopPosition.y - 26
+						ropeTempPosition.y = ropeTopPosition.y - 26
 				elif Input.is_action_pressed("ui_down"):
 					global_position.y = ropeTempPosition.y + 2
 					ropeTempPosition.y = global_position.y
+					if global_position.y > ropeBottomPosition.y + 20:
+						global_position.y = ropeBottomPosition.y + 20
+						ropeTempPosition.y = ropeBottomPosition.y + 20
 		# Handle climbing a ledge
 		elif isGrabbingLedge:
 			velocity.x = 0
@@ -167,9 +172,8 @@ func _physics_process(delta):
 				isFreefalling = false
 			elif wasJumping:
 				if groundDirection != sign(velocity.x):
-					runSpeed = MinSpeed
+					runSpeed = minRunSpeed
 					wasJumping = false
-			
 			# Enable running toggle
 			if Input.is_action_pressed("ui_select"):
 				isRunning = true
@@ -179,21 +183,21 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_accept"):
 				velocity.y = -jumpSpeed - (runSpeed * .25)
 			# Handle moving left and right speeds
-			if isRunning && runSpeed < MaxSpeed:
-				runSpeed += 2.5
-			elif !isRunning && runSpeed > MinSpeed:
-				runSpeed -= 5
+			if isRunning && runSpeed < maxRunSpeed:
+				runSpeed += 1.5
+			elif !isRunning && runSpeed > minRunSpeed:
+				runSpeed -= 4
 			if Input.is_action_just_pressed("ui_right"):
-				runSpeed = MinSpeed
+				runSpeed = minRunSpeed
 			elif Input.is_action_just_pressed("ui_left"):
-				runSpeed = MinSpeed
+				runSpeed = minRunSpeed
 			if Input.is_action_pressed("ui_right"):
 				velocity.x = runSpeed
 			elif Input.is_action_pressed("ui_left"):
 				velocity.x = -runSpeed
 			else:
 				velocity.x = 0
-				runSpeed = MinSpeed
+				runSpeed = minRunSpeed
 		
 		move_and_slide()
 		
@@ -215,35 +219,58 @@ func crawl_ledge():
 		isGrabbingLedge = false
 		isClimbingLedge = false
 		isCrawlingLedge = false
-		runSpeed = MinSpeed
+		runSpeed = minRunSpeed
 
 func use_hands(body):
 	if body.name.contains("LedgeGrab"):
-		if velocity.x != MaxSpeed:
+		if velocity.x != maxRunSpeed:
 			climbYValue = body.global_position.y + 1
 			climbXValue = body.global_position.x
 			isGrabbingLedge = true
 			isFreefalling = false
-		elif velocity.x == MaxSpeed:
+		elif velocity.x == maxRunSpeed:
 			velocity.y = 0
 			isFreefalling = true
 	elif body.name.contains("Floor") && !isFreefalling:
 		velocity.y = 0
 		isFreefalling = true
-	elif body.name.contains("RopeLinkage") && !isSwinging:
+	elif body.name.contains("RopeLinkage") && !isSwinging && swingRope == null:
 		body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
 		isNearRope = true
 		swingRope = body
 		ropeTempPosition = global_position
-		ropeBottomPosition = body.get_parent().get_node("RopeLinkageBottom").global_position
-		ropeTopPosition = body.get_parent().get_node("RopeLinkageTop").global_position
+		if body.get_parent().name.contains("Static"):
+			ropeBottomPosition = body.get_parent().get_node("RopeLinkageBottom").global_position
+			ropeTopPosition = body.get_parent().get_node("RopeLinkageTop").global_position
 
-func _on_grab_area_2d_body(body):
+func use_legs(body):
+	if body.name.contains("RopeLinkage") && !isSwinging && swingRope == null:
+		body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
+		isNearRope = true
+		swingRope = body
+		ropeTempPosition = global_position
+		if body.get_parent().name.contains("Static"):
+			ropeBottomPosition = body.get_parent().get_node("RopeLinkageBottom").global_position
+			ropeTopPosition = body.get_parent().get_node("RopeLinkageTop").global_position
+	
+func _on_grab_with_hands(body):
 	use_hands(body)
 	pass # Replace with function body.
 
-func _on_grab_area_2d_body_exit(body):
+func _on_release_with_hands(body):
+	if body.name.contains("RopeLinkage") && !isSwinging && swingRope == null:
+		isNearRope = false
+		swingRope = null
+		ropeTempPosition = 0
+	pass
+
+func on_grab_with_legs(body):
+	use_legs(body)
+	pass # Replace with function body.
+
+func _on_release_with_legs(body):
 	if body.name.contains("RopeLinkage") && !isSwinging:
 		isNearRope = false
 		swingRope = null
 		ropeTempPosition = 0
+	pass

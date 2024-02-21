@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=6 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_x77fk"]
@@ -8,6 +8,9 @@ size = Vector2(32, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
 size = Vector2(91.875, 43.745)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
+size = Vector2(20, 136.633)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hgfsl")
@@ -23,15 +26,35 @@ shape = SubResource("RectangleShape2D_4ufxu")
 scale = Vector2(1.333, 1)
 zoom = Vector2(0.75, 0.75)
 
-[node name="GrabArea2D_2" type="Area2D" parent="."]
-position = Vector2(-15, -13)
+[node name="HandsArea2D" type="Area2D" parent="."]
+position = Vector2(-9.53674e-07, -8)
 scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea2D_2"]
-position = Vector2(37.5, 0)
-scale = Vector2(1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandsArea2D"]
 shape = SubResource("RectangleShape2D_1opmy")
 
-[connection signal="body_entered" from="GrabArea2D_2" to="." method="_on_grab_area_2d_body"]
-[connection signal="body_exited" from="GrabArea2D_2" to="." method="_on_grab_area_2d_body_exit"]
+[node name="LegsArea2D" type="Area2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(0.4, 0.300075)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ml0cj")
+
+[node name="LegsArea2D2" type="Area2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(0.4, 0.300075)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ml0cj")
+
+[connection signal="body_entered" from="HandsArea2D" to="." method="_on_grab_with_hands"]
+[connection signal="body_exited" from="HandsArea2D" to="." method="_on_release_with_hands"]
+[connection signal="body_entered" from="LegsArea2D" to="." method="on_grab_with_legs"]
+[connection signal="body_exited" from="LegsArea2D" to="." method="_on_release_with_legs"]
+[connection signal="body_entered" from="LegsArea2D2" to="." method="on_grab_with_legs"]
+[connection signal="body_exited" from="LegsArea2D2" to="." method="_on_release_with_legs"]

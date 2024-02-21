@@ -9,8 +9,8 @@ height = 17.0307
 [node name="RopeLinkage" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
+mass = 0.1
 center_of_mass_mode = 1
-gravity_scale = 0.0
 can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

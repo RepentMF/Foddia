@@ -7,7 +7,7 @@
 [node name="StaticRope" type="Node2D"]
 position = Vector2(0, -57)
 
-[node name="Floor" parent="." instance=ExtResource("1_hv4vj")]
+[node name="One-wayFloor" parent="." instance=ExtResource("1_hv4vj")]
 position = Vector2(-12, -3)
 
 [node name="RopeLinkageTop" parent="." instance=ExtResource("2_tstqd")]
