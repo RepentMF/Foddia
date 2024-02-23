@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=8 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="3_8gw5i"]
 [ext_resource type="PackedScene" uid="uid://d2ognoftyoyd5" path="res://InteractableObjects/StaticRopeLong.tscn" id="3_ijt1x"]
 [ext_resource type="PackedScene" uid="uid://pep6as5g76w6" path="res://InteractableObjects/RunningProsthetics.tscn" id="5_iptij"]
+[ext_resource type="PackedScene" uid="uid://d140swyckf05s" path="res://InteractableObjects/SwingingRope.tscn" id="7_rucoj"]
 
 [node name="Overworld" type="Node2D"]
+position = Vector2(56, 8)
 metadata/_edit_group_ = true
 
-[node name="Floor" parent="." instance=ExtResource("2_en4jt")]
+[node name="Floor1" parent="." instance=ExtResource("2_en4jt")]
 scale = Vector2(26, 1)
 
 [node name="Floor2" parent="." instance=ExtResource("2_en4jt")]
@@ -161,12 +163,71 @@ position = Vector2(8935, -845)
 scale = Vector2(13, 1)
 
 [node name="Floor31" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9667, -1225)
-scale = Vector2(13, 1)
+position = Vector2(11859, -1225)
+scale = Vector2(150, 1)
 
 [node name="Floor32" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9289, -1523)
-scale = Vector2(13, 1)
+position = Vector2(9658, -1523)
+scale = Vector2(36, 1)
+
+[node name="LedgeGrabLeft" parent="Floor32" instance=ExtResource("2_uphaf")]
+position = Vector2(15.5555, -37)
+scale = Vector2(0.0277778, 1)
+
+[node name="Floor33" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(10940, -1522)
+scale = Vector2(36, 1)
+
+[node name="LedgeGrabRight" parent="Floor33" instance=ExtResource("3_8gw5i")]
+position = Vector2(-15.5556, -37)
+rotation = 3.14159
+scale = Vector2(0.0277778, -1)
+
+[node name="LedgeGrabLeft" parent="Floor33" instance=ExtResource("2_uphaf")]
+position = Vector2(15.5555, -37)
+scale = Vector2(0.0277778, 1)
+
+[node name="Floor34" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(12084, -1677)
+scale = Vector2(20, 1)
+
+[node name="LedgeGrabRight" parent="Floor34" instance=ExtResource("3_8gw5i")]
+position = Vector2(-15.2, -37)
+rotation = -3.14159
+scale = Vector2(0.05, -1)
+
+[node name="LedgeGrabLeft" parent="Floor34" instance=ExtResource("2_uphaf")]
+position = Vector2(15.2, -37)
+scale = Vector2(0.05, 1)
+
+[node name="Floor35" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(13366, -1735)
+scale = Vector2(20, 1)
+
+[node name="LedgeGrabRight" parent="Floor35" instance=ExtResource("3_8gw5i")]
+position = Vector2(-15.2, -37)
+rotation = -3.14159
+scale = Vector2(0.05, -1)
+
+[node name="LedgeGrabLeft" parent="Floor35" instance=ExtResource("2_uphaf")]
+position = Vector2(15.2, -37)
+scale = Vector2(0.05, 1)
+
+[node name="Floor36" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(15491, -2089)
+scale = Vector2(75, 1)
+
+[node name="Floor37" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(14588, -2345)
+scale = Vector2(10, 1)
+
+[node name="Floor38" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(15489, -2346)
+scale = Vector2(10, 1)
+
+[node name="Floor39" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(16321, -2345)
+scale = Vector2(10, 1)
 
 [node name="BackWall" parent="." instance=ExtResource("2_en4jt")]
 position = Vector2(-432, -400)
@@ -236,6 +297,87 @@ position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
+
+[node name="ScalingWall7" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(14275, -1657)
+rotation = 1.5708
+scale = Vector2(28, 1)
+
+[node name="StaticRopeLong" parent="ScalingWall7" instance=ExtResource("3_ijt1x")]
+position = Vector2(-11.8928, 45.0029)
+rotation = 1.5708
+scale = Vector2(1, -0.0357143)
+
+[node name="ScalingWall8" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(14412, -2233)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="ScalingWall8" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall9" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(14764, -2233)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="ScalingWall9" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall10" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(15313, -2234)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="ScalingWall10" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall11" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(15665, -2234)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="ScalingWall11" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall12" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(16145, -2233)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="ScalingWall12" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall13" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(16497, -2233)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="ScalingWall13" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="DeadendWall1" parent="." instance=ExtResource("2_en4jt")]
+position = Vector2(9891, -1395)
+rotation = 1.5708
+scale = Vector2(7, -1)
 
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
 position = Vector2(5522, -1236)
@@ -328,7 +470,25 @@ rotation = 1.5708
 scale = Vector2(1, -0.0384615)
 skew = -9.40561e-05
 
+[node name="SwingingRope1" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(10302, -1730)
+
+[node name="SwingingRope2" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(11583, -1730)
+
+[node name="SwingingRope3" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(12471, -1885)
+
+[node name="SwingingRope4" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(13912, -1943)
+
+[node name="SwingingRope5" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(15037, -2562)
+
+[node name="SwingingRope6" parent="." instance=ExtResource("7_rucoj")]
+position = Vector2(15914, -2562)
+
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(9063, -1505)
+position = Vector2(122, -36)
 floor_constant_speed = true
 floor_block_on_wall = false

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://72qrj23hq1sl"]
+
+[ext_resource type="Script" path="res://InteractableObjects/WindCurrent.gd" id="1_twy62"]
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_wjk6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahqhk"]
+size = Vector2(100.5, 100)
+
+[node name="WindCurrent" type="Area2D"]
+script = ExtResource("1_twy62")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.305882, 0.694118, 0.8, 1)
+position = Vector2(-5.0962e-06, -2.86102e-06)
+scale = Vector2(0.78125, 0.78125)
+texture = ExtResource("1_wjk6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_ahqhk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

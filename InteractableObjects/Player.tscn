@@ -40,7 +40,6 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ml0cj")
 
 [node name="LegsArea2D2" type="Area2D" parent="."]
@@ -49,7 +48,6 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D2"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ml0cj")
 
 [connection signal="body_entered" from="HandsArea2D" to="." method="_on_grab_with_hands"]
