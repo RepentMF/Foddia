@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=9 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_uphaf"]
 [ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="3_8gw5i"]
 [ext_resource type="PackedScene" uid="uid://d2ognoftyoyd5" path="res://InteractableObjects/StaticRopeLong.tscn" id="3_ijt1x"]
+[ext_resource type="PackedScene" uid="uid://c1r5d5ilplyqy" path="res://InteractableObjects/StaticRope.tscn" id="4_dyxgb"]
 [ext_resource type="PackedScene" uid="uid://pep6as5g76w6" path="res://InteractableObjects/RunningProsthetics.tscn" id="5_iptij"]
 [ext_resource type="PackedScene" uid="uid://d140swyckf05s" path="res://InteractableObjects/SwingingRope.tscn" id="7_rucoj"]
 
@@ -12,483 +13,546 @@
 position = Vector2(56, 8)
 metadata/_edit_group_ = true
 
-[node name="Floor1" parent="." instance=ExtResource("2_en4jt")]
+[node name="Floors" type="Node" parent="."]
+
+[node name="Floor1" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(56, 8)
 scale = Vector2(26, 1)
 
-[node name="Floor2" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(415, 16)
+[node name="Floor2" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(471, 24)
 scale = Vector2(26, 1)
 
-[node name="Floor3" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(1024, 0)
+[node name="Floor3" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(1080, 8)
 scale = Vector2(26, 1)
 
-[node name="Floor4" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(1440, 32)
+[node name="Floor4" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(1496, 40)
 scale = Vector2(26, 1)
 
-[node name="Floor5" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(2049, 0)
+[node name="Floor5" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(2105, 8)
 scale = Vector2(26, 1)
 
-[node name="Floor6" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(3297, -244)
+[node name="Floor6" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(3353, -236)
 scale = Vector2(50, 1)
 
-[node name="Floor7" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(3569, -516)
+[node name="Floor7" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(3625, -508)
 scale = Vector2(13, 1)
 
-[node name="LedgeGrabLeft" parent="Floor7" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor7" instance=ExtResource("2_uphaf")]
 position = Vector2(14.7692, -37)
 scale = Vector2(0.0769231, 1)
 
-[node name="Floor8" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(4064, -516)
+[node name="Floor8" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(4120, -508)
 scale = Vector2(13, 1)
 
-[node name="LedgeGrabRight" parent="Floor8" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor8" instance=ExtResource("3_8gw5i")]
 position = Vector2(-14.7693, -37)
 rotation = 3.14159
 scale = Vector2(0.0769231, -1)
 
-[node name="LedgeGrabLeft" parent="Floor8" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor8" instance=ExtResource("2_uphaf")]
 position = Vector2(14.7692, -37)
 scale = Vector2(0.0769231, 1)
 
-[node name="Floor9" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(4369, -276)
+[node name="Floor9" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(4425, -268)
 scale = Vector2(65, 1)
 
-[node name="Floor10" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(4605, -516)
+[node name="Floor10" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(4661, -508)
 scale = Vector2(13, 1)
 
-[node name="LedgeGrabRight" parent="Floor10" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor10" instance=ExtResource("3_8gw5i")]
 position = Vector2(-14.7693, -37)
 rotation = 3.14159
 scale = Vector2(0.0769231, -1)
 
-[node name="LedgeGrabLeft" parent="Floor10" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor10" instance=ExtResource("2_uphaf")]
 position = Vector2(14.7692, -37)
 scale = Vector2(0.0769231, 1)
 
-[node name="Floor11" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(4691, -308)
+[node name="Floor11" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(4747, -300)
 scale = Vector2(45, 1)
 
-[node name="Floor12" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5239, -516)
+[node name="Floor12" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5295, -508)
 scale = Vector2(13, 1)
 
-[node name="LedgeGrabRight" parent="Floor12" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor12" instance=ExtResource("3_8gw5i")]
 position = Vector2(-14.7693, -37)
 rotation = 3.14159
 scale = Vector2(0.0769231, -1)
 
-[node name="Floor13" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5239, -484)
+[node name="Floor13" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5295, -476)
 scale = Vector2(13, 1)
 
-[node name="Floor14" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5207, -452)
+[node name="Floor14" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5263, -444)
 scale = Vector2(13, 1)
 
-[node name="Floor15" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5174, -420)
+[node name="Floor15" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5230, -412)
 scale = Vector2(13, 1)
 
-[node name="Floor16" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5091, -388)
+[node name="Floor16" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5147, -380)
 scale = Vector2(13, 1)
 
-[node name="Floor17" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5022, -356)
+[node name="Floor17" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5078, -348)
 scale = Vector2(13, 1)
 
-[node name="Floor18" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5022, -336)
+[node name="Floor18" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5078, -328)
 scale = Vector2(13, 1)
 
-[node name="Floor19" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5687, -825)
+[node name="Floor19" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(5743, -817)
 scale = Vector2(13, 1)
 
-[node name="Floor20" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7274, -1212)
+[node name="Floor20" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(7330, -1204)
 scale = Vector2(110, 1)
 
-[node name="LedgeGrabLeft" parent="Floor20" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor20" instance=ExtResource("2_uphaf")]
 position = Vector2(15.8545, -37)
 scale = Vector2(0.00909091, 1)
 
-[node name="Floor21" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(6262, -825)
+[node name="Floor21" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(6318, -817)
 scale = Vector2(13, 1)
 
-[node name="Floor22" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7012, -825)
+[node name="Floor22" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(7068, -817)
 scale = Vector2(13, 1)
 
-[node name="Floor23" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7867, -825)
+[node name="Floor23" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(7923, -817)
 scale = Vector2(13, 1)
 
-[node name="Floor24" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(8830, -827)
+[node name="Floor24" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(8886, -819)
 scale = Vector2(13, 1)
 
-[node name="Floor25" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7104, -25)
+[node name="LedgeGrabRight" parent="Floors/Floor24" instance=ExtResource("3_8gw5i")]
+position = Vector2(-14.7693, -37)
+rotation = 3.14159
+scale = Vector2(0.0769231, -1)
+
+[node name="Floor25" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(7160, -17)
 scale = Vector2(115, 1)
 
-[node name="Floor26" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9219, -937)
+[node name="Floor26" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(9275, -929)
 scale = Vector2(13, 1)
 
-[node name="Floor27" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9138, -913)
+[node name="Floor27" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(9194, -905)
 scale = Vector2(13, 1)
 
-[node name="Floor28" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9080, -891)
+[node name="Floor28" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(9136, -883)
 scale = Vector2(13, 1)
 
-[node name="Floor29" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9007, -866)
+[node name="Floor29" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(9063, -858)
 scale = Vector2(13, 1)
 
-[node name="Floor30" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(8935, -845)
+[node name="Floor30" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(8991, -837)
 scale = Vector2(13, 1)
 
-[node name="Floor31" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(11859, -1225)
-scale = Vector2(150, 1)
+[node name="Floor31" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(13515, -1217)
+scale = Vector2(250, 1)
 
-[node name="Floor32" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9658, -1523)
+[node name="Floor32" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(9714, -1515)
 scale = Vector2(36, 1)
 
-[node name="LedgeGrabLeft" parent="Floor32" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor32" instance=ExtResource("2_uphaf")]
 position = Vector2(15.5555, -37)
 scale = Vector2(0.0277778, 1)
 
-[node name="Floor33" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(10940, -1522)
+[node name="Floor33" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(10996, -1514)
 scale = Vector2(36, 1)
 
-[node name="LedgeGrabRight" parent="Floor33" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor33" instance=ExtResource("3_8gw5i")]
 position = Vector2(-15.5556, -37)
 rotation = 3.14159
 scale = Vector2(0.0277778, -1)
 
-[node name="LedgeGrabLeft" parent="Floor33" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor33" instance=ExtResource("2_uphaf")]
 position = Vector2(15.5555, -37)
 scale = Vector2(0.0277778, 1)
 
-[node name="Floor34" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(12084, -1677)
+[node name="Floor34" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(12140, -1669)
 scale = Vector2(20, 1)
 
-[node name="LedgeGrabRight" parent="Floor34" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor34" instance=ExtResource("3_8gw5i")]
 position = Vector2(-15.2, -37)
 rotation = -3.14159
 scale = Vector2(0.05, -1)
 
-[node name="LedgeGrabLeft" parent="Floor34" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor34" instance=ExtResource("2_uphaf")]
 position = Vector2(15.2, -37)
 scale = Vector2(0.05, 1)
 
-[node name="Floor35" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(13366, -1735)
+[node name="Floor35" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(13296, -1727)
 scale = Vector2(20, 1)
 
-[node name="LedgeGrabRight" parent="Floor35" instance=ExtResource("3_8gw5i")]
+[node name="LedgeGrabRight" parent="Floors/Floor35" instance=ExtResource("3_8gw5i")]
 position = Vector2(-15.2, -37)
 rotation = -3.14159
 scale = Vector2(0.05, -1)
 
-[node name="LedgeGrabLeft" parent="Floor35" instance=ExtResource("2_uphaf")]
+[node name="LedgeGrabLeft" parent="Floors/Floor35" instance=ExtResource("2_uphaf")]
 position = Vector2(15.2, -37)
 scale = Vector2(0.05, 1)
 
-[node name="Floor36" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(15491, -2089)
+[node name="Floor36" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(15547, -2081)
 scale = Vector2(75, 1)
 
-[node name="Floor37" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(14588, -2345)
+[node name="Floor37" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(14644, -2337)
 scale = Vector2(10, 1)
 
-[node name="Floor38" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(15489, -2346)
+[node name="Floor38" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(15545, -2338)
 scale = Vector2(10, 1)
 
-[node name="Floor39" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(16321, -2345)
+[node name="Floor39" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(16377, -2337)
 scale = Vector2(10, 1)
 
-[node name="BackWall" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(-432, -400)
+[node name="Floor40" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(15525, -2718)
+scale = Vector2(25, 1)
+
+[node name="StaticRope" parent="Floors/Floor40" instance=ExtResource("4_dyxgb")]
+position = Vector2(17, -11.3999)
+scale = Vector2(0.04, 1)
+
+[node name="StaticRope2" parent="Floors/Floor40" instance=ExtResource("4_dyxgb")]
+position = Vector2(-17, -11.3999)
+rotation = -3.14159
+scale = Vector2(0.04, -1)
+
+[node name="Floor41" parent="Floors" instance=ExtResource("2_en4jt")]
+position = Vector2(15525, -2982)
+scale = Vector2(55, 1)
+
+[node name="StaticRope" parent="Floors/Floor41" instance=ExtResource("4_dyxgb")]
+position = Vector2(16.4545, -11.3997)
+scale = Vector2(0.0181818, 1)
+
+[node name="StaticRope2" parent="Floors/Floor41" instance=ExtResource("4_dyxgb")]
+position = Vector2(-16.4546, -11.3997)
+rotation = -3.14158
+scale = Vector2(0.0181818, -1)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="BackWall" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(-376, -392)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
-[node name="ScalingWall1" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(2481, 156)
+[node name="ScalingWall1" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(2537, 164)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall1" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall1" instance=ExtResource("3_ijt1x")]
 position = Vector2(-11.5769, 45)
 rotation = 1.5708
 scale = Vector2(1, -0.0384615)
 
-[node name="ScalingWall2" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(3345, -436)
+[node name="ScalingWall2" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(3401, -428)
 rotation = 1.5708
 scale = Vector2(6, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall2" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall2" instance=ExtResource("3_ijt1x")]
 position = Vector2(3.16679, 44.999)
 rotation = 1.57081
 scale = Vector2(1, -0.166667)
 skew = -1.49012e-05
 
-[node name="ScalingWall3" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5463, -425)
+[node name="ScalingWall3" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(5519, -417)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall3" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall3" instance=ExtResource("3_ijt1x")]
 position = Vector2(-11.5769, 45)
 rotation = 1.5708
 scale = Vector2(1, -0.0384615)
 
-[node name="ScalingWall4" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5498, -1068)
+[node name="ScalingWall4" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(5554, -1060)
 rotation = 1.5708
 scale = Vector2(10, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall4" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall4" instance=ExtResource("3_ijt1x")]
 position = Vector2(-4.49996, 44.999)
 rotation = 1.57081
 scale = Vector2(1, -0.0999999)
 skew = -1.07288e-05
 
-[node name="ScalingWall5" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9443, -1081)
+[node name="ScalingWall5" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(9499, -1073)
 rotation = 1.5708
 scale = Vector2(10, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall5" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall5" instance=ExtResource("3_ijt1x")]
 position = Vector2(-4.49996, 44.999)
 rotation = 1.57081
 scale = Vector2(1, -0.0999999)
 skew = -1.07288e-05
 
-[node name="ScalingWall6" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9018, -1411)
+[node name="ScalingWall6" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(9074, -1403)
 rotation = 1.5708
 scale = Vector2(8, -1)
 
-[node name="StaticRopeLong" parent="ScalingWall6" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall6" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall7" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(14275, -1657)
+[node name="ScalingWall7" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(14331, -1697)
 rotation = 1.5708
-scale = Vector2(28, 1)
+scale = Vector2(25, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall7" instance=ExtResource("3_ijt1x")]
-position = Vector2(-11.8928, 45.0029)
+[node name="StaticRopeLong" parent="Walls/ScalingWall7" instance=ExtResource("3_ijt1x")]
+position = Vector2(-11.3999, 45.0029)
 rotation = 1.5708
-scale = Vector2(1, -0.0357143)
+scale = Vector2(1, -0.04)
 
-[node name="ScalingWall8" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(14412, -2233)
+[node name="ScalingWall8" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(14468, -2225)
 rotation = 1.5708
 scale = Vector2(8, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall8" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall8" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall9" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(14764, -2233)
+[node name="ScalingWall9" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(14820, -2225)
 rotation = 1.5708
 scale = Vector2(8, -1)
 
-[node name="StaticRopeLong" parent="ScalingWall9" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall9" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall10" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(15313, -2234)
+[node name="ScalingWall10" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(15369, -2226)
 rotation = 1.5708
 scale = Vector2(8, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall10" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall10" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall11" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(15665, -2234)
+[node name="ScalingWall11" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(15721, -2226)
 rotation = 1.5708
 scale = Vector2(8, -1)
 
-[node name="StaticRopeLong" parent="ScalingWall11" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall11" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall12" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(16145, -2233)
+[node name="ScalingWall12" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(16201, -2225)
 rotation = 1.5708
 scale = Vector2(8, 1)
 
-[node name="StaticRopeLong" parent="ScalingWall12" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall12" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="ScalingWall13" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(16497, -2233)
+[node name="ScalingWall13" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(16553, -2225)
 rotation = 1.5708
 scale = Vector2(8, -1)
 
-[node name="StaticRopeLong" parent="ScalingWall13" instance=ExtResource("3_ijt1x")]
+[node name="StaticRopeLong" parent="Walls/ScalingWall13" instance=ExtResource("3_ijt1x")]
 position = Vector2(-1.62492, 44.998)
 rotation = 1.57081
 scale = Vector2(1, -0.125)
 skew = -1.28746e-05
 
-[node name="DeadendWall1" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(9891, -1395)
+[node name="ScalingWall14" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(16763, -1697)
+rotation = 1.5708
+scale = Vector2(25, 1)
+
+[node name="DeadendWall1" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(9947, -1387)
 rotation = 1.5708
 scale = Vector2(7, -1)
+
+[node name="DeathPitWall1" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(5967, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls/DeathPitWall1" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall2" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(6094, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls/DeathPitWall2" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall3" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(6542, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls/DeathPitWall3" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall4" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(6844, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls/DeathPitWall4" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall5" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(7292, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls/DeathPitWall5" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall6" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(7699, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls/DeathPitWall6" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall7" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(8147, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls/DeathPitWall7" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall8" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(8694, -419)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="DeathPitWall9" parent="Walls" instance=ExtResource("2_en4jt")]
+position = Vector2(17762, -548)
+rotation = 1.5708
+scale = Vector2(39, 1)
+
+[node name="Ropes" type="Node" parent="."]
+
+[node name="SwingingRope1" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(10358, -1722)
+
+[node name="SwingingRope2" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(11639, -1722)
+
+[node name="SwingingRope3" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(12527, -1877)
+
+[node name="SwingingRope4" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(13968, -1935)
+
+[node name="SwingingRope5" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15093, -2554)
+
+[node name="SwingingRope6" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15970, -2554)
+
+[node name="SwingingRope7" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14650, -2643)
+
+[node name="SwingingRope8" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15527, -2643)
+
+[node name="SwingingRope9" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16404, -2643)
+
+[node name="SwingingRope10" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14565, -2815)
+
+[node name="SwingingRope11" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14122, -2904)
+
+[node name="SwingingRope12" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16470, -2815)
+
+[node name="SwingingRope13" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16913, -2904)
 
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
 position = Vector2(5522, -1236)
 
-[node name="DeathPitWall1" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(5911, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="DeathPitWall1" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall2" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(6038, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="DeathPitWall2" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall3" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(6486, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="DeathPitWall3" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall4" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(6788, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="DeathPitWall4" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall5" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7236, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="DeathPitWall5" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall6" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(7643, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="DeathPitWall6" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall7" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(8091, -425)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="DeathPitWall7" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall8" parent="." instance=ExtResource("2_en4jt")]
-position = Vector2(8606, -427)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="StaticRopeLong" parent="DeathPitWall8" instance=ExtResource("3_ijt1x")]
-position = Vector2(-11.5769, 45.001)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="SwingingRope1" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(10302, -1730)
-
-[node name="SwingingRope2" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(11583, -1730)
-
-[node name="SwingingRope3" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(12471, -1885)
-
-[node name="SwingingRope4" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(13912, -1943)
-
-[node name="SwingingRope5" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(15037, -2562)
-
-[node name="SwingingRope6" parent="." instance=ExtResource("7_rucoj")]
-position = Vector2(15914, -2562)
-
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(122, -36)
+position = Vector2(15421, -2446)
 floor_constant_speed = true
 floor_block_on_wall = false

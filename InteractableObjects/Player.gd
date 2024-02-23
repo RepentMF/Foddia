@@ -107,6 +107,8 @@ func _physics_process(delta):
 					if global_position.y < ropeTop.global_position.y - 26:
 						global_position.y = ropeTop.global_position.y - 26
 						ropeTempPosition.y = ropeTop.global_position.y - 26
+						velocity.x = 0
+						runSpeed = minRunSpeed
 				elif Input.is_action_pressed("ui_down"):
 					global_position.y = ropeTempPosition.y + 2
 					ropeTempPosition.y = global_position.y
