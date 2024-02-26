@@ -46,6 +46,7 @@ var swingRope = null
 var ropeBottom
 var ropeTempPosition = 0
 var ropeTop
+var wasBounced = false
 var wasJumping = false
 
 #func _ready():
@@ -239,13 +240,14 @@ func _physics_process(delta):
 					runSpeed = minRunSpeed
 				elif Input.is_action_just_pressed("ui_left"):
 					runSpeed = minRunSpeed
-				if Input.is_action_pressed("ui_right"):
+				if Input.is_action_pressed("ui_right") && !wasBounced:
 					velocity.x = runSpeed
-				elif Input.is_action_pressed("ui_left"):
+				elif Input.is_action_pressed("ui_left") && !wasBounced:
 					velocity.x = -runSpeed
-				else:
+				elif !wasBounced:
 					velocity.x = 0
 					runSpeed = minRunSpeed
+				wasBounced = false
 		
 		move_and_slide()
 		
