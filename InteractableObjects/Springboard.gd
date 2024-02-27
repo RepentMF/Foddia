@@ -24,15 +24,15 @@ func _on_body_entered(body):
 		if !hasBeenUsed:
 			if !body.hasJetpack:
 				if !body.wasBounced && rotation != 0:
-					print("a")
 					body.wasBounced = true
-					body.velocity.x = -1.2 * body.velocity.x
+					body.velocity.x = -1.25 * body.velocity.x
 					body.velocity.y = -2 * body.jumpSpeed
+					print(body.wasBounced)
 				elif body.wasBounced || rotation == 0:
-					print("b")
-					body.velocity.x = 1.2 * body.velocity.x
+					body.velocity.x = 1.4 * body.velocity.x
 					body.velocity.y = -2 * body.jumpSpeed
 				if body.velocity.x == 0:
 					body.velocity.x = 20
+			body.countFallDistance = 0
 			hasBeenUsed = true
 	pass # Replace with function body.

@@ -6,6 +6,7 @@ const JetpackSpeed = 750
 const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
 
+var count = 0
 var countAirTime = 0
 var countFallDistance = 0
 var countJetpackFuel = 1000
@@ -141,7 +142,8 @@ func _physics_process(delta):
 				isFreefalling = true
 				countFallDistance += 1
 				# Kill conidition still needs refinement
-				if countFallDistance > 150 || velocity.y > 600:
+				if countFallDistance > 180 || velocity.y > 600:
+					print(countFallDistance, " ", velocity.y)
 					isDead = true
 			# Handle jetpack or rocket jumps
 			if !isFreefalling:
@@ -240,14 +242,18 @@ func _physics_process(delta):
 					runSpeed = minRunSpeed
 				elif Input.is_action_just_pressed("ui_left"):
 					runSpeed = minRunSpeed
-				if Input.is_action_pressed("ui_right") && !wasBounced:
-					velocity.x = runSpeed
-				elif Input.is_action_pressed("ui_left") && !wasBounced:
-					velocity.x = -runSpeed
-				elif !wasBounced:
-					velocity.x = 0
-					runSpeed = minRunSpeed
-				wasBounced = false
+				if !wasBounced:
+					if Input.is_action_pressed("ui_right"):
+						velocity.x = runSpeed
+					elif Input.is_action_pressed("ui_left"):
+						velocity.x = -runSpeed
+					else:
+						velocity.x = 0
+						runSpeed = minRunSpeed
+				elif count > 0:
+					wasBounced = false
+				elif count == 0:
+					count +=1
 		
 		move_and_slide()
 		
