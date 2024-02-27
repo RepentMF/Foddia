@@ -600,7 +600,10 @@ position = Vector2(13182, -3446)
 position = Vector2(13016, -3505)
 
 [node name="SwingingRope21" parent="Ropes" instance=ExtResource("7_rucoj")]
-position = Vector2(8357, -4049)
+position = Vector2(8238, -4110)
+
+[node name="SwingingRope23" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(8481, -4009)
 
 [node name="SwingingRope22" parent="Ropes" instance=ExtResource("7_rucoj")]
 position = Vector2(7230, -4477)
@@ -620,7 +623,7 @@ position = Vector2(10729, -3513)
 rotation = 0.0
 
 [node name="Springboard4" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(10382, -3807)
+position = Vector2(10373, -3807)
 
 [node name="Springboard5" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10097, -3817)
@@ -647,24 +650,34 @@ position = Vector2(7421, -4263)
 rotation = 0.0
 
 [node name="Springboard12" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(7604, -4358)
+position = Vector2(7643, -4339)
 rotation = 0.0
 
 [node name="Springboard14" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(7668, -4359)
+position = Vector2(7707, -4339)
 rotation = 0.0
 
 [node name="Springboard15" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(7733, -4359)
+position = Vector2(7771, -4339)
 rotation = 0.0
 
 [node name="Springboard13" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(7251, -4249)
+position = Vector2(7236, -4267)
+
+[node name="Springboard18" parent="Mushrooms" instance=ExtResource("7_3svxd")]
+position = Vector2(7095, -4263)
+
+[node name="Springboard16" parent="Mushrooms" instance=ExtResource("7_3svxd")]
+position = Vector2(7471, -4392)
+
+[node name="Springboard17" parent="Mushrooms" instance=ExtResource("7_3svxd")]
+position = Vector2(7088, -4442)
+rotation = 1.5708
 
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
 position = Vector2(5522, -1236)
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(7891, -4313)
+position = Vector2(7796, -4287)
 floor_constant_speed = true
 floor_block_on_wall = false

@@ -23,16 +23,26 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		if !hasBeenUsed:
 			if !body.hasJetpack:
-				if !body.wasBounced && rotation != 0:
-					body.wasBounced = true
-					body.velocity.x = -1.25 * body.velocity.x
+				if snappedf(rotation, 0.01) == 1.57:
+					print("90 degrees")
+					body.velocity.x = -1.5 * body.velocity.x
+					body.velocity.y = 0
+				elif rotation == 0:
+					print("0 degrees")
+					body.velocity.x = 1.15 * body.velocity.x
 					body.velocity.y = -2 * body.jumpSpeed
-					print(body.wasBounced)
-				elif body.wasBounced || rotation == 0:
-					body.velocity.x = 1.4 * body.velocity.x
+				elif rotation > 0 && snappedf(rotation, 0.01) < 1.57:
+					print("1 degree to 89 degrees")
+					body.velocity.x = 1.25 * abs(body.velocity.x)
+					body.velocity.y = -2 * body.jumpSpeed
+				elif rotation < 0 && snappedf(rotation, 0.01) > -1.57:
+					print("-1 degree to -89 degrees")
+					body.velocity.x = -1.25 * abs(body.velocity.x)
 					body.velocity.y = -2 * body.jumpSpeed
 				if body.velocity.x == 0:
+					print("softlock prevention")
 					body.velocity.x = 20
+			body.wasBouncing = true
 			body.countFallDistance = 0
 			hasBeenUsed = true
 	pass # Replace with function body.

@@ -47,7 +47,7 @@ var swingRope = null
 var ropeBottom
 var ropeTempPosition = 0
 var ropeTop
-var wasBounced = false
+var wasBouncing = false
 var wasJumping = false
 
 #func _ready():
@@ -82,6 +82,7 @@ func _physics_process(delta):
 				hasReleasedRope = false
 				isNearRope = false
 				swingRope = null
+				wasBouncing = false
 				ropeTempPosition = 0
 		# Handle physics on a rope
 		if !hasRocketJump && !hasJetpack && swingRope != null && isSwinging:
@@ -242,7 +243,7 @@ func _physics_process(delta):
 					runSpeed = minRunSpeed
 				elif Input.is_action_just_pressed("ui_left"):
 					runSpeed = minRunSpeed
-				if !wasBounced:
+				if !wasBouncing:
 					if Input.is_action_pressed("ui_right"):
 						velocity.x = runSpeed
 					elif Input.is_action_pressed("ui_left"):
@@ -251,7 +252,7 @@ func _physics_process(delta):
 						velocity.x = 0
 						runSpeed = minRunSpeed
 				elif count > 0:
-					wasBounced = false
+					wasBouncing = false
 				elif count == 0:
 					count +=1
 		
