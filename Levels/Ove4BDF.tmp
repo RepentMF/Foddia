@@ -694,7 +694,7 @@ position = Vector2(6526, -4247)
 rotation = 0.0
 
 [node name="Springboard23" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(6256, -4371)
+position = Vector2(6245, -4371)
 rotation = 1.5708
 
 [node name="Springboard24" parent="Mushrooms" instance=ExtResource("7_3svxd")]
@@ -707,21 +707,17 @@ position = Vector2(6391, -4247)
 position = Vector2(6344, -4247)
 
 [node name="Springboard27" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(5994, -4247)
-rotation = 0.0
+position = Vector2(6245, -4436)
+rotation = 1.5708
 
 [node name="Springboard28" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(5614, -4107)
-rotation = 0.0
-
-[node name="Springboard29" parent="Mushrooms" instance=ExtResource("7_3svxd")]
-position = Vector2(5619, -4495)
+position = Vector2(5994, -4247)
 rotation = 0.0
 
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
 position = Vector2(5522, -1236)
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(5563, -4466)
+position = Vector2(6333, -4358)
 floor_constant_speed = true
 floor_block_on_wall = false

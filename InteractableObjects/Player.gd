@@ -9,6 +9,7 @@ const Up = Vector2(0, -1)
 var count = 0
 var countAirTime = 0
 var countFallDistance = 0
+var countHangTime = 0
 var countJetpackFuel = 1000
 var countRocketJumps = 2
 
@@ -68,6 +69,8 @@ func _physics_process(delta):
 		if isDead:
 			print("Player is kill")
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
+		if velocity.y > 0:
+			countHangTime += 1
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope:
 			isSwinging = true
@@ -194,6 +197,7 @@ func _physics_process(delta):
 							velocity = velocity * 3 / 4
 		# Handle grounded movement
 		else:
+			countHangTime = 0
 			countFallDistance = 0
 			countRocketJumps = maxRocketJumps
 			isSwinging = false
