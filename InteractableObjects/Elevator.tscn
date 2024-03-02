@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsb2p78idkqe"]
+
+[ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="1_nv3tv"]
+[ext_resource type="Script" path="res://InteractableObjects/Elevator.gd" id="1_qooh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbsjt"]
+size = Vector2(13, 460)
+
+[node name="Elevator" type="Node2D"]
+position = Vector2(0, -14)
+scale = Vector2(4, 0.1)
+script = ExtResource("1_qooh2")
+
+[node name="ElevatorRoof" parent="." instance=ExtResource("1_nv3tv")]
+position = Vector2(0, -640)
+scale = Vector2(1, 10)
+
+[node name="ElevatorFloor" parent="." instance=ExtResource("1_nv3tv")]
+position = Vector2(0, 930)
+scale = Vector2(1, 10)
+
+[node name="ElevatorWall1" parent="." instance=ExtResource("1_nv3tv")]
+position = Vector2(-20, -640)
+scale = Vector2(0.25, 59)
+
+[node name="ElevatorWall2" parent="." instance=ExtResource("1_nv3tv")]
+position = Vector2(20, -640)
+scale = Vector2(0.25, 59)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gbsjt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

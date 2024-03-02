@@ -12,9 +12,7 @@ func _physics_process(delta):
 	if hasBeenPickedUp:
 		if countTime > 0:
 				countTime -= 1
-				print(countTime, hasBeenPickedUp)
 		elif countTime <= 0:
-			print(countTime, hasBeenPickedUp)
 			queue_free()
 	pass
 

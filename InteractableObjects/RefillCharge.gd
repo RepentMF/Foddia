@@ -14,7 +14,6 @@ func _physics_process(delta):
 	if hasBeenUsed:
 		if countTime > 0:
 				countTime -= 1
-				print(countTime, hasBeenUsed)
 		elif countTime <= 0:
 			hasBeenUsed = false
 			countTime = InitialTime

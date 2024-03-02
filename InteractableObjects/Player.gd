@@ -56,6 +56,7 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(isInWindCurrent)
 	if swingRope != null:
 		if isSwinging && swingRope.get_parent().name.contains("Swinging"):
 			rotation = swingRope.rotation
@@ -74,6 +75,7 @@ func _physics_process(delta):
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope:
 			isSwinging = true
+			countRocketJumps = maxRocketJumps
 		elif Input.is_action_just_released("ui_cancel"):
 			hasReleasedRope = true
 		# Handle releasing rope
@@ -88,7 +90,7 @@ func _physics_process(delta):
 				wasBouncing = false
 				ropeTempPosition = 0
 		# Handle physics on a rope
-		if !hasRocketJump && !hasJetpack && swingRope != null && isSwinging:
+		if !hasJetpack && swingRope != null && isSwinging:
 			if isSwinging && swingRope.get_parent().name.contains("Swinging"):
 				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 				if Input.is_action_just_pressed("ui_right"):
@@ -98,9 +100,13 @@ func _physics_process(delta):
 				elif hasReleasedRope:
 					if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
 						velocity = ropeBottom.linear_velocity
+						if isInWindCurrent:
+							velocity.y = ropeBottom.linear_velocity.y * 1.6
 						swingRope = null
 					else:
 						velocity = ropeBottom.linear_velocity / 2
+						if isInWindCurrent:
+							velocity.y = ropeBottom.linear_velocity.y * 1.3
 						swingRope = null
 			elif isSwinging && swingRope.get_parent().name.contains("Static"):
 				global_position = global_position.move_toward(Vector2(swingRope.global_position.x, ropeTempPosition.y), 10)
@@ -122,7 +128,7 @@ func _physics_process(delta):
 						hasReleasedRope = true
 						countAirTime = 10
 		# Handle climbing a ledge
-		elif !hasRocketJump && !hasJetpack && isGrabbingLedge:
+		elif !hasJetpack && isGrabbingLedge:
 			velocity.x = 0
 			velocity.y = 0
 			if isCrawlingLedge:
@@ -147,7 +153,6 @@ func _physics_process(delta):
 				countFallDistance += 1
 				# Kill conidition still needs refinement
 				if countFallDistance > 180 || velocity.y > 600:
-					print(countFallDistance, " ", velocity.y)
 					isDead = true
 			# Handle jetpack or rocket jumps
 			if !isFreefalling:
