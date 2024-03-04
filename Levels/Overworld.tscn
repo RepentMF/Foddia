@@ -961,6 +961,15 @@ position = Vector2(10565, -11668)
 [node name="SwingingRope62" parent="Ropes" instance=ExtResource("7_rucoj")]
 position = Vector2(11312, -12072)
 
+[node name="SwingingRope63" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(11696, -12896)
+
+[node name="SwingingRope64" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(10996, -13110)
+
+[node name="SwingingRope65" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(10996, -13478)
+
 [node name="Mushrooms" type="Node" parent="."]
 
 [node name="Springboard1" parent="Mushrooms" instance=ExtResource("7_3svxd")]
@@ -1128,27 +1137,27 @@ position = Vector2(10810, -10093)
 scale = Vector2(90, 50)
 
 [node name="WindCurrent2" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(11698, -15093)
+position = Vector2(11698, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent3" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(13120, -15093)
+position = Vector2(13120, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent4" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(14514, -15093)
+position = Vector2(14514, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent5" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(10304, -15093)
+position = Vector2(10304, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent6" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(8910, -15093)
+position = Vector2(8910, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent7" parent="WindCurrents" instance=ExtResource("9_h1kkb")]
-position = Vector2(7516, -15093)
+position = Vector2(7516, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
