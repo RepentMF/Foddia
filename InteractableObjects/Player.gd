@@ -56,7 +56,7 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(isInWindCurrent)
+	print(swingRope)
 	if swingRope != null:
 		if isSwinging && swingRope.get_parent().name.contains("Swinging"):
 			rotation = swingRope.rotation
@@ -93,6 +93,12 @@ func _physics_process(delta):
 		if !hasJetpack && swingRope != null && isSwinging:
 			if isSwinging && swingRope.get_parent().name.contains("Swinging"):
 				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
+				if swingRope.get_parent().name.contains("Falling"):
+					if swingRope.get_parent().get_node("PinJoint2D") != null:
+						swingRope.get_parent().get_node("PinJoint2D").willFall = true
+						if swingRope.get_parent().get_node("PinJoint2D").count == 0:
+							velocity.x = 0
+							velocity.y = 0
 				if Input.is_action_just_pressed("ui_right"):
 					swingRope.apply_impulse(Vector2(15, 0))
 				elif Input.is_action_just_pressed("ui_left"):

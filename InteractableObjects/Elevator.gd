@@ -19,13 +19,15 @@ func _physics_process(delta):
 			get_node("ElevatorWall2").global_position.y += 1
 			countTime2 += 1
 		elif countTime2 == 80:
-			if countTime < 4136: #4136
+			if countTime < 3104: #4136
 				countTime += 1
 				if placement:
 					position.y += 7
 				else:
 					position.y -= 7
-			elif countTime == 4136:
+			elif countTime == 3104:
+				print(global_position.x)
+				print(global_position.y)
 				if countTime3 < 80:
 					get_node("ElevatorWall1").global_position.y -= 1
 					get_node("ElevatorWall2").global_position.y -= 1
