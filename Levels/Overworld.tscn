@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=15 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dycxk34c23v45" path="res://InteractableObjects/RocketArms.tscn" id="11_ak0ds"]
 [ext_resource type="PackedScene" uid="uid://cxsb2p78idkqe" path="res://InteractableObjects/Elevator.tscn" id="11_j4gsi"]
 [ext_resource type="PackedScene" uid="uid://d2gfvt37nlrfu" path="res://InteractableObjects/JetpackTorso.tscn" id="12_4g114"]
-[ext_resource type="PackedScene" uid="uid://cnovtinhjb2b8" path="res://InteractableObjects/FallingSwingingRope.tscn" id="14_4r355"]
 
 [node name="Overworld" type="Node2D"]
 position = Vector2(62, -257)
@@ -561,17 +560,17 @@ rotation = -3.14159
 scale = Vector2(0.2, -1)
 
 [node name="Floor71" parent="Floors" instance=ExtResource("2_en4jt")]
-position = Vector2(14106, -19396)
-scale = Vector2(5, 1)
+position = Vector2(14346, -19396)
+scale = Vector2(20, 1)
 
 [node name="LedgeGrabLeft" parent="Floors/Floor71" instance=ExtResource("2_uphaf")]
-position = Vector2(12.7998, -37)
-scale = Vector2(0.2, 1)
+position = Vector2(15.1999, -37)
+scale = Vector2(0.05, 1)
 
 [node name="LedgeGrabRight" parent="Floors/Floor71" instance=ExtResource("3_8gw5i")]
-position = Vector2(-12.8, -37)
-rotation = -3.14159
-scale = Vector2(0.2, -1)
+position = Vector2(-15.2, -37)
+rotation = -3.14158
+scale = Vector2(0.05, -1)
 
 [node name="Ice1" parent="Floors" instance=ExtResource("2_en4jt")]
 position = Vector2(10007, -18068)
@@ -1433,8 +1432,83 @@ position = Vector2(13420, -19309)
 [node name="SwingingRope116" parent="Ropes" instance=ExtResource("7_rucoj")]
 position = Vector2(13715, -19411)
 
-[node name="FallingSwingingRope1" parent="Ropes" instance=ExtResource("14_4r355")]
-position = Vector2(14133, -19593)
+[node name="SwingingRope117" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14730, -19605)
+
+[node name="SwingingRope118" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -19724)
+
+[node name="SwingingRope119" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -19843)
+
+[node name="SwingingRope120" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14730, -20383)
+
+[node name="SwingingRope121" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -20134)
+
+[node name="SwingingRope122" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -20248)
+
+[node name="SwingingRope123" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -20545)
+
+[node name="SwingingRope124" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -20664)
+
+[node name="SwingingRope125" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14730, -21204)
+
+[node name="SwingingRope126" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -20955)
+
+[node name="SwingingRope127" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -21069)
+
+[node name="SwingingRope128" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -21357)
+
+[node name="SwingingRope129" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -21476)
+
+[node name="SwingingRope133" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -22169)
+
+[node name="SwingingRope134" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -22288)
+
+[node name="SwingingRope135" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15627, -22400)
+
+[node name="SwingingRope136" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15946, -22519)
+
+[node name="SwingingRope137" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16217, -22628)
+
+[node name="SwingingRope138" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16536, -22747)
+
+[node name="SwingingRope140" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(16856, -22864)
+
+[node name="SwingingRope130" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(14730, -22016)
+
+[node name="SwingingRope131" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15368, -21767)
+
+[node name="SwingingRope132" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15049, -21881)
+
+[node name="SwingingRope139" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15627, -21601)
+
+[node name="SwingingRope141" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15627, -20778)
+
+[node name="SwingingRope142" parent="Ropes" instance=ExtResource("7_rucoj")]
+position = Vector2(15627, -19955)
 
 [node name="Mushrooms" type="Node" parent="."]
 
@@ -1558,87 +1632,70 @@ rotation = 0.785398
 [node name="Springboard34" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(16297, -13617)
 rotation = -0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard35" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11720, -18069)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard36" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11022, -18087)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard37" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10491, -18053)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard38" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10187, -18086)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard39" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10980, -18523)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard40" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(12131, -18576)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard41" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11955, -18864)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard42" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(12527, -18689)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard43" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11140, -18742)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard44" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11623, -18742)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard45" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10130, -18933)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard46" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10313, -18830)
 rotation = 0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard47" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11124, -19014)
 rotation = -0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard48" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10806, -19035)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard49" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(10542, -18997)
 rotation = 1.5708
-scale = Vector2(2, 2)
 
 [node name="Springboard50" parent="Mushrooms" instance=ExtResource("7_3svxd")]
 position = Vector2(11688, -18999)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard_elastic 1" parent="Mushrooms" instance=ExtResource("8_jfuoq")]
 position = Vector2(5614, -4107)
@@ -1765,7 +1822,7 @@ position = Vector2(10693, -6461)
 position = Vector2(8021, -16378)
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(14116, -19191)
+position = Vector2(-178, 229)
 floor_constant_speed = true
 floor_block_on_wall = false
 

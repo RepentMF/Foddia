@@ -15,6 +15,7 @@ var countRocketJumps = 2
 
 var climbXValue = 0
 var climbYValue = 0
+var deathParticle : PackedScene
 var groundDirection = 0
 var gravity = 300
 var gravityLight = 100
@@ -33,7 +34,7 @@ var isInWindCurrent = false
 var isNearRope = false
 var isOnIce = false
 var isRunning = false
-var isSwinging = false
+var isHoldingRope = false
 
 var jumpSpeed = 100
 var jumpSpeedStandard = 100
@@ -41,7 +42,7 @@ var maxJetpackFuel = 1000
 var maxIceRunSpeed = 600
 var maxRocketJumps = 2
 var maxRunSpeed = 350
-var minRunSpeed = 100
+var minRunSpeed = 175
 var runSpeed = 100
 var swingSpeed = 0
 var swingRope = null
@@ -56,9 +57,8 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(swingRope)
 	if swingRope != null:
-		if isSwinging && swingRope.get_parent().name.contains("Swinging"):
+		if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
 			rotation = swingRope.rotation
 	else:
 		rotation = 0
@@ -68,30 +68,32 @@ func _physics_process(delta):
 	#Handle death conditions
 	#if !isDead || !hasReset:
 		if isDead:
-			print("Player is kill")
+			print("You died.")
+			get_tree().paused = true
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
 		if velocity.y > 0:
 			countHangTime += 1
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope:
-			isSwinging = true
+			isHoldingRope = true
 			countRocketJumps = maxRocketJumps
 		elif Input.is_action_just_released("ui_cancel"):
 			hasReleasedRope = true
 		# Handle releasing rope
-		if hasReleasedRope:
-			countAirTime += 1
-			if countAirTime > 15:
-				countAirTime = 0
-				isSwinging = false
-				hasReleasedRope = false
-				isNearRope = false
-				swingRope = null
-				wasBouncing = false
-				ropeTempPosition = 0
+		if ropeTop != null:
+			if hasReleasedRope:
+				countAirTime += 1
+				if countAirTime > 15:
+					countAirTime = 0
+					isHoldingRope = false
+					hasReleasedRope = false
+					isNearRope = false
+					swingRope = null
+					wasBouncing = false
+					ropeTempPosition = 0
 		# Handle physics on a rope
-		if !hasJetpack && swingRope != null && isSwinging:
-			if isSwinging && swingRope.get_parent().name.contains("Swinging"):
+		if !hasJetpack && swingRope != null && isHoldingRope:
+			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
 				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 				if swingRope.get_parent().name.contains("Falling"):
 					if swingRope.get_parent().get_node("PinJoint2D") != null:
@@ -114,7 +116,7 @@ func _physics_process(delta):
 						if isInWindCurrent:
 							velocity.y = ropeBottom.linear_velocity.y * 1.3
 						swingRope = null
-			elif isSwinging && swingRope.get_parent().name.contains("Static"):
+			elif isHoldingRope && swingRope.get_parent().name.contains("Static"):
 				global_position = global_position.move_toward(Vector2(swingRope.global_position.x, ropeTempPosition.y), 10)
 				if global_position.y > ropeBottom.global_position.y + 20 || global_position.y < ropeTop.global_position.y - 26 || Input.is_action_just_released("ui_cancel"):
 					velocity = swingRope.linear_velocity
@@ -206,12 +208,13 @@ func _physics_process(delta):
 							velocity.y = -60
 						if abs(velocity.x) == abs(velocity.y):
 							velocity = velocity * 3 / 4
+						#explode()
 		# Handle grounded movement
 		else:
 			countHangTime = 0
 			countFallDistance = 0
 			countRocketJumps = maxRocketJumps
-			isSwinging = false
+			isHoldingRope = false
 			if isFreefalling:
 				isFreefalling = false
 			elif wasJumping:
@@ -273,7 +276,7 @@ func _physics_process(delta):
 		
 		move_and_slide()
 		
-		if isSwinging && swingRope != null:
+		if isHoldingRope && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
 		else:
 			swingSpeed = velocity.x
@@ -293,6 +296,14 @@ func crawl_ledge():
 		isCrawlingLedge = false
 		runSpeed = minRunSpeed
 
+func explode():
+	var particle = deathParticle.instance()
+	particle.position = global_position
+	particle.rotation = global_rotation
+	particle.emitting = true
+	get_tree().current_scene.add_child(particle)
+	pass
+	
 func use_hands(body):
 	if body.name.contains("LedgeGrab"):
 		if velocity.x != maxRunSpeed:
@@ -309,7 +320,7 @@ func use_hands(body):
 		isFreefalling = true
 	elif body.name.contains("RopeLinkage") && swingRope == null:
 		isNearRope = true
-		if !isSwinging:
+		if !isHoldingRope:
 			body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
 			swingRope = body
 			ropeTempPosition = global_position
@@ -319,7 +330,7 @@ func use_hands(body):
 func use_legs(body):
 	if body.name.contains("RopeLinkage") && swingRope == null:
 		isNearRope = true
-		if !isSwinging:
+		if !isHoldingRope:
 			body.apply_impulse(Vector2(0.5 * swingSpeed, 1))
 			swingRope = body
 			ropeTempPosition = global_position
@@ -336,7 +347,7 @@ func _on_grab_with_hands(body):
 
 func _on_release_with_hands(body):
 	if swingRope != null:
-		if body.name == swingRope.name && !isSwinging:
+		if body.name == swingRope.name && !isHoldingRope:
 			isNearRope = false
 			swingRope = null
 			ropeTempPosition = 0
@@ -348,7 +359,7 @@ func on_grab_with_legs(body):
 
 func _on_release_with_legs(body):
 	if swingRope != null:
-		if body.name == swingRope.name && !isSwinging:
+		if body.name == swingRope.name && !isHoldingRope:
 			isNearRope = false
 			swingRope = null
 			ropeTempPosition = 0

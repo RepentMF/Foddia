@@ -12,22 +12,26 @@ var countTime3 = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	# Player has hit button
 	if hasBeenUsed:
+		# Doors have not closed yet
 		if countTime2 < 80:
 			get_node("ElevatorWall1").global_position.y += 1
 			get_node("ElevatorWall2").global_position.y += 1
 			countTime2 += 1
+		# Doors have closed
 		elif countTime2 == 80:
-			if countTime < 3104: #4136
+			# Elevator has not reached destination yet
+			if countTime < 3104: #3104
+				print("Elevator in use!")
 				countTime += 1
 				if placement:
 					position.y += 7
 				else:
 					position.y -= 7
+			# Elevator has reached destination
 			elif countTime == 3104:
-				print(global_position.x)
-				print(global_position.y)
+				print("Thank you for riding with us. We hope you enjoyed your time.")
 				if countTime3 < 80:
 					get_node("ElevatorWall1").global_position.y -= 1
 					get_node("ElevatorWall2").global_position.y -= 1

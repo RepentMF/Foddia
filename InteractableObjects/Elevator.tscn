@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxsb2p78idkqe"]
+[gd_scene load_steps=5 format=3 uid="uid://cxsb2p78idkqe"]
 
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="1_nv3tv"]
 [ext_resource type="Script" path="res://InteractableObjects/Elevator.gd" id="1_qooh2"]
+[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="3_jluw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbsjt"]
 size = Vector2(13, 460)
@@ -31,5 +32,10 @@ scale = Vector2(0.25, 59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gbsjt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.376471)
+scale = Vector2(0.107, 3.5)
+texture = ExtResource("3_jluw1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

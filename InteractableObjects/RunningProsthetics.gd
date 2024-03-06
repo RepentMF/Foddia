@@ -21,4 +21,5 @@ func _on_body_entered(body):
 		if !hasBeenPickedUp:
 			hasBeenPickedUp = true
 			body.maxRunSpeed *= 1.15
+			print("You dismembered your body with your medical expertise and replaced your feet with robotic limbs.")
 	pass # Replace with function body.

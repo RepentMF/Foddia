@@ -21,7 +21,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print(body.velocity.y)
 		if !hasBeenUsed:
 			if !body.hasJetpack:
 				body.velocity.y =  -1 * abs(body.velocity.y)

@@ -21,4 +21,5 @@ func _on_body_entered(body):
 		if !hasBeenPickedUp:
 			hasBeenPickedUp = true
 			body.hasJetpack = true
+			print("You dismembered your body with your medical expertise and replaced your arms with jetpack limbs.")
 	pass # Replace with function body.
