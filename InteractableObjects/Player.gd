@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const ElevationLow = 0
-const ElevationHigh = 30000
+const ElevationHigh = 20000
 const JetpackSpeed = 750
 const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
@@ -42,7 +42,7 @@ var maxJetpackFuel = 1000
 var maxIceRunSpeed = 600
 var maxRocketJumps = 2
 var maxRunSpeed = 350
-var minRunSpeed = 175
+var minRunSpeed = 125
 var runSpeed = 100
 var swingSpeed = 0
 var swingRope = null
@@ -57,6 +57,7 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(isInWindCurrent)
 	if swingRope != null:
 		if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
 			rotation = swingRope.rotation
@@ -69,13 +70,13 @@ func _physics_process(delta):
 	#if !isDead || !hasReset:
 		if isDead:
 			print("You died.")
-			get_tree().paused = true
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
 		if velocity.y > 0:
 			countHangTime += 1
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope:
 			isHoldingRope = true
+			isOnIce = false
 			countRocketJumps = maxRocketJumps
 		elif Input.is_action_just_released("ui_cancel"):
 			hasReleasedRope = true
@@ -105,7 +106,7 @@ func _physics_process(delta):
 					swingRope.apply_impulse(Vector2(15, 0))
 				elif Input.is_action_just_pressed("ui_left"):
 					swingRope.apply_impulse(Vector2(-15, 0))
-				elif hasReleasedRope:
+				elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
 					if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
 						velocity = ropeBottom.linear_velocity
 						if isInWindCurrent:
@@ -230,14 +231,14 @@ func _physics_process(delta):
 				# Handle moving left and right speeds
 				if Input.is_action_pressed("ui_right"):
 					if isRunning:
-						velocity.x += 4
+						velocity.x += 8
 					else:
-						velocity.x += 2
+						velocity.x += 3
 				elif Input.is_action_pressed("ui_left"):
 					if isRunning:
-						velocity.x += -4
+						velocity.x += -8
 					else:
-						velocity.x += -2
+						velocity.x += -3
 				if abs(velocity.x) > maxIceRunSpeed:
 					velocity.x = maxIceRunSpeed * sign(velocity.x)
 				# Handle jumping

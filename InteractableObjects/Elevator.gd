@@ -22,7 +22,7 @@ func _physics_process(delta):
 		# Doors have closed
 		elif countTime2 == 80:
 			# Elevator has not reached destination yet
-			if countTime < 3104: #3104
+			if countTime < 2644: #3104
 				print("Elevator in use!")
 				countTime += 1
 				if placement:
@@ -30,7 +30,7 @@ func _physics_process(delta):
 				else:
 					position.y -= 7
 			# Elevator has reached destination
-			elif countTime == 3104:
+			elif countTime == 2644:
 				print("Thank you for riding with us. We hope you enjoyed your time.")
 				if countTime3 < 80:
 					get_node("ElevatorWall1").global_position.y -= 1

@@ -1,6 +1,6 @@
 extends Node2D
 
-var count = 180
+var count = 300
 var willFall = false
 
 # Called when the node enters the scene tree for the first time.
@@ -18,5 +18,8 @@ func _physics_process(delta):
 					i.gravity_scale = 0.3
 			get_parent().get_node("RopeLinkageTop").freeze = false
 			get_parent().get_node("RopeLinkageTop").hasFallen = true
+			for i in get_parent().get_children():
+				if i.name.contains("RopeLinkage"):
+					i.name = "NoUse"
 			queue_free()
 	pass
