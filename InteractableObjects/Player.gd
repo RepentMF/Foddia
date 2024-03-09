@@ -21,7 +21,7 @@ var gravity = 300
 var gravityLight = 100
 var gravityStandard = 300
 
-var hasJetpack = false
+var hasJetpack = true
 var hasRocketJump = false
 var hasReleasedRope = false
 
@@ -57,7 +57,7 @@ var wasJumping = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(isInWindCurrent)
+	print(countJetpackFuel)
 	if swingRope != null:
 		if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
 			rotation = swingRope.rotation
@@ -157,7 +157,7 @@ func _physics_process(delta):
 			isRunning = false
 			groundDirection = sign(velocity.x)
 			wasJumping = true
-			if velocity.y > 400:
+			if velocity.y > 700:
 				isFreefalling = true
 				countFallDistance += 1
 				# Kill conidition still needs refinement
