@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var cam = $Camera2D
 
 const ElevationLow = 0
 const ElevationHigh = 20000
@@ -23,6 +24,7 @@ var gravity = 365
 var gravityLight = 100
 var gravityStandard = 365
 var lastGroundDirection = 0
+var zoomStandard = Vector2(1, 1)
 
 var hasJetpack = false
 var hasRocketJump = false
@@ -60,6 +62,7 @@ var ropeTop
 var wasBouncing = false
 var wasJumping = false
 var wasFalling = false
+var wasSwinging = false
 
 #func _ready():
 #	animatedSprite2D = $Sprite2D
@@ -71,7 +74,7 @@ func _process(delta):
 		if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
 			global_position.x = ropeTempPosition.x + 3
 			
-	if !landedSoft && !landedHard:
+	if !landedSoft && !landedHard && !isGrabbingLedge && !isClimbingLedge:
 		# Process player grounded animations
 		if is_on_floor():
 			if is_on_floor() && velocity.x == 0:
@@ -101,23 +104,14 @@ func _process(delta):
 				anim.play("arms_out")
 			elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.name == "arms_out":
 				anim.play("arms_up")
-		
-		if swingRope != null:
-			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
-				rotation = swingRope.rotation
-		else:
-			if rotation > 0:
-				rotation -= .005
-				if rotation < 0:
-					rotation = 0
-			elif rotation < 0:
-				rotation += .005
-				if rotation > 0:
-					rotation = 0
 	elif landedSoft && !anim.name == "soft_land":
 		anim.play("soft_land")
 	elif landedHard && !anim.name == "hard_land":
 		anim.play("hard_land")
+	elif isClimbingLedge && !anim.animation == "climb_ledge":
+		anim.play("climb_ledge")
+	elif isGrabbingLedge && !isClimbingLedge:
+		anim.play("grab_ledge")
 		
 	if direction == 1:
 		anim.flip_h = false
@@ -133,6 +127,8 @@ func _physics_process(delta):
 			global_position = checkpoint
 			isDead = false
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
+		var zoomTemp = (0.8 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
+		cam.zoom = Vector2(zoomTemp, zoomTemp)
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope && !hasJetpack:
 			isHoldingRope = true
@@ -153,7 +149,12 @@ func _physics_process(delta):
 					isNearRope = false
 					swingRope = null
 					wasBouncing = false
+					wasSwinging = true
 					ropeTempPosition = 0
+					runSpeed = abs(velocity.x)
+					print("happening")
+					if abs(runSpeed) > maxRunSpeed:
+						runSpeed = maxRunSpeed * sign(velocity.x)
 		# Handle physics on a rope
 		if !hasJetpack && swingRope != null && isHoldingRope:
 			countHangTime = 0
@@ -203,6 +204,8 @@ func _physics_process(delta):
 		elif !hasJetpack && isGrabbingLedge:
 			velocity.x = 0
 			velocity.y = 0
+			countHangTime = 0
+			isDead = false
 			if isCrawlingLedge:
 				crawl_ledge()
 			elif isClimbingLedge:
@@ -275,10 +278,13 @@ func _physics_process(delta):
 						#explode()
 		# Handle grounded movement
 		else:
+			if wasSwinging:
+				print(runSpeed)
 			countHangTime = 0
 			countRocketJumps = maxRocketJumps
 			isHoldingRope = false
 			wasFalling = false
+			wasSwinging = false
 			if isFreefalling:
 				isFreefalling = false
 			elif wasJumping:
@@ -358,11 +364,24 @@ func _physics_process(delta):
 				velocity.x = 600 * sign(velocity.x)
 				
 		move_and_slide()
-		
+					
 		if isHoldingRope && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
+			if swingRope.get_parent().name.contains("Swinging"):
+				rotation = swingRope.rotation
 		else:
 			swingSpeed = velocity.x
+			
+		if swingRope == null:
+			# On desktop .005 decrement, on laptop  decrement
+			if rotation > 0:
+				rotation -= .045
+				if rotation < 0:
+					rotation = 0
+			elif rotation < 0:
+				rotation += .045
+				if rotation > 0:
+					rotation = 0
 		pass
 
 func ascend_ledge():
@@ -388,21 +407,20 @@ func explode():
 	pass
 	
 func use_hands(body):
-	print(body.name)
 	if body.name.contains("LedgeGrab"):
-		if velocity.x != maxRunSpeed:
-			climbYValue = body.global_position.y + 1
-			climbXValue = body.global_position.x
-			isGrabbingLedge = true
-			isFreefalling = false
-		elif velocity.x == maxRunSpeed:
-			velocity.y = 0
-			isFreefalling = true
-	elif (body.name.contains("Floor") || body.name.contains("Wall")) && !isFreefalling && !isGrabbingLedge:
-		if abs(velocity.x) > 525:
-			isDead = true
-		isFreefalling = true
-		get_tree().paused = true
+		#if velocity.x != maxRunSpeed:
+		climbYValue = body.global_position.y + 1
+		climbXValue = body.global_position.x
+		isGrabbingLedge = true
+		isFreefalling = false
+		#elif velocity.x == maxRunSpeed:
+		#	velocity.y = 0
+		#	isFreefalling = true
+	#elif (body.name.contains("Floor") || body.name.contains("Wall")) && !isFreefalling && !isGrabbingLedge:
+	#	if abs(velocity.x) > 525:
+	#		isDead = true
+	#	isFreefalling = true
+	#	print(405)
 	elif body.name.contains("RopeLinkage") && swingRope == null:
 		isNearRope = true
 		if !isHoldingRope:
@@ -452,7 +470,7 @@ func on_grab_with_legs(body):
 	use_legs(body)
 	if body.name.contains("Ice") || body.name.contains("Floor") || body.name.contains("Wall"):
 		# Apply landing lag or death conditions
-		if countHangTime >= 50 && countHangTime < 106:
+		if countHangTime >= 50 && countHangTime < 106 && !wasSwinging:
 			# Apply soft landing lag
 			landedSoft = true
 		elif countHangTime >= 106 && countHangTime < 137:
