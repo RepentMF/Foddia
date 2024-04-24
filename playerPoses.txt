@@ -1,0 +1,9 @@
+[x]walk
+[x]run
+[x]jump
+[x]freefall
+[x]land
+[x]hold rope
+[x]climb rope
+[x]hold ledge
+[x]climb ledge

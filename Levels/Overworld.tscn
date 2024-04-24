@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=20 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
+[ext_resource type="PackedScene" uid="uid://ck2f7tr4nnvab" path="res://InteractableObjects/DeathPlane.tscn" id="1_owq06"]
+[ext_resource type="PackedScene" uid="uid://37u0wcwbqa2k" path="res://InteractableObjects/CheckFlag.tscn" id="1_vm8im"]
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_uphaf"]
 [ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="3_8gw5i"]
@@ -12,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cnhb5fb30k7ma" path="res://InteractableObjects/Springboard_elastic.tscn" id="8_jfuoq"]
 [ext_resource type="PackedScene" uid="uid://72qrj23hq1sl" path="res://InteractableObjects/WindCurrent.tscn" id="9_h1kkb"]
 [ext_resource type="PackedScene" uid="uid://dycxk34c23v45" path="res://InteractableObjects/RocketArms.tscn" id="11_ak0ds"]
+[ext_resource type="PackedScene" uid="uid://ci26g0a7cmr3f" path="res://InteractableObjects/RefillCharge.tscn" id="11_fucnb"]
 [ext_resource type="PackedScene" uid="uid://cxsb2p78idkqe" path="res://InteractableObjects/Elevator.tscn" id="11_j4gsi"]
 [ext_resource type="PackedScene" uid="uid://d2gfvt37nlrfu" path="res://InteractableObjects/JetpackTorso.tscn" id="12_4g114"]
 [ext_resource type="PackedScene" uid="uid://ceu60wp08ha24" path="res://InteractableObjects/Macguffin.tscn" id="13_xia7y"]
@@ -20,6 +23,409 @@
 [node name="Overworld" type="Node2D"]
 position = Vector2(62, -257)
 metadata/_edit_group_ = true
+metadata/_edit_vertical_guides_ = [10295.0]
+metadata/_edit_horizontal_guides_ = [-564.0]
+
+[node name="CheckFlags_main" type="Node" parent="."]
+
+[node name="CheckFlag1" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(8732, -855)
+
+[node name="CheckFlag2" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(14332, -2117)
+
+[node name="CheckFlag3" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(15525, -3018)
+
+[node name="CheckFlag4" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(12526, -3470)
+
+[node name="CheckFlag5" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(6160, -4267)
+
+[node name="CheckFlag6" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(6054, -6561)
+
+[node name="CheckFlag7" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(12337, -8013)
+
+[node name="CheckFlag8" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(12419, -12628)
+
+[node name="CheckFlag9" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(12419, -17564)
+
+[node name="CheckFlag10" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
+position = Vector2(14042, -19432)
+
+[node name="Walls_main" type="Node" parent="."]
+
+[node name="BackWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(-376, -12576)
+rotation = 1.5708
+scale = Vector2(1100, 1)
+
+[node name="ScalingWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(2537, 164)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall1" instance=ExtResource("3_ijt1x")]
+position = Vector2(-11.5769, 45)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+
+[node name="ScalingWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(3401, -428)
+rotation = 1.5708
+scale = Vector2(6, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall2" instance=ExtResource("3_ijt1x")]
+position = Vector2(3.16679, 44.999)
+rotation = 1.57081
+scale = Vector2(1, -0.166667)
+skew = -1.49012e-05
+
+[node name="ScalingWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5519, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall3" instance=ExtResource("3_ijt1x")]
+position = Vector2(-11.5769, 45)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+
+[node name="ScalingWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5554, -1060)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall4" instance=ExtResource("3_ijt1x")]
+position = Vector2(-4.49996, 44.999)
+rotation = 1.57081
+scale = Vector2(1, -0.0999999)
+skew = -1.07288e-05
+
+[node name="ScalingWall5" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(9499, -1073)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall5" instance=ExtResource("3_ijt1x")]
+position = Vector2(-4.49996, 44.999)
+rotation = 1.57081
+scale = Vector2(1, -0.0999999)
+skew = -1.07288e-05
+
+[node name="ScalingWall6" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(9074, -1403)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall6" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall7" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(14331, -1697)
+rotation = 1.5708
+scale = Vector2(25, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall7" instance=ExtResource("3_ijt1x")]
+position = Vector2(-11.3999, 45.0029)
+rotation = 1.5708
+scale = Vector2(1, -0.04)
+
+[node name="ScalingWall8" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(14468, -2225)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall8" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall9" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(14820, -2225)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall9" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall10" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(15369, -2226)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall10" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall11" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(15721, -2226)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall11" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall12" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(16201, -2225)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall12" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall13" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(16553, -2225)
+rotation = 1.5708
+scale = Vector2(8, -1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall13" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall14" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(16763, -1697)
+rotation = 1.5708
+scale = Vector2(25, 1)
+
+[node name="ScalingWall15" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5829, -4621)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall15" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall16" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5861, -4877)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall16" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall17" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5893, -5133)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall17" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall18" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5925, -5389)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall18" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall19" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5957, -5645)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall19" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall20" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5989, -5901)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall20" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall21" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6021, -6157)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall21" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall22" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6053, -6413)
+rotation = 1.5708
+scale = Vector2(8, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall22" instance=ExtResource("3_ijt1x")]
+position = Vector2(-1.62492, 44.998)
+rotation = 1.57081
+scale = Vector2(1, -0.125)
+skew = -1.28746e-05
+
+[node name="ScalingWall23" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(8040, -7801)
+rotation = 1.5708
+scale = Vector2(12, 1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall23" instance=ExtResource("3_ijt1x")]
+position = Vector2(-6.41663, 45)
+rotation = 1.57081
+scale = Vector2(1, -0.0833333)
+skew = -1.07288e-05
+
+[node name="ScalingWall24" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(8712, -7801)
+rotation = 1.5708
+scale = Vector2(12, -1)
+
+[node name="StaticRopeLong" parent="Walls_main/ScalingWall24" instance=ExtResource("3_ijt1x")]
+position = Vector2(-6.41663, 45)
+rotation = 1.57081
+scale = Vector2(1, -0.0833333)
+skew = -1.07288e-05
+
+[node name="DeadendWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(9995, -1403)
+rotation = 1.5708
+scale = Vector2(6, -1)
+
+[node name="DeadendWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6161, -4087)
+rotation = 1.5708
+scale = Vector2(10, -1)
+
+[node name="DeadendWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(10062, -7785)
+rotation = 1.5708
+scale = Vector2(11, -1)
+
+[node name="DeadendWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(9467, -18076)
+rotation = 1.5708
+scale = Vector2(19, -1)
+
+[node name="DeathPitWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5967, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall1" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6094, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall2" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6542, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall3" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(6844, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall4" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall5" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(7292, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall5" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall6" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(7699, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall6" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8105, 0.00146484)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall7" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(8147, -417)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall7" instance=ExtResource("2_uphaf")]
+position = Vector2(-16.8076, 0.00146484)
+rotation = -1.5708
+scale = Vector2(1, 0.0384615)
+skew = -9.40561e-05
+
+[node name="DeathPitWall8" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(8694, -419)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="DeathPitWall9" parent="Walls_main" instance=ExtResource("2_en4jt")]
+position = Vector2(17499, -577)
+rotation = 1.5708
+scale = Vector2(39, 1)
 
 [node name="Floors_main" type="Node" parent="."]
 
@@ -40,7 +446,7 @@ position = Vector2(1496, 40)
 scale = Vector2(26, 1)
 
 [node name="Floor5" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(2105, 8)
+position = Vector2(2178, 8)
 scale = Vector2(26, 1)
 
 [node name="Floor6" parent="Floors_main" instance=ExtResource("2_en4jt")]
@@ -277,7 +683,7 @@ position = Vector2(10188, -1249)
 scale = Vector2(13, 1)
 
 [node name="Floor43" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(11578, -3481)
+position = Vector2(11671, -3434)
 scale = Vector2(55, 1)
 
 [node name="LedgeGrabLeft" parent="Floors_main/Floor43" instance=ExtResource("2_uphaf")]
@@ -285,7 +691,7 @@ position = Vector2(15.709, -36.9998)
 scale = Vector2(0.0181818, 1)
 
 [node name="Floor44" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9621, -3792)
+position = Vector2(9621, -3766)
 scale = Vector2(55, 1)
 
 [node name="StaticRopeLong" parent="Floors_main/Floor44" instance=ExtResource("3_ijt1x")]
@@ -366,7 +772,7 @@ position = Vector2(15.2, -36.9995)
 scale = Vector2(0.05, 1)
 
 [node name="Floor54" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(10450, -6691)
+position = Vector2(10188, -6691)
 scale = Vector2(20, 1)
 
 [node name="LedgeGrabRight" parent="Floors_main/Floor54" instance=ExtResource("3_8gw5i")]
@@ -829,375 +1235,6 @@ position = Vector2(-15.2, -37)
 rotation = -3.14158
 scale = Vector2(0.05, -1)
 
-[node name="Walls_main" type="Node" parent="."]
-
-[node name="BackWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(-376, -12576)
-rotation = 1.5708
-scale = Vector2(1100, 1)
-
-[node name="ScalingWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(2537, 164)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall1" instance=ExtResource("3_ijt1x")]
-position = Vector2(-11.5769, 45)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-
-[node name="ScalingWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(3401, -428)
-rotation = 1.5708
-scale = Vector2(6, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall2" instance=ExtResource("3_ijt1x")]
-position = Vector2(3.16679, 44.999)
-rotation = 1.57081
-scale = Vector2(1, -0.166667)
-skew = -1.49012e-05
-
-[node name="ScalingWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5519, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall3" instance=ExtResource("3_ijt1x")]
-position = Vector2(-11.5769, 45)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-
-[node name="ScalingWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5554, -1060)
-rotation = 1.5708
-scale = Vector2(10, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall4" instance=ExtResource("3_ijt1x")]
-position = Vector2(-4.49996, 44.999)
-rotation = 1.57081
-scale = Vector2(1, -0.0999999)
-skew = -1.07288e-05
-
-[node name="ScalingWall5" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9499, -1073)
-rotation = 1.5708
-scale = Vector2(10, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall5" instance=ExtResource("3_ijt1x")]
-position = Vector2(-4.49996, 44.999)
-rotation = 1.57081
-scale = Vector2(1, -0.0999999)
-skew = -1.07288e-05
-
-[node name="ScalingWall6" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9074, -1403)
-rotation = 1.5708
-scale = Vector2(8, -1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall6" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall7" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(14331, -1697)
-rotation = 1.5708
-scale = Vector2(25, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall7" instance=ExtResource("3_ijt1x")]
-position = Vector2(-11.3999, 45.0029)
-rotation = 1.5708
-scale = Vector2(1, -0.04)
-
-[node name="ScalingWall8" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(14468, -2225)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall8" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall9" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(14820, -2225)
-rotation = 1.5708
-scale = Vector2(8, -1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall9" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall10" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(15369, -2226)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall10" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall11" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(15721, -2226)
-rotation = 1.5708
-scale = Vector2(8, -1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall11" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall12" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(16201, -2225)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall12" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall13" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(16553, -2225)
-rotation = 1.5708
-scale = Vector2(8, -1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall13" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall14" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(16763, -1697)
-rotation = 1.5708
-scale = Vector2(25, 1)
-
-[node name="ScalingWall15" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5829, -4621)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall15" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall16" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5861, -4877)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall16" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall17" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5893, -5133)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall17" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall18" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5925, -5389)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall18" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall19" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5957, -5645)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall19" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall20" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5989, -5901)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall20" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall21" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6021, -6157)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall21" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall22" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6053, -6413)
-rotation = 1.5708
-scale = Vector2(8, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall22" instance=ExtResource("3_ijt1x")]
-position = Vector2(-1.62492, 44.998)
-rotation = 1.57081
-scale = Vector2(1, -0.125)
-skew = -1.28746e-05
-
-[node name="ScalingWall23" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8040, -7801)
-rotation = 1.5708
-scale = Vector2(12, 1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall23" instance=ExtResource("3_ijt1x")]
-position = Vector2(-6.41663, 45)
-rotation = 1.57081
-scale = Vector2(1, -0.0833333)
-skew = -1.07288e-05
-
-[node name="ScalingWall24" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8712, -7801)
-rotation = 1.5708
-scale = Vector2(12, -1)
-
-[node name="StaticRopeLong" parent="Walls_main/ScalingWall24" instance=ExtResource("3_ijt1x")]
-position = Vector2(-6.41663, 45)
-rotation = 1.57081
-scale = Vector2(1, -0.0833333)
-skew = -1.07288e-05
-
-[node name="DeadendWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9995, -1403)
-rotation = 1.5708
-scale = Vector2(6, -1)
-
-[node name="DeadendWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6161, -4087)
-rotation = 1.5708
-scale = Vector2(10, -1)
-
-[node name="DeadendWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(10062, -7785)
-rotation = 1.5708
-scale = Vector2(11, -1)
-
-[node name="DeadendWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9467, -18076)
-rotation = 1.5708
-scale = Vector2(19, -1)
-
-[node name="DeathPitWall1" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5967, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall1" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6094, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall2" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6542, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall3" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6844, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall4" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall5" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7292, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall5" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall6" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7699, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabRight" parent="Walls_main/DeathPitWall6" instance=ExtResource("3_8gw5i")]
-position = Vector2(-16.8105, 0.00146484)
-rotation = 1.5708
-scale = Vector2(1, -0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall7" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8147, -417)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="LedgeGrabLeft" parent="Walls_main/DeathPitWall7" instance=ExtResource("2_uphaf")]
-position = Vector2(-16.8076, 0.00146484)
-rotation = -1.5708
-scale = Vector2(1, 0.0384615)
-skew = -9.40561e-05
-
-[node name="DeathPitWall8" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8694, -419)
-rotation = 1.5708
-scale = Vector2(26, 1)
-
-[node name="DeathPitWall9" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(17499, -577)
-rotation = 1.5708
-scale = Vector2(39, 1)
-
 [node name="Ropes_main" type="Node" parent="."]
 
 [node name="SwingingRope1" parent="Ropes_main" instance=ExtResource("7_rucoj")]
@@ -1230,6 +1267,9 @@ position = Vector2(16404, -2643)
 [node name="SwingingRope10" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(14565, -2815)
 
+[node name="SwingingRope121" parent="Ropes_main" instance=ExtResource("7_rucoj")]
+position = Vector2(10581, -3943)
+
 [node name="SwingingRope11" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(14122, -2904)
 
@@ -1261,13 +1301,13 @@ position = Vector2(13182, -3446)
 position = Vector2(13016, -3505)
 
 [node name="SwingingRope21" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(8238, -4110)
+position = Vector2(8248, -4089)
 
 [node name="SwingingRope22" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(7230, -4477)
 
 [node name="SwingingRope23" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(8481, -4009)
+position = Vector2(8514, -3984)
 
 [node name="SwingingRope24" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(6385, -4477)
@@ -1294,10 +1334,10 @@ position = Vector2(3102, -4477)
 position = Vector2(6434, -6766)
 
 [node name="SwingingRope32" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(7088, -6824)
+position = Vector2(7088, -6815)
 
 [node name="SwingingRope33" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(7849, -6951)
+position = Vector2(7831, -6928)
 
 [node name="SwingingRope34" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(6975, -6998)
@@ -1306,19 +1346,19 @@ position = Vector2(6975, -6998)
 position = Vector2(6558, -7000)
 
 [node name="SwingingRope36" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(5793, -7116)
+position = Vector2(5793, -7114)
 
 [node name="SwingingRope37" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(7088, -7196)
 
 [node name="SwingingRope38" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(7849, -7323)
+position = Vector2(7831, -7289)
 
 [node name="SwingingRope39" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(6434, -7196)
 
 [node name="SwingingRope40" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(6558, -7383)
+position = Vector2(6558, -7411)
 
 [node name="SwingingRope41" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(6975, -7383)
@@ -1375,10 +1415,10 @@ position = Vector2(9049, -10854)
 position = Vector2(9807, -11262)
 
 [node name="SwingingRope59" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(8620, -6951)
+position = Vector2(8499, -6932)
 
 [node name="SwingingRope60" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(9388, -6951)
+position = Vector2(9193, -6941)
 
 [node name="SwingingRope61" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(10565, -11668)
@@ -1584,38 +1624,38 @@ position = Vector2(15919, -19943)
 [node name="Mushrooms_main" type="Node" parent="."]
 
 [node name="Springboard1" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(12355, -3513)
+position = Vector2(12448, -3466)
 rotation = 0.0
 
 [node name="Springboard2" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(11463, -3513)
+position = Vector2(11556, -3466)
 rotation = 0.0
 
 [node name="Springboard3" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(10729, -3513)
+position = Vector2(10822, -3466)
 rotation = 0.0
 
 [node name="Springboard4" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(10373, -3807)
+position = Vector2(10415, -3781)
 
 [node name="Springboard5" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(10097, -3817)
+position = Vector2(10047, -3791)
 
 [node name="Springboard6" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(9572, -3911)
+position = Vector2(9572, -3885)
 
 [node name="Springboard7" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(9573, -3807)
+position = Vector2(9573, -3781)
 
 [node name="Springboard8" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(9147, -3911)
+position = Vector2(9147, -3891)
 
 [node name="Springboard9" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(9147, -3825)
+position = Vector2(9147, -3799)
 rotation = 0.0
 
 [node name="Springboard10" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
-position = Vector2(8774, -3825)
+position = Vector2(8774, -3799)
 rotation = 0.0
 
 [node name="Springboard11" parent="Mushrooms_main" instance=ExtResource("7_3svxd")]
@@ -1895,19 +1935,141 @@ scale = Vector2(14.14, 17.68)
 position = Vector2(14201, -18310)
 scale = Vector2(14.14, 11.92)
 
+[node name="CheckFlags_pandemonium" type="Node" parent="."]
+
+[node name="CheckFlag1" parent="CheckFlags_pandemonium" instance=ExtResource("1_vm8im")]
+position = Vector2(17498, -1253)
+
+[node name="CheckFlag2" parent="CheckFlags_pandemonium" instance=ExtResource("1_vm8im")]
+position = Vector2(21678, 178)
+
+[node name="CheckFlag3" parent="CheckFlags_pandemonium" instance=ExtResource("1_vm8im")]
+position = Vector2(21679, 1051)
+
+[node name="CheckFlag4" parent="CheckFlags_pandemonium" instance=ExtResource("1_vm8im")]
+position = Vector2(4971, 1708)
+
 [node name="Floors_pandemonium" type="Node" parent="."]
 
 [node name="Ice1" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
 position = Vector2(21678, 214)
 scale = Vector2(20, 1)
 
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice1" instance=ExtResource("2_uphaf")]
+position = Vector2(15.2, -37)
+scale = Vector2(0.05, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice1" instance=ExtResource("3_8gw5i")]
+position = Vector2(-15.2, -37)
+rotation = 3.14159
+scale = Vector2(0.05, -1)
+
 [node name="Ice2" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
 position = Vector2(21678, 1087)
 scale = Vector2(20, 1)
 
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice2" instance=ExtResource("2_uphaf")]
+position = Vector2(15.2, -37)
+scale = Vector2(0.05, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice2" instance=ExtResource("3_8gw5i")]
+position = Vector2(-15.2, -37)
+rotation = 3.14159
+scale = Vector2(0.05, -1)
+
+[node name="Ice3" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(20619, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice3" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice3" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
+[node name="Ice4" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(19867, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice4" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice4" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
+[node name="Ice5" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(19087, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice5" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice5" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
+[node name="Ice6" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(17590, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice6" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice6" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
+[node name="Ice7" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(16340, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice7" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice7" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
+[node name="Ice8" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(15095, 1087)
+scale = Vector2(3, 1)
+
+[node name="LedgeGrabLeft" parent="Floors_pandemonium/Ice8" instance=ExtResource("2_uphaf")]
+position = Vector2(10.666, -37)
+scale = Vector2(0.333333, 1)
+
+[node name="LedgeGrabRight" parent="Floors_pandemonium/Ice8" instance=ExtResource("3_8gw5i")]
+position = Vector2(-10.6675, -37)
+rotation = 3.14159
+scale = Vector2(0.333333, -1)
+
 [node name="Floor0" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
 position = Vector2(13307, 5008)
 scale = Vector2(855, 1)
+
+[node name="Floor1" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(3242, 4176)
+scale = Vector2(26, 1)
+
+[node name="Floor2" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(4106, 3376)
+scale = Vector2(26, 1)
+
+[node name="Floor3" parent="Floors_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(4970, 1744)
+scale = Vector2(26, 1)
 
 [node name="Walls_pandemonium" type="Node" parent="."]
 
@@ -1915,6 +2077,39 @@ scale = Vector2(855, 1)
 position = Vector2(26978, -12576)
 rotation = 1.5708
 scale = Vector2(1100, 1)
+
+[node name="Wall1" parent="Walls_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(2810, 4576)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls_pandemonium/Wall1" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8077, 0.00170898)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.63211e-05
+
+[node name="Wall2" parent="Walls_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(3674, 3776)
+rotation = 1.5708
+scale = Vector2(26, 1)
+
+[node name="LedgeGrabRight" parent="Walls_pandemonium/Wall2" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.8077, 0.00170898)
+rotation = 1.5708
+scale = Vector2(1, -0.0384615)
+skew = -9.63211e-05
+
+[node name="Wall3" parent="Walls_pandemonium" instance=ExtResource("2_en4jt")]
+position = Vector2(4538, 2560)
+rotation = 1.5708
+scale = Vector2(52, 1)
+
+[node name="LedgeGrabRight" parent="Walls_pandemonium/Wall3" instance=ExtResource("3_8gw5i")]
+position = Vector2(-16.4038, 0.00292969)
+rotation = 1.5708
+scale = Vector2(1, -0.0192308)
+skew = -0.000188231
 
 [node name="Ropes_pandemonium" type="Node" parent="."]
 
@@ -1969,6 +2164,48 @@ position = Vector2(23968, 444)
 [node name="SwingingRope17" parent="Ropes_pandemonium" instance=ExtResource("7_rucoj")]
 position = Vector2(22856, 444)
 
+[node name="SwingingRope18" parent="Ropes_pandemonium" instance=ExtResource("7_rucoj")]
+position = Vector2(18159, 993)
+
+[node name="SwingingRope19" parent="Ropes_pandemonium" instance=ExtResource("7_rucoj")]
+position = Vector2(17003, 993)
+
+[node name="SwingingRope20" parent="Ropes_pandemonium" instance=ExtResource("7_rucoj")]
+position = Vector2(15753, 993)
+
+[node name="SwingingRope21" parent="Ropes_pandemonium" instance=ExtResource("7_rucoj")]
+position = Vector2(14508, 993)
+
+[node name="FallingSwingingRope1" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(13867, 993)
+
+[node name="FallingSwingingRope2" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(13436, 923)
+
+[node name="FallingSwingingRope3" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(13016, 923)
+
+[node name="FallingSwingingRope4" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(12596, 923)
+
+[node name="FallingSwingingRope5" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(12256, 1013)
+
+[node name="FallingSwingingRope6" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(11800, 1012)
+
+[node name="FallingSwingingRope7" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(11204, 1012)
+
+[node name="FallingSwingingRope8" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(10581, 1012)
+
+[node name="FallingSwingingRope9" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(9031, 1012)
+
+[node name="FallingSwingingRope10" parent="Ropes_pandemonium" instance=ExtResource("15_emypx")]
+position = Vector2(7549, 1012)
+
 [node name="Mushrooms_pandemonium" type="Node" parent="."]
 
 [node name="Springboard1" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
@@ -1999,37 +2236,30 @@ scale = Vector2(8, 2)
 [node name="Springboard7" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(26179, 596)
 rotation = -0.785398
-scale = Vector2(2, 2)
 
 [node name="Springboard8" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(26147, 230)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard9" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(25355, 230)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard10" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(25119, 590)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard11" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(24219, 1178)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard12" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(23403, 590)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="Springboard13" parent="Mushrooms_pandemonium" instance=ExtResource("7_3svxd")]
 position = Vector2(23203, 230)
 rotation = 0.0
-scale = Vector2(2, 2)
 
 [node name="WindCurrents_pandemonium" type="Node" parent="."]
 
@@ -2037,11 +2267,117 @@ scale = Vector2(2, 2)
 position = Vector2(24125, -70)
 scale = Vector2(42, 6)
 
+[node name="WindCurrent2" parent="WindCurrents_pandemonium" instance=ExtResource("9_h1kkb")]
+position = Vector2(9086, 1059)
+scale = Vector2(28, 6)
+
+[node name="WindCurrent3" parent="WindCurrents_pandemonium" instance=ExtResource("9_h1kkb")]
+position = Vector2(4555, 2892)
+scale = Vector2(56, 42)
+
+[node name="RefillCharges_pandemonium" type="Node" parent="."]
+
+[node name="RefillCharge1" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(2308, 4580)
+
+[node name="RefillCharge2" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(2826, 3483)
+
+[node name="RefillCharge3" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(3658, 2704)
+
+[node name="RefillCharge4" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(3203, 2225)
+
+[node name="RefillCharge5" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(3658, 1760)
+
+[node name="RefillCharge6" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(6667, 1359)
+
+[node name="RefillCharge7" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(7234, 979)
+
+[node name="RefillCharge8" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(8254, 907)
+
+[node name="RefillCharge9" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(9929, 907)
+
+[node name="RefillCharge10" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(18646, 870)
+
+[node name="RefillCharge11" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(19493, 870)
+
+[node name="RefillCharge12" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(20275, 870)
+
+[node name="RefillCharge13" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(21053, 870)
+
+[node name="RefillCharge14" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(22216, 862)
+
+[node name="RefillCharge15" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(22573, 759)
+
+[node name="RefillCharge16" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(22856, 759)
+
+[node name="RefillCharge17" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(23403, 540)
+
+[node name="RefillCharge18" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(24274, 540)
+
+[node name="RefillCharge19" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(25119, 540)
+
+[node name="RefillCharge20" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(25714, 198)
+
+[node name="RefillCharge21" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(25176, 132)
+
+[node name="RefillCharge22" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(21053, 56)
+
+[node name="RefillCharge23" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(20616, -89)
+
+[node name="RefillCharge24" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(19899, -220)
+
+[node name="RefillCharge25" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(19267, -344)
+
+[node name="RefillCharge29" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(20337, -141)
+
+[node name="RefillCharge30" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(19620, -272)
+
+[node name="RefillCharge31" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(18988, -396)
+
+[node name="RefillCharge26" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(18988, -741)
+
+[node name="RefillCharge27" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(18988, -1022)
+
+[node name="RefillCharge28" parent="RefillCharges_pandemonium" instance=ExtResource("11_fucnb")]
+position = Vector2(18988, -1294)
+
 [node name="RunningProstehtics" parent="." instance=ExtResource("5_iptij")]
 position = Vector2(5508, -971)
 
 [node name="RocketArms" parent="." instance=ExtResource("11_ak0ds")]
-position = Vector2(10693, -6461)
+position = Vector2(10300, -6461)
+
+[node name="RocketArms2" parent="." instance=ExtResource("11_ak0ds")]
+position = Vector2(1646, 5241)
 
 [node name="JetpackTorso" parent="." instance=ExtResource("12_4g114")]
 position = Vector2(8021, -16378)
@@ -2049,10 +2385,18 @@ position = Vector2(8021, -16378)
 [node name="Macguffin" parent="." instance=ExtResource("13_xia7y")]
 position = Vector2(17113, -19492)
 
+[node name="Macguffin2" parent="." instance=ExtResource("13_xia7y")]
+position = Vector2(1259, 5241)
+
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
-position = Vector2(21665, 393)
+top_level = true
+position = Vector2(5535, -877)
 floor_constant_speed = true
 floor_block_on_wall = false
 
 [node name="Elevator" parent="." instance=ExtResource("11_j4gsi")]
 position = Vector2(17288, -1053)
+
+[node name="DeathPlane" parent="." instance=ExtResource("1_owq06")]
+position = Vector2(7046, 237)
+scale = Vector2(100, 1)

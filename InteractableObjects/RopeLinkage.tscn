@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1xtej1vo82ej"]
 
-[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_g5lg5"]
+[ext_resource type="Texture2D" uid="uid://dedkcw5v5d8uv" path="res://Graphics/rope_linkage.png" id="1_vyke1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so3di"]
 radius = 3.84615
@@ -13,11 +13,11 @@ mass = 0.1
 center_of_mass_mode = 1
 can_sleep = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, 5.96046e-08)
-scale = Vector2(0.0625, 0.078125)
-texture = ExtResource("1_g5lg5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.04, 0.587175)
 shape = SubResource("CapsuleShape2D_so3di")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 3.55271e-15)
+texture = ExtResource("1_vyke1")
