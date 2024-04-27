@@ -19,5 +19,6 @@ shape = SubResource("CapsuleShape2D_so3di")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 3.55271e-15)
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1, 1.2)
 texture = ExtResource("1_vyke1")

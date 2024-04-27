@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpwq2wf1i4l5x"]
+
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_osi4p"]
+
+[node name="grass_dirt_tile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_osi4p")
+hframes = 10
+vframes = 10

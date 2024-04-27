@@ -230,7 +230,7 @@ node_b = NodePath("../RopeLinkageBottom")
 disable_collision = false
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("3_uxt1d")]
-position = Vector2(0, 104)
+position = Vector2(0, 103)
 mass = 0.2
 gravity_scale = 1.0
 freeze = true

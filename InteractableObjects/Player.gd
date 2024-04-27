@@ -81,10 +81,11 @@ func _process(delta):
 				anim.play("idle")
 			elif is_on_floor() && abs(velocity.x) > minRunSpeed:
 				anim.play("run")
-			elif is_on_floor() && abs(velocity.x) == minRunSpeed:
+			elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
 				anim.play("walk")
 		# Process player rope animations
 		elif isHoldingRope:
+			# FIX NEEDED: cannot press up when on swinging rope
 			if Input.is_action_pressed("ui_up") && swingRope.get_parent().name.contains("Static"):
 				anim.play("up_rope")
 			elif Input.is_action_pressed("ui_down") && swingRope.get_parent().name.contains("Static"):
@@ -120,6 +121,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+		print(cam.zoom)
 		direction = sign(velocity.x)
 	#Handle death conditions
 	#if !isDead || !hasReset:
@@ -127,7 +129,7 @@ func _physics_process(delta):
 			global_position = checkpoint
 			isDead = false
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
-		var zoomTemp = (0.8 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
+		var zoomTemp = (1.1 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
 		cam.zoom = Vector2(zoomTemp, zoomTemp)
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope && !hasJetpack:
@@ -151,10 +153,11 @@ func _physics_process(delta):
 					wasBouncing = false
 					wasSwinging = true
 					ropeTempPosition = 0
-					runSpeed = abs(velocity.x)
-					print("happening")
-					if abs(runSpeed) > maxRunSpeed:
-						runSpeed = maxRunSpeed * sign(velocity.x)
+					#print("happening")
+					if abs(velocity.x) < maxRunSpeed:
+						runSpeed = abs(velocity.x)
+					if abs(velocity.x) >= maxRunSpeed:
+						runSpeed = maxRunSpeed
 		# Handle physics on a rope
 		if !hasJetpack && swingRope != null && isHoldingRope:
 			countHangTime = 0
@@ -253,6 +256,7 @@ func _physics_process(delta):
 				elif hasRocketJump:
 					if Input.is_action_just_pressed("ui_accept") && countRocketJumps > 0:
 						countRocketJumps -= 1
+						countHangTime = 0
 						if Input.is_action_pressed("ui_right"):
 							if velocity.x > RocketJumpSpeed:
 								velocity.x = velocity.x + RocketJumpSpeed
@@ -278,8 +282,8 @@ func _physics_process(delta):
 						#explode()
 		# Handle grounded movement
 		else:
-			if wasSwinging:
-				print(runSpeed)
+			#if wasSwinging:
+				#print(runSpeed)
 			countHangTime = 0
 			countRocketJumps = maxRocketJumps
 			isHoldingRope = false
@@ -290,7 +294,6 @@ func _physics_process(delta):
 			elif wasJumping:
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					landedSoft = true
-					runSpeed = minRunSpeed
 				wasJumping = false
 			if isOnIce:
 				# Enable running toggle
@@ -349,12 +352,14 @@ func _physics_process(delta):
 					count +=1
 			elif landedSoft && softCount > 0:
 				velocity = Vector2(0, 0)
+				runSpeed = minRunSpeed
 				softCount -= 1
 				if softCount <= 0:
 					landedSoft = false
 					softCount = 33
 			elif landedHard && hardCount > 0:
 				velocity = Vector2(0, 0)
+				runSpeed = minRunSpeed
 				hardCount -= 1
 				if hardCount <= 0:
 					landedHard = false
@@ -373,13 +378,13 @@ func _physics_process(delta):
 			swingSpeed = velocity.x
 			
 		if swingRope == null:
-			# On desktop .005 decrement, on laptop  decrement
+			# On desktop .005 decrement, on laptop .05 decrement
 			if rotation > 0:
-				rotation -= .045
+				rotation -= .15
 				if rotation < 0:
 					rotation = 0
 			elif rotation < 0:
-				rotation += .045
+				rotation += .15
 				if rotation > 0:
 					rotation = 0
 		pass
@@ -470,13 +475,18 @@ func on_grab_with_legs(body):
 	use_legs(body)
 	if body.name.contains("Ice") || body.name.contains("Floor") || body.name.contains("Wall"):
 		# Apply landing lag or death conditions
-		if countHangTime >= 50 && countHangTime < 106 && !wasSwinging:
+		if wasSwinging && isRunning:
+			landedSoft = false
+			landedHard = false
+		elif countHangTime >= 50 && countHangTime < 106 && !wasSwinging || (countHangTime >= 150 && countHangTime < 249 && isInWindCurrent):
 			# Apply soft landing lag
 			landedSoft = true
-		elif countHangTime >= 106 && countHangTime < 137:
+		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
-		if countHangTime >= 137:
+		if countHangTime >= 137 && !isInWindCurrent:
+			isDead = true
+		elif countHangTime >= 400 && isInWindCurrent:
 			isDead = true
 	pass # Replace with function body.
 

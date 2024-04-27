@@ -8,7 +8,7 @@
 size = Vector2(11, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
-size = Vector2(65, 43.745)
+size = Vector2(65, 25.205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
 size = Vector2(27.5, 123.303)
@@ -579,7 +579,7 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandsArea2D"]
-position = Vector2(4.17232e-06, 0)
+position = Vector2(4.17232e-06, 10.725)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1opmy")
 
@@ -603,9 +603,7 @@ texture_filter = 1
 position = Vector2(-7.10543e-15, -1)
 scale = Vector2(1.28, 1.35484)
 sprite_frames = SubResource("SpriteFrames_e1rpn")
-animation = &"hard_land"
-frame = 8
-frame_progress = 0.869672
+animation = &"arms_out"
 
 [connection signal="body_entered" from="HandsArea2D" to="." method="_on_grab_with_hands"]
 [connection signal="body_exited" from="HandsArea2D" to="." method="_on_release_with_hands"]

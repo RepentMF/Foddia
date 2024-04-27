@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=22 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
 [ext_resource type="PackedScene" uid="uid://ck2f7tr4nnvab" path="res://InteractableObjects/DeathPlane.tscn" id="1_owq06"]
 [ext_resource type="PackedScene" uid="uid://37u0wcwbqa2k" path="res://InteractableObjects/CheckFlag.tscn" id="1_vm8im"]
+[ext_resource type="PackedScene" uid="uid://bpwq2wf1i4l5x" path="res://GraphicObjects/grass_dirt_tile.tscn" id="1_xc8nj"]
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="2_en4jt"]
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_uphaf"]
+[ext_resource type="PackedScene" uid="uid://dbox1vk3wami2" path="res://GraphicObjects/dirt_tile.tscn" id="2_xvqu7"]
 [ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="3_8gw5i"]
 [ext_resource type="PackedScene" uid="uid://d2ognoftyoyd5" path="res://InteractableObjects/StaticRopeLong.tscn" id="3_ijt1x"]
 [ext_resource type="PackedScene" uid="uid://c1r5d5ilplyqy" path="res://InteractableObjects/StaticRope.tscn" id="4_dyxgb"]
@@ -26,10 +28,666 @@ metadata/_edit_group_ = true
 metadata/_edit_vertical_guides_ = [10295.0]
 metadata/_edit_horizontal_guides_ = [-564.0]
 
+[node name="Foreground_Graphics" type="Node" parent="."]
+
+[node name="Area1_Graphics" type="Node2D" parent="Foreground_Graphics"]
+
+[node name="grass_dirt_tile" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-344, 6)
+
+[node name="grass_dirt_tile2" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-312, 6)
+
+[node name="grass_dirt_tile3" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-280, 6)
+
+[node name="grass_dirt_tile4" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-248, 6)
+
+[node name="grass_dirt_tile5" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-216, 6)
+
+[node name="grass_dirt_tile6" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-184, 6)
+
+[node name="grass_dirt_tile7" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-152, 6)
+
+[node name="grass_dirt_tile8" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-120, 6)
+
+[node name="grass_dirt_tile9" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-88, 6)
+
+[node name="grass_dirt_tile10" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-56, 6)
+
+[node name="grass_dirt_tile11" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(-24, 6)
+
+[node name="grass_dirt_tile12" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(8, 6)
+
+[node name="grass_dirt_tile13" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(40, 6)
+
+[node name="grass_dirt_tile14" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(72, 6)
+
+[node name="grass_dirt_tile15" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(104, 6)
+
+[node name="grass_dirt_tile16" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(136, 6)
+
+[node name="grass_dirt_tile17" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(168, 6)
+
+[node name="grass_dirt_tile18" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(200, 6)
+
+[node name="grass_dirt_tile19" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(232, 6)
+
+[node name="grass_dirt_tile20" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(264, 6)
+
+[node name="grass_dirt_tile21" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(296, 6)
+
+[node name="grass_dirt_tile22" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(328, 6)
+
+[node name="grass_dirt_tile23" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(360, 6)
+
+[node name="grass_dirt_tile24" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(392, 6)
+
+[node name="grass_dirt_tile25" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(424, 6)
+
+[node name="grass_dirt_tile26" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(456, 6)
+
+[node name="grass_dirt_tile27" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(680, 6)
+
+[node name="grass_dirt_tile28" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(712, 6)
+
+[node name="grass_dirt_tile29" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(744, 6)
+
+[node name="grass_dirt_tile30" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(776, 6)
+
+[node name="grass_dirt_tile31" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(808, 6)
+
+[node name="grass_dirt_tile32" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(840, 6)
+
+[node name="grass_dirt_tile33" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(872, 6)
+
+[node name="grass_dirt_tile34" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(904, 6)
+
+[node name="grass_dirt_tile35" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(936, 6)
+
+[node name="grass_dirt_tile36" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(968, 6)
+
+[node name="grass_dirt_tile37" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1000, 6)
+
+[node name="grass_dirt_tile38" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1032, 6)
+
+[node name="grass_dirt_tile39" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1064, 6)
+
+[node name="grass_dirt_tile40" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1096, 6)
+
+[node name="grass_dirt_tile41" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1128, 6)
+
+[node name="grass_dirt_tile42" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1160, 6)
+
+[node name="grass_dirt_tile43" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1192, 6)
+
+[node name="grass_dirt_tile44" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1224, 6)
+
+[node name="grass_dirt_tile45" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1256, 6)
+
+[node name="grass_dirt_tile46" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1288, 6)
+
+[node name="grass_dirt_tile47" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1320, 6)
+
+[node name="grass_dirt_tile48" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1352, 6)
+
+[node name="grass_dirt_tile49" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1384, 6)
+
+[node name="grass_dirt_tile50" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1416, 6)
+
+[node name="grass_dirt_tile51" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1448, 6)
+
+[node name="grass_dirt_tile52" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1480, 6)
+
+[node name="grass_dirt_tile53" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1778, 6)
+
+[node name="grass_dirt_tile54" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1810, 6)
+
+[node name="grass_dirt_tile55" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1842, 6)
+
+[node name="grass_dirt_tile56" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1874, 6)
+
+[node name="grass_dirt_tile57" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1906, 6)
+
+[node name="grass_dirt_tile58" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1938, 6)
+
+[node name="grass_dirt_tile59" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(1970, 6)
+
+[node name="grass_dirt_tile60" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2002, 6)
+
+[node name="grass_dirt_tile61" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2034, 6)
+
+[node name="grass_dirt_tile62" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2066, 6)
+
+[node name="grass_dirt_tile63" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2098, 6)
+
+[node name="grass_dirt_tile64" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2130, 6)
+
+[node name="grass_dirt_tile65" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2162, 6)
+
+[node name="grass_dirt_tile66" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2194, 6)
+
+[node name="grass_dirt_tile67" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2226, 6)
+
+[node name="grass_dirt_tile68" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2258, 6)
+
+[node name="grass_dirt_tile69" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2290, 6)
+
+[node name="grass_dirt_tile70" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2322, 6)
+
+[node name="grass_dirt_tile71" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2354, 6)
+
+[node name="grass_dirt_tile72" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2386, 6)
+
+[node name="grass_dirt_tile73" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2418, 6)
+
+[node name="grass_dirt_tile74" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2450, 6)
+
+[node name="grass_dirt_tile75" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2482, 6)
+
+[node name="grass_dirt_tile76" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2505, 6)
+
+[node name="grass_dirt_tile77" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2633, -238)
+
+[node name="grass_dirt_tile78" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2665, -238)
+
+[node name="grass_dirt_tile79" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2697, -238)
+
+[node name="grass_dirt_tile80" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2729, -238)
+
+[node name="grass_dirt_tile81" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2825, -238)
+
+[node name="grass_dirt_tile82" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2857, -238)
+
+[node name="grass_dirt_tile83" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2889, -238)
+
+[node name="grass_dirt_tile84" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2921, -238)
+
+[node name="grass_dirt_tile85" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2953, -238)
+
+[node name="grass_dirt_tile86" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(2985, -238)
+
+[node name="grass_dirt_tile87" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3017, -238)
+
+[node name="grass_dirt_tile88" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3113, -238)
+
+[node name="grass_dirt_tile89" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3145, -238)
+
+[node name="grass_dirt_tile90" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3177, -238)
+
+[node name="dirt_tile" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(72, 22)
+
+[node name="dirt_tile2" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(104, 22)
+
+[node name="dirt_tile3" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(136, 22)
+
+[node name="dirt_tile4" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(168, 22)
+
+[node name="dirt_tile5" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(200, 22)
+
+[node name="dirt_tile6" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(232, 22)
+
+[node name="dirt_tile7" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(264, 22)
+
+[node name="dirt_tile8" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(296, 22)
+
+[node name="dirt_tile9" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(328, 22)
+
+[node name="dirt_tile10" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(360, 22)
+
+[node name="dirt_tile11" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(392, 22)
+
+[node name="dirt_tile12" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(424, 22)
+
+[node name="dirt_tile13" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(456, 22)
+
+[node name="dirt_tile14" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(488, 22)
+
+[node name="dirt_tile15" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(520, 22)
+
+[node name="dirt_tile16" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(552, 22)
+
+[node name="dirt_tile17" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(584, 22)
+
+[node name="dirt_tile18" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(616, 22)
+
+[node name="dirt_tile19" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(648, 22)
+
+[node name="dirt_tile20" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(680, 22)
+
+[node name="dirt_tile21" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(712, 22)
+
+[node name="dirt_tile22" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(744, 22)
+
+[node name="dirt_tile23" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(776, 22)
+
+[node name="dirt_tile24" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(808, 22)
+
+[node name="dirt_tile25" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(840, 22)
+
+[node name="dirt_tile26" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(872, 22)
+
+[node name="dirt_tile27" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1096, 38)
+
+[node name="dirt_tile28" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1128, 38)
+
+[node name="dirt_tile29" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1160, 38)
+
+[node name="dirt_tile30" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1192, 38)
+
+[node name="dirt_tile31" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1224, 38)
+
+[node name="dirt_tile32" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1256, 38)
+
+[node name="dirt_tile33" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1288, 38)
+
+[node name="dirt_tile34" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1320, 38)
+
+[node name="dirt_tile35" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1352, 38)
+
+[node name="dirt_tile36" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1384, 38)
+
+[node name="dirt_tile37" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1416, 38)
+
+[node name="dirt_tile38" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1448, 38)
+
+[node name="dirt_tile39" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1480, 38)
+
+[node name="dirt_tile40" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1512, 38)
+
+[node name="dirt_tile41" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1544, 38)
+
+[node name="dirt_tile42" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1576, 38)
+
+[node name="dirt_tile43" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1608, 38)
+
+[node name="dirt_tile44" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1640, 38)
+
+[node name="dirt_tile45" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1672, 38)
+
+[node name="dirt_tile46" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1704, 38)
+
+[node name="dirt_tile47" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1736, 38)
+
+[node name="dirt_tile48" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1768, 38)
+
+[node name="dirt_tile49" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1800, 38)
+
+[node name="dirt_tile50" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1832, 38)
+
+[node name="dirt_tile51" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1864, 38)
+
+[node name="dirt_tile52" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(1896, 38)
+
+[node name="dirt_tile53" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, 6)
+
+[node name="dirt_tile54" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -24)
+
+[node name="dirt_tile55" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -54)
+
+[node name="dirt_tile56" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -84)
+
+[node name="dirt_tile57" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -115)
+
+[node name="dirt_tile58" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -145)
+
+[node name="dirt_tile59" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -177)
+
+[node name="dirt_tile60" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -207)
+
+[node name="dirt_tile61" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2537, -238)
+
+[node name="dirt_tile62" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2569, -238)
+
+[node name="dirt_tile63" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2601, -238)
+
+[node name="dirt_tile64" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2761, -238)
+
+[node name="dirt_tile65" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(2793, -238)
+
+[node name="dirt_tile66" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3049, -238)
+
+[node name="dirt_tile67" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3081, -238)
+
+[node name="dirt_tile68" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3209, -238)
+
+[node name="dirt_tile69" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3241, -238)
+
+[node name="dirt_tile70" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3273, -238)
+
+[node name="dirt_tile71" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3305, -238)
+
+[node name="dirt_tile72" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3337, -238)
+
+[node name="dirt_tile73" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3369, -238)
+
 [node name="CheckFlags_main" type="Node" parent="."]
 
 [node name="CheckFlag1" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
-position = Vector2(8732, -855)
+position = Vector2(8732, -887)
 
 [node name="CheckFlag2" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
 position = Vector2(14332, -2117)
@@ -352,7 +1010,7 @@ scale = Vector2(1, 0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall2" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6094, -417)
+position = Vector2(6094, -424)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -363,7 +1021,7 @@ scale = Vector2(1, -0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall3" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6542, -417)
+position = Vector2(6542, -424)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -374,7 +1032,7 @@ scale = Vector2(1, 0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall4" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6844, -417)
+position = Vector2(6844, -430)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -385,7 +1043,7 @@ scale = Vector2(1, -0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall5" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7292, -417)
+position = Vector2(7292, -430)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -396,7 +1054,7 @@ scale = Vector2(1, 0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall6" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7699, -417)
+position = Vector2(7699, -441)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -407,7 +1065,7 @@ scale = Vector2(1, -0.0384615)
 skew = -9.40561e-05
 
 [node name="DeathPitWall7" parent="Walls_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8147, -417)
+position = Vector2(8147, -441)
 rotation = 1.5708
 scale = Vector2(26, 1)
 
@@ -462,7 +1120,7 @@ position = Vector2(14.7692, -37)
 scale = Vector2(0.0769231, 1)
 
 [node name="Floor8" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(4120, -508)
+position = Vector2(4120, -524)
 scale = Vector2(13, 1)
 
 [node name="LedgeGrabRight" parent="Floors_main/Floor8" instance=ExtResource("3_8gw5i")]
@@ -479,7 +1137,7 @@ position = Vector2(4425, -268)
 scale = Vector2(65, 1)
 
 [node name="Floor10" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(4661, -508)
+position = Vector2(4661, -534)
 scale = Vector2(13, 1)
 
 [node name="LedgeGrabRight" parent="Floors_main/Floor10" instance=ExtResource("3_8gw5i")]
@@ -496,7 +1154,7 @@ position = Vector2(4747, -300)
 scale = Vector2(45, 1)
 
 [node name="Floor12" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(5295, -508)
+position = Vector2(5295, -531)
 scale = Vector2(13, 1)
 
 [node name="LedgeGrabRight" parent="Floors_main/Floor12" instance=ExtResource("3_8gw5i")]
@@ -507,6 +1165,10 @@ scale = Vector2(0.0769231, -1)
 [node name="Floor13" parent="Floors_main" instance=ExtResource("2_en4jt")]
 position = Vector2(5295, -476)
 scale = Vector2(13, 1)
+
+[node name="Floor81" parent="Floors_main" instance=ExtResource("2_en4jt")]
+position = Vector2(5295, -508)
+scale = Vector2(13, 1.2)
 
 [node name="Floor14" parent="Floors_main" instance=ExtResource("2_en4jt")]
 position = Vector2(5263, -444)
@@ -541,19 +1203,19 @@ position = Vector2(15.8545, -37)
 scale = Vector2(0.00909091, 1)
 
 [node name="Floor21" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(6318, -817)
+position = Vector2(6318, -824)
 scale = Vector2(13, 1)
 
 [node name="Floor22" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7068, -817)
+position = Vector2(7068, -830)
 scale = Vector2(13, 1)
 
 [node name="Floor23" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(7923, -817)
+position = Vector2(7923, -841)
 scale = Vector2(13, 1)
 
 [node name="Floor24" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8868, -819)
+position = Vector2(8868, -851)
 scale = Vector2(13, 1)
 
 [node name="LedgeGrabRight" parent="Floors_main/Floor24" instance=ExtResource("3_8gw5i")]
@@ -570,19 +1232,19 @@ position = Vector2(9275, -929)
 scale = Vector2(13, 1)
 
 [node name="Floor27" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9194, -905)
+position = Vector2(9195, -912)
 scale = Vector2(13, 1)
 
 [node name="Floor28" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9136, -883)
+position = Vector2(9136, -896)
 scale = Vector2(13, 1)
 
 [node name="Floor29" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(9063, -858)
+position = Vector2(9065, -880)
 scale = Vector2(13, 1)
 
 [node name="Floor30" parent="Floors_main" instance=ExtResource("2_en4jt")]
-position = Vector2(8991, -837)
+position = Vector2(8991, -867)
 scale = Vector2(13, 1)
 
 [node name="Floor31" parent="Floors_main" instance=ExtResource("2_en4jt")]
@@ -2390,7 +3052,7 @@ position = Vector2(1259, 5241)
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
 top_level = true
-position = Vector2(15105, -2423)
+position = Vector2(0, -28)
 floor_constant_speed = true
 floor_block_on_wall = false
 

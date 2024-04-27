@@ -6,7 +6,7 @@
 
 [node name="SwingingRope" type="Node2D"]
 
-[node name="Block" parent="." instance=ExtResource("1_as6d8")]
+[node name="Floor" parent="." instance=ExtResource("1_as6d8")]
 mass = 1.0
 gravity_scale = 1.0
 
@@ -20,7 +20,7 @@ scale = Vector2(1, -1)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, 16)
-node_a = NodePath("../Block")
+node_a = NodePath("../Floor")
 node_b = NodePath("../RopeLinkageTop")
 bias = 0.9
 disable_collision = false
