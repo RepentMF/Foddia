@@ -11,6 +11,7 @@ position = Vector2(0, -57)
 position = Vector2(-12, -3)
 
 [node name="RopeLinkageTop" parent="." instance=ExtResource("2_tstqd")]
+position = Vector2(0, 1)
 freeze = true
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]

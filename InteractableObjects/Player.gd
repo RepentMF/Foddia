@@ -121,7 +121,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-		print(cam.zoom)
+		print(isDead)
 		direction = sign(velocity.x)
 	#Handle death conditions
 	#if !isDead || !hasReset:

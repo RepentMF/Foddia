@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1anuq87k0qy4"]
+[gd_scene load_steps=28 format=3 uid="uid://1anuq87k0qy4"]
 
 [ext_resource type="PackedScene" uid="uid://gpb65m67g1qe" path="res://InteractableObjects/Player.tscn" id="1_bbe1x"]
 [ext_resource type="PackedScene" uid="uid://ck2f7tr4nnvab" path="res://InteractableObjects/DeathPlane.tscn" id="1_owq06"]
@@ -8,10 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_uphaf"]
 [ext_resource type="PackedScene" uid="uid://dbox1vk3wami2" path="res://GraphicObjects/dirt_tile.tscn" id="2_xvqu7"]
 [ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="3_8gw5i"]
+[ext_resource type="PackedScene" uid="uid://bn1x2gp871els" path="res://GraphicObjects/stone_tile.tscn" id="3_81gnv"]
 [ext_resource type="PackedScene" uid="uid://d2ognoftyoyd5" path="res://InteractableObjects/StaticRopeLong.tscn" id="3_ijt1x"]
 [ext_resource type="PackedScene" uid="uid://c1r5d5ilplyqy" path="res://InteractableObjects/StaticRope.tscn" id="4_dyxgb"]
+[ext_resource type="PackedScene" uid="uid://qk85fqegoehf" path="res://GraphicObjects/scaffold_tile.tscn" id="4_pniqp"]
+[ext_resource type="PackedScene" uid="uid://brkmpwtnyakbr" path="res://GraphicObjects/scaffold_top_tile.tscn" id="5_7s2sy"]
 [ext_resource type="PackedScene" uid="uid://pep6as5g76w6" path="res://InteractableObjects/RunningProsthetics.tscn" id="5_iptij"]
+[ext_resource type="PackedScene" uid="uid://b7k1pwn3uvhfr" path="res://GraphicObjects/scaffold_background_tile.tscn" id="6_5vl35"]
+[ext_resource type="PackedScene" uid="uid://0wk4ooorqeg4" path="res://GraphicObjects/moss_top_tile.tscn" id="6_rf63y"]
 [ext_resource type="PackedScene" uid="uid://cjjw3faof6su7" path="res://InteractableObjects/Springboard.tscn" id="7_3svxd"]
+[ext_resource type="PackedScene" uid="uid://bteb37qo5o5c6" path="res://GraphicObjects/scaffold_bottom_tile.tscn" id="7_dfr3r"]
 [ext_resource type="PackedScene" uid="uid://d140swyckf05s" path="res://InteractableObjects/SwingingRope.tscn" id="7_rucoj"]
 [ext_resource type="PackedScene" uid="uid://cnhb5fb30k7ma" path="res://InteractableObjects/Springboard_elastic.tscn" id="8_jfuoq"]
 [ext_resource type="PackedScene" uid="uid://72qrj23hq1sl" path="res://InteractableObjects/WindCurrent.tscn" id="9_h1kkb"]
@@ -23,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cnovtinhjb2b8" path="res://InteractableObjects/FallingSwingingRope.tscn" id="15_emypx"]
 
 [node name="Overworld" type="Node2D"]
-position = Vector2(68, -255)
+position = Vector2(72, -252)
 metadata/_edit_group_ = true
 metadata/_edit_vertical_guides_ = [10295.0]
 metadata/_edit_horizontal_guides_ = [-564.0]
@@ -392,6 +398,30 @@ position = Vector2(3145, -238)
 z_index = 2
 position = Vector2(3177, -238)
 
+[node name="grass_dirt_tile91" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3560, -510)
+
+[node name="grass_dirt_tile92" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3592, -510)
+
+[node name="grass_dirt_tile93" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3624, -510)
+
+[node name="grass_dirt_tile94" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3688, -510)
+
+[node name="grass_dirt_tile95" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3720, -510)
+
+[node name="grass_dirt_tile96" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(3752, -510)
+
 [node name="dirt_tile" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
 z_index = 1
 position = Vector2(72, 22)
@@ -636,6 +666,34 @@ position = Vector2(2537, -207)
 z_index = 1
 position = Vector2(2537, -238)
 
+[node name="dirt_tile74" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -350)
+
+[node name="dirt_tile75" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -380)
+
+[node name="dirt_tile76" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -410)
+
+[node name="dirt_tile78" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -474)
+
+[node name="dirt_tile80" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -442)
+
+[node name="dirt_tile79" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -504)
+
+[node name="dirt_tile81" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3401, -510)
+
 [node name="dirt_tile62" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
 z_index = 1
 position = Vector2(2569, -238)
@@ -684,10 +742,4029 @@ position = Vector2(3337, -238)
 z_index = 1
 position = Vector2(3369, -238)
 
+[node name="dirt_tile77" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3432, -510)
+
+[node name="dirt_tile82" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3464, -510)
+
+[node name="dirt_tile83" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3496, -510)
+
+[node name="dirt_tile84" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3528, -510)
+
+[node name="dirt_tile85" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3656, -510)
+
+[node name="dirt_tile86" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3785, -510)
+
+[node name="dirt_tile88" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3783, -510)
+
+[node name="dirt_tile87" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3817, -510)
+
+[node name="grass_dirt_tile97" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4056, -526)
+
+[node name="grass_dirt_tile98" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4088, -526)
+
+[node name="grass_dirt_tile99" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4120, -526)
+
+[node name="grass_dirt_tile100" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4184, -526)
+
+[node name="grass_dirt_tile101" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4216, -526)
+
+[node name="grass_dirt_tile102" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4248, -526)
+
+[node name="dirt_tile89" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3928, -526)
+
+[node name="dirt_tile90" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3960, -526)
+
+[node name="dirt_tile91" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(3992, -526)
+
+[node name="dirt_tile92" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4024, -526)
+
+[node name="dirt_tile93" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4152, -526)
+
+[node name="dirt_tile94" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4281, -526)
+
+[node name="dirt_tile95" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4279, -526)
+
+[node name="dirt_tile96" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4313, -526)
+
+[node name="grass_dirt_tile103" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4597, -536)
+
+[node name="grass_dirt_tile104" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4629, -536)
+
+[node name="grass_dirt_tile105" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4661, -536)
+
+[node name="grass_dirt_tile106" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4725, -536)
+
+[node name="grass_dirt_tile107" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4757, -536)
+
+[node name="grass_dirt_tile108" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(4789, -536)
+
+[node name="dirt_tile97" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4469, -536)
+
+[node name="dirt_tile98" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4501, -536)
+
+[node name="dirt_tile99" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4533, -536)
+
+[node name="dirt_tile100" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4565, -536)
+
+[node name="dirt_tile101" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4693, -536)
+
+[node name="dirt_tile102" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4822, -536)
+
+[node name="dirt_tile103" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4820, -536)
+
+[node name="dirt_tile104" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(4854, -536)
+
+[node name="grass_dirt_tile109" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5230, -533)
+
+[node name="grass_dirt_tile110" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5262, -533)
+
+[node name="grass_dirt_tile111" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5294, -533)
+
+[node name="grass_dirt_tile112" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5358, -533)
+
+[node name="grass_dirt_tile113" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5390, -533)
+
+[node name="grass_dirt_tile114" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("1_xc8nj")]
+z_index = 2
+position = Vector2(5422, -533)
+
+[node name="dirt_tile105" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5102, -533)
+
+[node name="dirt_tile106" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5134, -533)
+
+[node name="dirt_tile107" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5166, -533)
+
+[node name="dirt_tile108" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5198, -533)
+
+[node name="dirt_tile109" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5326, -533)
+
+[node name="dirt_tile110" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5455, -533)
+
+[node name="dirt_tile111" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5453, -533)
+
+[node name="dirt_tile112" parent="Foreground_Graphics/Area1_Graphics" instance=ExtResource("2_xvqu7")]
+z_index = 1
+position = Vector2(5487, -533)
+
+[node name="Area2_Graphics" type="Node2D" parent="Foreground_Graphics"]
+
+[node name="stone_tile" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5551, -819)
+
+[node name="stone_tile361" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -819)
+
+[node name="stone_tile362" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -787)
+
+[node name="stone_tile363" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -755)
+
+[node name="stone_tile364" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -723)
+
+[node name="stone_tile365" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -691)
+
+[node name="stone_tile366" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -659)
+
+[node name="stone_tile367" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -627)
+
+[node name="stone_tile368" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -595)
+
+[node name="stone_tile369" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -563)
+
+[node name="stone_tile370" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -531)
+
+[node name="stone_tile371" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -499)
+
+[node name="stone_tile372" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -467)
+
+[node name="stone_tile373" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -435)
+
+[node name="stone_tile374" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -403)
+
+[node name="stone_tile375" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -371)
+
+[node name="stone_tile376" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -339)
+
+[node name="stone_tile377" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -307)
+
+[node name="stone_tile378" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -275)
+
+[node name="stone_tile397" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -243)
+
+[node name="stone_tile398" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -211)
+
+[node name="stone_tile399" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -179)
+
+[node name="stone_tile400" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -147)
+
+[node name="stone_tile401" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -115)
+
+[node name="stone_tile402" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -83)
+
+[node name="stone_tile403" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5519, -51)
+
+[node name="stone_tile410" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -794)
+
+[node name="stone_tile411" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -762)
+
+[node name="stone_tile412" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -730)
+
+[node name="stone_tile413" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -698)
+
+[node name="stone_tile414" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -666)
+
+[node name="stone_tile415" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -634)
+
+[node name="stone_tile416" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -602)
+
+[node name="stone_tile417" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -570)
+
+[node name="stone_tile418" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -538)
+
+[node name="stone_tile419" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -506)
+
+[node name="stone_tile420" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -474)
+
+[node name="stone_tile421" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -442)
+
+[node name="stone_tile422" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -410)
+
+[node name="stone_tile423" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -378)
+
+[node name="stone_tile424" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -346)
+
+[node name="stone_tile425" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -314)
+
+[node name="stone_tile426" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -282)
+
+[node name="stone_tile427" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -250)
+
+[node name="stone_tile428" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -218)
+
+[node name="stone_tile429" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -186)
+
+[node name="stone_tile430" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -154)
+
+[node name="stone_tile431" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -122)
+
+[node name="stone_tile432" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -90)
+
+[node name="stone_tile433" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -58)
+
+[node name="stone_tile434" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -51)
+
+[node name="stone_tile436" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -794)
+
+[node name="stone_tile437" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -762)
+
+[node name="stone_tile438" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -730)
+
+[node name="stone_tile439" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -698)
+
+[node name="stone_tile440" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -666)
+
+[node name="stone_tile441" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -634)
+
+[node name="stone_tile442" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -602)
+
+[node name="stone_tile443" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -570)
+
+[node name="stone_tile444" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -538)
+
+[node name="stone_tile445" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -506)
+
+[node name="stone_tile446" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -474)
+
+[node name="stone_tile447" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -442)
+
+[node name="stone_tile448" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -410)
+
+[node name="stone_tile449" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -378)
+
+[node name="stone_tile450" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -346)
+
+[node name="stone_tile451" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -314)
+
+[node name="stone_tile452" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -282)
+
+[node name="stone_tile453" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -250)
+
+[node name="stone_tile454" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -218)
+
+[node name="stone_tile455" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -186)
+
+[node name="stone_tile456" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -154)
+
+[node name="stone_tile457" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -122)
+
+[node name="stone_tile458" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -90)
+
+[node name="stone_tile459" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -58)
+
+[node name="stone_tile460" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -51)
+
+[node name="stone_tile461" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -800)
+
+[node name="stone_tile462" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -768)
+
+[node name="stone_tile463" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -736)
+
+[node name="stone_tile464" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -704)
+
+[node name="stone_tile465" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -672)
+
+[node name="stone_tile466" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -640)
+
+[node name="stone_tile467" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -608)
+
+[node name="stone_tile468" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -576)
+
+[node name="stone_tile469" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -544)
+
+[node name="stone_tile470" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -512)
+
+[node name="stone_tile471" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -480)
+
+[node name="stone_tile472" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -448)
+
+[node name="stone_tile473" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -416)
+
+[node name="stone_tile474" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -384)
+
+[node name="stone_tile475" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -352)
+
+[node name="stone_tile476" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -320)
+
+[node name="stone_tile477" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -288)
+
+[node name="stone_tile478" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -256)
+
+[node name="stone_tile479" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -224)
+
+[node name="stone_tile480" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -192)
+
+[node name="stone_tile481" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -160)
+
+[node name="stone_tile482" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -128)
+
+[node name="stone_tile483" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -96)
+
+[node name="stone_tile484" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -64)
+
+[node name="stone_tile485" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -51)
+
+[node name="stone_tile486" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -800)
+
+[node name="stone_tile487" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -768)
+
+[node name="stone_tile488" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -736)
+
+[node name="stone_tile489" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -704)
+
+[node name="stone_tile490" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -672)
+
+[node name="stone_tile491" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -640)
+
+[node name="stone_tile492" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -608)
+
+[node name="stone_tile493" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -576)
+
+[node name="stone_tile494" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -544)
+
+[node name="stone_tile495" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -512)
+
+[node name="stone_tile496" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -480)
+
+[node name="stone_tile497" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -448)
+
+[node name="stone_tile498" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -416)
+
+[node name="stone_tile499" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -384)
+
+[node name="stone_tile500" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -352)
+
+[node name="stone_tile501" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -320)
+
+[node name="stone_tile502" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -288)
+
+[node name="stone_tile503" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -256)
+
+[node name="stone_tile504" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -224)
+
+[node name="stone_tile505" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -192)
+
+[node name="stone_tile506" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -160)
+
+[node name="stone_tile507" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -128)
+
+[node name="stone_tile508" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -96)
+
+[node name="stone_tile509" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -64)
+
+[node name="stone_tile510" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -51)
+
+[node name="stone_tile511" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -811)
+
+[node name="stone_tile512" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -779)
+
+[node name="stone_tile513" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -747)
+
+[node name="stone_tile514" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -715)
+
+[node name="stone_tile515" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -683)
+
+[node name="stone_tile516" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -651)
+
+[node name="stone_tile517" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -619)
+
+[node name="stone_tile518" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -587)
+
+[node name="stone_tile519" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -555)
+
+[node name="stone_tile520" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -523)
+
+[node name="stone_tile521" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -491)
+
+[node name="stone_tile522" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -459)
+
+[node name="stone_tile523" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -427)
+
+[node name="stone_tile524" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -395)
+
+[node name="stone_tile525" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -363)
+
+[node name="stone_tile526" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -331)
+
+[node name="stone_tile527" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -299)
+
+[node name="stone_tile528" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -267)
+
+[node name="stone_tile529" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -235)
+
+[node name="stone_tile530" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -203)
+
+[node name="stone_tile531" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -171)
+
+[node name="stone_tile532" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -139)
+
+[node name="stone_tile533" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -107)
+
+[node name="stone_tile534" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -75)
+
+[node name="stone_tile535" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -51)
+
+[node name="stone_tile536" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -811)
+
+[node name="stone_tile537" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -779)
+
+[node name="stone_tile538" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -747)
+
+[node name="stone_tile539" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -715)
+
+[node name="stone_tile540" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -683)
+
+[node name="stone_tile541" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -651)
+
+[node name="stone_tile542" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -619)
+
+[node name="stone_tile543" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -587)
+
+[node name="stone_tile544" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -555)
+
+[node name="stone_tile545" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -523)
+
+[node name="stone_tile546" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -491)
+
+[node name="stone_tile547" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -459)
+
+[node name="stone_tile548" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -427)
+
+[node name="stone_tile549" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -395)
+
+[node name="stone_tile550" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -363)
+
+[node name="stone_tile551" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -331)
+
+[node name="stone_tile552" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -299)
+
+[node name="stone_tile553" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -267)
+
+[node name="stone_tile554" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -235)
+
+[node name="stone_tile555" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -203)
+
+[node name="stone_tile556" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -171)
+
+[node name="stone_tile557" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -139)
+
+[node name="stone_tile558" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -107)
+
+[node name="stone_tile559" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -75)
+
+[node name="stone_tile560" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -51)
+
+[node name="stone_tile561" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -821)
+
+[node name="stone_tile562" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -789)
+
+[node name="stone_tile563" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -757)
+
+[node name="stone_tile564" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -725)
+
+[node name="stone_tile565" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -693)
+
+[node name="stone_tile566" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -661)
+
+[node name="stone_tile567" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -629)
+
+[node name="stone_tile568" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -597)
+
+[node name="stone_tile569" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -565)
+
+[node name="stone_tile570" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -533)
+
+[node name="stone_tile571" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -501)
+
+[node name="stone_tile572" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -469)
+
+[node name="stone_tile573" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -437)
+
+[node name="stone_tile574" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -405)
+
+[node name="stone_tile575" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -373)
+
+[node name="stone_tile576" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -341)
+
+[node name="stone_tile577" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -309)
+
+[node name="stone_tile578" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -277)
+
+[node name="stone_tile579" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -245)
+
+[node name="stone_tile580" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -213)
+
+[node name="stone_tile581" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -181)
+
+[node name="stone_tile582" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -149)
+
+[node name="stone_tile583" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -117)
+
+[node name="stone_tile584" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -85)
+
+[node name="stone_tile585" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -53)
+
+[node name="stone_tile586" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -51)
+
+[node name="stone_tile404" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -211)
+
+[node name="stone_tile405" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -179)
+
+[node name="stone_tile406" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -147)
+
+[node name="stone_tile407" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -115)
+
+[node name="stone_tile408" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -83)
+
+[node name="stone_tile409" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -51)
+
+[node name="stone_tile379" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -787)
+
+[node name="stone_tile380" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -755)
+
+[node name="stone_tile381" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -723)
+
+[node name="stone_tile382" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -691)
+
+[node name="stone_tile383" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -659)
+
+[node name="stone_tile384" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -627)
+
+[node name="stone_tile385" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -595)
+
+[node name="stone_tile386" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -563)
+
+[node name="stone_tile387" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -531)
+
+[node name="stone_tile388" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -499)
+
+[node name="stone_tile389" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -467)
+
+[node name="stone_tile390" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -435)
+
+[node name="stone_tile391" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -403)
+
+[node name="stone_tile392" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -371)
+
+[node name="stone_tile393" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -339)
+
+[node name="stone_tile394" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -307)
+
+[node name="stone_tile395" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -275)
+
+[node name="stone_tile396" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -243)
+
+[node name="stone_tile2" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5583, -819)
+
+[node name="stone_tile3" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5615, -819)
+
+[node name="stone_tile4" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5647, -819)
+
+[node name="stone_tile5" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5679, -819)
+
+[node name="stone_tile6" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5711, -819)
+
+[node name="stone_tile7" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5743, -819)
+
+[node name="stone_tile8" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5775, -819)
+
+[node name="stone_tile9" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5807, -819)
+
+[node name="stone_tile10" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5839, -819)
+
+[node name="stone_tile11" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5871, -819)
+
+[node name="stone_tile12" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5903, -819)
+
+[node name="stone_tile13" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5935, -819)
+
+[node name="stone_tile14" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5967, -819)
+
+[node name="stone_tile15" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6094, -826)
+
+[node name="stone_tile16" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6126, -826)
+
+[node name="stone_tile17" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6158, -826)
+
+[node name="stone_tile18" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6190, -826)
+
+[node name="stone_tile19" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6222, -826)
+
+[node name="stone_tile20" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6254, -826)
+
+[node name="stone_tile21" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6286, -826)
+
+[node name="stone_tile22" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6318, -826)
+
+[node name="stone_tile23" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6350, -826)
+
+[node name="stone_tile24" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6382, -826)
+
+[node name="stone_tile25" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6414, -826)
+
+[node name="stone_tile26" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6446, -826)
+
+[node name="stone_tile27" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6478, -826)
+
+[node name="stone_tile28" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6510, -826)
+
+[node name="stone_tile29" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6542, -826)
+
+[node name="stone_tile30" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6844, -832)
+
+[node name="stone_tile31" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6876, -832)
+
+[node name="stone_tile32" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6908, -832)
+
+[node name="stone_tile33" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6940, -832)
+
+[node name="stone_tile34" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6972, -832)
+
+[node name="stone_tile35" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7004, -832)
+
+[node name="stone_tile36" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7036, -832)
+
+[node name="stone_tile37" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7068, -832)
+
+[node name="stone_tile38" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7100, -832)
+
+[node name="stone_tile39" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7132, -832)
+
+[node name="stone_tile40" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7164, -832)
+
+[node name="stone_tile41" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7196, -832)
+
+[node name="stone_tile42" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7228, -832)
+
+[node name="stone_tile43" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7260, -832)
+
+[node name="stone_tile44" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7292, -832)
+
+[node name="stone_tile45" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7699, -843)
+
+[node name="stone_tile46" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7731, -843)
+
+[node name="stone_tile47" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7763, -843)
+
+[node name="stone_tile48" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7795, -843)
+
+[node name="stone_tile49" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7827, -843)
+
+[node name="stone_tile50" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7859, -843)
+
+[node name="stone_tile51" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7891, -843)
+
+[node name="stone_tile52" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7923, -843)
+
+[node name="stone_tile53" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7955, -843)
+
+[node name="stone_tile54" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7987, -843)
+
+[node name="stone_tile55" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8019, -843)
+
+[node name="stone_tile56" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8051, -843)
+
+[node name="stone_tile57" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8083, -843)
+
+[node name="stone_tile58" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8115, -843)
+
+[node name="stone_tile59" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8147, -843)
+
+[node name="stone_tile60" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8676, -853)
+
+[node name="stone_tile61" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8708, -853)
+
+[node name="stone_tile62" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8740, -853)
+
+[node name="stone_tile63" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8772, -853)
+
+[node name="stone_tile64" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8799, -869)
+
+[node name="stone_tile65" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8831, -869)
+
+[node name="stone_tile66" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8863, -869)
+
+[node name="stone_tile67" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8873, -882)
+
+[node name="stone_tile68" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8905, -882)
+
+[node name="stone_tile69" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8937, -882)
+
+[node name="stone_tile70" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8944, -898)
+
+[node name="stone_tile71" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8976, -898)
+
+[node name="stone_tile72" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9003, -914)
+
+[node name="stone_tile73" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9035, -914)
+
+[node name="stone_tile74" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9067, -914)
+
+[node name="stone_tile75" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9083, -931)
+
+[node name="stone_tile76" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9115, -931)
+
+[node name="stone_tile77" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9147, -931)
+
+[node name="stone_tile78" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9179, -931)
+
+[node name="stone_tile79" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9211, -931)
+
+[node name="stone_tile80" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9243, -931)
+
+[node name="stone_tile81" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9275, -931)
+
+[node name="stone_tile82" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9307, -931)
+
+[node name="stone_tile83" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9339, -931)
+
+[node name="stone_tile84" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9371, -931)
+
+[node name="stone_tile85" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9403, -931)
+
+[node name="stone_tile86" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9435, -931)
+
+[node name="stone_tile87" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9467, -931)
+
+[node name="stone_tile98" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9500, -1219)
+
+[node name="stone_tile99" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9532, -1219)
+
+[node name="stone_tile100" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9564, -1219)
+
+[node name="stone_tile101" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9596, -1219)
+
+[node name="stone_tile102" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9628, -1219)
+
+[node name="stone_tile103" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9660, -1219)
+
+[node name="stone_tile104" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9692, -1219)
+
+[node name="stone_tile105" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9724, -1219)
+
+[node name="stone_tile106" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9756, -1219)
+
+[node name="stone_tile107" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9788, -1219)
+
+[node name="stone_tile108" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9820, -1219)
+
+[node name="stone_tile109" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9852, -1219)
+
+[node name="stone_tile110" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9884, -1219)
+
+[node name="stone_tile111" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9916, -1219)
+
+[node name="stone_tile112" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9948, -1219)
+
+[node name="stone_tile113" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9980, -1219)
+
+[node name="stone_tile121" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9145, -1517)
+
+[node name="stone_tile122" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9177, -1517)
+
+[node name="stone_tile123" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9209, -1517)
+
+[node name="stone_tile124" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9241, -1517)
+
+[node name="stone_tile125" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9273, -1517)
+
+[node name="stone_tile126" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9305, -1517)
+
+[node name="stone_tile127" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9337, -1517)
+
+[node name="stone_tile128" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9369, -1517)
+
+[node name="stone_tile129" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9401, -1517)
+
+[node name="stone_tile130" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9433, -1517)
+
+[node name="stone_tile131" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9465, -1517)
+
+[node name="stone_tile132" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9497, -1517)
+
+[node name="stone_tile133" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9529, -1517)
+
+[node name="stone_tile134" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9561, -1517)
+
+[node name="stone_tile135" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9593, -1517)
+
+[node name="stone_tile136" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9625, -1517)
+
+[node name="stone_tile137" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9657, -1517)
+
+[node name="stone_tile138" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9689, -1517)
+
+[node name="stone_tile139" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9721, -1517)
+
+[node name="stone_tile140" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9753, -1517)
+
+[node name="stone_tile141" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9785, -1517)
+
+[node name="stone_tile142" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9817, -1517)
+
+[node name="stone_tile143" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9849, -1517)
+
+[node name="stone_tile144" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9881, -1517)
+
+[node name="stone_tile145" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9913, -1517)
+
+[node name="stone_tile146" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9945, -1517)
+
+[node name="stone_tile147" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9977, -1517)
+
+[node name="stone_tile148" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10009, -1517)
+
+[node name="stone_tile149" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10041, -1517)
+
+[node name="stone_tile150" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10073, -1517)
+
+[node name="stone_tile151" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10105, -1517)
+
+[node name="stone_tile152" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10137, -1517)
+
+[node name="stone_tile153" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10169, -1517)
+
+[node name="stone_tile154" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10201, -1517)
+
+[node name="stone_tile155" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10233, -1517)
+
+[node name="stone_tile156" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10265, -1517)
+
+[node name="stone_tile435" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16731, -2083)
+
+[node name="stone_tile285" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10436, -1516)
+
+[node name="stone_tile286" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10468, -1516)
+
+[node name="stone_tile287" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10500, -1516)
+
+[node name="stone_tile288" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10532, -1516)
+
+[node name="stone_tile289" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10564, -1516)
+
+[node name="stone_tile290" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10596, -1516)
+
+[node name="stone_tile291" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10628, -1516)
+
+[node name="stone_tile292" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10660, -1516)
+
+[node name="stone_tile293" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10692, -1516)
+
+[node name="stone_tile294" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10724, -1516)
+
+[node name="stone_tile295" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10756, -1516)
+
+[node name="stone_tile296" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10788, -1516)
+
+[node name="stone_tile297" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10820, -1516)
+
+[node name="stone_tile298" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10852, -1516)
+
+[node name="stone_tile299" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10884, -1516)
+
+[node name="stone_tile300" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10916, -1516)
+
+[node name="stone_tile301" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10948, -1516)
+
+[node name="stone_tile302" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(10980, -1516)
+
+[node name="stone_tile303" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11012, -1516)
+
+[node name="stone_tile304" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11044, -1516)
+
+[node name="stone_tile305" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11076, -1516)
+
+[node name="stone_tile306" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11108, -1516)
+
+[node name="stone_tile307" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11140, -1516)
+
+[node name="stone_tile308" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11172, -1516)
+
+[node name="stone_tile309" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11204, -1516)
+
+[node name="stone_tile310" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11236, -1516)
+
+[node name="stone_tile311" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11268, -1516)
+
+[node name="stone_tile312" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11300, -1516)
+
+[node name="stone_tile313" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11332, -1516)
+
+[node name="stone_tile314" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11364, -1516)
+
+[node name="stone_tile315" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11396, -1516)
+
+[node name="stone_tile316" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11428, -1516)
+
+[node name="stone_tile317" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11460, -1516)
+
+[node name="stone_tile318" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11492, -1516)
+
+[node name="stone_tile319" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11524, -1516)
+
+[node name="stone_tile320" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11556, -1516)
+
+[node name="stone_tile321" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11836, -1671)
+
+[node name="stone_tile322" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11868, -1671)
+
+[node name="stone_tile323" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11900, -1671)
+
+[node name="stone_tile324" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11932, -1671)
+
+[node name="stone_tile325" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11964, -1671)
+
+[node name="stone_tile326" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(11996, -1671)
+
+[node name="stone_tile327" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12028, -1671)
+
+[node name="stone_tile328" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12060, -1671)
+
+[node name="stone_tile329" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12092, -1671)
+
+[node name="stone_tile330" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12124, -1671)
+
+[node name="stone_tile331" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12156, -1671)
+
+[node name="stone_tile332" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12188, -1671)
+
+[node name="stone_tile333" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12220, -1671)
+
+[node name="stone_tile334" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12252, -1671)
+
+[node name="stone_tile335" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12284, -1671)
+
+[node name="stone_tile336" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12316, -1671)
+
+[node name="stone_tile337" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12348, -1671)
+
+[node name="stone_tile338" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12380, -1671)
+
+[node name="stone_tile339" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12412, -1671)
+
+[node name="stone_tile340" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12444, -1671)
+
+[node name="stone_tile341" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(12992, -1729)
+
+[node name="stone_tile342" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13024, -1729)
+
+[node name="stone_tile343" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13056, -1729)
+
+[node name="stone_tile344" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13088, -1729)
+
+[node name="stone_tile345" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13120, -1729)
+
+[node name="stone_tile346" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13152, -1729)
+
+[node name="stone_tile347" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13184, -1729)
+
+[node name="stone_tile348" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13216, -1729)
+
+[node name="stone_tile349" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13248, -1729)
+
+[node name="stone_tile350" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13280, -1729)
+
+[node name="stone_tile351" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13312, -1729)
+
+[node name="stone_tile352" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13344, -1729)
+
+[node name="stone_tile353" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13376, -1729)
+
+[node name="stone_tile354" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13408, -1729)
+
+[node name="stone_tile355" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13440, -1729)
+
+[node name="stone_tile356" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13472, -1729)
+
+[node name="stone_tile357" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13504, -1729)
+
+[node name="stone_tile358" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13536, -1729)
+
+[node name="stone_tile359" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13568, -1729)
+
+[node name="stone_tile360" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(13600, -1729)
+
+[node name="stone_tile175" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5586, -1206)
+
+[node name="stone_tile176" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5618, -1206)
+
+[node name="stone_tile177" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5650, -1206)
+
+[node name="stone_tile178" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5682, -1206)
+
+[node name="stone_tile179" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5714, -1206)
+
+[node name="stone_tile180" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5746, -1206)
+
+[node name="stone_tile181" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5778, -1206)
+
+[node name="stone_tile182" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5810, -1206)
+
+[node name="stone_tile183" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5842, -1206)
+
+[node name="stone_tile184" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5874, -1206)
+
+[node name="stone_tile185" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5906, -1206)
+
+[node name="stone_tile186" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5938, -1206)
+
+[node name="stone_tile187" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5970, -1206)
+
+[node name="stone_tile188" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6002, -1206)
+
+[node name="stone_tile189" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6034, -1206)
+
+[node name="stone_tile190" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6066, -1206)
+
+[node name="stone_tile191" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6098, -1206)
+
+[node name="stone_tile192" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6130, -1206)
+
+[node name="stone_tile193" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6162, -1206)
+
+[node name="stone_tile194" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6194, -1206)
+
+[node name="stone_tile195" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6226, -1206)
+
+[node name="stone_tile196" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6258, -1206)
+
+[node name="stone_tile197" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6290, -1206)
+
+[node name="stone_tile198" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6322, -1206)
+
+[node name="stone_tile199" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6354, -1206)
+
+[node name="stone_tile200" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6386, -1206)
+
+[node name="stone_tile201" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6418, -1206)
+
+[node name="stone_tile202" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6450, -1206)
+
+[node name="stone_tile203" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6482, -1206)
+
+[node name="stone_tile204" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6514, -1206)
+
+[node name="stone_tile205" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6546, -1206)
+
+[node name="stone_tile206" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6578, -1206)
+
+[node name="stone_tile207" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6610, -1206)
+
+[node name="stone_tile208" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6642, -1206)
+
+[node name="stone_tile209" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6674, -1206)
+
+[node name="stone_tile210" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6706, -1206)
+
+[node name="stone_tile211" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6738, -1206)
+
+[node name="stone_tile212" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6770, -1206)
+
+[node name="stone_tile213" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6802, -1206)
+
+[node name="stone_tile214" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6834, -1206)
+
+[node name="stone_tile215" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6866, -1206)
+
+[node name="stone_tile216" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6898, -1206)
+
+[node name="stone_tile217" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6930, -1206)
+
+[node name="stone_tile218" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6962, -1206)
+
+[node name="stone_tile219" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(6994, -1206)
+
+[node name="stone_tile220" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7026, -1206)
+
+[node name="stone_tile221" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7058, -1206)
+
+[node name="stone_tile222" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7090, -1206)
+
+[node name="stone_tile223" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7122, -1206)
+
+[node name="stone_tile224" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7154, -1206)
+
+[node name="stone_tile225" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7186, -1206)
+
+[node name="stone_tile226" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7218, -1206)
+
+[node name="stone_tile227" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7250, -1206)
+
+[node name="stone_tile228" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7282, -1206)
+
+[node name="stone_tile229" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7314, -1206)
+
+[node name="stone_tile230" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7346, -1206)
+
+[node name="stone_tile231" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7378, -1206)
+
+[node name="stone_tile232" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7410, -1206)
+
+[node name="stone_tile233" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7442, -1206)
+
+[node name="stone_tile234" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7474, -1206)
+
+[node name="stone_tile235" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7506, -1206)
+
+[node name="stone_tile236" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7538, -1206)
+
+[node name="stone_tile237" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7570, -1206)
+
+[node name="stone_tile238" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7602, -1206)
+
+[node name="stone_tile239" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7634, -1206)
+
+[node name="stone_tile240" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7666, -1206)
+
+[node name="stone_tile241" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7698, -1206)
+
+[node name="stone_tile242" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7730, -1206)
+
+[node name="stone_tile243" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7762, -1206)
+
+[node name="stone_tile244" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7794, -1206)
+
+[node name="stone_tile245" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7826, -1206)
+
+[node name="stone_tile246" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7858, -1206)
+
+[node name="stone_tile247" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7890, -1206)
+
+[node name="stone_tile248" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7922, -1206)
+
+[node name="stone_tile249" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7954, -1206)
+
+[node name="stone_tile250" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(7986, -1206)
+
+[node name="stone_tile251" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8018, -1206)
+
+[node name="stone_tile252" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8050, -1206)
+
+[node name="stone_tile253" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8082, -1206)
+
+[node name="stone_tile254" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8114, -1206)
+
+[node name="stone_tile255" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8146, -1206)
+
+[node name="stone_tile256" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8178, -1206)
+
+[node name="stone_tile257" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8210, -1206)
+
+[node name="stone_tile258" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8242, -1206)
+
+[node name="stone_tile259" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8274, -1206)
+
+[node name="stone_tile260" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8306, -1206)
+
+[node name="stone_tile261" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8338, -1206)
+
+[node name="stone_tile262" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8370, -1206)
+
+[node name="stone_tile263" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8402, -1206)
+
+[node name="stone_tile264" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8434, -1206)
+
+[node name="stone_tile265" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8466, -1206)
+
+[node name="stone_tile266" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8498, -1206)
+
+[node name="stone_tile267" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8530, -1206)
+
+[node name="stone_tile268" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8562, -1206)
+
+[node name="stone_tile269" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8594, -1206)
+
+[node name="stone_tile270" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8626, -1206)
+
+[node name="stone_tile271" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8658, -1206)
+
+[node name="stone_tile272" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8690, -1206)
+
+[node name="stone_tile273" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8722, -1206)
+
+[node name="stone_tile274" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8754, -1206)
+
+[node name="stone_tile275" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8786, -1206)
+
+[node name="stone_tile276" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8818, -1206)
+
+[node name="stone_tile277" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8850, -1206)
+
+[node name="stone_tile278" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8882, -1206)
+
+[node name="stone_tile279" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8914, -1206)
+
+[node name="stone_tile280" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8946, -1206)
+
+[node name="stone_tile281" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(8978, -1206)
+
+[node name="stone_tile282" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9010, -1206)
+
+[node name="stone_tile283" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9042, -1206)
+
+[node name="stone_tile284" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1206)
+
+[node name="stone_tile114" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9996, -1251)
+
+[node name="stone_tile115" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1325)
+
+[node name="stone_tile116" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1357)
+
+[node name="stone_tile117" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1389)
+
+[node name="stone_tile118" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1421)
+
+[node name="stone_tile119" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1453)
+
+[node name="stone_tile120" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9995, -1485)
+
+[node name="stone_tile88" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -931)
+
+[node name="stone_tile89" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -963)
+
+[node name="stone_tile90" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -995)
+
+[node name="stone_tile91" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1027)
+
+[node name="stone_tile92" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1059)
+
+[node name="stone_tile93" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1091)
+
+[node name="stone_tile94" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1123)
+
+[node name="stone_tile95" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1155)
+
+[node name="stone_tile96" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1187)
+
+[node name="stone_tile97" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9468, -1219)
+
+[node name="stone_tile157" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1293)
+
+[node name="stone_tile158" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1325)
+
+[node name="stone_tile159" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1357)
+
+[node name="stone_tile160" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1389)
+
+[node name="stone_tile161" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1421)
+
+[node name="stone_tile162" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1453)
+
+[node name="stone_tile163" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1485)
+
+[node name="stone_tile164" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(9074, -1517)
+
+[node name="stone_tile165" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -982)
+
+[node name="stone_tile173" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -950)
+
+[node name="stone_tile174" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -918)
+
+[node name="stone_tile166" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1014)
+
+[node name="stone_tile167" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1046)
+
+[node name="stone_tile168" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1078)
+
+[node name="stone_tile169" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1110)
+
+[node name="stone_tile170" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1142)
+
+[node name="stone_tile171" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1174)
+
+[node name="stone_tile172" parent="Foreground_Graphics/Area2_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(5554, -1206)
+
+[node name="Area3_Graphics" type="Node2D" parent="Foreground_Graphics"]
+
+[node name="stone_tile436" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1859)
+
+[node name="stone_tile437" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1891)
+
+[node name="stone_tile438" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1923)
+
+[node name="stone_tile439" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1955)
+
+[node name="stone_tile440" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1987)
+
+[node name="stone_tile441" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -2019)
+
+[node name="stone_tile442" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -2051)
+
+[node name="stone_tile443" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -2083)
+
+[node name="stone_tile444" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -2083)
+
+[node name="stone_tile445" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -2051)
+
+[node name="stone_tile446" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -2019)
+
+[node name="stone_tile447" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1603)
+
+[node name="stone_tile448" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1635)
+
+[node name="stone_tile449" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1667)
+
+[node name="stone_tile450" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1699)
+
+[node name="stone_tile451" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1731)
+
+[node name="stone_tile452" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1763)
+
+[node name="stone_tile453" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1795)
+
+[node name="stone_tile454" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1827)
+
+[node name="stone_tile455" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1987)
+
+[node name="stone_tile456" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1955)
+
+[node name="stone_tile457" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1923)
+
+[node name="stone_tile458" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1347)
+
+[node name="stone_tile469" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1315)
+
+[node name="stone_tile459" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1379)
+
+[node name="stone_tile460" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1411)
+
+[node name="stone_tile461" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1443)
+
+[node name="stone_tile462" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1475)
+
+[node name="stone_tile463" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1507)
+
+[node name="stone_tile464" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1539)
+
+[node name="stone_tile465" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14331, -1571)
+
+[node name="stone_tile466" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1891)
+
+[node name="stone_tile467" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1859)
+
+[node name="stone_tile468" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1827)
+
+[node name="stone_tile470" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1795)
+
+[node name="stone_tile471" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1763)
+
+[node name="stone_tile472" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1731)
+
+[node name="stone_tile473" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1699)
+
+[node name="stone_tile474" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1667)
+
+[node name="stone_tile475" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1635)
+
+[node name="stone_tile476" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1603)
+
+[node name="stone_tile477" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1571)
+
+[node name="stone_tile478" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1539)
+
+[node name="stone_tile479" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1507)
+
+[node name="stone_tile480" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1475)
+
+[node name="stone_tile481" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1443)
+
+[node name="stone_tile482" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1411)
+
+[node name="stone_tile483" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1379)
+
+[node name="stone_tile484" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1347)
+
+[node name="stone_tile485" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16763, -1315)
+
+[node name="stone_tile361" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14363, -2083)
+
+[node name="stone_tile362" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14395, -2083)
+
+[node name="stone_tile363" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14427, -2083)
+
+[node name="stone_tile364" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14459, -2083)
+
+[node name="stone_tile365" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14491, -2083)
+
+[node name="stone_tile366" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14523, -2083)
+
+[node name="stone_tile367" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14555, -2083)
+
+[node name="stone_tile368" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14587, -2083)
+
+[node name="stone_tile369" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14619, -2083)
+
+[node name="stone_tile370" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14651, -2083)
+
+[node name="stone_tile371" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14683, -2083)
+
+[node name="stone_tile372" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14715, -2083)
+
+[node name="stone_tile373" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14747, -2083)
+
+[node name="stone_tile374" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14779, -2083)
+
+[node name="stone_tile375" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14811, -2083)
+
+[node name="stone_tile376" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14843, -2083)
+
+[node name="stone_tile377" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14875, -2083)
+
+[node name="stone_tile378" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14907, -2083)
+
+[node name="stone_tile379" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14939, -2083)
+
+[node name="stone_tile380" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(14971, -2083)
+
+[node name="stone_tile381" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15003, -2083)
+
+[node name="stone_tile382" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15035, -2083)
+
+[node name="stone_tile383" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15067, -2083)
+
+[node name="stone_tile384" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15099, -2083)
+
+[node name="stone_tile385" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15131, -2083)
+
+[node name="stone_tile386" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15163, -2083)
+
+[node name="stone_tile387" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15195, -2083)
+
+[node name="stone_tile388" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15227, -2083)
+
+[node name="stone_tile389" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15259, -2083)
+
+[node name="stone_tile390" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15291, -2083)
+
+[node name="stone_tile391" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15323, -2083)
+
+[node name="stone_tile392" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15355, -2083)
+
+[node name="stone_tile393" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15387, -2083)
+
+[node name="stone_tile394" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15419, -2083)
+
+[node name="stone_tile395" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15451, -2083)
+
+[node name="stone_tile396" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15483, -2083)
+
+[node name="stone_tile397" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15515, -2083)
+
+[node name="stone_tile398" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15547, -2083)
+
+[node name="stone_tile399" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15579, -2083)
+
+[node name="stone_tile400" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15611, -2083)
+
+[node name="stone_tile401" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15643, -2083)
+
+[node name="stone_tile402" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15675, -2083)
+
+[node name="stone_tile403" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15707, -2083)
+
+[node name="stone_tile404" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15739, -2083)
+
+[node name="stone_tile405" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15771, -2083)
+
+[node name="stone_tile406" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15803, -2083)
+
+[node name="stone_tile407" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15835, -2083)
+
+[node name="stone_tile408" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15867, -2083)
+
+[node name="stone_tile409" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15899, -2083)
+
+[node name="stone_tile410" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15931, -2083)
+
+[node name="stone_tile411" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15963, -2083)
+
+[node name="stone_tile412" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(15995, -2083)
+
+[node name="stone_tile413" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16027, -2083)
+
+[node name="stone_tile414" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16059, -2083)
+
+[node name="stone_tile415" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16091, -2083)
+
+[node name="stone_tile416" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16123, -2083)
+
+[node name="stone_tile417" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16155, -2083)
+
+[node name="stone_tile418" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16187, -2083)
+
+[node name="stone_tile419" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16219, -2083)
+
+[node name="stone_tile420" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16251, -2083)
+
+[node name="stone_tile421" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16283, -2083)
+
+[node name="stone_tile422" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16315, -2083)
+
+[node name="stone_tile423" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16347, -2083)
+
+[node name="stone_tile424" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16379, -2083)
+
+[node name="stone_tile425" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16411, -2083)
+
+[node name="stone_tile426" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16443, -2083)
+
+[node name="stone_tile427" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16475, -2083)
+
+[node name="stone_tile428" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16507, -2083)
+
+[node name="stone_tile429" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16539, -2083)
+
+[node name="stone_tile430" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16571, -2083)
+
+[node name="stone_tile431" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16603, -2083)
+
+[node name="stone_tile432" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16635, -2083)
+
+[node name="stone_tile433" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16667, -2083)
+
+[node name="stone_tile434" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("3_81gnv")]
+position = Vector2(16699, -2083)
+
+[node name="scaffold_tile" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2115)
+
+[node name="scaffold_tile2" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2147)
+
+[node name="scaffold_tile3" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2179)
+
+[node name="scaffold_tile4" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2211)
+
+[node name="scaffold_tile5" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2243)
+
+[node name="scaffold_tile6" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2275)
+
+[node name="scaffold_tile7" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14468, -2307)
+
+[node name="scaffold_tile9" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2115)
+
+[node name="scaffold_tile10" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2147)
+
+[node name="scaffold_tile11" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2179)
+
+[node name="scaffold_tile12" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2211)
+
+[node name="scaffold_tile13" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2243)
+
+[node name="scaffold_tile14" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2275)
+
+[node name="scaffold_tile15" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(14820, -2307)
+
+[node name="scaffold_top_tile" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14468, -2339)
+
+[node name="scaffold_top_tile2" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14500, -2339)
+
+[node name="scaffold_top_tile3" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14532, -2339)
+
+[node name="scaffold_top_tile4" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14564, -2339)
+
+[node name="scaffold_top_tile5" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14596, -2339)
+
+[node name="scaffold_top_tile6" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14628, -2339)
+
+[node name="scaffold_top_tile7" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14660, -2339)
+
+[node name="scaffold_top_tile8" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14692, -2339)
+
+[node name="scaffold_top_tile9" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14724, -2339)
+
+[node name="scaffold_top_tile10" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14756, -2339)
+
+[node name="scaffold_top_tile11" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14788, -2339)
+
+[node name="scaffold_top_tile12" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14820, -2339)
+
+[node name="scaffold_tile8" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2115)
+
+[node name="scaffold_tile16" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2147)
+
+[node name="scaffold_tile17" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2179)
+
+[node name="scaffold_tile18" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2211)
+
+[node name="scaffold_tile19" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2243)
+
+[node name="scaffold_tile20" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2275)
+
+[node name="scaffold_tile21" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15369, -2307)
+
+[node name="scaffold_tile22" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2115)
+
+[node name="scaffold_tile23" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2147)
+
+[node name="scaffold_tile24" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2179)
+
+[node name="scaffold_tile25" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2211)
+
+[node name="scaffold_tile26" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2243)
+
+[node name="scaffold_tile27" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2275)
+
+[node name="scaffold_tile28" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(15721, -2307)
+
+[node name="scaffold_top_tile13" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15369, -2339)
+
+[node name="scaffold_top_tile14" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15401, -2339)
+
+[node name="scaffold_top_tile15" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15433, -2339)
+
+[node name="scaffold_top_tile16" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15465, -2339)
+
+[node name="scaffold_top_tile17" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15497, -2339)
+
+[node name="scaffold_top_tile18" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15529, -2339)
+
+[node name="scaffold_top_tile19" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15561, -2339)
+
+[node name="scaffold_top_tile20" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15593, -2339)
+
+[node name="scaffold_top_tile21" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15625, -2339)
+
+[node name="scaffold_top_tile22" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15657, -2339)
+
+[node name="scaffold_top_tile23" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15689, -2339)
+
+[node name="scaffold_top_tile24" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15721, -2339)
+
+[node name="scaffold_tile29" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2115)
+
+[node name="scaffold_tile30" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2147)
+
+[node name="scaffold_tile31" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2179)
+
+[node name="scaffold_tile32" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2211)
+
+[node name="scaffold_tile33" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2243)
+
+[node name="scaffold_tile34" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2275)
+
+[node name="scaffold_tile35" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16201, -2307)
+
+[node name="scaffold_tile36" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2115)
+
+[node name="scaffold_tile37" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2147)
+
+[node name="scaffold_tile38" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2179)
+
+[node name="scaffold_tile39" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2211)
+
+[node name="scaffold_tile40" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2243)
+
+[node name="scaffold_tile41" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2275)
+
+[node name="scaffold_tile42" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(16553, -2307)
+
+[node name="scaffold_top_tile25" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16201, -2339)
+
+[node name="scaffold_top_tile26" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16233, -2339)
+
+[node name="scaffold_top_tile27" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16265, -2339)
+
+[node name="scaffold_top_tile28" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16297, -2339)
+
+[node name="scaffold_top_tile29" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16329, -2339)
+
+[node name="scaffold_top_tile30" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16361, -2339)
+
+[node name="scaffold_top_tile31" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16393, -2339)
+
+[node name="scaffold_top_tile32" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16425, -2339)
+
+[node name="scaffold_top_tile33" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16457, -2339)
+
+[node name="scaffold_top_tile34" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16489, -2339)
+
+[node name="scaffold_top_tile35" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16521, -2339)
+
+[node name="scaffold_top_tile36" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16553, -2339)
+
+[node name="scaffold_top_tile37" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15141, -2720)
+
+[node name="scaffold_top_tile38" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15173, -2720)
+
+[node name="scaffold_top_tile39" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15205, -2720)
+
+[node name="scaffold_top_tile40" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15237, -2720)
+
+[node name="scaffold_top_tile41" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15269, -2720)
+
+[node name="scaffold_top_tile42" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15301, -2720)
+
+[node name="scaffold_top_tile43" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15333, -2720)
+
+[node name="scaffold_top_tile44" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15365, -2720)
+
+[node name="scaffold_top_tile45" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15397, -2720)
+
+[node name="scaffold_top_tile46" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15429, -2720)
+
+[node name="scaffold_top_tile47" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15461, -2720)
+
+[node name="scaffold_top_tile48" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15493, -2720)
+
+[node name="scaffold_top_tile49" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15525, -2720)
+
+[node name="scaffold_top_tile50" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15557, -2720)
+
+[node name="scaffold_top_tile51" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15589, -2720)
+
+[node name="scaffold_top_tile52" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15621, -2720)
+
+[node name="scaffold_top_tile53" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15653, -2720)
+
+[node name="scaffold_top_tile54" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15685, -2720)
+
+[node name="scaffold_top_tile55" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15717, -2720)
+
+[node name="scaffold_top_tile56" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15749, -2720)
+
+[node name="scaffold_top_tile57" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15781, -2720)
+
+[node name="scaffold_top_tile58" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15813, -2720)
+
+[node name="scaffold_top_tile59" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15845, -2720)
+
+[node name="scaffold_top_tile60" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15877, -2720)
+
+[node name="scaffold_top_tile61" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15909, -2720)
+
+[node name="scaffold_top_tile62" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14661, -2984)
+
+[node name="scaffold_top_tile63" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14693, -2984)
+
+[node name="scaffold_top_tile64" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14725, -2984)
+
+[node name="scaffold_top_tile65" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14757, -2984)
+
+[node name="scaffold_top_tile66" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14789, -2984)
+
+[node name="scaffold_top_tile67" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14821, -2984)
+
+[node name="scaffold_top_tile68" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14853, -2984)
+
+[node name="scaffold_top_tile69" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14885, -2984)
+
+[node name="scaffold_top_tile70" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14917, -2984)
+
+[node name="scaffold_top_tile71" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14949, -2984)
+
+[node name="scaffold_top_tile72" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(14981, -2984)
+
+[node name="scaffold_top_tile73" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15013, -2984)
+
+[node name="scaffold_top_tile74" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15045, -2984)
+
+[node name="scaffold_top_tile75" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15077, -2984)
+
+[node name="scaffold_top_tile76" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15109, -2984)
+
+[node name="scaffold_top_tile77" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15141, -2984)
+
+[node name="scaffold_top_tile78" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15173, -2984)
+
+[node name="scaffold_top_tile79" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15205, -2984)
+
+[node name="scaffold_top_tile80" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15237, -2984)
+
+[node name="scaffold_top_tile81" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15269, -2984)
+
+[node name="scaffold_top_tile82" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15301, -2984)
+
+[node name="scaffold_top_tile83" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15333, -2984)
+
+[node name="scaffold_top_tile84" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15365, -2984)
+
+[node name="scaffold_top_tile85" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15397, -2984)
+
+[node name="scaffold_top_tile86" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15429, -2984)
+
+[node name="scaffold_top_tile87" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15461, -2984)
+
+[node name="scaffold_top_tile88" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15493, -2984)
+
+[node name="scaffold_top_tile89" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15525, -2984)
+
+[node name="scaffold_top_tile90" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15557, -2984)
+
+[node name="scaffold_top_tile91" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15589, -2984)
+
+[node name="scaffold_top_tile92" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15621, -2984)
+
+[node name="scaffold_top_tile93" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15653, -2984)
+
+[node name="scaffold_top_tile94" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15685, -2984)
+
+[node name="scaffold_top_tile95" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15717, -2984)
+
+[node name="scaffold_top_tile96" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15749, -2984)
+
+[node name="scaffold_top_tile97" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15781, -2984)
+
+[node name="scaffold_top_tile98" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15813, -2984)
+
+[node name="scaffold_top_tile99" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15845, -2984)
+
+[node name="scaffold_top_tile100" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15877, -2984)
+
+[node name="scaffold_top_tile101" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15909, -2984)
+
+[node name="scaffold_top_tile102" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15941, -2984)
+
+[node name="scaffold_top_tile103" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(15973, -2984)
+
+[node name="scaffold_top_tile104" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16005, -2984)
+
+[node name="scaffold_top_tile105" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16037, -2984)
+
+[node name="scaffold_top_tile106" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16069, -2984)
+
+[node name="scaffold_top_tile107" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16101, -2984)
+
+[node name="scaffold_top_tile108" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16133, -2984)
+
+[node name="scaffold_top_tile109" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16165, -2984)
+
+[node name="scaffold_top_tile110" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16197, -2984)
+
+[node name="scaffold_top_tile111" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16229, -2984)
+
+[node name="scaffold_top_tile112" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16261, -2984)
+
+[node name="scaffold_top_tile113" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16293, -2984)
+
+[node name="scaffold_top_tile114" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16325, -2984)
+
+[node name="scaffold_top_tile115" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16357, -2984)
+
+[node name="scaffold_top_tile116" parent="Foreground_Graphics/Area3_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(16389, -2984)
+
+[node name="Area4_Graphics" type="Node2D" parent="Foreground_Graphics"]
+z_index = 2
+
+[node name="moss_top_tile" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12535, -3436)
+
+[node name="moss_top_tile2" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12503, -3436)
+
+[node name="moss_top_tile3" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12471, -3436)
+
+[node name="moss_top_tile4" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12439, -3436)
+
+[node name="moss_top_tile5" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12407, -3436)
+
+[node name="moss_top_tile6" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12375, -3436)
+
+[node name="moss_top_tile7" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12343, -3436)
+
+[node name="moss_top_tile8" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12311, -3436)
+
+[node name="moss_top_tile9" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12279, -3436)
+
+[node name="moss_top_tile10" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12247, -3436)
+
+[node name="moss_top_tile11" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12215, -3436)
+
+[node name="moss_top_tile12" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12183, -3436)
+
+[node name="moss_top_tile13" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12151, -3436)
+
+[node name="moss_top_tile14" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12119, -3436)
+
+[node name="moss_top_tile15" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12087, -3436)
+
+[node name="moss_top_tile16" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12055, -3436)
+
+[node name="moss_top_tile17" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(12023, -3436)
+
+[node name="moss_top_tile18" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11991, -3436)
+
+[node name="moss_top_tile19" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11959, -3436)
+
+[node name="moss_top_tile20" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11927, -3436)
+
+[node name="moss_top_tile21" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11895, -3436)
+
+[node name="moss_top_tile22" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11863, -3436)
+
+[node name="moss_top_tile23" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11831, -3436)
+
+[node name="moss_top_tile24" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11799, -3436)
+
+[node name="moss_top_tile25" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11767, -3436)
+
+[node name="moss_top_tile26" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11735, -3436)
+
+[node name="moss_top_tile27" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11703, -3436)
+
+[node name="moss_top_tile28" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11671, -3436)
+
+[node name="moss_top_tile29" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11639, -3436)
+
+[node name="moss_top_tile30" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11607, -3436)
+
+[node name="moss_top_tile31" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11575, -3436)
+
+[node name="moss_top_tile32" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11543, -3436)
+
+[node name="moss_top_tile33" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11511, -3436)
+
+[node name="moss_top_tile34" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11479, -3436)
+
+[node name="moss_top_tile35" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11447, -3436)
+
+[node name="moss_top_tile36" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11415, -3436)
+
+[node name="moss_top_tile37" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11383, -3436)
+
+[node name="moss_top_tile38" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11351, -3436)
+
+[node name="moss_top_tile39" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11319, -3436)
+
+[node name="moss_top_tile40" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11287, -3436)
+
+[node name="moss_top_tile41" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11255, -3436)
+
+[node name="moss_top_tile42" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11223, -3436)
+
+[node name="moss_top_tile43" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11191, -3436)
+
+[node name="moss_top_tile44" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11159, -3436)
+
+[node name="moss_top_tile45" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11127, -3436)
+
+[node name="moss_top_tile46" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11095, -3436)
+
+[node name="moss_top_tile47" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11063, -3436)
+
+[node name="moss_top_tile48" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(11031, -3436)
+
+[node name="moss_top_tile49" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10999, -3436)
+
+[node name="moss_top_tile50" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10967, -3436)
+
+[node name="moss_top_tile51" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10935, -3436)
+
+[node name="moss_top_tile52" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10903, -3436)
+
+[node name="moss_top_tile53" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10871, -3436)
+
+[node name="moss_top_tile54" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10839, -3436)
+
+[node name="moss_top_tile55" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10807, -3436)
+
+[node name="moss_top_tile56" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10485, -3768)
+
+[node name="moss_top_tile57" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10453, -3768)
+
+[node name="moss_top_tile58" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10421, -3768)
+
+[node name="moss_top_tile59" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10389, -3768)
+
+[node name="moss_top_tile60" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10357, -3768)
+
+[node name="moss_top_tile61" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10325, -3768)
+
+[node name="moss_top_tile62" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10293, -3768)
+
+[node name="moss_top_tile63" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10261, -3768)
+
+[node name="moss_top_tile64" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10229, -3768)
+
+[node name="moss_top_tile65" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10197, -3768)
+
+[node name="moss_top_tile66" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10165, -3768)
+
+[node name="moss_top_tile67" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10133, -3768)
+
+[node name="moss_top_tile68" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10101, -3768)
+
+[node name="moss_top_tile69" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10069, -3768)
+
+[node name="moss_top_tile70" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10037, -3768)
+
+[node name="moss_top_tile71" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(10005, -3768)
+
+[node name="moss_top_tile72" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9973, -3768)
+
+[node name="moss_top_tile73" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9941, -3768)
+
+[node name="moss_top_tile74" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9909, -3768)
+
+[node name="moss_top_tile75" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9877, -3768)
+
+[node name="moss_top_tile76" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9845, -3768)
+
+[node name="moss_top_tile77" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9813, -3768)
+
+[node name="moss_top_tile78" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9781, -3768)
+
+[node name="moss_top_tile79" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9749, -3768)
+
+[node name="moss_top_tile80" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9717, -3768)
+
+[node name="moss_top_tile81" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9685, -3768)
+
+[node name="moss_top_tile82" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9653, -3768)
+
+[node name="moss_top_tile83" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9621, -3768)
+
+[node name="moss_top_tile84" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9589, -3768)
+
+[node name="moss_top_tile85" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9557, -3768)
+
+[node name="moss_top_tile86" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9525, -3768)
+
+[node name="moss_top_tile87" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9493, -3768)
+
+[node name="moss_top_tile88" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9461, -3768)
+
+[node name="moss_top_tile89" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9429, -3768)
+
+[node name="moss_top_tile90" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9397, -3768)
+
+[node name="moss_top_tile91" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9365, -3768)
+
+[node name="moss_top_tile92" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9333, -3768)
+
+[node name="moss_top_tile93" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9301, -3768)
+
+[node name="moss_top_tile94" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9269, -3768)
+
+[node name="moss_top_tile95" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9237, -3768)
+
+[node name="moss_top_tile96" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9205, -3768)
+
+[node name="moss_top_tile97" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9173, -3768)
+
+[node name="moss_top_tile98" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9141, -3768)
+
+[node name="moss_top_tile99" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9109, -3768)
+
+[node name="moss_top_tile100" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9077, -3768)
+
+[node name="moss_top_tile101" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9045, -3768)
+
+[node name="moss_top_tile102" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(9013, -3768)
+
+[node name="moss_top_tile103" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8981, -3768)
+
+[node name="moss_top_tile104" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8949, -3768)
+
+[node name="moss_top_tile105" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8917, -3768)
+
+[node name="moss_top_tile106" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8885, -3768)
+
+[node name="moss_top_tile107" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8853, -3768)
+
+[node name="moss_top_tile108" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8821, -3768)
+
+[node name="moss_top_tile109" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8789, -3768)
+
+[node name="moss_top_tile110" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(8757, -3768)
+
+[node name="moss_top_tile111" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7889, -4233)
+
+[node name="moss_top_tile112" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7857, -4233)
+
+[node name="moss_top_tile113" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7825, -4233)
+
+[node name="moss_top_tile114" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7793, -4233)
+
+[node name="moss_top_tile115" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7761, -4233)
+
+[node name="moss_top_tile116" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7729, -4233)
+
+[node name="moss_top_tile117" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7697, -4233)
+
+[node name="moss_top_tile118" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7665, -4233)
+
+[node name="moss_top_tile119" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7633, -4233)
+
+[node name="moss_top_tile120" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7601, -4233)
+
+[node name="moss_top_tile121" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7569, -4233)
+
+[node name="moss_top_tile122" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7537, -4233)
+
+[node name="moss_top_tile123" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7505, -4233)
+
+[node name="moss_top_tile124" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7473, -4233)
+
+[node name="moss_top_tile125" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7441, -4233)
+
+[node name="moss_top_tile126" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7409, -4233)
+
+[node name="moss_top_tile127" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7377, -4233)
+
+[node name="moss_top_tile128" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7345, -4233)
+
+[node name="moss_top_tile129" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7313, -4233)
+
+[node name="moss_top_tile130" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7281, -4233)
+
+[node name="moss_top_tile131" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7249, -4233)
+
+[node name="moss_top_tile132" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7217, -4233)
+
+[node name="moss_top_tile133" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7185, -4233)
+
+[node name="moss_top_tile134" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7153, -4233)
+
+[node name="moss_top_tile135" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7121, -4233)
+
+[node name="moss_top_tile136" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7089, -4233)
+
+[node name="moss_top_tile137" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7057, -4233)
+
+[node name="moss_top_tile138" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(7025, -4233)
+
+[node name="moss_top_tile139" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6993, -4233)
+
+[node name="moss_top_tile140" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6961, -4233)
+
+[node name="moss_top_tile141" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6929, -4233)
+
+[node name="moss_top_tile142" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6897, -4233)
+
+[node name="moss_top_tile143" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6865, -4233)
+
+[node name="moss_top_tile144" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6833, -4233)
+
+[node name="moss_top_tile145" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6801, -4233)
+
+[node name="moss_top_tile146" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6769, -4233)
+
+[node name="moss_top_tile147" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6737, -4233)
+
+[node name="moss_top_tile148" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6705, -4233)
+
+[node name="moss_top_tile149" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6673, -4233)
+
+[node name="moss_top_tile150" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6641, -4233)
+
+[node name="moss_top_tile151" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6609, -4233)
+
+[node name="moss_top_tile152" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6577, -4233)
+
+[node name="moss_top_tile153" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6545, -4233)
+
+[node name="moss_top_tile154" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6513, -4233)
+
+[node name="moss_top_tile155" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6481, -4233)
+
+[node name="moss_top_tile156" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6449, -4233)
+
+[node name="moss_top_tile157" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6417, -4233)
+
+[node name="moss_top_tile158" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6385, -4233)
+
+[node name="moss_top_tile159" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6353, -4233)
+
+[node name="moss_top_tile160" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6321, -4233)
+
+[node name="moss_top_tile161" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6289, -4233)
+
+[node name="moss_top_tile162" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6257, -4233)
+
+[node name="moss_top_tile163" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6225, -4233)
+
+[node name="moss_top_tile164" parent="Foreground_Graphics/Area4_Graphics" instance=ExtResource("6_rf63y")]
+position = Vector2(6193, -4233)
+
+[node name="Area5_Graphics" type="Node2D" parent="Foreground_Graphics"]
+
+[node name="scaffold_top_tile" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6161, -4233)
+
+[node name="scaffold_top_tile2" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6171, -3945)
+
+[node name="scaffold_bottom_tile" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6171, -3913)
+
+[node name="scaffold_top_tile3" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6139, -3945)
+
+[node name="scaffold_bottom_tile2" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6139, -3913)
+
+[node name="scaffold_top_tile4" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6107, -3945)
+
+[node name="scaffold_bottom_tile3" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6107, -3913)
+
+[node name="scaffold_top_tile5" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6075, -3945)
+
+[node name="scaffold_bottom_tile4" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6075, -3913)
+
+[node name="scaffold_top_tile6" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6043, -3945)
+
+[node name="scaffold_bottom_tile5" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6043, -3913)
+
+[node name="scaffold_top_tile7" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(6011, -3945)
+
+[node name="scaffold_bottom_tile6" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(6011, -3913)
+
+[node name="scaffold_top_tile8" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5979, -3945)
+
+[node name="scaffold_bottom_tile7" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5979, -3913)
+
+[node name="scaffold_top_tile9" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5947, -3945)
+
+[node name="scaffold_bottom_tile8" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5947, -3913)
+
+[node name="scaffold_top_tile10" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5915, -3945)
+
+[node name="scaffold_bottom_tile9" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5915, -3913)
+
+[node name="scaffold_top_tile11" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5883, -3945)
+
+[node name="scaffold_bottom_tile10" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5883, -3913)
+
+[node name="scaffold_top_tile12" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5851, -3945)
+
+[node name="scaffold_bottom_tile11" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5851, -3913)
+
+[node name="scaffold_top_tile13" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5819, -3945)
+
+[node name="scaffold_bottom_tile12" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5819, -3913)
+
+[node name="scaffold_top_tile14" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5787, -3945)
+
+[node name="scaffold_bottom_tile13" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5787, -3913)
+
+[node name="scaffold_top_tile15" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5755, -3945)
+
+[node name="scaffold_bottom_tile14" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5755, -3913)
+
+[node name="scaffold_top_tile16" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5723, -3945)
+
+[node name="scaffold_bottom_tile15" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5723, -3913)
+
+[node name="scaffold_top_tile17" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5691, -3945)
+
+[node name="scaffold_bottom_tile16" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5691, -3913)
+
+[node name="scaffold_top_tile18" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5659, -3945)
+
+[node name="scaffold_bottom_tile17" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5659, -3913)
+
+[node name="scaffold_top_tile19" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5627, -3945)
+
+[node name="scaffold_bottom_tile18" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5627, -3913)
+
+[node name="scaffold_top_tile20" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5595, -3945)
+
+[node name="scaffold_bottom_tile19" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5595, -3913)
+
+[node name="scaffold_top_tile21" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5563, -3945)
+
+[node name="scaffold_bottom_tile20" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5563, -3913)
+
+[node name="scaffold_top_tile22" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5531, -3945)
+
+[node name="scaffold_bottom_tile21" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5531, -3913)
+
+[node name="scaffold_top_tile23" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5499, -3945)
+
+[node name="scaffold_bottom_tile22" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5499, -3913)
+
+[node name="scaffold_top_tile24" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5467, -3945)
+
+[node name="scaffold_bottom_tile23" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5467, -3913)
+
+[node name="scaffold_top_tile25" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5435, -3945)
+
+[node name="scaffold_bottom_tile24" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5435, -3913)
+
+[node name="scaffold_top_tile26" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5403, -3945)
+
+[node name="scaffold_bottom_tile25" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5403, -3913)
+
+[node name="scaffold_top_tile27" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5371, -3945)
+
+[node name="scaffold_bottom_tile26" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5371, -3913)
+
+[node name="scaffold_top_tile28" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5339, -3945)
+
+[node name="scaffold_bottom_tile27" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5339, -3913)
+
+[node name="scaffold_top_tile29" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5307, -3945)
+
+[node name="scaffold_bottom_tile28" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5307, -3913)
+
+[node name="scaffold_top_tile30" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5275, -3945)
+
+[node name="scaffold_bottom_tile29" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5275, -3913)
+
+[node name="scaffold_top_tile31" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5243, -3945)
+
+[node name="scaffold_bottom_tile30" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5243, -3913)
+
+[node name="scaffold_top_tile32" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5211, -3945)
+
+[node name="scaffold_bottom_tile31" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5211, -3913)
+
+[node name="scaffold_top_tile33" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5179, -3945)
+
+[node name="scaffold_bottom_tile32" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5179, -3913)
+
+[node name="scaffold_top_tile34" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5147, -3945)
+
+[node name="scaffold_bottom_tile33" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5147, -3913)
+
+[node name="scaffold_top_tile35" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5115, -3945)
+
+[node name="scaffold_bottom_tile34" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5115, -3913)
+
+[node name="scaffold_top_tile36" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5083, -3945)
+
+[node name="scaffold_bottom_tile35" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5083, -3913)
+
+[node name="scaffold_top_tile37" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5051, -3945)
+
+[node name="scaffold_bottom_tile36" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5051, -3913)
+
+[node name="scaffold_top_tile38" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(5019, -3945)
+
+[node name="scaffold_bottom_tile37" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(5019, -3913)
+
+[node name="scaffold_top_tile39" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4987, -3945)
+
+[node name="scaffold_bottom_tile38" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4987, -3913)
+
+[node name="scaffold_top_tile40" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4955, -3945)
+
+[node name="scaffold_bottom_tile39" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4955, -3913)
+
+[node name="scaffold_top_tile41" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4923, -3945)
+
+[node name="scaffold_bottom_tile40" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4923, -3913)
+
+[node name="scaffold_top_tile42" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4891, -3945)
+
+[node name="scaffold_bottom_tile41" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4891, -3913)
+
+[node name="scaffold_top_tile43" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4859, -3945)
+
+[node name="scaffold_bottom_tile42" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4859, -3913)
+
+[node name="scaffold_top_tile44" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4827, -3945)
+
+[node name="scaffold_bottom_tile43" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4827, -3913)
+
+[node name="scaffold_top_tile45" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4795, -3945)
+
+[node name="scaffold_bottom_tile44" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4795, -3913)
+
+[node name="scaffold_top_tile46" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4763, -3945)
+
+[node name="scaffold_bottom_tile45" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4763, -3913)
+
+[node name="scaffold_top_tile47" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4731, -3945)
+
+[node name="scaffold_bottom_tile46" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4731, -3913)
+
+[node name="scaffold_top_tile48" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4699, -3945)
+
+[node name="scaffold_bottom_tile47" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4699, -3913)
+
+[node name="scaffold_top_tile49" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4667, -3945)
+
+[node name="scaffold_bottom_tile48" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4667, -3913)
+
+[node name="scaffold_top_tile50" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4635, -3945)
+
+[node name="scaffold_bottom_tile49" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4635, -3913)
+
+[node name="scaffold_top_tile51" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4603, -3945)
+
+[node name="scaffold_bottom_tile50" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4603, -3913)
+
+[node name="scaffold_top_tile52" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4571, -3945)
+
+[node name="scaffold_bottom_tile51" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4571, -3913)
+
+[node name="scaffold_top_tile53" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4539, -3945)
+
+[node name="scaffold_bottom_tile52" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4539, -3913)
+
+[node name="scaffold_top_tile54" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4507, -3945)
+
+[node name="scaffold_bottom_tile53" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4507, -3913)
+
+[node name="scaffold_top_tile55" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4475, -3945)
+
+[node name="scaffold_bottom_tile54" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4475, -3913)
+
+[node name="scaffold_top_tile56" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4443, -3945)
+
+[node name="scaffold_bottom_tile55" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4443, -3913)
+
+[node name="scaffold_top_tile57" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("5_7s2sy")]
+position = Vector2(4411, -3945)
+
+[node name="scaffold_bottom_tile56" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("7_dfr3r")]
+position = Vector2(4411, -3913)
+
+[node name="scaffold_tile" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4201)
+
+[node name="scaffold_tile2" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4169)
+
+[node name="scaffold_tile3" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4137)
+
+[node name="scaffold_tile4" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4105)
+
+[node name="scaffold_tile5" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4073)
+
+[node name="scaffold_tile6" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4041)
+
+[node name="scaffold_tile7" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -4009)
+
+[node name="scaffold_tile8" parent="Foreground_Graphics/Area5_Graphics" instance=ExtResource("4_pniqp")]
+position = Vector2(6161, -3977)
+
+[node name="Background_Graphics" type="Node" parent="."]
+
+[node name="Area3_Graphics" type="Node2D" parent="Background_Graphics"]
+position = Vector2(-8, -48)
+
+[node name="scaffold_background_tile" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2640)
+
+[node name="scaffold_background_tile2" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2611)
+
+[node name="scaffold_background_tile3" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2579)
+
+[node name="scaffold_background_tile4" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2547)
+
+[node name="scaffold_background_tile5" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2515)
+
+[node name="scaffold_background_tile6" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2486)
+
+[node name="scaffold_background_tile7" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2454)
+
+[node name="scaffold_background_tile8" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2422)
+
+[node name="scaffold_background_tile9" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2390)
+
+[node name="scaffold_background_tile10" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2361)
+
+[node name="scaffold_background_tile11" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2329)
+
+[node name="scaffold_background_tile12" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2297)
+
+[node name="scaffold_background_tile13" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2265)
+
+[node name="scaffold_background_tile14" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2236)
+
+[node name="scaffold_background_tile15" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2204)
+
+[node name="scaffold_background_tile16" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2172)
+
+[node name="scaffold_background_tile17" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2140)
+
+[node name="scaffold_background_tile18" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2108)
+
+[node name="scaffold_background_tile19" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15149, -2076)
+
+[node name="scaffold_background_tile20" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(15149, -2044)
+
+[node name="scaffold_background_tile41" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2905)
+
+[node name="scaffold_background_tile42" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2876)
+
+[node name="scaffold_background_tile43" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2844)
+
+[node name="scaffold_background_tile44" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2812)
+
+[node name="scaffold_background_tile45" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2780)
+
+[node name="scaffold_background_tile46" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2751)
+
+[node name="scaffold_background_tile47" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2719)
+
+[node name="scaffold_background_tile48" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2687)
+
+[node name="scaffold_background_tile49" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2655)
+
+[node name="scaffold_background_tile50" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2626)
+
+[node name="scaffold_background_tile51" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2594)
+
+[node name="scaffold_background_tile52" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2562)
+
+[node name="scaffold_background_tile53" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2530)
+
+[node name="scaffold_background_tile54" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2501)
+
+[node name="scaffold_background_tile55" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2469)
+
+[node name="scaffold_background_tile56" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2437)
+
+[node name="scaffold_background_tile57" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2405)
+
+[node name="scaffold_background_tile58" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2373)
+
+[node name="scaffold_background_tile59" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2341)
+
+[node name="scaffold_background_tile60" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2309)
+
+[node name="scaffold_background_tile62" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2277)
+
+[node name="scaffold_background_tile63" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2245)
+
+[node name="scaffold_background_tile64" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2213)
+
+[node name="scaffold_background_tile65" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2181)
+
+[node name="scaffold_background_tile66" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2149)
+
+[node name="scaffold_background_tile67" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2117)
+
+[node name="scaffold_background_tile68" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2085)
+
+[node name="scaffold_background_tile69" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(14669, -2053)
+
+[node name="scaffold_background_tile61" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2905)
+
+[node name="scaffold_background_tile70" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2876)
+
+[node name="scaffold_background_tile71" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2844)
+
+[node name="scaffold_background_tile72" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2812)
+
+[node name="scaffold_background_tile73" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2780)
+
+[node name="scaffold_background_tile74" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2751)
+
+[node name="scaffold_background_tile75" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2719)
+
+[node name="scaffold_background_tile76" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2687)
+
+[node name="scaffold_background_tile77" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2655)
+
+[node name="scaffold_background_tile78" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2626)
+
+[node name="scaffold_background_tile79" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2594)
+
+[node name="scaffold_background_tile80" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2562)
+
+[node name="scaffold_background_tile81" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2530)
+
+[node name="scaffold_background_tile82" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2501)
+
+[node name="scaffold_background_tile83" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2469)
+
+[node name="scaffold_background_tile84" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2437)
+
+[node name="scaffold_background_tile85" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2405)
+
+[node name="scaffold_background_tile86" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2373)
+
+[node name="scaffold_background_tile87" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2341)
+
+[node name="scaffold_background_tile88" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2309)
+
+[node name="scaffold_background_tile89" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2277)
+
+[node name="scaffold_background_tile90" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2245)
+
+[node name="scaffold_background_tile91" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2213)
+
+[node name="scaffold_background_tile92" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2181)
+
+[node name="scaffold_background_tile93" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2149)
+
+[node name="scaffold_background_tile94" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2117)
+
+[node name="scaffold_background_tile95" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2085)
+
+[node name="scaffold_background_tile96" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(16397, -2053)
+
+[node name="scaffold_background_tile21" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2640)
+
+[node name="scaffold_background_tile22" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2611)
+
+[node name="scaffold_background_tile23" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2579)
+
+[node name="scaffold_background_tile24" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2547)
+
+[node name="scaffold_background_tile25" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2515)
+
+[node name="scaffold_background_tile26" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2486)
+
+[node name="scaffold_background_tile27" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2454)
+
+[node name="scaffold_background_tile28" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2422)
+
+[node name="scaffold_background_tile29" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2390)
+
+[node name="scaffold_background_tile30" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2361)
+
+[node name="scaffold_background_tile31" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2329)
+
+[node name="scaffold_background_tile32" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2297)
+
+[node name="scaffold_background_tile33" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2265)
+
+[node name="scaffold_background_tile34" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2236)
+
+[node name="scaffold_background_tile35" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2204)
+
+[node name="scaffold_background_tile36" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2172)
+
+[node name="scaffold_background_tile37" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2140)
+
+[node name="scaffold_background_tile38" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2108)
+
+[node name="scaffold_background_tile39" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+position = Vector2(15917, -2076)
+
+[node name="scaffold_background_tile40" parent="Background_Graphics/Area3_Graphics" instance=ExtResource("6_5vl35")]
+z_index = -2
+position = Vector2(15917, -2044)
+
 [node name="CheckFlags_main" type="Node" parent="."]
 
 [node name="CheckFlag1" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
-position = Vector2(8732, -887)
+position = Vector2(5519, -853)
 
 [node name="CheckFlag2" parent="CheckFlags_main" instance=ExtResource("1_vm8im")]
 position = Vector2(14332, -2117)
@@ -1918,13 +5995,13 @@ position = Vector2(15093, -2554)
 position = Vector2(15970, -2554)
 
 [node name="SwingingRope7" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(14650, -2643)
+position = Vector2(14661, -2642)
 
 [node name="SwingingRope8" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(15527, -2643)
 
 [node name="SwingingRope9" parent="Ropes_main" instance=ExtResource("7_rucoj")]
-position = Vector2(16404, -2643)
+position = Vector2(16389, -2642)
 
 [node name="SwingingRope10" parent="Ropes_main" instance=ExtResource("7_rucoj")]
 position = Vector2(14565, -2815)
@@ -3052,7 +7129,8 @@ position = Vector2(1259, 5241)
 
 [node name="Player" parent="." instance=ExtResource("1_bbe1x")]
 top_level = true
-position = Vector2(0, -28)
+z_index = 5
+position = Vector2(14337, -2153)
 floor_constant_speed = true
 floor_block_on_wall = false
 
@@ -3060,5 +7138,5 @@ floor_block_on_wall = false
 position = Vector2(17288, -1053)
 
 [node name="DeathPlane" parent="." instance=ExtResource("1_owq06")]
-position = Vector2(7046, 237)
+position = Vector2(7045, 233)
 scale = Vector2(100, 1)

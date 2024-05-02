@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bteb37qo5o5c6"]
+
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_qxpj2"]
+
+[node name="scaffold_bottom_tile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+texture = ExtResource("1_qxpj2")
+hframes = 10
+vframes = 10
+frame = 23
