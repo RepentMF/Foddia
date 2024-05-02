@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var anim = $AnimatedSprite2D
+
 const InitialTime = 30
 
 var hasBeenUsed = false
@@ -13,7 +15,9 @@ var countTime = 30
 func _physics_process(delta):
 	if hasBeenUsed:
 		if countTime > 0:
-				countTime -= 1
+			if countTime == InitialTime:
+				anim.play("bounce")
+			countTime -= 1
 		elif countTime <= 0:
 			hasBeenUsed = false
 			countTime = InitialTime

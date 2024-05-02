@@ -1,17 +1,116 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnhb5fb30k7ma"]
+[gd_scene load_steps=18 format=3 uid="uid://cnhb5fb30k7ma"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Springboard_elastic.gd" id="1_5t31k"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_vm3po"]
+[ext_resource type="Texture2D" uid="uid://bwy36jpipuj6b" path="res://Graphics/big_mushroom.png" id="3_n5gex"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87r6k"]
 radius = 8.0
 height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7584l"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 0, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvood"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 36, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnb0t"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 72, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jsmm"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 108, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_risdk"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 144, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uajh3"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 180, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3p82"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 144, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otqrr"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 108, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq2su"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 72, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot8lp"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 36, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqk50"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 0, 256, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gghtm"]
+atlas = ExtResource("3_n5gex")
+region = Rect2(0, 0, 256, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3ucr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7584l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvood")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnb0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jsmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_risdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uajh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3p82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otqrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq2su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot8lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqk50")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gghtm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Springboard" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_5t31k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.309804, 0.627451, 0, 1)
 position = Vector2(-7.15256e-07, -7.15256e-07)
 scale = Vector2(0.25, 0.125)
@@ -20,5 +119,14 @@ texture = ExtResource("2_vm3po")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_87r6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3.57628e-07, 0.800003)
+scale = Vector2(0.125, 0.683333)
+sprite_frames = SubResource("SpriteFrames_k3ucr")
+animation = &"bounce"
+frame = 10
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
