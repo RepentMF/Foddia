@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://d140swyckf05s"]
+[gd_scene load_steps=5 format=3 uid="uid://d140swyckf05s"]
 
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_as6d8"]
 [ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="2_83sdi"]
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_e6u8o"]
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="2_t7c8r"]
 
 [node name="SwingingRope" type="Node2D"]
 
 [node name="Floor" parent="." instance=ExtResource("1_as6d8")]
+visible = false
+position = Vector2(0, -10)
+scale = Vector2(1, 0.360002)
 mass = 1.0
 gravity_scale = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+texture = ExtResource("2_t7c8r")
+hframes = 10
+vframes = 10
+frame = 19
 
 [node name="LedgeGrab" parent="." instance=ExtResource("2_e6u8o")]
 position = Vector2(0, -37)

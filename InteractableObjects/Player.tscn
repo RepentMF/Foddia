@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bh42ita0kfq2g" path="res://Graphics/player.png" id="3_pm30y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
-size = Vector2(11, 40)
+size = Vector2(11, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
 size = Vector2(65, 25.205)
@@ -562,6 +562,7 @@ animations = [{
 script = ExtResource("1_hgfsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4ufxu")
 
 [node name="Camera2D" type="Camera2D" parent="."]

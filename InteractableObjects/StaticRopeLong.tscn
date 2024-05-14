@@ -1,13 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ognoftyoyd5"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ognoftyoyd5"]
 
 [ext_resource type="PackedScene" uid="uid://c7rhpo6o14mo1" path="res://InteractableObjects/One-wayFloor.tscn" id="1_ndwip"]
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_wanis"]
 [ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="2_bxhbn"]
 [ext_resource type="PackedScene" uid="uid://cdbamyuc750bc" path="res://InteractableObjects/BigRopeLinkage.tscn" id="3_uxt1d"]
 
 [node name="StaticRopeLong" type="Node2D"]
 position = Vector2(0, -57)
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -133)
+texture = ExtResource("1_wanis")
+hframes = 10
+vframes = 10
+frame = 29
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-14, -113.4)
+scale = Vector2(-1.11081, -0.88)
+texture = ExtResource("1_wanis")
+hframes = 10
+vframes = 10
+frame = 9
+
 [node name="One-wayFloor" parent="." instance=ExtResource("1_ndwip")]
+visible = false
 position = Vector2(-16, -113.4)
 
 [node name="RopeLinkageTop" parent="." instance=ExtResource("2_bxhbn")]

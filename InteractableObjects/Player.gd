@@ -84,7 +84,7 @@ func _process(delta):
 			elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
 				anim.play("walk")
 		# Process player rope animations
-		elif isHoldingRope:
+		elif isHoldingRope && swingRope != null:
 			# FIX NEEDED: cannot press up when on swinging rope
 			if Input.is_action_pressed("ui_up") && swingRope.get_parent().name.contains("Static"):
 				anim.play("up_rope")
@@ -121,7 +121,6 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-		print(isDead)
 		direction = sign(velocity.x)
 	#Handle death conditions
 	#if !isDead || !hasReset:
@@ -295,7 +294,8 @@ func _physics_process(delta):
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					landedSoft = true
 				wasJumping = false
-			if isOnIce:
+			if isOnIce && !landedSoft && !landedHard:
+				
 				# Enable running toggle
 				if Input.is_action_pressed("ui_select"):
 					isRunning = true

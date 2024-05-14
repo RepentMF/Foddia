@@ -1,20 +1,126 @@
-[gd_scene load_steps=4 format=3 uid="uid://37u0wcwbqa2k"]
+[gd_scene load_steps=17 format=3 uid="uid://37u0wcwbqa2k"]
 
 [ext_resource type="Script" path="res://InteractableObjects/CheckFlag.gd" id="1_7jqv0"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_kr0tq"]
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="3_my6uh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vojkd"]
-size = Vector2(10, 40)
+size = Vector2(4, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh72g"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(128, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phs7m"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(128, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcc0f"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(160, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_055rt"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(192, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht3im"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(224, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avq1e"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(256, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q78g"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(128, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psly3"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(160, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1xrt"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(192, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33nbc"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(224, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3in5"]
+atlas = ExtResource("3_my6uh")
+region = Rect2(256, 36, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6x7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh72g")
+}],
+"loop": true,
+"name": &"flag_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phs7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcc0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_055rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht3im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avq1e")
+}],
+"loop": true,
+"name": &"flag_open",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q78g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psly3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1xrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33nbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3in5")
+}],
+"loop": true,
+"name": &"flag_waving",
+"speed": 10.0
+}]
 
 [node name="CheckFlag" type="Area2D"]
 script = ExtResource("1_7jqv0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(0.078125, 0.3125)
 texture = ExtResource("2_kr0tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_vojkd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.90735e-06, -14)
+scale = Vector2(1.91667, 1.91667)
+sprite_frames = SubResource("SpriteFrames_a6x7q")
+animation = &"flag_idle"
+frame_progress = 0.702117
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

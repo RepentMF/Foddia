@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1r5d5ilplyqy"]
+[gd_scene load_steps=5 format=3 uid="uid://c1r5d5ilplyqy"]
 
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_5diyn"]
 [ext_resource type="PackedScene" uid="uid://c7rhpo6o14mo1" path="res://InteractableObjects/One-wayFloor.tscn" id="1_hv4vj"]
 [ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="2_tstqd"]
 [ext_resource type="PackedScene" uid="uid://cdbamyuc750bc" path="res://InteractableObjects/BigRopeLinkage.tscn" id="3_8lfon"]
@@ -7,126 +8,144 @@
 [node name="StaticRope" type="Node2D"]
 position = Vector2(0, -57)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-10, -3)
+scale = Vector2(-1.12, -0.88)
+texture = ExtResource("1_5diyn")
+hframes = 10
+vframes = 10
+frame = 9
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -23)
+texture = ExtResource("1_5diyn")
+hframes = 10
+vframes = 10
+frame = 29
+
 [node name="One-wayFloor" parent="." instance=ExtResource("1_hv4vj")]
+visible = false
 position = Vector2(-12, -3)
 
 [node name="RopeLinkageTop" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 1)
+position = Vector2(2, 1)
 freeze = true
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(2, 5)
 node_a = NodePath("../RopeLinkageTop")
 node_b = NodePath("../RopeLinkage2")
 bias = 0.9
 disable_collision = false
 
 [node name="RopeLinkage2" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 10)
+position = Vector2(2, 10)
 freeze = true
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(2, 15)
 node_a = NodePath("../RopeLinkage2")
 node_b = NodePath("../RopeLinkage3")
 disable_collision = false
 
 [node name="RopeLinkage3" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 20)
+position = Vector2(2, 20)
 freeze = true
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="."]
-position = Vector2(0, 25)
+position = Vector2(2, 25)
 node_a = NodePath("../RopeLinkage3")
 node_b = NodePath("../RopeLinkage4")
 disable_collision = false
 
 [node name="RopeLinkage4" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 30)
+position = Vector2(2, 30)
 freeze = true
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="."]
-position = Vector2(0, 35)
+position = Vector2(2, 35)
 node_a = NodePath("../RopeLinkage4")
 node_b = NodePath("../RopeLinkage5")
 disable_collision = false
 
 [node name="RopeLinkage5" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 40)
+position = Vector2(2, 40)
 freeze = true
 
 [node name="PinJoint2D6" type="PinJoint2D" parent="."]
-position = Vector2(0, 45)
+position = Vector2(2, 45)
 node_a = NodePath("../RopeLinkage5")
 node_b = NodePath("../RopeLinkage6")
 disable_collision = false
 
 [node name="RopeLinkage6" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 50)
+position = Vector2(2, 50)
 freeze = true
 
 [node name="PinJoint2D7" type="PinJoint2D" parent="."]
-position = Vector2(0, 55)
+position = Vector2(2, 55)
 node_a = NodePath("../RopeLinkage6")
 node_b = NodePath("../RopeLinkage7")
 disable_collision = false
 
 [node name="RopeLinkage7" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 60)
+position = Vector2(2, 60)
 freeze = true
 
 [node name="PinJoint2D8" type="PinJoint2D" parent="."]
-position = Vector2(0, 65)
+position = Vector2(2, 65)
 node_a = NodePath("../RopeLinkage7")
 node_b = NodePath("../RopeLinkage8")
 disable_collision = false
 
 [node name="RopeLinkage8" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 70)
+position = Vector2(2, 70)
 mass = 0.12
 freeze = true
 
 [node name="PinJoint2D9" type="PinJoint2D" parent="."]
-position = Vector2(0, 75)
+position = Vector2(2, 75)
 node_a = NodePath("../RopeLinkage8")
 node_b = NodePath("../RopeLinkage9")
 disable_collision = false
 
 [node name="RopeLinkage9" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 80)
+position = Vector2(2, 80)
 mass = 0.14
 freeze = true
 
 [node name="PinJoint2D10" type="PinJoint2D" parent="."]
-position = Vector2(0, 85)
+position = Vector2(2, 85)
 node_a = NodePath("../RopeLinkage9")
 node_b = NodePath("../RopeLinkage10")
 disable_collision = false
 
 [node name="RopeLinkage10" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 90)
+position = Vector2(2, 90)
 mass = 0.16
 freeze = true
 
 [node name="PinJoint2D11" type="PinJoint2D" parent="."]
-position = Vector2(0, 95)
+position = Vector2(2, 95)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkage11")
 disable_collision = false
 
 [node name="RopeLinkage11" parent="." instance=ExtResource("2_tstqd")]
-position = Vector2(0, 100)
+position = Vector2(2, 100)
 mass = 0.18
 freeze = true
 
 [node name="PinJoint2D12" type="PinJoint2D" parent="."]
-position = Vector2(0, 105)
+position = Vector2(2, 105)
 node_a = NodePath("../RopeLinkage11")
 node_b = NodePath("../RopeLinkageBottom")
 disable_collision = false
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("3_8lfon")]
-position = Vector2(0, 113)
+position = Vector2(2, 113)
 mass = 0.2
 gravity_scale = 1.0
 freeze = true
