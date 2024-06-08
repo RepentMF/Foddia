@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3vljarx2p1ca"]
+
+[ext_resource type="Texture2D" uid="uid://consg32ngyxlh" path="res://Graphics/hair_linkage.png" id="1_368hg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so3di"]
+radius = 3.84615
+height = 17.0307
+
+[node name="HairLinkage" type="RigidBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 2
+mass = 0.1
+center_of_mass_mode = 1
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.04, 0.587175)
+shape = SubResource("CapsuleShape2D_so3di")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1, 1.2)
+texture = ExtResource("1_368hg")

@@ -11,28 +11,29 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 texture = ExtResource("1_mem7q")
 hframes = 10
 vframes = 10
 frame = 39
 
-[node name="Floor" parent="." instance=ExtResource("1_j6u63")]
+[node name="Floor2" parent="." instance=ExtResource("1_j6u63")]
 visible = false
+position = Vector2(0, -7)
+scale = Vector2(1, 0.360002)
 mass = 1.0
 gravity_scale = 1.0
 
 [node name="LedgeGrab" parent="." instance=ExtResource("2_trki3")]
-position = Vector2(0, -37)
+position = Vector2(0, -36)
 
 [node name="LedgeGrab2" parent="." instance=ExtResource("2_trki3")]
-position = Vector2(0, -37)
+position = Vector2(0, -36)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(0, 16)
-node_a = NodePath("../Floor")
+position = Vector2(0, 17)
 node_b = NodePath("../RopeLinkageTop")
 bias = 0.9
 disable_collision = false

@@ -16,22 +16,22 @@ gravity_scale = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 texture = ExtResource("2_t7c8r")
 hframes = 10
 vframes = 10
 frame = 19
 
 [node name="LedgeGrab" parent="." instance=ExtResource("2_e6u8o")]
-position = Vector2(0, -37)
+position = Vector2(0, -36)
 
 [node name="LedgeGrab2" parent="." instance=ExtResource("2_e6u8o")]
-position = Vector2(0, -37)
+position = Vector2(0, -36)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, 17)
 node_a = NodePath("../Floor")
 node_b = NodePath("../RopeLinkageTop")
 bias = 0.9

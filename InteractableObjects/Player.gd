@@ -46,6 +46,7 @@ var landedSoft = false
 var softCount = 33
 var hardCount = 200
 
+var hairPosition = Vector2(-6, -14)
 var jumpSpeed = 100
 var jumpSpeedStandard = 100
 var maxJetpackFuel = 1000
@@ -113,11 +114,44 @@ func _process(delta):
 		anim.play("climb_ledge")
 	elif isGrabbingLedge && !isClimbingLedge:
 		anim.play("grab_ledge")
-		
+	
+	#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
 	if direction == 1:
 		anim.flip_h = false
+		get_node("PinJoint2DLeft").visible = true
+		get_node("PinJoint2DRight").visible = false
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+		if !isHoldingRope && !is_on_floor():
+			get_node("PinJoint2DLeft").visible = false
+			get_node("PinJoint2DLeftAir").visible = true
+			if wasBouncing:
+				get_node("PinJoint2DLeft").visible = true
+				get_node("PinJoint2DLeftAir").visible = false
 	elif direction == -1:
 		anim.flip_h = true
+		get_node("PinJoint2DLeft").visible = false
+		get_node("PinJoint2DRight").visible = true
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+		if !isHoldingRope && !is_on_floor():
+			get_node("PinJoint2DRight").visible = false
+			get_node("PinJoint2DRightAir").visible = true
+			if wasBouncing:
+				get_node("PinJoint2DRight").visible = true
+				get_node("PinJoint2DRightAir").visible = false
+	
+	get_node("PinJoint2DLeft").z_index = 0
+	get_node("PinJoint2DRight").z_index = 0
+	
+	if landedSoft || landedHard || isGrabbingLedge:
+		get_node("PinJoint2DLeft").visible = false
+		get_node("PinJoint2DRight").visible = false
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+	elif isHoldingRope && !is_on_floor():
+		get_node("PinJoint2DLeft").z_index = 1
+		get_node("PinJoint2DRight").z_index = 1
 	pass
 
 func _physics_process(delta):
@@ -128,7 +162,7 @@ func _physics_process(delta):
 			global_position = checkpoint
 			isDead = false
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
-		var zoomTemp = (1.1 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
+		var zoomTemp = (0.5 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
 		cam.zoom = Vector2(zoomTemp, zoomTemp)
 		# Handle grabbing rope
 		if Input.is_action_pressed("ui_cancel") && isNearRope && !hasJetpack:
@@ -152,7 +186,6 @@ func _physics_process(delta):
 					wasBouncing = false
 					wasSwinging = true
 					ropeTempPosition = 0
-					#print("happening")
 					if abs(velocity.x) < maxRunSpeed:
 						runSpeed = abs(velocity.x)
 					if abs(velocity.x) >= maxRunSpeed:

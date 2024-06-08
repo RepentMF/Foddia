@@ -7,55 +7,55 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vojkd"]
 size = Vector2(4, 67)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mh72g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3fov"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(128, 0, 32, 36)
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_phs7m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_425xp"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(128, 0, 32, 36)
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcc0f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tem73"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(160, 0, 32, 36)
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_055rt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm5bs"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(192, 0, 32, 36)
+region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ht3im"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynvep"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(224, 0, 32, 36)
+region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_avq1e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnf1f"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(256, 0, 32, 36)
+region = Rect2(256, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0q78g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hymxf"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(128, 36, 32, 36)
+region = Rect2(128, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_psly3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fgbs"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(160, 36, 32, 36)
+region = Rect2(160, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1xrt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hddt4"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(192, 36, 32, 36)
+region = Rect2(192, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_33nbc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uvof"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(224, 36, 32, 36)
+region = Rect2(224, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3in5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mf8d"]
 atlas = ExtResource("3_my6uh")
-region = Rect2(256, 36, 32, 36)
+region = Rect2(256, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a6x7q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mh72g")
+"texture": SubResource("AtlasTexture_t3fov")
 }],
 "loop": true,
 "name": &"flag_idle",
@@ -63,19 +63,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_phs7m")
+"texture": SubResource("AtlasTexture_425xp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lcc0f")
+"texture": SubResource("AtlasTexture_tem73")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_055rt")
+"texture": SubResource("AtlasTexture_xm5bs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ht3im")
+"texture": SubResource("AtlasTexture_ynvep")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_avq1e")
+"texture": SubResource("AtlasTexture_lnf1f")
 }],
 "loop": true,
 "name": &"flag_open",
@@ -83,19 +83,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0q78g")
+"texture": SubResource("AtlasTexture_hymxf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_psly3")
+"texture": SubResource("AtlasTexture_8fgbs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d1xrt")
+"texture": SubResource("AtlasTexture_hddt4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_33nbc")
+"texture": SubResource("AtlasTexture_7uvof")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b3in5")
+"texture": SubResource("AtlasTexture_4mf8d")
 }],
 "loop": true,
 "name": &"flag_waving",
@@ -117,10 +117,9 @@ shape = SubResource("RectangleShape2D_vojkd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.90735e-06, -14)
+position = Vector2(1.90735e-06, -10)
 scale = Vector2(1.91667, 1.91667)
 sprite_frames = SubResource("SpriteFrames_a6x7q")
-animation = &"flag_idle"
-frame_progress = 0.702117
+animation = &"flag_waving"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
