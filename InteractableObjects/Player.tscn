@@ -615,7 +615,6 @@ sprite_frames = SubResource("SpriteFrames_e1rpn")
 animation = &"idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_otidi")
