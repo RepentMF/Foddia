@@ -102,13 +102,13 @@ func _process(delta):
 			
 			if Input.is_action_just_released("ui_cancel"):
 				anim.play("arms_up")
-			elif wasFalling && Input.is_action_pressed("ui_cancel") && !anim.name == "arms_up":
+			elif wasFalling && Input.is_action_pressed("ui_cancel") && !anim.animation == "arms_up":
 				anim.play("arms_out")
-			elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.name == "arms_out":
+			elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
 				anim.play("arms_up")
-	elif landedSoft && !anim.name == "soft_land":
+	elif landedSoft && !anim.animation == "soft_land":
 		anim.play("soft_land")
-	elif landedHard && !anim.name == "hard_land":
+	elif landedHard && !anim.animation == "hard_land":
 		anim.play("hard_land")
 	elif isClimbingLedge && !anim.animation == "climb_ledge":
 		anim.play("climb_ledge")
