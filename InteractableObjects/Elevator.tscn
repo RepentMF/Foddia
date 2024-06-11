@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxsb2p78idkqe"]
+[gd_scene load_steps=26 format=3 uid="uid://cxsb2p78idkqe"]
 
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="1_nv3tv"]
 [ext_resource type="Script" path="res://InteractableObjects/Elevator.gd" id="1_qooh2"]
@@ -143,6 +143,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbsjt"]
 size = Vector2(2.5, 220)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dytql"]
+size = Vector2(40, 1430)
+
+[sub_resource type="Gradient" id="Gradient_o31sb"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uhnvx"]
+gradient = SubResource("Gradient_o31sb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85, 0.85)
+
 [node name="Elevator" type="Node2D"]
 position = Vector2(0, -14)
 scale = Vector2(4, 0.1)
@@ -186,4 +198,27 @@ position = Vector2(0, 390)
 position = Vector2(0, -280)
 shape = SubResource("RectangleShape2D_gbsjt")
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 205)
+shape = SubResource("RectangleShape2D_dytql")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.65, -650)
+scale = Vector2(0.035, 1.25)
+color = Color(1, 0, 0, 1)
+energy = 3.75
+texture = SubResource("GradientTexture2D_uhnvx")
+texture_scale = 2.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1.65, -650)
+scale = Vector2(0.035, 1.25)
+color = Color(0, 1, 0, 1)
+energy = 1.75
+texture = SubResource("GradientTexture2D_uhnvx")
+texture_scale = 2.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

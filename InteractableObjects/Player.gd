@@ -33,6 +33,7 @@ var hasReleasedRope = false
 var isClimbingLedge = false
 var isCrawlingLedge = false
 var isDead = false
+var isInElevator = false
 var isFreefalling = false
 var isGrabbingLedge = false
 var isInWindCurrent = false
@@ -114,10 +115,14 @@ func _process(delta):
 		anim.play("climb_ledge")
 	elif isGrabbingLedge && !isClimbingLedge:
 		anim.play("grab_ledge")
-	
-	#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
+				
 	if direction == 1:
 		anim.flip_h = false
+	elif direction == -1:
+		anim.flip_h = true
+		
+	#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
+	if !anim.flip_h:
 		get_node("PinJoint2DLeft").visible = true
 		get_node("PinJoint2DRight").visible = false
 		get_node("PinJoint2DLeftAir").visible = false
@@ -125,11 +130,10 @@ func _process(delta):
 		if !isHoldingRope && !is_on_floor():
 			get_node("PinJoint2DLeft").visible = false
 			get_node("PinJoint2DLeftAir").visible = true
-			if wasBouncing:
+			if wasBouncing || wasSwinging:
 				get_node("PinJoint2DLeft").visible = true
 				get_node("PinJoint2DLeftAir").visible = false
-	elif direction == -1:
-		anim.flip_h = true
+	else:
 		get_node("PinJoint2DLeft").visible = false
 		get_node("PinJoint2DRight").visible = true
 		get_node("PinJoint2DLeftAir").visible = false
@@ -137,7 +141,7 @@ func _process(delta):
 		if !isHoldingRope && !is_on_floor():
 			get_node("PinJoint2DRight").visible = false
 			get_node("PinJoint2DRightAir").visible = true
-			if wasBouncing:
+			if wasBouncing || wasSwinging:
 				get_node("PinJoint2DRight").visible = true
 				get_node("PinJoint2DRightAir").visible = false
 	
@@ -155,6 +159,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+		print(isRunning)
 		direction = sign(velocity.x)
 	#Handle death conditions
 	#if !isDead || !hasReset:
@@ -173,6 +178,11 @@ func _physics_process(delta):
 			runSpeed = minRunSpeed
 		elif Input.is_action_just_released("ui_cancel") && !hasJetpack:
 			hasReleasedRope = true
+		# Enable running toggle
+		if Input.is_action_pressed("ui_select"):
+			isRunning = true
+		elif Input.is_action_just_released("ui_select"):
+			isRunning = false
 		# Handle releasing rope
 		if ropeTop != null:
 			if hasReleasedRope:
@@ -255,10 +265,11 @@ func _physics_process(delta):
 			else:
 				gravity = gravityStandard
 			velocity.y += gravity * delta
-			isRunning = false
 			lastGroundDirection = sign(velocity.x)
 			wasFalling = true
 			if velocity.y > 0:
+				countHangTime += 1
+			elif wasSwinging:
 				countHangTime += 1
 			if velocity.y > 500:
 				if velocity.y > 800:
@@ -328,12 +339,6 @@ func _physics_process(delta):
 					landedSoft = true
 				wasJumping = false
 			if isOnIce && !landedSoft && !landedHard:
-				
-				# Enable running toggle
-				if Input.is_action_pressed("ui_select"):
-					isRunning = true
-				elif Input.is_action_just_released("ui_select"):
-					isRunning = false
 				# Handle moving left and right speeds
 				if Input.is_action_pressed("ui_right"):
 					if isRunning:
@@ -511,7 +516,7 @@ func on_grab_with_legs(body):
 		if wasSwinging && isRunning:
 			landedSoft = false
 			landedHard = false
-		elif countHangTime >= 50 && countHangTime < 106 && !wasSwinging || (countHangTime >= 150 && countHangTime < 249 && isInWindCurrent):
+		elif countHangTime >= 50 && countHangTime < 106 && (!isRunning) || (countHangTime >= 150 && countHangTime < 249 && isInWindCurrent):
 			# Apply soft landing lag
 			landedSoft = true
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
@@ -521,6 +526,8 @@ func on_grab_with_legs(body):
 			isDead = true
 		elif countHangTime >= 400 && isInWindCurrent:
 			isDead = true
+	if isInElevator:
+		isDead = false
 	pass # Replace with function body.
 
 func _on_release_with_legs(body):
