@@ -26,7 +26,7 @@ var gravityStandard = 365
 var lastGroundDirection = 0
 var zoomStandard = Vector2(1, 1)
 
-var hasJetpack = false
+var hasJetpack = true
 var hasRocketJump = false
 var hasReleasedRope = false
 
@@ -37,6 +37,7 @@ var isInElevator = false
 var isFreefalling = false
 var isGrabbingLedge = false
 var isInWindCurrent = false
+var isInZeroG = false
 var isNearRope = false
 var isOnIce = false
 var isRunning = false
@@ -101,12 +102,15 @@ func _process(delta):
 			elif wasFalling && !anim.animation == "freefall_transition" && !anim.animation == "n_jump" && !anim.animation == "arms_up":
 				anim.play("freefall_transition")
 			
-			if Input.is_action_just_released("ui_cancel"):
-				anim.play("arms_up")
-			elif wasFalling && Input.is_action_pressed("ui_cancel") && !anim.animation == "arms_up":
+			if wasFalling && Input.is_action_pressed("ui_cancel"):
 				anim.play("arms_out")
-			elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
+				print("arms out")
+			elif Input.is_action_just_released("ui_cancel"):
 				anim.play("arms_up")
+				print("arms up")
+			#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
+			#	anim.play("arms_up")
+			
 	elif landedSoft && !anim.animation == "soft_land":
 		anim.play("soft_land")
 	elif landedHard && !anim.animation == "hard_land":
@@ -159,7 +163,6 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-		print(isRunning)
 		direction = sign(velocity.x)
 	#Handle death conditions
 	#if !isDead || !hasReset:
@@ -260,7 +263,10 @@ func _physics_process(delta):
 				ascend_ledge()
 		# Add the gravity, handle aerial movement and calculations
 		elif !is_on_floor():
-			if isInWindCurrent:
+			if isInZeroG:
+				gravity = -3
+				print(velocity.y)
+			elif isInWindCurrent:
 				gravity = gravityLight
 			else:
 				gravity = gravityStandard

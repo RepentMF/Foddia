@@ -1,21 +1,99 @@
-[gd_scene load_steps=4 format=3 uid="uid://dycxk34c23v45"]
+[gd_scene load_steps=15 format=3 uid="uid://dycxk34c23v45"]
 
 [ext_resource type="Script" path="res://InteractableObjects/RocketArms.gd" id="1_m1k8y"]
-[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_sxhay"]
+[ext_resource type="Texture2D" uid="uid://b03qux71pw8sw" path="res://Graphics/RocketArms.png" id="3_ui74e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qliq0"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnyeh"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tva74"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqpho"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55evj"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8bw1"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxrpx"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpbc7"]
+atlas = ExtResource("3_ui74e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phgbe"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_qliq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnyeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tva74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqpho")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_55evj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8bw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxrpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpbc7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_dp20u"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gnidy"]
+gradient = SubResource("Gradient_dp20u")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85, 0.85)
+
 [node name="RocketArms" type="Area2D"]
 script = ExtResource("1_m1k8y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.827451, 0, 0.945098, 1)
-position = Vector2(-7.15256e-07, -7.15256e-07)
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_sxhay")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_phgbe")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.331099
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.75
+texture = SubResource("GradientTexture2D_gnidy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
