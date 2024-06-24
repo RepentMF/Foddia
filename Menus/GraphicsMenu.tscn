@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_xvuvy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 359.0
 offset_top = 83.0
 offset_right = 511.0

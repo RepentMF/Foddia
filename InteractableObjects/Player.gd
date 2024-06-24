@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var timer = %TimerDisplay
 
 var user_prefs: UserPreferences
+var explosion = preload("res://GraphicObjects/Explosion.tscn")
 
 const ElevationLow = 0
 const ElevationHigh = 20000
@@ -76,6 +77,52 @@ var wasSwinging = false
 
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
+	if user_prefs.new_game:
+		if user_prefs.difficulty_dropdown_index == 0:
+			user_prefs.relaxed_checkpoint = Vector2(260, 130)
+			user_prefs.relaxed_save = Vector2(260, 130)
+			user_prefs.relaxed_boots_flag = false
+			user_prefs.relaxed_rockets_flag = false
+			user_prefs.relaxed_jetpack_flag = false
+			user_prefs.relaxed_fuel_count = 1000
+			user_prefs.relaxed_macguffin_flag = false
+			user_prefs.relaxed_macguffin2_flag = false
+			user_prefs.relaxed_ms = 0
+			user_prefs.relaxed_s = 0
+			user_prefs.relaxed_m = 0
+			user_prefs.relaxed_h = 0
+			user_prefs.relaxed_flag1 = false
+			user_prefs.relaxed_flag2 = false
+			user_prefs.relaxed_flag3 = false
+			user_prefs.relaxed_flag4 = false
+			user_prefs.relaxed_flag5 = false
+			user_prefs.relaxed_flag6 = false
+			user_prefs.relaxed_flag7 = false
+			user_prefs.relaxed_flag8 = false
+			user_prefs.relaxed_flag9 = false
+			user_prefs.relaxed_flag10 = false
+			user_prefs.relaxed_flag11 = false
+			user_prefs.relaxed_flag12 = false
+			user_prefs.relaxed_flag13 = false
+			user_prefs.relaxed_flag14 = false
+			user_prefs.save()
+		elif user_prefs.difficulty_dropdown_index == 1:
+			user_prefs.foddian_save = Vector2(260, 130)
+			user_prefs.foddian_boots_flag = false
+			user_prefs.foddian_rockets_flag = false
+			user_prefs.foddian_jetpack_flag = false
+			user_prefs.foddian_fuel_count = 1000
+			user_prefs.foddian_macguffin_flag = false
+			user_prefs.foddian_macguffin2_flag = false
+			user_prefs.foddian_ms = 0
+			user_prefs.foddian_s = 0
+			user_prefs.foddian_m = 0
+			user_prefs.foddian_h = 0
+			user_prefs.foddian_flag1 = false
+			user_prefs.foddian_flag11 = false
+			user_prefs.save()
+		user_prefs.new_game = false
+		user_prefs.save()
 	# Loading Relaxed Playthrough
 	if user_prefs.difficulty_dropdown_index == 0:
 		global_position = user_prefs.relaxed_save
@@ -122,8 +169,6 @@ func _ready():
 		timer.s = 0
 		timer.m = 0
 		timer.h = 0
-	CRT.visible = user_prefs.crt_bool_check
-	timer.visible = user_prefs.speedrun_bool_check
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -131,6 +176,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_menu"):
 		%PauseMenu.visible = true
 		get_tree().paused = true
+	CRT.visible = user_prefs.crt_bool_check
+	timer.visible = user_prefs.speedrun_bool_check
 	# Temporary static rope fix that will probably be permanent
 	if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
 		if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
@@ -384,7 +431,7 @@ func _physics_process(delta):
 							velocity.y = -60
 						if abs(velocity.x) == abs(velocity.y):
 							velocity = velocity * 3 / 4
-						#explode()
+						explode()
 		# Handle grounded movement
 		else:
 			#if wasSwinging:
@@ -539,11 +586,12 @@ func crawl_ledge():
 		runSpeed = minRunSpeed
 
 func explode():
-	var particle = deathParticle.instance()
-	particle.position = global_position
-	particle.rotation = global_rotation
-	particle.emitting = true
-	get_tree().current_scene.add_child(particle)
+	#var particle = deathParticle.instance()
+	#particle.position = global_position
+	#particle.rotation = global_rotation
+	#particle.emitting = true
+	var instance = explosion.instantiate()
+	add_child(instance)
 	pass
 	
 func use_hands(body):

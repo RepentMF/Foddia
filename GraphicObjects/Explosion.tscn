@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7uvyy06xaxng"]
+
+[ext_resource type="Script" path="res://GraphicObjects/Explosion.gd" id="1_mtjle"]
+[ext_resource type="Texture2D" uid="uid://c53pnl65iuvw3" path="res://Graphics/explosion.png" id="1_qrb6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhyve"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkhlk"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brayx"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2upb"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgg75"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gamuq"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8q45"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vldb"]
+atlas = ExtResource("1_qrb6j")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1q3y4"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_bhyve")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_mkhlk")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_brayx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2upb")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_cgg75")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_gamuq")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_g8q45")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_2vldb")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="Explosion" type="Node2D"]
+z_index = -1
+script = ExtResource("1_mtjle")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_1q3y4")
+animation = &"idle"
+autoplay = "idle"

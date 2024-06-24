@@ -4,5 +4,10 @@ res://game.tscn
 res://Menus/PauseMenu.tscn
 res://Menus/MainMenu.tscn
 res://Levels/OverworldRelaxed.tscn
+res://Menus/PauseMenu.gd
+res://Menus/GraphicsMenu.tscn
+res://Menus/AudioMenu.tscn
 res://InteractableObjects/Player.gd
-res://game.gd
+res://Resources/user_preferences.gd
+res://GraphicObjects/Explosion.tscn
+res://GraphicObjects/Explosion.gd

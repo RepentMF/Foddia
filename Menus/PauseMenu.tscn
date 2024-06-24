@@ -2,72 +2,113 @@
 
 [ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_narsn"]
 
-[node name="PauseMenu" type="Control"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_narsn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 2
-offset_left = -224.0
-offset_top = -208.0
-offset_right = -60.0001
-offset_bottom = -37.0
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
 scale = Vector2(11.8958, 6.38123)
 color = Color(0, 0, 0.392157, 0.470588)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = -152.0
-offset_right = 20.0
-offset_bottom = 19.0
+offset_left = -132.0
+offset_top = -208.0
+offset_right = 32.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.735, 1.735)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PauseOptions" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Keep Hiking" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Keep Hiking" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "Keep Hiking"
 
-[node name="Go to Display Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Go to Display Menu" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "Change Visuals"
 
-[node name="Go to Audio Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Go to Audio Menu" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "Change Tunes"
 
-[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="New Game" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "New Hike"
 
-[node name="Back to the Car" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back to the Car" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "Back to the Car"
 
-[node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit Game" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back to the Car" to="." method="_on_back_to_the_car_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
+[node name="GraphicsOptions" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Return to Pause Menu" type="Button" parent="MarginContainer/GraphicsOptions"]
+layout_mode = 2
+text = "Hike Setup"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CRTFilterCheckBox" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CRT Filter"
+
+[node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Speedrun Timer"
+
+[node name="AudioOptions" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Return to Pause Menu" type="Button" parent="MarginContainer/AudioOptions"]
+layout_mode = 2
+text = "Hike Setup"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/AudioOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/AudioOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/Back to the Car" to="." method="_on_back_to_the_car_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="MarginContainer/GraphicsOptions/Return to Pause Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="toggled" from="MarginContainer/GraphicsOptions/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/GraphicsOptions/CRTFilterCheckBox" to="." method="_on_crt_filter_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/GraphicsOptions/SpeedrunCheckButton" to="." method="_on_speedrun_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/AudioOptions/Return to Pause Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="value_changed" from="MarginContainer/AudioOptions/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/AudioOptions/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

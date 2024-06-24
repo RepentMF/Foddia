@@ -567,6 +567,7 @@ shader_parameter/scanline_count = 50.0
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhdvc"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 position = Vector2(-4, -1)
 script = ExtResource("1_hgfsl")
 
@@ -611,7 +612,7 @@ sprite_frames = SubResource("SpriteFrames_e1rpn")
 animation = &"idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+layer = 0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_otidi")

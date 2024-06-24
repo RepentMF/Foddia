@@ -1,5 +1,6 @@
 class_name UserPreferences extends Resource
 
+@export var new_game: bool = false
 @export_range(0, 2, 1) var difficulty_dropdown_index: int = 1
 @export_range(0, 1, 0.05) var music_audio_level: float = 1.0
 @export_range(0, 1, 0.05) var sfx_audio_level: float = 1.0
