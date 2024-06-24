@@ -20,5 +20,6 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		if !hasBeenPickedUp:
 			hasBeenPickedUp = true
+			body.hasMacguffin = true
 			print("You made it to the top of the mountain!")
 	pass # Replace with function body.

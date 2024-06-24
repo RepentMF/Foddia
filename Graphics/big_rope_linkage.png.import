@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nmm8qa062k2q"
-path="res://.godot/imported/big_rope_linkage.png-51a27d1c58be72f07326488b90f870dd.ctex"
+path="res://godot/imported/big_rope_linkage.png-51a27d1c58be72f07326488b90f870dd.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/big_rope_linkage.png"
-dest_files=["res://.godot/imported/big_rope_linkage.png-51a27d1c58be72f07326488b90f870dd.ctex"]
+dest_files=["res://godot/imported/big_rope_linkage.png-51a27d1c58be72f07326488b90f870dd.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg1krto2dxh8u"
-path="res://.godot/imported/SkySupplement.png-dce0dec52a24c50429ff4c98c9506dbe.ctex"
+path="res://godot/imported/SkySupplement.png-dce0dec52a24c50429ff4c98c9506dbe.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/SkySupplement.png"
-dest_files=["res://.godot/imported/SkySupplement.png-dce0dec52a24c50429ff4c98c9506dbe.ctex"]
+dest_files=["res://godot/imported/SkySupplement.png-dce0dec52a24c50429ff4c98c9506dbe.ctex"]
 
 [params]
 

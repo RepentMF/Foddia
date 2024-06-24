@@ -574,10 +574,6 @@ script = ExtResource("1_hgfsl")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4ufxu")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1.333, 1)
-zoom = Vector2(0.7, 0.7)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.25, 0.3125)
@@ -615,6 +611,7 @@ sprite_frames = SubResource("SpriteFrames_e1rpn")
 animation = &"idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_otidi")

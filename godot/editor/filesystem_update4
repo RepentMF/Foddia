@@ -1,0 +1,8 @@
+res://InteractableObjects/Player.tscn
+res://Menus/MainMenu.gd
+res://game.tscn
+res://Menus/PauseMenu.tscn
+res://Menus/MainMenu.tscn
+res://Levels/OverworldRelaxed.tscn
+res://InteractableObjects/Player.gd
+res://game.gd

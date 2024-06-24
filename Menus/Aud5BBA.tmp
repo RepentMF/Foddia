@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://jcop5yjxgopl"]
+
+[ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
+
+[node name="AudioMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rk3ja")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 256.0
+offset_right = 548.0
+offset_bottom = 327.0
+scale = Vector2(4, 4)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Hike Setup"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="changed" from="MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_changed"]
+[connection signal="changed" from="MarginContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_changed"]

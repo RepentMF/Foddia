@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-@onready var cam = $Camera2D
+@onready var cam = %Camera2D
+@onready var CRT = $CanvasLayer
+@onready var timer = %TimerDisplay
+
+var user_prefs: UserPreferences
 
 const ElevationLow = 0
 const ElevationHigh = 20000
@@ -9,7 +13,7 @@ const JetpackSpeed = 750
 const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
 
-var checkpoint = Vector2(22, -28)
+var checkpoint = Vector2(260, 130)
 var count = 0
 var countAirTime = 0
 var countHangTime = 0
@@ -26,7 +30,10 @@ var gravityStandard = 365
 var lastGroundDirection = 0
 var zoomStandard = Vector2(1, 1)
 
-var hasJetpack = true
+var hasJetpack = false
+var hasMacguffin = false
+var hasMacguffin2 = false
+var hasNewLegs = false
 var hasRocketJump = false
 var hasReleasedRope = false
 
@@ -67,11 +74,63 @@ var wasJumping = false
 var wasFalling = false
 var wasSwinging = false
 
-#func _ready():
-#	animatedSprite2D = $Sprite2D
+func _ready():
+	user_prefs = UserPreferences.load_or_create()
+	# Loading Relaxed Playthrough
+	if user_prefs.difficulty_dropdown_index == 0:
+		global_position = user_prefs.relaxed_save
+		checkpoint = user_prefs.relaxed_checkpoint
+		if user_prefs.relaxed_boots_flag:
+			hasNewLegs = true
+			maxRunSpeed *= 1.2
+		if user_prefs.relaxed_rockets_flag:
+			hasRocketJump = true
+		if user_prefs.relaxed_jetpack_flag:
+			hasJetpack = true
+			countJetpackFuel = user_prefs.relaxed_fuel_count
+		if user_prefs.relaxed_macguffin_flag:
+			hasMacguffin = true
+		if user_prefs.relaxed_macguffin2_flag:
+			hasMacguffin2 = true
+		timer.ms = user_prefs.relaxed_ms
+		timer.s = user_prefs.relaxed_s
+		timer.m = user_prefs.relaxed_m
+		timer.h = user_prefs.relaxed_h
+	# Loading Foddian Playthrough
+	elif user_prefs.difficulty_dropdown_index == 1:
+		global_position = user_prefs.foddian_save
+		if user_prefs.foddian_boots_flag:
+			hasNewLegs = true
+			maxRunSpeed *= 1.2
+		if user_prefs.foddian_rockets_flag:
+			hasRocketJump = true
+		if user_prefs.foddian_jetpack_flag:
+			hasJetpack = true
+			countJetpackFuel = user_prefs.foddian_fuel_count
+		if user_prefs.foddian_macguffin_flag:
+			hasMacguffin = true
+		if user_prefs.foddian_macguffin2_flag:
+			hasMacguffin2 = true
+		timer.ms = user_prefs.foddian_ms
+		timer.s = user_prefs.foddian_s
+		timer.m = user_prefs.foddian_m
+		timer.h = user_prefs.foddian_h
+	# Loading Permadeath Playthrough
+	elif user_prefs.difficulty_dropdown_index == 2:
+		global_position = user_prefs.permadeath_save
+		timer.ms = 0
+		timer.s = 0
+		timer.m = 0
+		timer.h = 0
+	CRT.visible = user_prefs.crt_bool_check
+	timer.visible = user_prefs.speedrun_bool_check
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("ui_menu"):
+		%PauseMenu.visible = true
+		get_tree().paused = true
 	# Temporary static rope fix that will probably be permanent
 	if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
 		if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
@@ -104,10 +163,8 @@ func _process(delta):
 			
 			if wasFalling && Input.is_action_pressed("ui_cancel"):
 				anim.play("arms_out")
-				print("arms out")
 			elif Input.is_action_just_released("ui_cancel"):
 				anim.play("arms_up")
-				print("arms up")
 			#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
 			#	anim.play("arms_up")
 			
@@ -173,13 +230,13 @@ func _physics_process(delta):
 		var zoomTemp = (0.5 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
 		cam.zoom = Vector2(zoomTemp, zoomTemp)
 		# Handle grabbing rope
-		if Input.is_action_pressed("ui_cancel") && isNearRope && !hasJetpack:
+		if Input.is_action_pressed("ui_cancel") && isNearRope && (!hasJetpack && countJetpackFuel > 0):
 			isHoldingRope = true
 			isOnIce = false
 			countRocketJumps = maxRocketJumps
 			countHangTime = 0
 			runSpeed = minRunSpeed
-		elif Input.is_action_just_released("ui_cancel") && !hasJetpack:
+		elif Input.is_action_just_released("ui_cancel") && (!hasJetpack && countJetpackFuel > 0):
 			hasReleasedRope = true
 		# Enable running toggle
 		if Input.is_action_pressed("ui_select"):
@@ -265,7 +322,6 @@ func _physics_process(delta):
 		elif !is_on_floor():
 			if isInZeroG:
 				gravity = -3
-				print(velocity.y)
 			elif isInWindCurrent:
 				gravity = gravityLight
 			else:
@@ -431,6 +487,41 @@ func _physics_process(delta):
 				rotation += .15
 				if rotation > 0:
 					rotation = 0
+			
+		if CRT.visible:
+			timer.position = Vector2(-380, -276)
+		else:
+			timer.position = Vector2(-430, -316)
+		timer.rotation = 0
+		if NOTIFICATION_WM_CLOSE_REQUEST:
+			if user_prefs.difficulty_dropdown_index == 0:
+				user_prefs.relaxed_save = global_position
+				user_prefs.relaxed_checkpoint = checkpoint
+				user_prefs.relaxed_boots_flag = hasNewLegs
+				user_prefs.relaxed_rockets_flag = hasRocketJump
+				user_prefs.relaxed_jetpack_flag = hasJetpack
+				user_prefs.relaxed_fuel_count = countJetpackFuel
+				user_prefs.relaxed_macguffin_flag = hasMacguffin
+				user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+				user_prefs.relaxed_ms = timer.ms
+				user_prefs.relaxed_s = timer.s
+				user_prefs.relaxed_m = timer.m
+				user_prefs.relaxed_h = timer.h
+				user_prefs.save()
+			elif user_prefs.difficulty_dropdown_index == 1:
+				user_prefs.foddian_save = global_position
+				user_prefs.foddian_checkpoint = checkpoint
+				user_prefs.foddian_boots_flag = hasNewLegs
+				user_prefs.foddian_rockets_flag = hasRocketJump
+				user_prefs.foddian_jetpack_flag = hasJetpack
+				user_prefs.foddian_fuel_count = countJetpackFuel
+				user_prefs.foddian_macguffin_flag = hasMacguffin
+				user_prefs.foddian_macguffin2_flag = hasMacguffin2
+				user_prefs.foddian_ms = timer.ms
+				user_prefs.foddian_s = timer.s
+				user_prefs.foddian_m = timer.m
+				user_prefs.foddian_h = timer.h
+				user_prefs.save()
 		pass
 
 func ascend_ledge():

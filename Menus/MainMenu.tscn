@@ -27,14 +27,20 @@ grow_vertical = 2
 scale = Vector2(1.735, 1.735)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Hike"
 
 [node name="Start Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Embark"
 
-[node name="Change Difficulty" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+[node name="ChangeDifficulty" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = false
 alignment = 1
@@ -49,7 +55,7 @@ popup/item_2/id = 2
 
 [node name="Go to Display Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Change Graphics"
+text = "Change Visuals"
 
 [node name="Go to Audio Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -59,7 +65,9 @@ text = "Change Tunes"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

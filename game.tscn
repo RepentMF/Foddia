@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlsb1bxwk8pf3"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_5sbvv"]
+[ext_resource type="PackedScene" uid="uid://1anuq87k0qy4" path="res://Levels/OverworldRelaxed.tscn" id="1_jqdrs"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_5sbvv")
+
+[node name="OverworldRelaxed" parent="." instance=ExtResource("1_jqdrs")]

@@ -20,6 +20,7 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		if !hasBeenPickedUp:
 			hasBeenPickedUp = true
-			body.maxRunSpeed *= 1.15
+			body.hasNewLegs = true
+			body.maxRunSpeed *= 1.2
 			print("You dismembered your body with your medical expertise and replaced your feet with robotic limbs.")
 	pass # Replace with function body.

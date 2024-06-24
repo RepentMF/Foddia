@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmjiv6nlca2jj"]
+
+[ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_narsn"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_narsn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = -224.0
+offset_top = -208.0
+offset_right = -60.0001
+offset_bottom = -37.0
+scale = Vector2(11.8958, 6.38123)
+color = Color(0, 0, 0.392157, 0.470588)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -152.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.735, 1.735)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.745098)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Keep Hiking" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Keep Hiking"
+
+[node name="Go to Display Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Change Visuals"
+
+[node name="Go to Audio Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Change Tunes"
+
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Hike"
+
+[node name="Back to the Car" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to the Car"
+
+[node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back to the Car" to="." method="_on_back_to_the_car_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
