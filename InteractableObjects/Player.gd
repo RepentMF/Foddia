@@ -4,9 +4,11 @@ extends CharacterBody2D
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
+@onready var dialogue = %DialogueBox
 
 var user_prefs: UserPreferences
 var explosion = preload("res://GraphicObjects/Explosion.tscn")
+var smoking = preload("res://GraphicObjects/Smoking.tscn")
 
 const ElevationLow = 0
 const ElevationHigh = 20000
@@ -389,6 +391,8 @@ func _physics_process(delta):
 				if hasJetpack:
 					if Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
 						countJetpackFuel -= 1
+						countHangTime = 0
+						countAirTime = 0
 						if Input.is_action_pressed("ui_right"):
 							velocity.x += 10
 						elif Input.is_action_pressed("ui_left"):
@@ -405,6 +409,8 @@ func _physics_process(delta):
 							velocity.x =  sign(velocity.x) * JetpackSpeed
 						if abs(velocity.y) > JetpackSpeed:
 							velocity.y = sign(velocity.y) * JetpackSpeed
+						if countJetpackFuel % 10 == 0:
+							smoke()
 				elif hasRocketJump:
 					if Input.is_action_just_pressed("ui_accept") && countRocketJumps > 0:
 						countRocketJumps -= 1
@@ -534,11 +540,11 @@ func _physics_process(delta):
 				rotation += .15
 				if rotation > 0:
 					rotation = 0
-			
+		
 		if CRT.visible:
-			timer.position = Vector2(-380, -276)
+			timer.position = Vector2(-815, -171)
 		else:
-			timer.position = Vector2(-430, -316)
+			timer.position = Vector2(-896, -215)
 		timer.rotation = 0
 		if NOTIFICATION_WM_CLOSE_REQUEST:
 			if user_prefs.difficulty_dropdown_index == 0:
@@ -586,14 +592,15 @@ func crawl_ledge():
 		runSpeed = minRunSpeed
 
 func explode():
-	#var particle = deathParticle.instance()
-	#particle.position = global_position
-	#particle.rotation = global_rotation
-	#particle.emitting = true
 	var instance = explosion.instantiate()
 	add_child(instance)
 	pass
-	
+
+func smoke():
+	var instance = smoking.instantiate()
+	add_child(instance)
+	pass
+
 func use_hands(body):
 	if body.name.contains("LedgeGrab"):
 		#if velocity.x != maxRunSpeed:

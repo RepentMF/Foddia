@@ -1,8 +1,8 @@
-AnimatedSprite2D
 CanvasLayer
+RichTextLabel
+AnimatedSprite2D
 ColorRect
 Control
 Container
-RichTextLabel
 Timer
 CheckBox

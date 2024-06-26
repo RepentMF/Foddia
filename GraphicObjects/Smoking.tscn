@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6go2mg806vdx"]
+
+[ext_resource type="Script" path="res://GraphicObjects/Explosion.gd" id="1_vo0q4"]
+[ext_resource type="Texture2D" uid="uid://blocw0rui2hwe" path="res://Graphics/smoking.png" id="2_vbkk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_405cr"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d07w"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lroia"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a1ev"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh82a"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb50h"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlat1"]
+atlas = ExtResource("2_vbkk1")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1q3y4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_405cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d07w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lroia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a1ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh82a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb50h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlat1")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="Smoking" type="Node2D"]
+z_index = -1
+script = ExtResource("1_vo0q4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+texture_filter = 1
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_1q3y4")
+animation = &"idle"
+autoplay = "idle"

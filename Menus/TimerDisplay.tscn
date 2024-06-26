@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxd6mc5xyl0o7"]
+
+[ext_resource type="Script" path="res://Menus/TimerDisplay.gd" id="1_bk1t2"]
+
+[node name="TimerDisplay" type="RichTextLabel"]
+offset_left = -815.0
+offset_top = -171.0
+offset_right = -775.0
+offset_bottom = -131.0
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("1_bk1t2")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

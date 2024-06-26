@@ -15,6 +15,8 @@ func _ready():
 		load_relaxed_flag()
 	elif user_prefs.difficulty_dropdown_index == 1:
 		load_foddian_flag()
+	if user_prefs.new_game:
+		isOpened = false
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
