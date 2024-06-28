@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://31rgflkgn25x"]
+
+[ext_resource type="Script" path="res://InteractableObjects/Sign.gd" id="1_ivst4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tte65"]
+
+[node name="Sign" type="Area2D"]
+script = ExtResource("1_ivst4")
+metadata/DIALOGUE = ["Here's sentence number 1.", "Here's sentence number 2."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tte65")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
