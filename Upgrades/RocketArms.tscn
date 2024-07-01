@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dycxk34c23v45"]
+[gd_scene load_steps=22 format=3 uid="uid://dycxk34c23v45"]
 
-[ext_resource type="Script" path="res://InteractableObjects/RocketArms.gd" id="1_m1k8y"]
+[ext_resource type="Script" path="res://Upgrades/RocketArms.gd" id="1_m1k8y"]
+[ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_1vros"]
 [ext_resource type="Texture2D" uid="uid://b03qux71pw8sw" path="res://Graphics/RocketArms.png" id="3_ui74e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
@@ -79,8 +80,52 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.85, 0.85)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1m2h"]
+atlas = ExtResource("3_1vros")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vb5w"]
+atlas = ExtResource("3_1vros")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ksil"]
+atlas = ExtResource("3_1vros")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo2le"]
+atlas = ExtResource("3_1vros")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ahy"]
+atlas = ExtResource("3_1vros")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uk74"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_l1m2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vb5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ksil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo2le")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_81ahy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
 [node name="RocketArms" type="Area2D"]
 script = ExtResource("1_m1k8y")
+metadata/DIALOGUE = ["You dismembered your body with your medical expertise and replaced your arms with rocket-fueled prosthetics."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")
@@ -95,5 +140,12 @@ frame_progress = 0.331099
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.75
 texture = SubResource("GradientTexture2D_gnidy")
+
+[node name="UI_Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -49)
+sprite_frames = SubResource("SpriteFrames_3uk74")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

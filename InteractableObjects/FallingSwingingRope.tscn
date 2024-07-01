@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnovtinhjb2b8"]
+[gd_scene load_steps=23 format=3 uid="uid://cnovtinhjb2b8"]
 
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_j6u63"]
 [ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_mem7q"]
@@ -6,6 +6,118 @@
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_trki3"]
 [ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="3_cswfh"]
 [ext_resource type="Script" path="res://InteractableObjects/TopRopeLinkage.gd" id="5_6yfrj"]
+[ext_resource type="Texture2D" uid="uid://bjfql43sd8p24" path="res://Graphics/ui_left_arrow.png" id="7_hvppy"]
+[ext_resource type="Texture2D" uid="uid://bo1tys7dskhtu" path="res://Graphics/ui_right_arrow.png" id="7_kl5he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7chc"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28vtq"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4lrd"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu535"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3017"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhovx"]
+atlas = ExtResource("7_hvppy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbmwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7chc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28vtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4lrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu535")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3017")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhovx")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miurn"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcl7q"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ijwe"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0782l"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci6g8"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgm0y"]
+atlas = ExtResource("7_kl5he")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ay0tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miurn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcl7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ijwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0782l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci6g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgm0y")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 30.0
+}]
 
 [node name="FallingSwingingRope" type="Node2D"]
 
@@ -145,3 +257,15 @@ disable_collision = false
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("3_cswfh")]
 position = Vector2(0, 121)
+
+[node name="UI_Sprite2D_left" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15, -49)
+sprite_frames = SubResource("SpriteFrames_hbmwn")
+animation = &"idle"
+
+[node name="UI_Sprite2D_right" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(17, -49)
+sprite_frames = SubResource("SpriteFrames_ay0tc")
+animation = &"idle"

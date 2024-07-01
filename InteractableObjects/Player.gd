@@ -44,6 +44,7 @@ var isClimbingLedge = false
 var isCrawlingLedge = false
 var isDead = false
 var isInElevator = false
+var isInteracting = false
 var isFreefalling = false
 var isGrabbingLedge = false
 var isInWindCurrent = false
@@ -175,103 +176,105 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_menu"):
-		%PauseMenu.visible = true
-		get_tree().paused = true
-	CRT.visible = user_prefs.crt_bool_check
-	timer.visible = user_prefs.speedrun_bool_check
-	# Temporary static rope fix that will probably be permanent
-	if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
-		if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
-			global_position.x = ropeTempPosition.x + 3
-			
-	if !landedSoft && !landedHard && !isGrabbingLedge && !isClimbingLedge:
-		# Process player grounded animations
-		if is_on_floor():
-			if is_on_floor() && velocity.x == 0:
-				anim.play("idle")
-			elif is_on_floor() && abs(velocity.x) > minRunSpeed:
-				anim.play("run")
-			elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
-				anim.play("walk")
-		# Process player rope animations
-		elif isHoldingRope && swingRope != null:
-			# FIX NEEDED: cannot press up when on swinging rope
-			if Input.is_action_pressed("ui_up") && swingRope.get_parent().name.contains("Static"):
-				anim.play("up_rope")
-			elif Input.is_action_pressed("ui_down") && swingRope.get_parent().name.contains("Static"):
-				anim.play("down_rope")
-			else:
-				anim.play("hold_rope")
-		# Process player floor animations
-		elif !is_on_floor():
-			if wasJumping && !anim.animation == "n_jump" && !anim.animation == "arms_up" && !anim.animation == "arms_out":
-				anim.play("n_jump")
-			elif wasFalling && !anim.animation == "freefall_transition" && !anim.animation == "n_jump" && !anim.animation == "arms_up":
-				anim.play("freefall_transition")
-			
-			if wasFalling && Input.is_action_pressed("ui_cancel"):
-				anim.play("arms_out")
-			elif Input.is_action_just_released("ui_cancel"):
-				anim.play("arms_up")
-			#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
-			#	anim.play("arms_up")
-			
-	elif landedSoft && !anim.animation == "soft_land":
-		anim.play("soft_land")
-	elif landedHard && !anim.animation == "hard_land":
-		anim.play("hard_land")
-	elif isClimbingLedge && !anim.animation == "climb_ledge":
-		anim.play("climb_ledge")
-	elif isGrabbingLedge && !isClimbingLedge:
-		anim.play("grab_ledge")
+	if !isInteracting:
+		if Input.is_action_just_pressed("ui_menu"):
+			%PauseMenu.visible = true
+			get_tree().paused = true
+		CRT.visible = user_prefs.crt_bool_check
+		timer.visible = user_prefs.speedrun_bool_check
+		# Temporary static rope fix that will probably be permanent
+		if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
+			if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
+				global_position.x = ropeTempPosition.x + 3
 				
-	if direction == 1:
-		anim.flip_h = false
-	elif direction == -1:
-		anim.flip_h = true
-		
-	#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
-	if !anim.flip_h:
-		get_node("PinJoint2DLeft").visible = true
-		get_node("PinJoint2DRight").visible = false
-		get_node("PinJoint2DLeftAir").visible = false
-		get_node("PinJoint2DRightAir").visible = false
-		if !isHoldingRope && !is_on_floor():
-			get_node("PinJoint2DLeft").visible = false
-			get_node("PinJoint2DLeftAir").visible = true
-			if wasBouncing || wasSwinging:
-				get_node("PinJoint2DLeft").visible = true
-				get_node("PinJoint2DLeftAir").visible = false
-	else:
-		get_node("PinJoint2DLeft").visible = false
-		get_node("PinJoint2DRight").visible = true
-		get_node("PinJoint2DLeftAir").visible = false
-		get_node("PinJoint2DRightAir").visible = false
-		if !isHoldingRope && !is_on_floor():
+		if !landedSoft && !landedHard && !isGrabbingLedge && !isClimbingLedge:
+			# Process player grounded animations
+			if is_on_floor():
+				if is_on_floor() && velocity.x == 0:
+					anim.play("idle")
+				elif is_on_floor() && abs(velocity.x) > minRunSpeed:
+					anim.play("run")
+				elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
+					anim.play("walk")
+			# Process player rope animations
+			elif isHoldingRope && swingRope != null:
+				# FIX NEEDED: cannot press up when on swinging rope
+				if Input.is_action_pressed("ui_up") && swingRope.get_parent().name.contains("Static"):
+					anim.play("up_rope")
+				elif Input.is_action_pressed("ui_down") && swingRope.get_parent().name.contains("Static"):
+					anim.play("down_rope")
+				else:
+					anim.play("hold_rope")
+			# Process player floor animations
+			elif !is_on_floor():
+				if wasJumping && !anim.animation == "n_jump" && !anim.animation == "arms_up" && !anim.animation == "arms_out":
+					anim.play("n_jump")
+				elif wasFalling && !anim.animation == "freefall_transition" && !anim.animation == "n_jump" && !anim.animation == "arms_up":
+					anim.play("freefall_transition")
+				
+				if wasFalling && Input.is_action_pressed("ui_cancel"):
+					anim.play("arms_out")
+				elif Input.is_action_just_released("ui_cancel"):
+					anim.play("arms_up")
+				#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
+				#	anim.play("arms_up")
+				
+		elif landedSoft && !anim.animation == "soft_land":
+			anim.play("soft_land")
+		elif landedHard && !anim.animation == "hard_land":
+			anim.play("hard_land")
+		elif isClimbingLedge && !anim.animation == "climb_ledge":
+			anim.play("climb_ledge")
+		elif isGrabbingLedge && !isClimbingLedge:
+			anim.play("grab_ledge")
+					
+		if direction == 1:
+			anim.flip_h = false
+		elif direction == -1:
+			anim.flip_h = true
+			
+		#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
+		if !anim.flip_h:
+			get_node("PinJoint2DLeft").visible = true
 			get_node("PinJoint2DRight").visible = false
-			get_node("PinJoint2DRightAir").visible = true
-			if wasBouncing || wasSwinging:
-				get_node("PinJoint2DRight").visible = true
-				get_node("PinJoint2DRightAir").visible = false
-	
-	get_node("PinJoint2DLeft").z_index = 0
-	get_node("PinJoint2DRight").z_index = 0
-	
-	if landedSoft || landedHard || isGrabbingLedge:
-		get_node("PinJoint2DLeft").visible = false
-		get_node("PinJoint2DRight").visible = false
-		get_node("PinJoint2DLeftAir").visible = false
-		get_node("PinJoint2DRightAir").visible = false
-	elif isHoldingRope && !is_on_floor():
-		get_node("PinJoint2DLeft").z_index = 1
-		get_node("PinJoint2DRight").z_index = 1
+			get_node("PinJoint2DLeftAir").visible = false
+			get_node("PinJoint2DRightAir").visible = false
+			if !isHoldingRope && !is_on_floor():
+				get_node("PinJoint2DLeft").visible = false
+				get_node("PinJoint2DLeftAir").visible = true
+				if wasBouncing || wasSwinging:
+					get_node("PinJoint2DLeft").visible = true
+					get_node("PinJoint2DLeftAir").visible = false
+		else:
+			get_node("PinJoint2DLeft").visible = false
+			get_node("PinJoint2DRight").visible = true
+			get_node("PinJoint2DLeftAir").visible = false
+			get_node("PinJoint2DRightAir").visible = false
+			if !isHoldingRope && !is_on_floor():
+				get_node("PinJoint2DRight").visible = false
+				get_node("PinJoint2DRightAir").visible = true
+				if wasBouncing || wasSwinging:
+					get_node("PinJoint2DRight").visible = true
+					get_node("PinJoint2DRightAir").visible = false
+		
+		get_node("PinJoint2DLeft").z_index = 0
+		get_node("PinJoint2DRight").z_index = 0
+		
+		if landedSoft || landedHard || isGrabbingLedge:
+			get_node("PinJoint2DLeft").visible = false
+			get_node("PinJoint2DRight").visible = false
+			get_node("PinJoint2DLeftAir").visible = false
+			get_node("PinJoint2DRightAir").visible = false
+		elif isHoldingRope && !is_on_floor():
+			get_node("PinJoint2DLeft").z_index = 1
+			get_node("PinJoint2DRight").z_index = 1
 	pass
 
 func _physics_process(delta):
+	if !isInteracting:
 		direction = sign(velocity.x)
-	#Handle death conditions
-	#if !isDead || !hasReset:
+		#Handle death conditions
+		#if !isDead || !hasReset:
 		if isDead:
 			global_position = checkpoint
 			isDead = false
@@ -540,11 +543,6 @@ func _physics_process(delta):
 				rotation += .15
 				if rotation > 0:
 					rotation = 0
-		
-		if CRT.visible:
-			timer.position = Vector2(-815, -171)
-		else:
-			timer.position = Vector2(-896, -215)
 		timer.rotation = 0
 		if NOTIFICATION_WM_CLOSE_REQUEST:
 			if user_prefs.difficulty_dropdown_index == 0:
@@ -575,7 +573,7 @@ func _physics_process(delta):
 				user_prefs.foddian_m = timer.m
 				user_prefs.foddian_h = timer.h
 				user_prefs.save()
-		pass
+	pass
 
 func ascend_ledge():
 	global_position = global_position.move_toward(Vector2(global_position.x, climbYValue), 1)

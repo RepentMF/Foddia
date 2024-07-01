@@ -1,4 +1,49 @@
-[gd_scene format=3 uid="uid://ykbih12rrilw"]
+[gd_scene load_steps=8 format=3 uid="uid://ykbih12rrilw"]
+
+[ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="1_kn0qf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1m2h"]
+atlas = ExtResource("1_kn0qf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vb5w"]
+atlas = ExtResource("1_kn0qf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ksil"]
+atlas = ExtResource("1_kn0qf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo2le"]
+atlas = ExtResource("1_kn0qf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ahy"]
+atlas = ExtResource("1_kn0qf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ohrm"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_l1m2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vb5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ksil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo2le")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_81ahy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [node name="DialogueBox" type="CanvasLayer"]
 
@@ -16,6 +61,8 @@ offset_top = 493.0
 offset_right = 1380.0
 offset_bottom = 709.0
 scale = Vector2(0.84, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 27
 theme_override_font_sizes/bold_font_size = 27
 theme_override_font_sizes/italics_font_size = 27
@@ -24,3 +71,11 @@ theme_override_font_sizes/mono_font_size = 27
 fit_content = true
 scroll_active = false
 autowrap_mode = 1
+
+[node name="UI_Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1175, 664)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_4ohrm")
+animation = &"idle"
+autoplay = "idle"
