@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://clmdiweuj2dyj"]
+
+[ext_resource type="Texture2D" uid="uid://daxqd6unkakvr" path="res://Graphics/sign.png" id="1_t0icc"]
+[ext_resource type="Script" path="res://GraphicObjects/Wind.gd" id="2_lusad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8gp6"]
+
+[node name="Wind" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+texture = ExtResource("1_t0icc")
+hframes = 5
+vframes = 2
+frame = 5
+script = ExtResource("2_lusad")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.24, 1.56)
+shape = SubResource("RectangleShape2D_u8gp6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

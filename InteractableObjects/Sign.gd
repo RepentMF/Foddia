@@ -14,7 +14,6 @@ func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	dialogue = get_meta("DIALOGUE")
 	textCount = dialogue.size()
-	print(UI)
 	UI.visible = false
 	pass # Replace with function body.
 

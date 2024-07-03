@@ -13,10 +13,19 @@ func _ready():
 func _process(delta):
 	if %Player.swingRope != null:
 		if %Player.swingRope.get_parent().name == name:
-			print(name)
 			left.visible = true
 			right.visible = true
-		else:
-			left.visible = false
-			right.visible = false
+			if Input.is_action_just_pressed("ui_left"):
+				left.play("pressed")
+			elif Input.is_action_just_released("ui_left"):
+				left.play("idle")
+			if Input.is_action_just_pressed("ui_right"):
+				right.play("pressed")
+			elif Input.is_action_just_released("ui_right"):
+				right.play("idle")
+	else:
+		left.play("idle")
+		right.play("idle")
+		left.visible = false
+		right.visible = false
 	pass

@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnovtinhjb2b8"]
+[gd_scene load_steps=24 format=3 uid="uid://cnovtinhjb2b8"]
 
+[ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_0psag"]
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_j6u63"]
 [ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="1_mem7q"]
 [ext_resource type="Script" path="res://InteractableObjects/FallingSwingingRope.gd" id="1_r2x6b"]
@@ -120,6 +121,7 @@ animations = [{
 }]
 
 [node name="FallingSwingingRope" type="Node2D"]
+script = ExtResource("1_0psag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

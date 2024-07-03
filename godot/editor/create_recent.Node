@@ -1,8 +1,10 @@
-CanvasLayer
-AnimatedSprite2D
-Sprite2D
+Node2D
 CollisionShape2D
 Area2D
+RigidBody2D
+Sprite2D
+CanvasLayer
+AnimatedSprite2D
 RichTextLabel
 ColorRect
 Control

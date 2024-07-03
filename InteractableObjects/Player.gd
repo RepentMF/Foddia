@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var anim = $AnimatedSprite2D
+@onready var arms = $HandsArea2D
+@onready var anim = $AnimatedSprite2D_normal
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
@@ -230,8 +231,10 @@ func _process(delta):
 					
 		if direction == 1:
 			anim.flip_h = false
+			arms.position = Vector2(3, -8)
 		elif direction == -1:
 			anim.flip_h = true
+			arms.position = Vector2(-5, -8)
 			
 		#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
 		if !anim.flip_h:

@@ -113,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cgm0y")
 }],
-"loop": true,
+"loop": false,
 "name": &"pressed",
 "speed": 30.0
 }]
@@ -260,10 +260,10 @@ position = Vector2(0, 121)
 texture_filter = 1
 position = Vector2(-15, -49)
 sprite_frames = SubResource("SpriteFrames_hvrb2")
-animation = &"idle"
+animation = &"pressed"
 
 [node name="UI_Sprite2D_right" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(17, -49)
 sprite_frames = SubResource("SpriteFrames_1a22h")
-animation = &"idle"
+animation = &"pressed"
