@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://db61dodwgqnau"]
+
+[ext_resource type="SpriteFrames" uid="uid://cpsokpept56f6" path="res://GraphicObjects/Player_legs.tres" id="1_lbunc"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(-7.10543e-15, -1)
+scale = Vector2(1.28, 1.35484)
+sprite_frames = ExtResource("1_lbunc")
+animation = &"arms_out"

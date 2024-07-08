@@ -11,6 +11,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wf5ce")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0, 0, 0, 0)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6

@@ -4,6 +4,10 @@ extends Control
 
 var user_prefs: UserPreferences
 
+var colorCount = 0
+var count = 1
+var load = false
+
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	if user_prefs.fullscreen_bool_check:
@@ -12,6 +16,11 @@ func _ready():
 		get_window().mode = Window.MODE_WINDOWED
 	if difficulty_dropdown:
 		difficulty_dropdown.selected = user_prefs.difficulty_dropdown_index
+	pass
+
+func _physics_process(delta):
+	if load:
+		load_game()
 	pass
 
 func _on_new_game_pressed():
@@ -58,11 +67,11 @@ func _on_new_game_pressed():
 		user_prefs.foddian_flag1 = false
 		user_prefs.foddian_flag11 = false
 		user_prefs.save()
-	get_tree().change_scene_to_file("res://game.tscn")
+	load = true
 	pass # Replace with function body.
 
 func _on_start_game_pressed():
-	get_tree().change_scene_to_file("res://game.tscn")
+	load = true
 	pass # Replace with function body.
 
 func _on_change_difficulty_item_selected(index):
@@ -82,5 +91,13 @@ func _on_go_to_audio_menu_pressed():
 func _on_quit_game_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
-#res://Menus/MainMenu.tscn
-#res://Levels/Overworld.tscn
+	
+func load_game():
+	if count % 10 == 0 && $ColorRect.color.a < 1:
+		count += 1
+		colorCount += 0.1
+		$ColorRect.color.a = colorCount
+	elif $ColorRect.color.a < 1:
+		count += 1
+	elif $ColorRect.color.a == 1:
+		get_tree().change_scene_to_file("res://game.tscn")

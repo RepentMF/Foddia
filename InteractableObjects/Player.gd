@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+var anim
 @onready var arms = $HandsArea2D
-@onready var anim = $AnimatedSprite2D_normal
+@onready var anim_norm = $Player_normal
+@onready var anim_legs = $Player_legs
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
@@ -23,6 +25,9 @@ var countAirTime = 0
 var countHangTime = 0
 var countJetpackFuel = 1000
 var countRocketJumps = 2
+
+var fadeInCount = 100
+var game_start = true
 
 var climbXValue = 0
 var climbYValue = 0
@@ -173,10 +178,26 @@ func _ready():
 		timer.s = 0
 		timer.m = 0
 		timer.h = 0
+	if hasNewLegs:
+		anim_norm.visible = false
+		anim_legs.visible = true
+		anim = anim_legs
+	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
+		anim_norm.visible = true
+		anim_legs.visible = false
+		anim = anim_norm
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if hasNewLegs:
+		anim_norm.visible = false
+		anim_legs.visible = true
+		anim = anim_legs
+	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
+		anim_norm.visible = true
+		anim_legs.visible = false
+		anim = anim_norm
 	if !isInteracting:
 		if Input.is_action_just_pressed("ui_menu"):
 			%PauseMenu.visible = true
@@ -274,6 +295,12 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	if game_start:
+		if fadeInCount > 0:
+			fadeInCount -= 1
+		elif fadeInCount == 0:
+			game_start = false
+			%FadeInPanel.visible = false
 	if !isInteracting:
 		direction = sign(velocity.x)
 		#Handle death conditions
@@ -603,7 +630,7 @@ func smoke():
 	pass
 
 func use_hands(body):
-	if body.name.contains("LedgeGrab"):
+	if !hasRocketJump && body.name.contains("LedgeGrab"):
 		#if velocity.x != maxRunSpeed:
 		climbYValue = body.global_position.y + 1
 		climbXValue = body.global_position.x
