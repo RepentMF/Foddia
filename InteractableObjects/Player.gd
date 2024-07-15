@@ -4,6 +4,8 @@ var anim
 @onready var arms = $HandsArea2D
 @onready var anim_norm = $Player_normal
 @onready var anim_legs = $Player_legs
+@onready var anim_rocket = $Player_rocket
+@onready var anim_legs_rocket = $Player_legs_rocket
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
@@ -44,6 +46,7 @@ var hasMacguffin = false
 var hasMacguffin2 = false
 var hasNewLegs = false
 var hasRocketJump = false
+var hasRocketed = false
 var hasReleasedRope = false
 
 var isClimbingLedge = false
@@ -74,6 +77,7 @@ var maxRocketJumps = 2
 var maxRunSpeed = 400
 var minRunSpeed = 125
 var runSpeed = 125
+var smokeCount = 30
 var swingSpeed = 0
 var swingRope = null
 var ropeBottom
@@ -178,26 +182,59 @@ func _ready():
 		timer.s = 0
 		timer.m = 0
 		timer.h = 0
-	if hasNewLegs:
+	if hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = true
+		anim = anim_legs_rocket
+	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = false
 		anim = anim_legs
+	elif !hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = true
+		anim_legs_rocket.visible = false
+		anim = anim_rocket
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = false
 		anim = anim_norm
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if hasNewLegs:
+	if hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = true
+		anim = anim_legs_rocket
+	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = false
 		anim = anim_legs
+	elif !hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = true
+		anim_legs_rocket.visible = false
+		anim = anim_rocket
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_legs_rocket.visible = false
 		anim = anim_norm
+	print(hasNewLegs, " ", hasRocketJump, " ", hasJetpack)
 	if !isInteracting:
 		if Input.is_action_just_pressed("ui_menu"):
 			%PauseMenu.visible = true
@@ -218,6 +255,9 @@ func _process(delta):
 					anim.play("run")
 				elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
 					anim.play("walk")
+				if hasRocketJump:
+					get_node("Rocket_1").visible = true
+					get_node("Rocket_2").visible = true
 			# Process player rope animations
 			elif isHoldingRope && swingRope != null:
 				# FIX NEEDED: cannot press up when on swinging rope
@@ -236,8 +276,14 @@ func _process(delta):
 				
 				if wasFalling && Input.is_action_pressed("ui_cancel"):
 					anim.play("arms_out")
+					if hasRocketJump:
+						get_node("Rocket_1").visible = false
+						get_node("Rocket_2").visible = false
 				elif Input.is_action_just_released("ui_cancel"):
 					anim.play("arms_up")
+					if hasRocketJump:
+						get_node("Rocket_1").visible = true
+						get_node("Rocket_2").visible = true
 				#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
 				#	anim.play("arms_up")
 				
@@ -289,6 +335,9 @@ func _process(delta):
 			get_node("PinJoint2DRight").visible = false
 			get_node("PinJoint2DLeftAir").visible = false
 			get_node("PinJoint2DRightAir").visible = false
+			if hasRocketJump:
+				get_node("Rocket_1").visible = false
+				get_node("Rocket_2").visible = false
 		elif isHoldingRope && !is_on_floor():
 			get_node("PinJoint2DLeft").z_index = 1
 			get_node("PinJoint2DRight").z_index = 1
@@ -318,6 +367,9 @@ func _physics_process(delta):
 			countRocketJumps = maxRocketJumps
 			countHangTime = 0
 			runSpeed = minRunSpeed
+			if hasRocketJump:
+				get_node("Rocket_1").visible = false
+				get_node("Rocket_2").visible = false
 		elif Input.is_action_just_released("ui_cancel") && (!hasJetpack && countJetpackFuel > 0):
 			hasReleasedRope = true
 		# Enable running toggle
@@ -342,6 +394,11 @@ func _physics_process(delta):
 						runSpeed = abs(velocity.x)
 					if abs(velocity.x) >= maxRunSpeed:
 						runSpeed = maxRunSpeed
+					if hasRocketJump:
+						get_node("Rocket_1").visible = true
+						get_node("Rocket_2").visible = true
+						$Rocket_1.rotation = 3.14159
+						$Rocket_2.rotation = 3.14159
 		# Handle physics on a rope
 		if !hasJetpack && swingRope != null && isHoldingRope:
 			countHangTime = 0
@@ -388,7 +445,7 @@ func _physics_process(delta):
 						hasReleasedRope = true
 						countAirTime = 10
 		# Handle climbing a ledge
-		elif !hasJetpack && isGrabbingLedge:
+		elif isGrabbingLedge:
 			velocity.x = 0
 			velocity.y = 0
 			countHangTime = 0
@@ -445,7 +502,15 @@ func _physics_process(delta):
 						if countJetpackFuel % 10 == 0:
 							smoke()
 				elif hasRocketJump:
+					if hasRocketed:
+						smokeCount -= 1
+						if smokeCount > 0:
+							smoke()
+						else:
+							smokeCount = 30
+							hasRocketed = false
 					if Input.is_action_just_pressed("ui_accept") && countRocketJumps > 0:
+						hasRocketed = true
 						countRocketJumps -= 1
 						countHangTime = 0
 						if Input.is_action_pressed("ui_right"):
@@ -471,10 +536,38 @@ func _physics_process(delta):
 						if abs(velocity.x) == abs(velocity.y):
 							velocity = velocity * 3 / 4
 						explode()
+						$Rocket_1.rotation = 0
+						$Rocket_2.rotation = 0
+						if Input.is_action_pressed("ui_right"):
+							$Rocket_1.rotation = 1.5708
+							$Rocket_2.rotation = 1.5708
+						elif Input.is_action_pressed("ui_left"):
+							$Rocket_1.rotation = -1.5708
+							$Rocket_2.rotation = -1.5708
+						elif Input.is_action_pressed("ui_up"):
+							$Rocket_1.rotation = 0
+							$Rocket_2.rotation = 0
+						elif Input.is_action_pressed("ui_down"):
+							$Rocket_1.rotation = 3.14159
+							$Rocket_2.rotation = 3.14159
+						if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_up"):
+							$Rocket_1.rotation = 0.785398
+							$Rocket_2.rotation = 0.785398
+						elif Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_up"):
+							$Rocket_1.rotation = -0.785398
+							$Rocket_2.rotation = -0.785398
+						elif Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_down"):
+							$Rocket_1.rotation = 2.35619
+							$Rocket_2.rotation = 2.35619
+						elif Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_down"):
+							$Rocket_1.rotation = -2.35619
+							$Rocket_2.rotation = -2.35619
 		# Handle grounded movement
 		else:
 			#if wasSwinging:
 				#print(runSpeed)
+			hasRocketed = false
+			smokeCount = 30
 			countHangTime = 0
 			countRocketJumps = maxRocketJumps
 			isHoldingRope = false
@@ -630,7 +723,7 @@ func smoke():
 	pass
 
 func use_hands(body):
-	if !hasRocketJump && body.name.contains("LedgeGrab"):
+	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab"):
 		#if velocity.x != maxRunSpeed:
 		climbYValue = body.global_position.y + 1
 		climbXValue = body.global_position.x

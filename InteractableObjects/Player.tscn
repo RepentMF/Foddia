@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=15 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_x77fk"]
 [ext_resource type="SpriteFrames" uid="uid://dj0n1hrsyai0f" path="res://GraphicObjects/Player_normal.tres" id="3_ftl0r"]
 [ext_resource type="PackedScene" uid="uid://db61dodwgqnau" path="res://GraphicObjects/Player_legs.tscn" id="3_qj7n8"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="4_ivckg"]
+[ext_resource type="PackedScene" uid="uid://jv111jl66k22" path="res://GraphicObjects/Player_rocket.tscn" id="5_lpefd"]
 [ext_resource type="PackedScene" uid="uid://c3vljarx2p1ca" path="res://InteractableObjects/HairLinkage.tscn" id="5_n1usa"]
+[ext_resource type="Texture2D" uid="uid://bdhdd0mkxvhhd" path="res://Graphics/player_rocket.png" id="6_38rk0"]
+[ext_resource type="PackedScene" uid="uid://bnckld2eupulq" path="res://GraphicObjects/Player_legs_rocket.tscn" id="7_0d882"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
 size = Vector2(11, 39)
@@ -62,9 +65,37 @@ shape = SubResource("RectangleShape2D_ml0cj")
 
 [node name="Player_normal" parent="." instance=ExtResource("3_qj7n8")]
 sprite_frames = ExtResource("3_ftl0r")
-animation = &"hold_rope"
+animation = &"walk"
 
 [node name="Player_legs" parent="." instance=ExtResource("3_qj7n8")]
+visible = false
+
+[node name="Rocket_1" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-4.02762, -8.02924)
+scale = Vector2(1.28, 1.35484)
+texture = ExtResource("6_38rk0")
+offset = Vector2(0, 5.16666)
+hframes = 7
+vframes = 11
+frame = 63
+
+[node name="Rocket_2" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(2, -8)
+scale = Vector2(1.28, 1.35484)
+texture = ExtResource("6_38rk0")
+offset = Vector2(-2.38419e-07, 5.16666)
+hframes = 7
+vframes = 11
+frame = 64
+
+[node name="Player_rocket" parent="." instance=ExtResource("5_lpefd")]
+visible = false
+
+[node name="Player_legs_rocket" parent="." instance=ExtResource("7_0d882")]
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -80,6 +111,7 @@ offset_bottom = 1503.0
 texture = SubResource("CanvasTexture_bhdvc")
 
 [node name="PinJoint2DLeft" type="PinJoint2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-5, -14)
 node_a = NodePath("..")

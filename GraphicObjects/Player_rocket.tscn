@@ -7,4 +7,4 @@ texture_filter = 1
 position = Vector2(-7.10543e-15, -1)
 scale = Vector2(1.28, 1.35484)
 sprite_frames = ExtResource("1_akiy0")
-animation = &"arms_out"
+animation = &"walk"

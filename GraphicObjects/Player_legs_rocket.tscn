@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnckld2eupulq"]
+
+[ext_resource type="SpriteFrames" uid="uid://kh0y4c0iksdr" path="res://GraphicObjects/Player_legs_rocket.tres" id="1_n3de7"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(-7.10543e-15, -1)
+scale = Vector2(1.28, 1.35484)
+sprite_frames = ExtResource("1_n3de7")
+animation = &"walk"
