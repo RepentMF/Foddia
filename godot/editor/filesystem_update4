@@ -5,10 +5,10 @@ res://InteractableObjects/Sign.gd
 res://Menus/MainMenu.gd
 res://GraphicObjects/Player_normal.tres
 res://GraphicObjects/Player_legs.tres
+res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/MainMenu.tscn
 res://Menus/PauseMenu.tscn
 res://Levels/OverworldRelaxed.tscn
 res://GraphicObjects/Player_rocket.tscn
 res://GraphicObjects/Player_legs_rocket.tscn
-res://InteractableObjects/Player.gd
