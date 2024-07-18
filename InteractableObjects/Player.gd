@@ -234,7 +234,6 @@ func _process(delta):
 		anim_rocket.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_norm
-	print(hasNewLegs, " ", hasRocketJump, " ", hasJetpack)
 	if !isInteracting:
 		if Input.is_action_just_pressed("ui_menu"):
 			%PauseMenu.visible = true

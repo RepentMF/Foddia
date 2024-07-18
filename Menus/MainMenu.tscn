@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=4 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
+[ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
+[ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="3_7pwpf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -74,6 +76,14 @@ text = "Change Tunes"
 [node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="MainMenuBg" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(640, 351)
+scale = Vector2(8.08, 5.84)
+texture = ExtResource("2_au53e")
+script = ExtResource("3_7pwpf")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]

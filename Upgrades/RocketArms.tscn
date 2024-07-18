@@ -125,7 +125,7 @@ animations = [{
 
 [node name="RocketArms" type="Area2D"]
 script = ExtResource("1_m1k8y")
-metadata/DIALOGUE = ["You dismembered your body with your medical expertise and replaced your arms with rocket-fueled prosthetics."]
+metadata/DIALOGUE = ["You dismembered your body with your medical expertise and replaced your arms with rocket-      fueled prosthetics."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")
@@ -149,3 +149,4 @@ animation = &"idle"
 autoplay = "idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
