@@ -81,7 +81,7 @@ text = "Quit"
 z_index = -1
 texture_filter = 1
 position = Vector2(640, 351)
-scale = Vector2(8.08, 5.84)
+scale = Vector2(7.16075, 5.84)
 texture = ExtResource("2_au53e")
 script = ExtResource("3_7pwpf")
 

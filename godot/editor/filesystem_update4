@@ -9,6 +9,5 @@ res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://GraphicObjects/Player_legs_rocket.tscn
 res://Levels/OverworldRelaxed.tscn
-res://Upgrades/RocketArms.tscn
+res://GraphicObjects/Player_rocket.tscn
 res://Menus/MainMenu.tscn
-res://Menus/MainMenuBg.gd
