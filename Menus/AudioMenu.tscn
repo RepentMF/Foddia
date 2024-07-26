@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://jcop5yjxgopl"]
+[gd_scene load_steps=3 format=3 uid="uid://jcop5yjxgopl"]
 
 [ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
+[ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_th3ii"]
 
 [node name="AudioMenu" type="Control"]
 layout_mode = 3
@@ -23,16 +24,22 @@ scale = Vector2(4, 4)
 layout_mode = 2
 
 [node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_th3ii")
 text = "Hike Setup"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_th3ii")
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_th3ii")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

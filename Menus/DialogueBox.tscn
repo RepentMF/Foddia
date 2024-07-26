@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ykbih12rrilw"]
+[gd_scene load_steps=9 format=3 uid="uid://ykbih12rrilw"]
 
+[ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="1_cpxif"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="1_kn0qf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1m2h"]
@@ -63,6 +64,7 @@ offset_bottom = 709.0
 scale = Vector2(0.84, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("1_cpxif")
 theme_override_font_sizes/normal_font_size = 27
 theme_override_font_sizes/bold_font_size = 27
 theme_override_font_sizes/italics_font_size = 27

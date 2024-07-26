@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://du61x5ylly6aa"]
+[gd_scene load_steps=3 format=3 uid="uid://du61x5ylly6aa"]
 
 [ext_resource type="Script" path="res://Menus/GraphicsMenu.gd" id="1_xvuvy"]
+[ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_n8g5v"]
 
 [node name="GraphicsMenu" type="Control"]
 layout_mode = 3
@@ -23,22 +24,30 @@ scale = Vector2(4, 4)
 layout_mode = 2
 
 [node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_n8g5v")
 text = "Hike Setup"
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_n8g5v")
 text = "Fullscreen"
 
 [node name="CRTFilterCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_n8g5v")
 text = "CRT Filter"
 
 [node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_n8g5v")
 text = "Speedrun Timer"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=6 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
+[ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_qp85b"]
 [ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="3_7pwpf"]
+[ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="3_8g8yg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -44,16 +46,23 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
+theme_override_fonts/font = ExtResource("3_8g8yg")
 text = "New Hike"
 
 [node name="Start Game" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
 text = "Embark"
 
 [node name="ChangeDifficulty" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
 toggle_mode = false
 alignment = 1
 item_count = 3
@@ -66,22 +75,28 @@ popup/item_2/text = "Permadeath"
 popup/item_2/id = 2
 
 [node name="Go to Display Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
 text = "Change Visuals"
 
 [node name="Go to Audio Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
 text = "Change Tunes"
 
 [node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("2_qp85b")
 text = "Quit"
 
 [node name="MainMenuBg" type="Sprite2D" parent="."]
 z_index = -1
 texture_filter = 1
-position = Vector2(640, 351)
-scale = Vector2(7.16075, 5.84)
+position = Vector2(639.5, 351)
+scale = Vector2(7.23034, 5.84)
 texture = ExtResource("2_au53e")
 script = ExtResource("3_7pwpf")
 

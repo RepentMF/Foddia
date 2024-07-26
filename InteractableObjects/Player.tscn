@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=16 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_x77fk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="4_ivckg"]
 [ext_resource type="PackedScene" uid="uid://jv111jl66k22" path="res://GraphicObjects/Player_rocket.tscn" id="5_lpefd"]
 [ext_resource type="PackedScene" uid="uid://c3vljarx2p1ca" path="res://InteractableObjects/HairLinkage.tscn" id="5_n1usa"]
+[ext_resource type="PackedScene" uid="uid://docbaui7xy8dg" path="res://GraphicObjects/Player_jetpack.tscn" id="6_6oruf"]
 [ext_resource type="Texture2D" uid="uid://bdhdd0mkxvhhd" path="res://Graphics/player_rocket.png" id="6_38rk0"]
 [ext_resource type="PackedScene" uid="uid://bnckld2eupulq" path="res://GraphicObjects/Player_legs_rocket.tscn" id="7_0d882"]
 
@@ -70,6 +71,13 @@ animation = &"walk"
 [node name="Player_legs" parent="." instance=ExtResource("3_qj7n8")]
 visible = false
 
+[node name="Player_rocket" parent="." instance=ExtResource("5_lpefd")]
+visible = false
+position = Vector2(0, -1)
+
+[node name="Player_jetpack" parent="." instance=ExtResource("6_6oruf")]
+visible = false
+
 [node name="Rocket_1" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
@@ -91,9 +99,6 @@ offset = Vector2(-2.38419e-07, 5.16666)
 hframes = 7
 vframes = 11
 frame = 64
-
-[node name="Player_rocket" parent="." instance=ExtResource("5_lpefd")]
-visible = false
 
 [node name="Player_legs_rocket" parent="." instance=ExtResource("7_0d882")]
 visible = false

@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://jv111jl66k22"]
 
-[ext_resource type="SpriteFrames" uid="uid://bpm1gpvih0w2e" path="res://GraphicObjects/Player_rocket.tres" id="1_akiy0"]
+[ext_resource type="SpriteFrames" uid="uid://cjnt48wdxem6h" path="res://GraphicObjects/Player_jetpack.tres" id="1_qrqat"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 texture_filter = 1
 position = Vector2(-7.10543e-15, -1)
 scale = Vector2(1.28, 1.35484)
-sprite_frames = ExtResource("1_akiy0")
-animation = &"walk"
+sprite_frames = ExtResource("1_qrqat")
+animation = &"h_jump"

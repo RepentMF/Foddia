@@ -5,6 +5,7 @@ var anim
 @onready var anim_norm = $Player_normal
 @onready var anim_legs = $Player_legs
 @onready var anim_rocket = $Player_rocket
+@onready var anim_jetpack = $Player_jetpack
 @onready var anim_legs_rocket = $Player_legs_rocket
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
@@ -186,24 +187,35 @@ func _ready():
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = true
 		anim = anim_legs_rocket
 	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_legs
 	elif !hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = true
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_rocket
+	elif !hasNewLegs && !hasRocketJump && hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = true
+		anim_legs_rocket.visible = false
+		anim = anim_jetpack
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_norm
 	pass
@@ -214,24 +226,35 @@ func _process(delta):
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = true
 		anim = anim_legs_rocket
 	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_legs
 	elif !hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = true
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_rocket
+	elif !hasNewLegs && !hasRocketJump && hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = true
+		anim_legs_rocket.visible = false
+		anim = anim_jetpack
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
 		anim_rocket.visible = false
+		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_norm
 	if !isInteracting:
