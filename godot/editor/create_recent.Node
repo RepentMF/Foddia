@@ -1,8 +1,11 @@
-ParallaxBackground
+CollisionShape2D
+ShapeCast2D
 Sprite2D
+Sprite3D
+TextureRect
+ParallaxBackground
 ParallaxLayer
 Node2D
-CollisionShape2D
 Area2D
 RigidBody2D
 CanvasLayer

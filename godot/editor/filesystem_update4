@@ -1,13 +1,7 @@
-res://Levels/OverworldRelaxed.tscn
+res://Menus/MainMenu.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/Sign.gd
 res://Menus/MainMenu.gd
-res://GraphicObjects/Player_normal.tres
-res://GraphicObjects/Player_legs.tres
-res://GraphicObjects/Player_jetpack.tres
-res://GraphicObjects/Player_legs_rocket.tres
-res://InteractableObjects/Player.tscn
-res://GraphicObjects/Player_legs_rocket.tscn
-res://Menus/DialogueBox.tscn
-res://GraphicObjects/Player_jetpack.tscn
+res://Menus/NormalButtonTheme.tres
+res://Menus/MenuParallax.gd

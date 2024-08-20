@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=14 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_qp85b"]
 [ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="3_7pwpf"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="3_8g8yg"]
+[ext_resource type="Texture2D" uid="uid://qc1b77ocktna" path="res://Graphics/MainMenu_Parallax0.png" id="6_nfy2d"]
+[ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="6_y8olb"]
+[ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="7_cdkbr"]
+[ext_resource type="Texture2D" uid="uid://48pt8xcc7xgs" path="res://Graphics/MainMenu_Parallax0_1.png" id="8_cxcm5"]
+[ext_resource type="Texture2D" uid="uid://cbd2vbah800td" path="res://Graphics/MainMenu_Parallax2.png" id="10_q3o1u"]
+[ext_resource type="Texture2D" uid="uid://hcfiija3i00e" path="res://Graphics/MainMenu_Parallax3.png" id="11_4x0pt"]
+[ext_resource type="Texture2D" uid="uid://bvgahsb25gax4" path="res://Graphics/MainMenu_Parallax4.png" id="11_yohu6"]
+[ext_resource type="Texture2D" uid="uid://debbh1xump61i" path="res://Graphics/MainMenu_Parallax5.png" id="13_xo7q0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,9 +40,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -288.0
+offset_left = -1292.0
 offset_top = -144.0
-offset_right = -124.0
+offset_right = -1128.0
 offset_bottom = 27.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -99,6 +107,123 @@ position = Vector2(639.5, 351)
 scale = Vector2(7.23034, 5.84)
 texture = ExtResource("2_au53e")
 script = ExtResource("3_7pwpf")
+
+[node name="MainMenuParallax0" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(1920, 396)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("6_nfy2d")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 50
+
+[node name="MainMenuParallax0_1" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(5770, 396)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("8_cxcm5")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 50
+
+[node name="MainMenuParallax1" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(1930, 412)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("6_y8olb")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1910
+metadata/starting_position = 5770
+metadata/speed = 30
+
+[node name="MainMenuParallax1_1" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(5770, 412)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("6_y8olb")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1910
+metadata/starting_position = 5770
+metadata/speed = 30
+
+[node name="MainMenuParallax3" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+position = Vector2(1925, 480)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("11_4x0pt")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1935
+metadata/starting_position = 5785
+metadata/speed = 5
+
+[node name="MainMenuParallax3_1" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+position = Vector2(5785, 480)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("11_4x0pt")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1935
+metadata/starting_position = 5785
+metadata/speed = 5
+
+[node name="MainMenuParallax4" type="Sprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(1930, 393)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("11_yohu6")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 2
+
+[node name="MainMenuParallax4_1" type="Sprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(5770, 393)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("11_yohu6")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 2
+
+[node name="MainMenuParallax5" type="Sprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+position = Vector2(1930, 352)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("10_q3o1u")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 1
+
+[node name="MainMenuParallax5_1" type="Sprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+position = Vector2(5770, 349)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("10_q3o1u")
+script = ExtResource("7_cdkbr")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 1
+
+[node name="MainMenuParallax6" type="Sprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+position = Vector2(1863, 280)
+scale = Vector2(4.38, 3.538)
+texture = ExtResource("13_xo7q0")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
