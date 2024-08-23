@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jcop5yjxgopl"]
+[gd_scene load_steps=5 format=3 uid="uid://jcop5yjxgopl"]
 
 [ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_th3ii"]
+[ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="3_iu2q5"]
+[ext_resource type="Script" path="res://Menus/AudioMenuBg.gd" id="4_68veo"]
 
 [node name="AudioMenu" type="Control"]
 layout_mode = 3
@@ -23,24 +25,96 @@ scale = Vector2(4, 4)
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+z_index = -1
 texture_filter = 1
-layout_mode = 2
+position = Vector2(47.75, 36.75)
+scale = Vector2(1.875, 1.5)
+texture = ExtResource("3_iu2q5")
+script = ExtResource("4_68veo")
+
+[node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
+position = Vector2(-24.5333, -17.8333)
+scale = Vector2(0.533333, 0.666667)
+
+[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D"]
+texture_filter = 1
+offset_right = 92.0
+offset_bottom = 19.0
 theme = ExtResource("2_th3ii")
+theme_override_colors/font_color = Color(0.589844, 0.621094, 0.585938, 1)
+theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
 text = "Hike Setup"
+metadata/_edit_use_anchors_ = true
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="Node2D2" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
+position = Vector2(-22.5333, 16.1667)
+scale = Vector2(0.8, 0.4)
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D2"]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 2
+offset_left = 8.66666
+offset_top = 15.4167
+offset_right = 100.667
+offset_bottom = 31.4167
 theme = ExtResource("2_th3ii")
+metadata/_edit_use_anchors_ = true
 
-[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="Node2D3" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
+position = Vector2(-15.3333, 22.5)
+scale = Vector2(0.8, 0.4)
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D3"]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 2
+offset_top = 23.0
+offset_right = 92.0
+offset_bottom = 39.0
 theme = ExtResource("2_th3ii")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[node name="Node2D4" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
+position = Vector2(-24.9333, 24)
+scale = Vector2(0.175, 0.175)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D4"]
+clip_contents = false
+offset_left = -45.6
+offset_top = -6.50001
+offset_right = 46.4
+offset_bottom = 64.5
+theme = ExtResource("2_th3ii")
+theme_override_colors/default_color = Color(0.59375, 0.625, 0.589844, 1)
+theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 42
+text = "BGM"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D5" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
+position = Vector2(-27.0667, 26.6667)
+scale = Vector2(0.175, 0.175)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D5"]
+z_index = 1
+clip_contents = false
+offset_left = -31.8667
+offset_top = 32.5
+offset_right = 60.1333
+offset_bottom = 103.5
+theme = ExtResource("2_th3ii")
+theme_override_colors/default_color = Color(0.589844, 0.621094, 0.585938, 1)
+theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 42
+text = "SFX"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

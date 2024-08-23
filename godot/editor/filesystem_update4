@@ -1,7 +1,8 @@
-res://Menus/MainMenu.tscn
+res://Menus/AudioMenu.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/Sign.gd
 res://Menus/MainMenu.gd
-res://Menus/NormalButtonTheme.tres
 res://Menus/MenuParallax.gd
+res://Menus/NormalButtonTheme.tres
+res://Menus/MainMenu.tscn
