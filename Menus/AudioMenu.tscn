@@ -34,7 +34,7 @@ texture = ExtResource("3_iu2q5")
 script = ExtResource("4_68veo")
 
 [node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-24.5333, -17.8333)
+position = Vector2(-24.533, -19.703)
 scale = Vector2(0.533333, 0.666667)
 
 [node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D"]

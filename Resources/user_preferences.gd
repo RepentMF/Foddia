@@ -5,6 +5,7 @@ class_name UserPreferences extends Resource
 @export_range(0, 1, 0.05) var music_audio_level: float = 1.0
 @export_range(0, 1, 0.05) var sfx_audio_level: float = 1.0
 @export var fullscreen_bool_check: bool = false
+@export var screenshake_bool_check: bool = true
 @export var crt_bool_check: bool = true
 @export var speedrun_bool_check: bool = false
 

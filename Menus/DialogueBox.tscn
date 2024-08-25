@@ -48,7 +48,10 @@ animations = [{
 
 [node name="DialogueBox" type="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 5)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
 offset_left = 84.0
 offset_top = 688.0
 offset_right = 248.0
@@ -65,11 +68,11 @@ scale = Vector2(0.84, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("1_cpxif")
-theme_override_font_sizes/normal_font_size = 27
-theme_override_font_sizes/bold_font_size = 27
-theme_override_font_sizes/italics_font_size = 27
-theme_override_font_sizes/bold_italics_font_size = 27
-theme_override_font_sizes/mono_font_size = 27
+theme_override_font_sizes/normal_font_size = 52
+theme_override_font_sizes/bold_font_size = 52
+theme_override_font_sizes/italics_font_size = 52
+theme_override_font_sizes/bold_italics_font_size = 52
+theme_override_font_sizes/mono_font_size = 52
 fit_content = true
 scroll_active = false
 autowrap_mode = 1

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://du61x5ylly6aa"]
+[gd_scene load_steps=6 format=3 uid="uid://du61x5ylly6aa"]
 
 [ext_resource type="Script" path="res://Menus/GraphicsMenu.gd" id="1_xvuvy"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_n8g5v"]
+[ext_resource type="Texture2D" uid="uid://dso16gxluy5vj" path="res://Graphics/GraphicsMenu_bg.png" id="2_spgtw"]
+[ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="4_mq0sg"]
+[ext_resource type="Script" path="res://Menus/GraphicsMenuBg.gd" id="5_3r2gb"]
 
 [node name="GraphicsMenu" type="Control"]
 layout_mode = 3
@@ -23,34 +26,91 @@ scale = Vector2(4, 4)
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="GraphicsMenuBg" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
 texture_filter = 1
-layout_mode = 2
+position = Vector2(69.5, 114.75)
+scale = Vector2(3.515, 2.812)
+texture = ExtResource("2_spgtw")
+
+[node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/GraphicsMenuBg"]
+position = Vector2(-7.68137, -29.7831)
+scale = Vector2(0.155, 0.155)
+
+[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D"]
+texture_filter = 1
+offset_left = -19.7724
+offset_top = -30.5832
+offset_right = 132.228
+offset_bottom = -11.5832
 theme = ExtResource("2_n8g5v")
 text = "Hike Setup"
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+[node name="Node2D2" type="Node2D" parent="MarginContainer/VBoxContainer/GraphicsMenuBg"]
+position = Vector2(-5.47653, -26.0491)
+scale = Vector2(0.155, 0.155)
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D2"]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 2
+offset_left = -19.7724
+offset_top = -30.5832
+offset_right = 132.228
+offset_bottom = -13.5832
 theme = ExtResource("2_n8g5v")
 text = "Fullscreen"
 
-[node name="CRTFilterCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+[node name="Node2D3" type="Node2D" parent="MarginContainer/VBoxContainer/GraphicsMenuBg"]
+position = Vector2(-5.47653, -22.7596)
+scale = Vector2(0.155, 0.155)
+
+[node name="ScreenshakeCheckButton" type="CheckBox" parent="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D3"]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 2
+offset_left = -19.7724
+offset_top = -30.5832
+offset_right = 132.228
+offset_bottom = -13.5832
+theme = ExtResource("2_n8g5v")
+text = "Screenshake"
+
+[node name="Node2D4" type="Node2D" parent="MarginContainer/VBoxContainer/GraphicsMenuBg"]
+position = Vector2(-5.47655, -19.4701)
+scale = Vector2(0.155, 0.155)
+
+[node name="CRTFilterCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D4"]
+unique_name_in_owner = true
+texture_filter = 1
+offset_left = -19.7724
+offset_top = -30.5832
+offset_right = 132.228
+offset_bottom = -13.5832
 theme = ExtResource("2_n8g5v")
 text = "CRT Filter"
 
-[node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+[node name="Node2D5" type="Node2D" parent="MarginContainer/VBoxContainer/GraphicsMenuBg"]
+position = Vector2(-5.47653, -16.1806)
+scale = Vector2(0.155, 0.155)
+
+[node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D5"]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 2
+offset_left = -19.7724
+offset_top = -30.5832
+offset_right = 132.228
+offset_bottom = -13.5832
 theme = ExtResource("2_n8g5v")
 text = "Speedrun Timer"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/CRTFilterCheckBox" to="." method="_on_crt_filter_check_box_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/SpeedrunCheckButton" to="." method="_on_speedrun_check_button_toggled"]
+[node name="AudioMenuBg" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+z_index = -1
+texture_filter = 1
+position = Vector2(70.5, 79.25)
+scale = Vector2(1.875, 1.5)
+texture = ExtResource("4_mq0sg")
+script = ExtResource("5_3r2gb")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D2/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D3/ScreenshakeCheckButton" to="." method="_on_screenshake_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D4/CRTFilterCheckBox" to="." method="_on_crt_filter_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GraphicsMenuBg/Node2D5/SpeedrunCheckButton" to="." method="_on_speedrun_check_button_toggled"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmjiv6nlca2jj"]
+[gd_scene load_steps=3 format=3 uid="uid://dmjiv6nlca2jj"]
 
 [ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_narsn"]
+[ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="2_cogs6"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
@@ -36,26 +37,44 @@ size_flags_vertical = 4
 
 [node name="Keep Hiking" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Keep Hiking"
 
 [node name="Go to Display Menu" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Change Visuals"
 
 [node name="Go to Audio Menu" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Change Tunes"
 
 [node name="New Game" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "New Hike"
 
 [node name="Back to the Car" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Back to the Car"
 
 [node name="Quit Game" type="Button" parent="MarginContainer/PauseOptions"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Quit"
 
 [node name="GraphicsOptions" type="VBoxContainer" parent="MarginContainer"]
