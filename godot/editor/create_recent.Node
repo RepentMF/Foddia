@@ -1,6 +1,7 @@
+Sprite2D
+ProgressBar
 Node2D
 RichTextLabel
-Sprite2D
 VSlider
 CollisionShape2D
 ShapeCast2D

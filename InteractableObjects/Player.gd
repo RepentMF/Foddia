@@ -10,6 +10,10 @@ var anim
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
+@onready var fuel = %FuelDisplay
+@onready var jetpack = %JetpackDisplay
+@onready var rocket1 = %Rocket1Display
+@onready var rocket2 = %Rocket2Display
 @onready var dialogue = %DialogueBox
 
 var user_prefs: UserPreferences
@@ -26,7 +30,7 @@ var checkpoint = Vector2(260, 130)
 var count = 0
 var countAirTime = 0
 var countHangTime = 0
-var countJetpackFuel = 1000
+var countJetpackFuel = 1000.0
 var countRocketJumps = 2
 
 var fadeInCount = 100
@@ -72,7 +76,7 @@ var hardCount = 200
 var hairPosition = Vector2(-6, -14)
 var jumpSpeed = 100
 var jumpSpeedStandard = 100
-var maxJetpackFuel = 1000
+var maxJetpackFuel = 1000.0
 var maxIceRunSpeed = 600
 var maxRocketJumps = 2
 var maxRunSpeed = 400
@@ -222,6 +226,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	fuel.value = (countJetpackFuel / maxJetpackFuel) * 100
+	if hasJetpack:
+		fuel.visible = true
+		jetpack.visible = true
+	else:
+		fuel.visible = false
+		jetpack.visible = false
+	if hasRocketJump:
+		rocket1.visible = true
+		rocket2.visible = true
+	else:
+		rocket1.visible = false
+		rocket2.visible = false
+	if countRocketJumps == 1:
+		rocket1.self_modulate.color = Color(.35, .33, 1, 1)
+	elif countRocketJumps == 0:
+		rocket1.self_modulate.color = Color(.35, .33, 1, 1)
 	if hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
@@ -387,6 +408,8 @@ func _physics_process(delta):
 			isHoldingRope = true
 			isOnIce = false
 			countRocketJumps = maxRocketJumps
+			rocket1.self_modulate.color = Color(1, 1, 1, 1)
+			rocket2.self_modulate.color = Color(1, 1, 1, 1)
 			countHangTime = 0
 			runSpeed = minRunSpeed
 			if hasRocketJump:
@@ -521,7 +544,7 @@ func _physics_process(delta):
 							velocity.x =  sign(velocity.x) * JetpackSpeed
 						if abs(velocity.y) > JetpackSpeed:
 							velocity.y = sign(velocity.y) * JetpackSpeed
-						if countJetpackFuel % 10 == 0:
+						if int (countJetpackFuel) % 10 == 0:
 							smoke()
 				elif hasRocketJump:
 					if hasRocketed:
@@ -592,6 +615,9 @@ func _physics_process(delta):
 			smokeCount = 30
 			countHangTime = 0
 			countRocketJumps = maxRocketJumps
+			if rocket1 != null && rocket2 != null:
+				rocket1.self_modulate.color = Color(1, 1, 1, 1)
+				rocket2.self_modulate.color = Color(1, 1, 1, 1)
 			isHoldingRope = false
 			wasFalling = false
 			wasSwinging = false
