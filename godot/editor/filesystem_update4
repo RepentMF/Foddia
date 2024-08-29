@@ -1,4 +1,4 @@
-res://Levels/OverworldRelaxed.tscn
+res://GraphicObjects/Player_rocket.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/Sign.gd
@@ -10,7 +10,10 @@ res://GraphicObjects/Player_legs.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/NormalButtonTheme.tres
+res://GraphicObjects/Player_rocket.tres
+res://InteractableObjects/Player.tscn
+res://InteractableObjects/Player.gd
+res://Levels/OverworldRelaxed.tscn
 res://Menus/DialogueBox.tscn
 res://Menus/MainMenu.tscn
-res://InteractableObjects/Player.gd
 res://Menus/UIHolder.tscn

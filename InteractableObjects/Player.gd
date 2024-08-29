@@ -240,9 +240,9 @@ func _process(delta):
 		rocket1.visible = false
 		rocket2.visible = false
 	if countRocketJumps == 1:
-		rocket1.self_modulate.color = Color(.35, .33, 1, 1)
+		rocket1.modulate = Color(.35, .33, 1, 1)
 	elif countRocketJumps == 0:
-		rocket1.self_modulate.color = Color(.35, .33, 1, 1)
+		rocket2.modulate = Color(.35, .33, 1, 1)
 	if hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
@@ -408,8 +408,8 @@ func _physics_process(delta):
 			isHoldingRope = true
 			isOnIce = false
 			countRocketJumps = maxRocketJumps
-			rocket1.self_modulate.color = Color(1, 1, 1, 1)
-			rocket2.self_modulate.color = Color(1, 1, 1, 1)
+			rocket1.modulate = Color(1, 1, 1, 1)
+			rocket2.modulate = Color(1, 1, 1, 1)
 			countHangTime = 0
 			runSpeed = minRunSpeed
 			if hasRocketJump:
@@ -616,8 +616,8 @@ func _physics_process(delta):
 			countHangTime = 0
 			countRocketJumps = maxRocketJumps
 			if rocket1 != null && rocket2 != null:
-				rocket1.self_modulate.color = Color(1, 1, 1, 1)
-				rocket2.self_modulate.color = Color(1, 1, 1, 1)
+				rocket1.modulate = Color(1, 1, 1, 1)
+				rocket2.modulate = Color(1, 1, 1, 1)
 			isHoldingRope = false
 			wasFalling = false
 			wasSwinging = false
