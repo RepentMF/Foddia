@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ceu60wp08ha24"]
 
 [ext_resource type="Script" path="res://Upgrades/Macguffin.gd" id="1_j8k8l"]
-[ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_y3cxy"]
+[ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="2_leil8"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_ldrm1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
@@ -51,14 +51,15 @@ animations = [{
 }]
 
 [node name="Macguffin" type="Area2D"]
+texture_filter = 1
 script = ExtResource("1_j8k8l")
-metadata/DIALOGUE = ["You picked up the worn palm-sized flag and put it in your pocket."]
+metadata/DIALOGUE = ["You  picked  up  the  small,  red  flag  and  put  it  in  your  pocket.  It's  much  smaller  than  I  remember...  Maybe...  it's  enough  that  I  just  remember  them  moving  forward."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-7.15256e-07, -7.15256e-07)
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_y3cxy")
+rotation = -0.436332
+texture = ExtResource("2_leil8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")

@@ -14,6 +14,8 @@ var anim
 @onready var jetpack = %JetpackDisplay
 @onready var rocket1 = %Rocket1Display
 @onready var rocket2 = %Rocket2Display
+@onready var macguffin = %MacguffinDisplay
+@onready var macguffin2 = %Macguffin2Display
 @onready var dialogue = %DialogueBox
 
 var user_prefs: UserPreferences
@@ -239,6 +241,14 @@ func _process(delta):
 	else:
 		rocket1.visible = false
 		rocket2.visible = false
+	if hasMacguffin:
+		macguffin.visible = true
+	else:
+		macguffin.visible = false
+	if hasMacguffin2:
+		macguffin2.visible = true
+	else:
+		macguffin2.visible = false
 	if countRocketJumps == 1:
 		rocket1.modulate = Color(.35, .33, 1, 1)
 	elif countRocketJumps == 0:
@@ -399,6 +409,8 @@ func _physics_process(delta):
 		#if !isDead || !hasReset:
 		if isDead:
 			global_position = checkpoint
+			countRocketJumps = maxRocketJumps
+			countJetpackFuel = maxJetpackFuel
 			isDead = false
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
 		var zoomTemp = (0.5 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6

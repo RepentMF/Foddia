@@ -125,7 +125,7 @@ animations = [{
 
 [node name="RunningProstehtics" type="Area2D"]
 script = ExtResource("1_okw0b")
-metadata/DIALOGUE = ["You dismembered your body with your medical expertise and replaced your feet with robotic limbs."]
+metadata/DIALOGUE = ["You  dismembered  your  body  with  your  medical  expertise  and            replaced  your  feet  with  robotic  limbs."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")

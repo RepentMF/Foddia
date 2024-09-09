@@ -125,7 +125,7 @@ animations = [{
 
 [node name="JetpackTorso" type="Area2D"]
 script = ExtResource("1_47vlp")
-metadata/DIALOGUE = ["You dismembered your body with your medical expertise to install a jetpack in your lower back."]
+metadata/DIALOGUE = ["You  dismembered  your  body  with  your  medical  expertise  to                 install  a  jetpack  in  your  lower  back."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")

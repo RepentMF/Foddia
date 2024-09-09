@@ -36,6 +36,8 @@ func _on_body_entered(body):
 			#	body.velocity.y = -2 * body.jumpSpeed
 			if body.hasRocketJump || body.hasJetpack:
 				body.countRocketJumps = body.maxRocketJumps
+				body.rocket1.modulate = Color(1, 1, 1, 1)
+				body.rocket2.modulate = Color(1, 1, 1, 1)
 				body.countJetpackFuel = body.maxJetpackFuel
 			hasBeenUsed = true
 	pass # Replace with function body.
