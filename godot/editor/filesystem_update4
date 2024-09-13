@@ -1,4 +1,4 @@
-res://Upgrades/JetpackTorso.tscn
+res://Levels/OverworldRelaxed.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/Sign.gd
@@ -11,14 +11,8 @@ res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/NormalButtonTheme.tres
-res://Upgrades/Macguffin2.tscn
-res://Upgrades/Macguffin.tscn
 res://Menus/DialogueBox.tscn
-res://Levels/OverworldRelaxed.tscn
 res://Menus/MainMenu.tscn
 res://Menus/UIHolder.tscn
 res://InteractableObjects/Player.tscn
 res://GraphicObjects/Player_rocket.tscn
-res://InteractableObjects/One-wayFloor.tscn
-res://Upgrades/RocketArms.tscn
-res://Upgrades/RunningProsthetics.tscn
