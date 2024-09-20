@@ -16,3 +16,5 @@ res://Menus/MainMenu.tscn
 res://Menus/UIHolder.tscn
 res://InteractableObjects/Player.tscn
 res://GraphicObjects/Player_rocket.tscn
+res://Menus/SwingingObject.gd
+res://Menus/PauseMenu.tscn
