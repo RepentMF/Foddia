@@ -128,5 +128,6 @@ animations = [{
 [node name="MushroomBoy_blue" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_t55n2")
-animation = &"dead"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.630148
