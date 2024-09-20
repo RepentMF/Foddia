@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://0sa1stdqcgc3"]
+
+[ext_resource type="Texture2D" uid="uid://b40m624uua2r4" path="res://Graphics/item_string.png" id="1_pxupw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij447"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(0, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76eku"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(0, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp0so"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(23, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qntde"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(46, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iis5t"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(69, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfvgn"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(92, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7ytu"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(115, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkow8"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(138, 0, 23, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g86aj"]
+atlas = ExtResource("1_pxupw")
+region = Rect2(161, 0, 23, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcg04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij447")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76eku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp0so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qntde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iis5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfvgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7ytu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkow8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g86aj")
+}],
+"loop": true,
+"name": &"swinging",
+"speed": 8.0
+}]
+
+[node name="ItemString" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xcg04")
+animation = &"swinging"

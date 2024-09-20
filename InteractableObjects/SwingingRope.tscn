@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d140swyckf05s"]
+[gd_scene load_steps=18 format=3 uid="uid://d140swyckf05s"]
 
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_as6d8"]
 [ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_jsp82"]
@@ -15,14 +15,6 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_28vtq"]
 atlas = ExtResource("5_ubpxq")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4lrd"]
-atlas = ExtResource("5_ubpxq")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fu535"]
-atlas = ExtResource("5_ubpxq")
-region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3017"]
 atlas = ExtResource("5_ubpxq")
@@ -47,12 +39,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_28vtq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d4lrd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fu535")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_v3017")
 }, {
 "duration": 1.0,
@@ -70,14 +56,6 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcl7q"]
 atlas = ExtResource("6_rquvl")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ijwe"]
-atlas = ExtResource("6_rquvl")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0782l"]
-atlas = ExtResource("6_rquvl")
-region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci6g8"]
 atlas = ExtResource("6_rquvl")
@@ -100,12 +78,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tcl7q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ijwe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0782l")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ci6g8")

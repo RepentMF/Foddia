@@ -1,0 +1,132 @@
+[gd_scene load_steps=18 format=3 uid="uid://ooya181efc87"]
+
+[ext_resource type="Texture2D" uid="uid://7iv20xjpod7s" path="res://Graphics/mushroom_boy.png" id="1_xtpek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwtaa"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(0, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujpcv"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(31, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5l7i"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(62, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3pus"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(93, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sadrc"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(124, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e4fc"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(0, 31, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7a3g"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(31, 31, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s56i8"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(62, 31, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igojw"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(93, 31, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foqhl"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(124, 31, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyx6o"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(0, 62, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba5ad"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(31, 62, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8qag"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(62, 62, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrcoi"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(93, 62, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yntgm"]
+atlas = ExtResource("1_xtpek")
+region = Rect2(124, 62, 31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t55n2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwtaa")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujpcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5l7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3pus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sadrc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e4fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7a3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s56i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igojw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foqhl")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_eyx6o")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_ba5ad")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_p8qag")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_rrcoi")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_yntgm")
+}],
+"loop": true,
+"name": &"relieved",
+"speed": 5.0
+}]
+
+[node name="MushroomBoy_blue" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_t55n2")
+animation = &"dead"
+autoplay = "idle"

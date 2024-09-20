@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=17 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://debbh1xump61i" path="res://Graphics/MainMenu_Parallax5.png" id="13_xo7q0"]
 [ext_resource type="Texture2D" uid="uid://b2bwrdtjw6w6n" path="res://Graphics/fuzzy_dice.png" id="14_cjrk4"]
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
+[ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -227,11 +228,14 @@ position = Vector2(1863, 280)
 scale = Vector2(4.38, 3.538)
 texture = ExtResource("13_xo7q0")
 
-[node name="FuzzyDice" type="Sprite2D" parent="."]
+[node name="ItemString" parent="." instance=ExtResource("16_6dkun")]
+position = Vector2(687, 31)
+scale = Vector2(5.2037, 5.24074)
+
+[node name="FuzzyDice" type="Sprite2D" parent="ItemString"]
 texture_filter = 1
-position = Vector2(680, 136)
-rotation = 0.523599
-scale = Vector2(5, 5)
+position = Vector2(-1.53738, 19.2721)
+scale = Vector2(0.960854, 0.954064)
 texture = ExtResource("14_cjrk4")
 script = ExtResource("15_olmf2")
 

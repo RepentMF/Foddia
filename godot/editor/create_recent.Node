@@ -1,6 +1,7 @@
+AnimatedSprite2D
+Node2D
 Sprite2D
 ProgressBar
-Node2D
 RichTextLabel
 VSlider
 CollisionShape2D
@@ -12,7 +13,6 @@ ParallaxLayer
 Area2D
 RigidBody2D
 CanvasLayer
-AnimatedSprite2D
 ColorRect
 Control
 Container

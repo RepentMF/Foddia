@@ -16,5 +16,10 @@ res://Menus/MainMenu.tscn
 res://Menus/UIHolder.tscn
 res://InteractableObjects/Player.tscn
 res://GraphicObjects/Player_rocket.tscn
-res://Menus/SwingingObject.gd
 res://Menus/PauseMenu.tscn
+res://Menus/SwingingObject.gd
+res://GraphicObjects/ItemString.tscn
+res://InteractableObjects/SwingingRope.tscn
+res://InteractableObjects/Sign.tscn
+res://InteractableObjects/NPC.tscn
+res://GraphicObjects/MushroomBoy_blue.tscn
