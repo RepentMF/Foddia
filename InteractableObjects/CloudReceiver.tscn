@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4ik3qttwos0"]
+
+[ext_resource type="Script" path="res://Levels/CloudReceiver.gd" id="1_0pmao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0h87"]
+size = Vector2(281, 227)
+
+[node name="CloudReceiver" type="Area2D"]
+script = ExtResource("1_0pmao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f0h87")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

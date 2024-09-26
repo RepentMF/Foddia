@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://bi5y5b64px0my"]
+
+[ext_resource type="Texture2D" uid="uid://73ymxfj4gwmv" path="res://Graphics/hiker.png" id="1_f22ye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elir4"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(0, 31, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwny6"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhbu1"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(25, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0il8"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(50, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6qu"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(75, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbvi2"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(100, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnqr1"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(125, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyy7y"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(150, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs5vu"]
+atlas = ExtResource("1_f22ye")
+region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_burat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elir4")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_fwny6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhbu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0il8")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_qc6qu")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_sbvi2")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_rnqr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyy7y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs5vu")
+}],
+"loop": true,
+"name": &"relieved",
+"speed": 5.0
+}]
+
+[node name="Hiker" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_burat")
+animation = &"relieved"
+autoplay = "idle"

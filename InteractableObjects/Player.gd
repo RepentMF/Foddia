@@ -61,6 +61,7 @@ var isCrawlingLedge = false
 var isDead = false
 var isInElevator = false
 var isInteracting = false
+var isJetpacking = false
 var isFreefalling = false
 var isGrabbingLedge = false
 var isInWindCurrent = false
@@ -529,7 +530,7 @@ func _physics_process(delta):
 				countHangTime += 1
 			elif wasSwinging:
 				countHangTime += 1
-			if velocity.y > 500:
+			if velocity.y > 500 && !isJetpacking:
 				if velocity.y > 800:
 					velocity.y = 800
 					isFreefalling = true
@@ -537,6 +538,7 @@ func _physics_process(delta):
 			if !isFreefalling:
 				if hasJetpack:
 					if Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
+						isJetpacking = true
 						countJetpackFuel -= 1
 						countHangTime = 0
 						countAirTime = 0
@@ -558,6 +560,8 @@ func _physics_process(delta):
 							velocity.y = sign(velocity.y) * JetpackSpeed
 						if int (countJetpackFuel) % 10 == 0:
 							smoke()
+					elif !Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
+						isJetpacking = false
 				elif hasRocketJump:
 					if hasRocketed:
 						smokeCount -= 1
@@ -789,14 +793,6 @@ func use_hands(body):
 		climbXValue = body.global_position.x
 		isGrabbingLedge = true
 		isFreefalling = false
-		#elif velocity.x == maxRunSpeed:
-		#	velocity.y = 0
-		#	isFreefalling = true
-	#elif (body.name.contains("Floor") || body.name.contains("Wall")) && !isFreefalling && !isGrabbingLedge:
-	#	if abs(velocity.x) > 525:
-	#		isDead = true
-	#	isFreefalling = true
-	#	print(405)
 	elif body.name.contains("RopeLinkage") && swingRope == null:
 		isNearRope = true
 		if !isHoldingRope:

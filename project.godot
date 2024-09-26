@@ -90,4 +90,4 @@ ui_click={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.521569, 0.74902, 1, 1)
+environment/defaults/default_clear_color=Color(0.519531, 0.746094, 0.996094, 1)

@@ -229,12 +229,14 @@ disable_collision = false
 position = Vector2(0, 121)
 
 [node name="UI_Sprite2D_left" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-15, -49)
 sprite_frames = SubResource("SpriteFrames_hvrb2")
 animation = &"pressed"
 
 [node name="UI_Sprite2D_right" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(17, -49)
 sprite_frames = SubResource("SpriteFrames_1a22h")

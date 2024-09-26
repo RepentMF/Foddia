@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var player = %Player
 @onready var UI = $UI_Sprite2D
 
 var user_prefs: UserPreferences
@@ -18,7 +19,15 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):	
+	if !name.contains("Sign"):
+		if player.hasMacguffin2:
+			dialogue = get_meta("Dead")
+			textCount = dialogue.size()
+		elif player.hasMacguffin:
+			dialogue = get_meta("Relieved")
+			textCount = dialogue.size()
+	
 	if interacting && Input.is_action_just_released("ui_click"):
 		if indexer == 0:
 			%DialogueBox.visible = true

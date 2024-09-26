@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=18 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="6_y8olb"]
 [ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="7_cdkbr"]
 [ext_resource type="Texture2D" uid="uid://48pt8xcc7xgs" path="res://Graphics/MainMenu_Parallax0_1.png" id="8_cxcm5"]
-[ext_resource type="Texture2D" uid="uid://cbd2vbah800td" path="res://Graphics/MainMenu_Parallax2.png" id="10_q3o1u"]
 [ext_resource type="Texture2D" uid="uid://hcfiija3i00e" path="res://Graphics/MainMenu_Parallax3.png" id="11_4x0pt"]
 [ext_resource type="Texture2D" uid="uid://bvgahsb25gax4" path="res://Graphics/MainMenu_Parallax4.png" id="11_yohu6"]
+[ext_resource type="Texture2D" uid="uid://b6v0ukxnglwxk" path="res://Graphics/MainMenu_Parallax2_1.png" id="12_fgpoj"]
 [ext_resource type="Texture2D" uid="uid://debbh1xump61i" path="res://Graphics/MainMenu_Parallax5.png" id="13_xo7q0"]
 [ext_resource type="Texture2D" uid="uid://b2bwrdtjw6w6n" path="res://Graphics/fuzzy_dice.png" id="14_cjrk4"]
+[ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="14_lh3in"]
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
 
@@ -204,7 +205,7 @@ z_index = -6
 texture_filter = 1
 position = Vector2(1930, 352)
 scale = Vector2(7.23034, 5.84)
-texture = ExtResource("10_q3o1u")
+texture = ExtResource("12_fgpoj")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
@@ -215,7 +216,7 @@ z_index = -6
 texture_filter = 1
 position = Vector2(5770, 349)
 scale = Vector2(7.23034, 5.84)
-texture = ExtResource("10_q3o1u")
+texture = ExtResource("12_fgpoj")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
@@ -227,6 +228,13 @@ texture_filter = 1
 position = Vector2(1863, 280)
 scale = Vector2(4.38, 3.538)
 texture = ExtResource("13_xo7q0")
+
+[node name="MainMenuParallax7" type="Sprite2D" parent="."]
+z_index = -7
+texture_filter = 1
+position = Vector2(1168, 280)
+scale = Vector2(4.38, 3.538)
+texture = ExtResource("14_lh3in")
 
 [node name="ItemString" parent="." instance=ExtResource("16_6dkun")]
 position = Vector2(687, 31)

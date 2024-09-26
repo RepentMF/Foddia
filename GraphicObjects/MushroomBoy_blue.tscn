@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ooya181efc87"]
+[gd_scene load_steps=19 format=3 uid="uid://ooya181efc87"]
 
+[ext_resource type="Texture2D" uid="uid://dic3xik2euwuh" path="res://Graphics/small_mushroom.png" id="1_e87io"]
 [ext_resource type="Texture2D" uid="uid://7iv20xjpod7s" path="res://Graphics/mushroom_boy.png" id="1_xtpek"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwtaa"]
-atlas = ExtResource("1_xtpek")
-region = Rect2(0, 0, 31, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvpds"]
+atlas = ExtResource("1_e87io")
+region = Rect2(0, 0, 64, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujpcv"]
 atlas = ExtResource("1_xtpek")
@@ -66,7 +67,7 @@ region = Rect2(124, 62, 31, 31)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dwtaa")
+"texture": SubResource("AtlasTexture_yvpds")
 }],
 "loop": true,
 "name": &"dead",
@@ -128,6 +129,5 @@ animations = [{
 [node name="MushroomBoy_blue" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_t55n2")
-animation = &"idle"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.630148
