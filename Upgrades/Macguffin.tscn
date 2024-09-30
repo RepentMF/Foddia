@@ -1,8 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://ceu60wp08ha24"]
+[gd_scene load_steps=16 format=3 uid="uid://ceu60wp08ha24"]
 
 [ext_resource type="Script" path="res://Upgrades/Macguffin.gd" id="1_j8k8l"]
 [ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="2_leil8"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_ldrm1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wd1s"]
+atlas = ExtResource("2_leil8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lluxx"]
+atlas = ExtResource("2_leil8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ia6"]
+atlas = ExtResource("2_leil8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xny3"]
+atlas = ExtResource("2_leil8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrpyg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wd1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lluxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ia6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xny3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 8.0
@@ -55,11 +91,14 @@ texture_filter = 1
 script = ExtResource("1_j8k8l")
 metadata/DIALOGUE = ["You  picked  up  the  small,  red  flag  and  put  it  in  your  pocket.  It's  much  smaller  than  I  remember...  Maybe...  it's  enough  that  I  just  remember  them  moving  forward."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-7.15256e-07, -7.15256e-07)
 rotation = -0.436332
-texture = ExtResource("2_leil8")
+sprite_frames = SubResource("SpriteFrames_jrpyg")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.421996
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3goda")

@@ -32,7 +32,6 @@ scale = Vector2(1.735, 1.735)
 
 [node name="PauseOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
@@ -81,6 +80,7 @@ text = "Quit"
 
 [node name="GraphicsOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Return to Pause Menu" type="Button" parent="MarginContainer/GraphicsOptions"]

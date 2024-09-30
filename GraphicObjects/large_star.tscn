@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1areasf47mp0"]
+
+[ext_resource type="Texture2D" uid="uid://cykps1cv17wpv" path="res://Graphics/Star1.png" id="1_a5mvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we1lg"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(0, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxpar"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(18, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i22ld"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(36, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4roic"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(54, 0, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_it8b0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we1lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxpar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i22ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4roic")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_6jrfn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vcx0b"]
+gradient = SubResource("Gradient_6jrfn")
+fill = 1
+fill_from = Vector2(0.497537, 0.477833)
+fill_to = Vector2(0.236453, 0.852217)
+
+[node name="LargeStar" type="AnimatedSprite2D"]
+modulate = Color(0.564706, 0.996078, 0, 1)
+texture_filter = 1
+position = Vector2(0.999998, -0.000121236)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_it8b0")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.304501
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.866667, 1, 1, 1)
+texture = SubResource("GradientTexture2D_vcx0b")
+texture_scale = 7.69

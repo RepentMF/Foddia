@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://v38yvgpoepjf"]
+
+[ext_resource type="Texture2D" uid="uid://cykps1cv17wpv" path="res://Graphics/Star1.png" id="1_a5mvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3fag"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4akv5"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(18, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfymc"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(36, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvoh4"]
+atlas = ExtResource("1_a5mvv")
+region = Rect2(54, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml1m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3fag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4akv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfymc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvoh4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="SmallStar" type="AnimatedSprite2D"]
+modulate = Color(0.788235, 0.996078, 0.823529, 1)
+texture_filter = 1
+position = Vector2(0.999998, -0.000121236)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ml1m8")
+animation = &"idle"
+autoplay = "idle"

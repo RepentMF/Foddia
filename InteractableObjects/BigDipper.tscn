@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3a3dc7mxiikv"]
+
+[ext_resource type="PackedScene" uid="uid://v38yvgpoepjf" path="res://GraphicObjects/small_star.tscn" id="1_1rmdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnid8"]
+size = Vector2(1030, 881)
+
+[node name="BigDipper" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-256, -444.5)
+shape = SubResource("RectangleShape2D_jnid8")
+one_way_collision_margin = 0.0
+
+[node name="SmallStar" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(-765, -876)
+
+[node name="SmallStar2" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(-522, -725)
+
+[node name="SmallStar3" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(-429, -560)
+
+[node name="SmallStar4" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(-256, -143)
+
+[node name="SmallStar5" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(-209, -379)
+
+[node name="SmallStar6" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(258, -220)
+
+[node name="SmallStar7" parent="." instance=ExtResource("1_1rmdi")]
+position = Vector2(0, 0)

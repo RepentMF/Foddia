@@ -518,7 +518,7 @@ func _physics_process(delta):
 		# Add the gravity, handle aerial movement and calculations
 		elif !is_on_floor():
 			if isInZeroG:
-				gravity = -3
+				gravity = -1
 			elif isInWindCurrent:
 				gravity = gravityLight
 			else:

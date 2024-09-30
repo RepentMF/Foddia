@@ -19,36 +19,44 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):	
-	if !name.contains("Sign"):
-		if player.hasMacguffin2:
-			dialogue = get_meta("Dead")
-			textCount = dialogue.size()
-		elif player.hasMacguffin:
-			dialogue = get_meta("Relieved")
-			textCount = dialogue.size()
+func _process(delta):
+	if !visible && name == "Shadow"  && player.hasMacguffin2:
+		visible = true
+	elif name == "Husband" && player.hasMacguffin && player.hasMacguffin2:
+		visible = false
+	elif !visible && name == "Husband"  && player.hasMacguffin && !player.hasMacguffin2:
+		visible = true
 	
-	if interacting && Input.is_action_just_released("ui_click"):
-		if indexer == 0:
+	if visible: 	
+		if !name.contains("Sign"):
+			if player.hasMacguffin2:
+				dialogue = get_meta("Dead")
+				textCount = dialogue.size()
+			elif player.hasMacguffin:
+				dialogue = get_meta("Relieved")
+				textCount = dialogue.size()
+		
+		if interacting && Input.is_action_just_released("ui_click"):
+			if indexer == 0:
+				%DialogueBox.visible = true
+				%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
+				indexer += 1
+			elif indexer < textCount:
+				%DialogueBox.visible = true
+				%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
+				indexer += 1
+			elif indexer == textCount:
+				indexer = 0
+				%DialogueBox.visible = false
+				interacting = false
+				%Player.isInteracting = false
+				UI.visible = true
+		elif !interacting && isNearSign && Input.is_action_just_pressed("ui_click"):
+			interacting = true
+			%Player.isInteracting = true
 			%DialogueBox.visible = true
 			%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
-			indexer += 1
-		elif indexer < textCount:
-			%DialogueBox.visible = true
-			%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
-			indexer += 1
-		elif indexer == textCount:
-			indexer = 0
-			%DialogueBox.visible = false
-			interacting = false
-			%Player.isInteracting = false
-			UI.visible = true
-	elif !interacting && isNearSign && Input.is_action_just_pressed("ui_click"):
-		interacting = true
-		%Player.isInteracting = true
-		%DialogueBox.visible = true
-		%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
-		UI.visible = false
+			UI.visible = false
 	pass
 
 func _on_body_entered(body):
