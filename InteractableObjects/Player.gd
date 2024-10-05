@@ -16,6 +16,7 @@ var anim
 @onready var rocket2 = %Rocket2Display
 @onready var macguffin = %MacguffinDisplay
 @onready var macguffin2 = %Macguffin2Display
+@onready var macguffin3 = %Macguffin3Display
 @onready var dialogue = %DialogueBox
 
 var user_prefs: UserPreferences
@@ -51,6 +52,7 @@ var zoomStandard = Vector2(1, 1)
 var hasJetpack = false
 var hasMacguffin = false
 var hasMacguffin2 = false
+var hasMacguffin3 = false
 var hasNewLegs = false
 var hasRocketJump = false
 var hasRocketed = false
@@ -76,6 +78,7 @@ var landedSoft = false
 var softCount = 33
 var hardCount = 200
 
+var deadFadeCount = 0
 var hairPosition = Vector2(-6, -14)
 var jumpSpeed = 100
 var jumpSpeedStandard = 100
@@ -108,6 +111,7 @@ func _ready():
 			user_prefs.relaxed_fuel_count = 1000
 			user_prefs.relaxed_macguffin_flag = false
 			user_prefs.relaxed_macguffin2_flag = false
+			user_prefs.relaxed_macguffin3_flag = false
 			user_prefs.relaxed_ms = 0
 			user_prefs.relaxed_s = 0
 			user_prefs.relaxed_m = 0
@@ -135,12 +139,29 @@ func _ready():
 			user_prefs.foddian_fuel_count = 1000
 			user_prefs.foddian_macguffin_flag = false
 			user_prefs.foddian_macguffin2_flag = false
+			user_prefs.foddian_macguffin3_flag = false
 			user_prefs.foddian_ms = 0
 			user_prefs.foddian_s = 0
 			user_prefs.foddian_m = 0
 			user_prefs.foddian_h = 0
 			user_prefs.foddian_flag1 = false
 			user_prefs.foddian_flag11 = false
+			user_prefs.save()
+		elif user_prefs.difficulty_dropdown_index == 2:
+			user_prefs.permadeath_save = Vector2(260, 130)
+			user_prefs.permadeath_boots_flag = false
+			user_prefs.permadeath_rockets_flag = false
+			user_prefs.permadeath_jetpack_flag = false
+			user_prefs.permadeath_fuel_count = 1000
+			user_prefs.permadeath_macguffin_flag = false
+			user_prefs.permadeath_macguffin2_flag = false
+			user_prefs.permadeath_macguffin3_flag = false
+			user_prefs.permadeath_ms = 0
+			user_prefs.permadeath_s = 0
+			user_prefs.permadeath_m = 0
+			user_prefs.permadeath_h = 0
+			user_prefs.permadeath_flag1 = false
+			user_prefs.permadeath_flag11 = false
 			user_prefs.save()
 		user_prefs.new_game = false
 		user_prefs.save()
@@ -160,6 +181,8 @@ func _ready():
 			hasMacguffin = true
 		if user_prefs.relaxed_macguffin2_flag:
 			hasMacguffin2 = true
+		if user_prefs.relaxed_macguffin3_flag:
+			hasMacguffin3 = true
 		timer.ms = user_prefs.relaxed_ms
 		timer.s = user_prefs.relaxed_s
 		timer.m = user_prefs.relaxed_m
@@ -179,6 +202,8 @@ func _ready():
 			hasMacguffin = true
 		if user_prefs.foddian_macguffin2_flag:
 			hasMacguffin2 = true
+		if user_prefs.foddian_macguffin3_flag:
+			hasMacguffin3 = true
 		timer.ms = user_prefs.foddian_ms
 		timer.s = user_prefs.foddian_s
 		timer.m = user_prefs.foddian_m
@@ -186,10 +211,25 @@ func _ready():
 	# Loading Permadeath Playthrough
 	elif user_prefs.difficulty_dropdown_index == 2:
 		global_position = user_prefs.permadeath_save
-		timer.ms = 0
-		timer.s = 0
-		timer.m = 0
-		timer.h = 0
+		if user_prefs.permadeath_boots_flag:
+			hasNewLegs = true
+			maxRunSpeed *= 1.2
+		if user_prefs.permadeath_rockets_flag:
+			hasRocketJump = true
+		if user_prefs.permadeath_jetpack_flag:
+			hasJetpack = true
+			countJetpackFuel = user_prefs.permadeath_fuel_count
+		if user_prefs.permadeath_macguffin_flag:
+			hasMacguffin = true
+		if user_prefs.permadeath_macguffin2_flag:
+			hasMacguffin2 = true
+		if user_prefs.permadeath_macguffin3_flag:
+			hasMacguffin3 = true
+		timer.ms = user_prefs.permadeath_ms
+		timer.s = user_prefs.permadeath_s
+		timer.m = user_prefs.permadeath_m
+		timer.h = user_prefs.permadeath_h
+	# Case RR
 	if hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
@@ -197,6 +237,7 @@ func _ready():
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = true
 		anim = anim_legs_rocket
+	# Case Robot
 	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
@@ -204,6 +245,7 @@ func _ready():
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_legs
+	# Case Rocket
 	elif !hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
@@ -211,6 +253,7 @@ func _ready():
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
 		anim = anim_rocket
+	# Case Jetpack
 	elif !hasNewLegs && !hasRocketJump && hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
@@ -218,6 +261,7 @@ func _ready():
 		anim_jetpack.visible = true
 		anim_legs_rocket.visible = false
 		anim = anim_jetpack
+	# Case Human
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
@@ -250,6 +294,10 @@ func _process(delta):
 		macguffin2.visible = true
 	else:
 		macguffin2.visible = false
+	if hasMacguffin3:
+		macguffin3.visible = true
+	else:
+		macguffin3.visible = false
 	if countRocketJumps == 1:
 		rocket1.modulate = Color(.35, .33, 1, 1)
 	elif countRocketJumps == 0:
@@ -409,10 +457,22 @@ func _physics_process(delta):
 		#Handle death conditions
 		#if !isDead || !hasReset:
 		if isDead:
+			$AudioPlayer.dead = true
 			global_position = checkpoint
 			countRocketJumps = maxRocketJumps
 			countJetpackFuel = maxJetpackFuel
+			%FadeInPanel.visible = true
+			%FadeInPanel.color = Color(1, 0, 0, 1)
 			isDead = false
+		elif %FadeInPanel.visible && !isInZeroG:
+			if %FadeInPanel.color == Color(0, 0, 0, 1):
+				%FadeInPanel.visible = false
+				deadFadeCount = 0
+			if %FadeInPanel.color.r != 0 && deadFadeCount > 10:
+				%FadeInPanel.color.r -= .25
+			elif %FadeInPanel.color.r == 0:
+				%FadeInPanel.color = Color(0, 0, 0, 1)
+			deadFadeCount += 1
 		jumpSpeed = jumpSpeedStandard - ((abs(global_position.y) / ElevationHigh) * 20)
 		var zoomTemp = (0.5 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
 		cam.zoom = Vector2(zoomTemp, zoomTemp)
@@ -625,8 +685,6 @@ func _physics_process(delta):
 							$Rocket_2.rotation = -2.35619
 		# Handle grounded movement
 		else:
-			#if wasSwinging:
-				#print(runSpeed)
 			hasRocketed = false
 			smokeCount = 30
 			countHangTime = 0
@@ -741,6 +799,7 @@ func _physics_process(delta):
 				user_prefs.relaxed_fuel_count = countJetpackFuel
 				user_prefs.relaxed_macguffin_flag = hasMacguffin
 				user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+				user_prefs.relaxed_macguffin3_flag = hasMacguffin3
 				user_prefs.relaxed_ms = timer.ms
 				user_prefs.relaxed_s = timer.s
 				user_prefs.relaxed_m = timer.m
@@ -755,10 +814,26 @@ func _physics_process(delta):
 				user_prefs.foddian_fuel_count = countJetpackFuel
 				user_prefs.foddian_macguffin_flag = hasMacguffin
 				user_prefs.foddian_macguffin2_flag = hasMacguffin2
+				user_prefs.foddian_macguffin3_flag = hasMacguffin3
 				user_prefs.foddian_ms = timer.ms
 				user_prefs.foddian_s = timer.s
 				user_prefs.foddian_m = timer.m
 				user_prefs.foddian_h = timer.h
+				user_prefs.save()
+			elif user_prefs.difficulty_dropdown_index == 2:
+				user_prefs.permadeath_save = global_position
+				user_prefs.permadeath_checkpoint = checkpoint
+				user_prefs.permadeath_boots_flag = hasNewLegs
+				user_prefs.permadeath_rockets_flag = hasRocketJump
+				user_prefs.permadeath_jetpack_flag = hasJetpack
+				user_prefs.permadeath_fuel_count = countJetpackFuel
+				user_prefs.permadeath_macguffin_flag = hasMacguffin
+				user_prefs.permadeath_macguffin2_flag = hasMacguffin2
+				user_prefs.permadeath_macguffin3_flag = hasMacguffin3
+				user_prefs.permadeath_ms = timer.ms
+				user_prefs.permadeath_s = timer.s
+				user_prefs.permadeath_m = timer.m
+				user_prefs.permadeath_h = timer.h
 				user_prefs.save()
 	pass
 

@@ -1,5 +1,6 @@
 extends Control
 
+@onready var crt = $CanvasLayer2
 @onready var music_slider = %MusicSlider
 @onready var sfx_slider = %SFXSlider
 
@@ -11,6 +12,18 @@ func _ready():
 		music_slider.value = user_prefs.music_audio_level
 	if sfx_slider:
 		sfx_slider.value = user_prefs.sfx_audio_level
+	if user_prefs.crt_bool_check:
+		crt.visible = true
+		%Node2D2.position = Vector2(5.50012, 70.25)
+		%Node2D3.position = Vector2(19.0001, 79.7499)
+		%Node2D4.position = Vector2(1.00012, 81.9999)
+		%Node2D5.position = Vector2(-3, 86)
+	else:
+		crt.visible = false
+		%Node2D2.position = Vector2(5.50006, 61.75)
+		%Node2D3.position = Vector2(19.0001, 71.25)
+		%Node2D4.position = Vector2(1.00006, 73.5)
+		%Node2D5.position = Vector2(-3.00006, 77.5)
 
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

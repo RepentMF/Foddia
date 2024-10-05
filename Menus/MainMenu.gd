@@ -1,6 +1,7 @@
 extends Control
 
 @onready var difficulty_dropdown = %ChangeDifficulty
+@onready var crt = $CanvasLayer2
 
 var user_prefs: UserPreferences
 
@@ -16,6 +17,8 @@ func _ready():
 		get_window().mode = Window.MODE_WINDOWED
 	if difficulty_dropdown:
 		difficulty_dropdown.selected = user_prefs.difficulty_dropdown_index
+	if user_prefs.crt_bool_check:
+		crt.visible = true
 	pass
 
 func _physics_process(delta):
@@ -24,7 +27,7 @@ func _physics_process(delta):
 	pass
 
 func _on_new_game_pressed():
-	if get_node("MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
+	if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
 		user_prefs.relaxed_checkpoint = Vector2(260, 130)
 		user_prefs.relaxed_save = Vector2(260, 130)
 		user_prefs.relaxed_boots_flag = false
@@ -33,6 +36,7 @@ func _on_new_game_pressed():
 		user_prefs.relaxed_fuel_count = 1000
 		user_prefs.relaxed_macguffin_flag = false
 		user_prefs.relaxed_macguffin2_flag = false
+		user_prefs.relaxed_macguffin3_flag = false
 		user_prefs.relaxed_ms = 0
 		user_prefs.relaxed_s = 0
 		user_prefs.relaxed_m = 0
@@ -60,12 +64,29 @@ func _on_new_game_pressed():
 		user_prefs.foddian_fuel_count = 1000
 		user_prefs.foddian_macguffin_flag = false
 		user_prefs.foddian_macguffin2_flag = false
+		user_prefs.foddian_macguffin3_flag = false
 		user_prefs.foddian_ms = 0
 		user_prefs.foddian_s = 0
 		user_prefs.foddian_m = 0
 		user_prefs.foddian_h = 0
 		user_prefs.foddian_flag1 = false
 		user_prefs.foddian_flag11 = false
+		user_prefs.save()
+	elif get_node("MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
+		user_prefs.permadeath_save = Vector2(260, 130)
+		user_prefs.permadeath_boots_flag = false
+		user_prefs.permadeath_rockets_flag = false
+		user_prefs.permadeath_jetpack_flag = false
+		user_prefs.permadeath_fuel_count = 1000
+		user_prefs.permadeath_macguffin_flag = false
+		user_prefs.permadeath_macguffin2_flag = false
+		user_prefs.permadeath_macguffin3_flag = false
+		user_prefs.permadeath_ms = 0
+		user_prefs.permadeath_s = 0
+		user_prefs.permadeath_m = 0
+		user_prefs.permadeath_h = 0
+		user_prefs.permadeath_flag1 = false
+		user_prefs.permadeath_flag11 = false
 		user_prefs.save()
 	load = true
 	pass # Replace with function body.

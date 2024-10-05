@@ -19,22 +19,19 @@ vec2 uv_curve(vec2 uv)
 	return uv;
 }
 
-
 void fragment()
 {	
-	float pie = 3.14159;
+	float pi = 3.14159;
 	
 	//You can modify the *3.0, *-3.0 for a bigger or smaller 
 	float r = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV) + vec2(SCREEN_PIXEL_SIZE.x*0.0), 0.0).r;
 	float g = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV) + vec2(SCREEN_PIXEL_SIZE.x*1.5), 0.0).g;
 	float b = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV) + vec2(SCREEN_PIXEL_SIZE.x*-1.5), 0.0).b;
 	
-	
 	//If you dont want scanlines you can just delete this part
-	float s = sin(uv_curve(SCREEN_UV).y * scanline_count * pie * 5.5);
+	float s = sin(uv_curve(SCREEN_UV).y * scanline_count * pi * 5.5);
 	s = (s * 0.5 + 0.5) * 0.9 + 0.1;
 	vec4 scan_line = vec4(vec3(pow(s, 0.25)), 1.0);
-	
 	
 	COLOR = vec4(r, g, b, 1.0) * scan_line;
 }

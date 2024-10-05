@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://cco85s667ba6d"]
+
+[ext_resource type="Texture2D" uid="uid://du10wei6vh5hc" path="res://Graphics/torch.png" id="1_r1xs3"]
+[ext_resource type="Script" path="res://GraphicObjects/Torch.gd" id="2_sgyrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xjmf"]
+atlas = ExtResource("1_r1xs3")
+region = Rect2(0, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgu4j"]
+atlas = ExtResource("1_r1xs3")
+region = Rect2(21, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejcsi"]
+atlas = ExtResource("1_r1xs3")
+region = Rect2(42, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ph83"]
+atlas = ExtResource("1_r1xs3")
+region = Rect2(63, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaxny"]
+atlas = ExtResource("1_r1xs3")
+region = Rect2(84, 0, 21, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml1m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xjmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgu4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejcsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ph83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaxny")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_6jrfn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wodu1"]
+gradient = SubResource("Gradient_6jrfn")
+fill = 1
+fill_from = Vector2(0.497537, 0.477833)
+fill_to = Vector2(0.236453, 0.852217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6og8l"]
+size = Vector2(6, 14.9999)
+
+[node name="Torch" type="AnimatedSprite2D"]
+modulate = Color(0.788235, 0.996078, 0.823529, 1)
+texture_filter = 1
+position = Vector2(0.999998, -0.000121236)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ml1m8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.145656
+script = ExtResource("2_sgyrh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-0.5, -0.999939)
+color = Color(1, 0.329412, 0, 1)
+texture = SubResource("GradientTexture2D_wodu1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.499999, 2.50003)
+shape = SubResource("RectangleShape2D_6og8l")
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

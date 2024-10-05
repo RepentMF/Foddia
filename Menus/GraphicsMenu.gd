@@ -1,5 +1,6 @@
 extends Control
 
+@onready var crt = $CanvasLayer2
 @onready var crt_checkbox = %CRTFilterCheckBox
 @onready var fullscreen_checkbox = %FullscreenCheckBox
 @onready var speedrun_checkbox = %SpeedrunCheckButton
@@ -17,6 +18,10 @@ func _ready():
 		speedrun_checkbox.button_pressed = user_prefs.speedrun_bool_check
 	if screenshake_checkbox:
 		screenshake_checkbox.button_pressed = user_prefs.screenshake_bool_check
+	if user_prefs.crt_bool_check:
+		crt.visible = true
+	else:
+		crt.visible = false
 	pass
 
 func _process(delta):
@@ -39,6 +44,10 @@ func _on_fullscreen_check_box_toggled(button_pressed):
 func _on_crt_filter_check_box_toggled(button_pressed):
 	if user_prefs:
 		user_prefs.crt_bool_check = button_pressed
+		if user_prefs.crt_bool_check:
+			crt.visible = true
+		else:
+			crt.visible = false
 		user_prefs.save()
 	pass # Replace with function body.
 

@@ -55,9 +55,10 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_it8b0")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.304501
+frame_progress = 0.89581
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.866667, 1, 1, 1)
+energy = 1.19
 texture = SubResource("GradientTexture2D_vcx0b")
-texture_scale = 7.69
+texture_scale = 11.86

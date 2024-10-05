@@ -21,7 +21,7 @@ func _process(delta):
 			move = 1
 			bounce = 2
 			count = 0
-			position = Vector2(47.75, 36.75)
+			position = Vector2(647, 403)
 		
 		if count % 2:
 			position.y += move

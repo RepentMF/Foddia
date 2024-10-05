@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=21 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -17,6 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="14_lh3in"]
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
+[ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="18_78h05"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
+shader = ExtResource("18_78h05")
+shader_parameter/scanline_count = 50.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pu5b6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -37,40 +44,41 @@ offset_bottom = -69.0001
 scale = Vector2(11.8958, 6.38123)
 color = Color(0, 0, 0, 0)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1292.0
-offset_top = -144.0
-offset_right = -1128.0
-offset_bottom = 27.0
+offset_left = -309.0
+offset_top = 75.0
+offset_right = -145.0
+offset_bottom = 246.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.735, 1.735)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="New Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 theme_override_fonts/font = ExtResource("3_8g8yg")
 text = "New Hike"
 
-[node name="Start Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Start Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Embark"
 
-[node name="ChangeDifficulty" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+[node name="ChangeDifficulty" type="OptionButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
@@ -86,19 +94,19 @@ popup/item_1/id = 1
 popup/item_2/text = "Permadeath"
 popup/item_2/id = 2
 
-[node name="Go to Display Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Go to Display Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Change Visuals"
 
-[node name="Go to Audio Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Go to Audio Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Change Tunes"
 
-[node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
@@ -247,9 +255,21 @@ scale = Vector2(0.960854, 0.954064)
 texture = ExtResource("14_cjrk4")
 script = ExtResource("15_olmf2")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_1n0o6")
+offset_left = -823.0
+offset_top = -463.0
+offset_right = 2166.0
+offset_bottom = 1503.0
+texture = SubResource("CanvasTexture_pu5b6")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="item_selected" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

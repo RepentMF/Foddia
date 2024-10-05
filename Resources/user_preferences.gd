@@ -14,6 +14,7 @@ class_name UserPreferences extends Resource
 @export var relaxed_jetpack_flag: bool = false
 @export var relaxed_macguffin_flag: bool = false
 @export var relaxed_macguffin2_flag: bool = false
+@export var relaxed_macguffin3_flag: bool = false
 @export var relaxed_flag1: bool = false
 @export var relaxed_flag2: bool = false
 @export var relaxed_flag3: bool = false
@@ -41,6 +42,7 @@ class_name UserPreferences extends Resource
 @export var foddian_jetpack_flag: bool = false
 @export var foddian_macguffin_flag: bool = false
 @export var foddian_macguffin2_flag: bool = false
+@export var foddian_macguffin3_flag: bool = false
 @export var foddian_flag1: bool = false
 @export var foddian_flag11: bool = false
 @export var foddian_fuel_count: int = 1000
@@ -51,6 +53,19 @@ class_name UserPreferences extends Resource
 @export var foddian_checkpoint: Vector2 = Vector2(260, 130)
 @export var foddian_save: Vector2 = Vector2(260, 130)
 
+@export var permadeath_boots_flag: bool = false
+@export var permadeath_rockets_flag: bool = false
+@export var permadeath_jetpack_flag: bool = false
+@export var permadeath_macguffin_flag: bool = false
+@export var permadeath_macguffin2_flag: bool = false
+@export var permadeath_macguffin3_flag: bool = false
+@export var permadeath_flag1: bool = false
+@export var permadeath_flag11: bool = false
+@export var permadeath_fuel_count: int = 1000
+@export var permadeath_ms: int = 0
+@export var permadeath_s: int = 0
+@export var permadeath_m: int = 0
+@export var permadeath_h: int = 0
 @export var permadeath_save: Vector2 = Vector2(260, 130)
 
 func save() -> void:

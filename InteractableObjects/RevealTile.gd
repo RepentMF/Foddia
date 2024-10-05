@@ -13,7 +13,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if hasBeenEntered && tilemap.modulate.a > 0:
-		tilemap.modulate.a -= .01
+		tilemap.modulate.a -= .03
+	elif tilemap.modulate.a <= 0:
+		queue_free()
 	pass
 
 func _on_area_2d_body_entered(body):

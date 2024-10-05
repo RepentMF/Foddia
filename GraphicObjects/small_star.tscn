@@ -39,7 +39,6 @@ animations = [{
 }]
 
 [node name="SmallStar" type="AnimatedSprite2D"]
-modulate = Color(0.788235, 0.996078, 0.823529, 1)
 texture_filter = 1
 position = Vector2(0.999998, -0.000121236)
 scale = Vector2(2, 2)

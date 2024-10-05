@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnovtinhjb2b8"]
+[gd_scene load_steps=28 format=3 uid="uid://cnovtinhjb2b8"]
 
 [ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_0psag"]
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_j6u63"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://InteractableObjects/TopRopeLinkage.gd" id="5_6yfrj"]
 [ext_resource type="Texture2D" uid="uid://bjfql43sd8p24" path="res://Graphics/ui_left_arrow.png" id="7_hvppy"]
 [ext_resource type="Texture2D" uid="uid://bo1tys7dskhtu" path="res://Graphics/ui_right_arrow.png" id="7_kl5he"]
+[ext_resource type="Script" path="res://InteractableObjects/CreakArea.gd" id="10_8cais"]
+[ext_resource type="AudioStream" uid="uid://e8u5jep1aikc" path="res://SFX/RopeSwung.mp3" id="11_ka66p"]
+[ext_resource type="AudioStream" uid="uid://dfc1tmycb4hgc" path="res://SFX/RopeGrabbed.mp3" id="12_o4jus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7chc"]
 atlas = ExtResource("7_hvppy")
@@ -119,6 +122,9 @@ animations = [{
 "name": &"pressed",
 "speed": 30.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbexl"]
+size = Vector2(63, 131)
 
 [node name="FallingSwingingRope" type="Node2D"]
 script = ExtResource("1_0psag")
@@ -261,13 +267,54 @@ disable_collision = false
 position = Vector2(0, 121)
 
 [node name="UI_Sprite2D_left" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-15, -49)
 sprite_frames = SubResource("SpriteFrames_hbmwn")
 animation = &"idle"
 
 [node name="UI_Sprite2D_right" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(17, -49)
 sprite_frames = SubResource("SpriteFrames_ay0tc")
 animation = &"idle"
+
+[node name="CreakAreaLeft" type="Area2D" parent="."]
+position = Vector2(-7, 0)
+script = ExtResource("10_8cais")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaLeft"]
+position = Vector2(-80.5, 64.5)
+shape = SubResource("RectangleShape2D_xbexl")
+
+[node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]
+stream = ExtResource("11_ka66p")
+volume_db = 5.0
+
+[node name="RopeReleased" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]
+stream = ExtResource("12_o4jus")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[node name="CreakAreaRight" type="Area2D" parent="."]
+position = Vector2(163, 0)
+script = ExtResource("10_8cais")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaRight"]
+position = Vector2(-80.5, 64.5)
+shape = SubResource("RectangleShape2D_xbexl")
+
+[node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaRight"]
+position = Vector2(-163, 0)
+stream = ExtResource("11_ka66p")
+volume_db = 5.0
+
+[node name="RopeReleased" type="AudioStreamPlayer2D" parent="CreakAreaRight"]
+position = Vector2(-163, 0)
+stream = ExtResource("12_o4jus")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[connection signal="area_entered" from="CreakAreaLeft" to="CreakAreaLeft" method="_on_creak_area_entered"]
+[connection signal="area_entered" from="CreakAreaRight" to="CreakAreaRight" method="_on_creak_area_entered"]

@@ -27,7 +27,7 @@ func _process(delta):
 	elif !visible && name == "Husband"  && player.hasMacguffin && !player.hasMacguffin2:
 		visible = true
 	
-	if visible: 	
+	if visible: 
 		if !name.contains("Sign"):
 			if player.hasMacguffin2:
 				dialogue = get_meta("Dead")

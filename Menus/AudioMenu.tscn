@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://jcop5yjxgopl"]
+[gd_scene load_steps=8 format=3 uid="uid://jcop5yjxgopl"]
 
 [ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
+[ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="2_lxluf"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_th3ii"]
 [ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="3_iu2q5"]
 [ext_resource type="Script" path="res://Menus/AudioMenuBg.gd" id="4_68veo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxhkh"]
+shader = ExtResource("2_lxluf")
+shader_parameter/scanline_count = 50.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qibaq"]
 
 [node name="AudioMenu" type="Control"]
 layout_mode = 3
@@ -14,30 +21,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rk3ja")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_hxhkh")
+offset_left = -823.0
+offset_top = -463.0
+offset_right = 2166.0
+offset_bottom = 1503.0
+texture = SubResource("CanvasTexture_qibaq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_left = 456.0
 offset_top = 256.0
 offset_right = 548.0
 offset_bottom = 327.0
 scale = Vector2(4, 4)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-z_index = -1
-texture_filter = 1
-position = Vector2(47.75, 36.75)
-scale = Vector2(1.875, 1.5)
-texture = ExtResource("3_iu2q5")
-script = ExtResource("4_68veo")
+[node name="Node2D" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+position = Vector2(1.75063, 7.1955)
+scale = Vector2(0.999999, 1)
 
-[node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-24.533, -19.703)
-scale = Vector2(0.533333, 0.666667)
-
-[node name="Return to Main Menu" type="Button" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D"]
+[node name="Return to Main Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D"]
 texture_filter = 1
 offset_right = 92.0
 offset_bottom = 19.0
@@ -47,11 +58,12 @@ theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1
 text = "Hike Setup"
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D2" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-22.5333, 16.1667)
-scale = Vector2(0.8, 0.4)
+[node name="Node2D2" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(5.50012, 70.25)
+scale = Vector2(1.5, 0.6)
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D2"]
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D2"]
 unique_name_in_owner = true
 texture_filter = 1
 offset_left = 8.66666
@@ -61,11 +73,12 @@ offset_bottom = 31.4167
 theme = ExtResource("2_th3ii")
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D3" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-15.3333, 22.5)
-scale = Vector2(0.8, 0.4)
+[node name="Node2D3" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(19.0001, 79.7499)
+scale = Vector2(1.5, 0.6)
 
-[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D3"]
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D3"]
 unique_name_in_owner = true
 texture_filter = 1
 offset_top = 23.0
@@ -74,11 +87,12 @@ offset_bottom = 39.0
 theme = ExtResource("2_th3ii")
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D4" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-24.9333, 24)
-scale = Vector2(0.175, 0.175)
+[node name="Node2D4" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(1.00012, 81.9999)
+scale = Vector2(0.328125, 0.2625)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D4"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D4"]
 clip_contents = false
 offset_left = -45.6
 offset_top = -6.50001
@@ -94,11 +108,12 @@ scroll_active = false
 autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D5" type="Node2D" parent="MarginContainer/VBoxContainer/Sprite2D"]
-position = Vector2(-27.0667, 26.6667)
-scale = Vector2(0.175, 0.175)
+[node name="Node2D5" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(-3, 86)
+scale = Vector2(0.328125, 0.2625)
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Sprite2D/Node2D5"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D5"]
 z_index = 1
 clip_contents = false
 offset_left = -31.8667
@@ -115,6 +130,14 @@ scroll_active = false
 autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D2/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sprite2D/Node2D3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(647, 403)
+scale = Vector2(7.5, 6)
+texture = ExtResource("3_iu2q5")
+script = ExtResource("4_68veo")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
