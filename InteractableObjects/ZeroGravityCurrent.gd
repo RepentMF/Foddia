@@ -1,6 +1,7 @@
 extends Area2D
 
 var airCount = 0
+var count = 0
 var fadeInPanel
 var player
 
@@ -13,11 +14,15 @@ func _physics_process(delta):
 	if player != null:
 		airCount += 1
 		fadeInPanel.visible = true
-		print("color: ", fadeInPanel.color, "visible: ", fadeInPanel.visible)
 		if airCount > 1000:
-			if fadeInPanel.color.a < 1:
-				fadeInPanel.color.a += 0.01
-			if airCount > 1100:
+			if count % 10 == 0 && fadeInPanel.color.a < 1:
+				count += 1
+				fadeInPanel.color.a += 0.1
+			elif fadeInPanel.color.a > 0:
+				count += 1
+			elif fadeInPanel.color.a <= 0:
+				fadeInPanel.color.a = 1
+			if airCount > 1100 && fadeInPanel.color.a >= 1:
 				get_tree().change_scene_to_file("res://Menus/SpaceEnding.tscn")
 	pass
 

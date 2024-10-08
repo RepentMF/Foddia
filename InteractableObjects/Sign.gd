@@ -50,6 +50,7 @@ func _process(delta):
 				%DialogueBox.visible = false
 				interacting = false
 				%Player.isInteracting = false
+				_important_npc_check()
 				UI.visible = true
 		elif !interacting && isNearSign && Input.is_action_just_pressed("ui_click"):
 			interacting = true
@@ -57,6 +58,13 @@ func _process(delta):
 			%DialogueBox.visible = true
 			%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
 			UI.visible = false
+	pass
+
+func _important_npc_check():
+	if name == "Husband":
+		if get_node("anim").animation == "relieved":
+			#get_tree().change_scene_to_file("res://Menus/DrivingEnding.tscn")
+			print("Driving Ending")
 	pass
 
 func _on_body_entered(body):
