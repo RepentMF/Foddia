@@ -4,12 +4,17 @@ extends Area2D
 
 const InitialTime = 30
 
-var hasBeenUsed = false
+var bounce
 var countTime = 30
+var hasBeenUsed = false
+var rng
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
+func _ready():
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+	bounce = get_node("Bounce")
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -17,6 +22,8 @@ func _physics_process(delta):
 		if countTime > 0:
 			if countTime == InitialTime:
 				anim.play("bounce")
+				bounce.pitch_scale = rng.randf_range(.8, 1.2)
+				bounce.play(0.1)
 			countTime -= 1
 		elif countTime <= 0:
 			hasBeenUsed = false

@@ -23,6 +23,9 @@ var user_prefs: UserPreferences
 var explosion = preload("res://GraphicObjects/Explosion.tscn")
 var smoking = preload("res://GraphicObjects/Smoking.tscn")
 
+var badEnding = false
+var anEnding = false
+
 const ElevationLow = 0
 const ElevationHigh = 20000
 const JetpackSpeed = 750
@@ -463,8 +466,13 @@ func _physics_process(delta):
 			countJetpackFuel = maxJetpackFuel
 			%FadeInPanel.visible = true
 			%FadeInPanel.color = Color(1, 0, 0, 1)
+			if badEnding:
+				print("Dead Driving Ending")
+				user_prefs.bad_ending = true
+				user_prefs.achievement_bad_ending = true
+				get_tree().quit()
 			isDead = false
-		elif %FadeInPanel.visible && !isInZeroG:
+		elif %FadeInPanel.visible && !isInZeroG && !anEnding:
 			if %FadeInPanel.color == Color(0, 0, 0, 1):
 				%FadeInPanel.visible = false
 				deadFadeCount = 0

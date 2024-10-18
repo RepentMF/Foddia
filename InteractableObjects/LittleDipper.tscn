@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxfnlari2n7qv"]
+[gd_scene load_steps=4 format=3 uid="uid://bxfnlari2n7qv"]
 
+[ext_resource type="Script" path="res://InteractableObjects/LittleDipper.gd" id="1_14u8g"]
 [ext_resource type="PackedScene" uid="uid://v38yvgpoepjf" path="res://GraphicObjects/small_star.tscn" id="1_81jbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnid8"]
 size = Vector2(720, 272)
 
 [node name="LittleDipper" type="Area2D"]
+modulate = Color(0, 1, 0, 1)
+script = ExtResource("1_14u8g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(296, -56)
@@ -32,3 +35,5 @@ position = Vector2(514, 0)
 
 [node name="SmallStar7" parent="." instance=ExtResource("1_81jbe")]
 position = Vector2(618, 72)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

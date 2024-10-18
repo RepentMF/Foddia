@@ -19,6 +19,21 @@ func _ready():
 		difficulty_dropdown.selected = user_prefs.difficulty_dropdown_index
 	if user_prefs.crt_bool_check:
 		crt.visible = true
+	if user_prefs.bad_ending:
+		%BadMainMenuBg.visible = true
+		%MainMenuBg.visible = false
+	else:
+		%BadMainMenuBg.visible = false
+		%MainMenuBg.visible = true
+	
+	if user_prefs.achievement_fuzzy_dice:
+		$ItemString.visible = true
+	if (user_prefs.relaxed_macguffin_flag && user_prefs.difficulty_dropdown_index == 0) || (user_prefs.foddian_macguffin_flag && user_prefs.difficulty_dropdown_index == 1) || (user_prefs.permadeath_macguffin_flag && user_prefs.difficulty_dropdown_index == 2):
+		%Macguffin.visible = true
+	if (user_prefs.relaxed_macguffin2_flag && user_prefs.difficulty_dropdown_index == 0) || (user_prefs.foddian_macguffin2_flag && user_prefs.difficulty_dropdown_index == 1) || (user_prefs.permadeath_macguffin2_flag && user_prefs.difficulty_dropdown_index == 2):
+		%Macguffin2.visible = true
+	if (user_prefs.relaxed_macguffin3_flag && user_prefs.difficulty_dropdown_index == 0) || (user_prefs.foddian_macguffin3_flag && user_prefs.difficulty_dropdown_index == 1) || (user_prefs.permadeath_macguffin3_flag && user_prefs.difficulty_dropdown_index == 2):
+		%Macguffin3.visible = true
 	pass
 
 func _physics_process(delta):
@@ -27,6 +42,7 @@ func _physics_process(delta):
 	pass
 
 func _on_new_game_pressed():
+	user_prefs.bad_ending = false
 	if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
 		user_prefs.relaxed_checkpoint = Vector2(260, 130)
 		user_prefs.relaxed_save = Vector2(260, 130)

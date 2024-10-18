@@ -1,0 +1,2333 @@
+[gd_scene load_steps=42 format=3 uid="uid://benk0ctn2tvgi"]
+
+[ext_resource type="Script" path="res://Menus/SummitEnding.gd" id="1_ngmfc"]
+[ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_jjrnh"]
+[ext_resource type="PackedScene" uid="uid://bxd6mc5xyl0o7" path="res://Menus/TimerDisplay.tscn" id="3_okfui"]
+[ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="4_ttaul"]
+[ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="5_fxwd8"]
+[ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="6_fmriw"]
+[ext_resource type="Texture2D" uid="uid://86vmjdg4lkqm" path="res://Graphics/SummitEnding_Elisia_human.png" id="7_5nhw3"]
+[ext_resource type="Texture2D" uid="uid://dauhwnau52enq" path="res://Graphics/SummitEnding_bg.png" id="8_p04or"]
+[ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="9_7xkb5"]
+[ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="10_axeab"]
+[ext_resource type="Texture2D" uid="uid://bpevyqrltt7w7" path="res://Graphics/SummitEnding_MG3.png" id="12_6x0h0"]
+[ext_resource type="Texture2D" uid="uid://dkc8ih6jvnd31" path="res://Graphics/SummitEnding_MG3_foreground.png" id="13_0epk6"]
+[ext_resource type="Texture2D" uid="uid://cbd2vbah800td" path="res://Graphics/MainMenu_Parallax2.png" id="13_hm6gp"]
+[ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="16_78gl6"]
+[ext_resource type="PackedScene" uid="uid://bxfnlari2n7qv" path="res://InteractableObjects/LittleDipper.tscn" id="17_riqpw"]
+[ext_resource type="PackedScene" uid="uid://d3a3dc7mxiikv" path="res://InteractableObjects/BigDipper.tscn" id="18_22naq"]
+[ext_resource type="PackedScene" uid="uid://v38yvgpoepjf" path="res://GraphicObjects/small_star.tscn" id="19_jao1e"]
+[ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="23_4d4xe"]
+[ext_resource type="Texture2D" uid="uid://dddfdxduqxuwt" path="res://Graphics/MainMenu_Parallax8.png" id="24_js8qs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv6m"]
+shader = ExtResource("6_fmriw")
+shader_parameter/scanline_count = 50.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_03xxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a53f5"]
+atlas = ExtResource("7_5nhw3")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31lrx"]
+atlas = ExtResource("7_5nhw3")
+region = Rect2(40, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ercnj"]
+atlas = ExtResource("7_5nhw3")
+region = Rect2(80, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33ktj"]
+atlas = ExtResource("7_5nhw3")
+region = Rect2(120, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j581k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a53f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31lrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ercnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33ktj")
+}],
+"loop": true,
+"name": &"human_sitting",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qd8k"]
+atlas = ExtResource("9_7xkb5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fim7a"]
+atlas = ExtResource("9_7xkb5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtftp"]
+atlas = ExtResource("9_7xkb5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cae6v"]
+atlas = ExtResource("9_7xkb5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ifmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qd8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fim7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtftp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cae6v")
+}],
+"loop": true,
+"name": &"MG",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pewlu"]
+atlas = ExtResource("12_6x0h0")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1kd7"]
+atlas = ExtResource("12_6x0h0")
+region = Rect2(40, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew1o7"]
+atlas = ExtResource("12_6x0h0")
+region = Rect2(80, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gjf7"]
+atlas = ExtResource("12_6x0h0")
+region = Rect2(120, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gudi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pewlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1kd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew1o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gjf7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcilu"]
+atlas = ExtResource("13_0epk6")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmndf"]
+atlas = ExtResource("13_0epk6")
+region = Rect2(40, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcmii"]
+atlas = ExtResource("13_0epk6")
+region = Rect2(80, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vxq8"]
+atlas = ExtResource("13_0epk6")
+region = Rect2(120, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cs5uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcilu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmndf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcmii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vxq8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="SummitEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ngmfc")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer3"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = -421.0
+offset_right = -197.0
+offset_bottom = -250.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.735, 1.735)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer3/MarginContainer"]
+modulate = Color(1, 1, 1, 0.745098)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Quit Game" type="Button" parent="CanvasLayer3/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_jjrnh")
+text = "Thank you for playing!"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("3_okfui")]
+unique_name_in_owner = true
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 67.0
+offset_bottom = 62.0
+scale = Vector2(1.72, 1.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_ttaul")
+text = "0:00:00.0"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueBox" parent="." instance=ExtResource("5_fxwd8")]
+unique_name_in_owner = true
+layer = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_jwv6m")
+offset_left = -823.0
+offset_top = -463.0
+offset_right = 2166.0
+offset_bottom = 1503.0
+texture = SubResource("CanvasTexture_03xxf")
+
+[node name="Elisia" type="AnimatedSprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(590, 412)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_j581k")
+animation = &"human_sitting"
+autoplay = "human_sitting"
+frame_progress = 0.670838
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  I  didn't  cause  the  end  of  the  world.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you'd  talk  about  before  we'd  go  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="SummitBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(677, 351)
+scale = Vector2(8.015, 5.84)
+texture = ExtResource("8_p04or")
+metadata/Macguffin3 = ["When  I  first  lost  you,  those  around  me  told  me  it  would  be                       helpful  to  forget.", "They  told  me  I  needed  to  get  my  mind  off  of  you.  That  obsessing                      over  your  death  would  be  the  end  of  me.", "I  think  they  were  right.  But  I  couldn't  just  forget  you                                completely.  You  were  our  everything.", "And  then  I  started  taking  what  they  said  to  heart.  I  was  numb.", "But  coming  back  here  to  our  home  taught  me  that  I  am  capable  of  more  than  I  thought  I  was.", "I  am  still  capable  of  sadness.  I  am  still  capable  of  joy.", "I  am  capable  of  mourning  you  and  still  moving  forward-  living                      my  life.  Because  that's  what  you  wanted  for  us.", "That's  what  you  still  want  for  me,  isn't  it?  You  want  me  to  live  my  life  for  the  both  of  us.", "That's  what  I'll do.  I'll  live  life  and  never  forget  you  all  the                      while."]
+metadata/Macguffin = ["I  don't  know  if  I  made  the  right  choice.  I  think  I've  never  been                less  sure  of  anything  in  my  life.", "But  when  I  think  about  the  horrible  \"what-if\"s  like  usual... this  SHOULD  count  as  a  positive.", "But  my  pain  is  still  there.  I'm  starting  to  think  it  won't  ever                      leave.", "It's  the  worst  pain  I've  ever  known.", "So  this  memento...  Our  family  crest.  I  need  more  of  this  going                      forward.", "A  sense  of  connection  to  them.  They   don't  have  to  be  here  for  me  to  keep  loving  them.", "I  miss  them-  more  than  anything-  but  respecting  them.  Honoring  them.  Remembering  them.", "That's  enough,  now."]
+
+[node name="Macguffin" type="AnimatedSprite2D" parent="SummitBg"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(19.7067, 31.1885)
+rotation = -0.301942
+scale = Vector2(0.5, 0.586)
+sprite_frames = SubResource("SpriteFrames_2ifmk")
+animation = &"MG"
+autoplay = "MG"
+frame_progress = 0.813012
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="Macguffin2" type="Sprite2D" parent="SummitBg"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.780392, 0.780392, 0.780392, 0.796078)
+z_index = 1
+texture_filter = 1
+position = Vector2(-76.7219, 52.8439)
+rotation = -0.605305
+scale = Vector2(0.5, 0.559)
+skew = 0.181232
+texture = ExtResource("10_axeab")
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="Macguffin3" type="AnimatedSprite2D" parent="SummitBg"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(-10.9794, 10.4452)
+sprite_frames = SubResource("SpriteFrames_6gudi")
+autoplay = "default"
+frame_progress = 0.119028
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="Macguffin3_fg" type="AnimatedSprite2D" parent="SummitBg/Macguffin3"]
+unique_name_in_owner = true
+z_index = 10
+texture_filter = 1
+position = Vector2(1.49719, 0)
+sprite_frames = SubResource("SpriteFrames_cs5uf")
+autoplay = "default"
+frame_progress = 0.569975
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="MainMenuParallax5" type="Sprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+position = Vector2(1930, 412.28)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("13_hm6gp")
+script = ExtResource("16_78gl6")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/Speed = 0.5
+
+[node name="MainMenuParallax5_1" type="Sprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+position = Vector2(5770, 409.28)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("13_hm6gp")
+script = ExtResource("16_78gl6")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/Speed = 0.5
+
+[node name="MainMenuParallax7" type="Sprite2D" parent="."]
+visible = false
+z_index = -7
+texture_filter = 1
+position = Vector2(1168, 280)
+scale = Vector2(4.38, 3.538)
+texture = ExtResource("23_4d4xe")
+
+[node name="MainMenuParallax8" type="Sprite2D" parent="."]
+modulate = Color(0.235294, 0.407843, 0.247059, 0.462745)
+z_index = -7
+texture_filter = 1
+position = Vector2(976, 405)
+scale = Vector2(0.5, 0.404)
+texture = ExtResource("24_js8qs")
+metadata/looping_position = -1930
+metadata/starting_position = 5770
+metadata/speed = 50
+
+[node name="LittleDipper" parent="." instance=ExtResource("17_riqpw")]
+visible = false
+z_index = -7
+position = Vector2(573, 157)
+scale = Vector2(0.25, 0.25)
+
+[node name="BigDipper" parent="." instance=ExtResource("18_22naq")]
+visible = false
+z_index = -7
+position = Vector2(372, 317)
+scale = Vector2(0.25, 0.25)
+
+[node name="Stars" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(187, 49)
+
+[node name="SmallStar1" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars2" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(463, 43)
+
+[node name="SmallStar1" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars2" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars3" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(747, 45)
+
+[node name="SmallStar1" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars3" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars4" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(1043, 42)
+
+[node name="SmallStar1" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars4" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars5" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(1307, 28)
+
+[node name="SmallStar1" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars5" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars6" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(187, 240)
+
+[node name="SmallStar1" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars6" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars7" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(463, 215)
+
+[node name="SmallStar1" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars7" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars8" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(747, 245)
+
+[node name="SmallStar1" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars8" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars9" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(1031, 225)
+
+[node name="SmallStar1" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars9" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="Stars10" type="Node2D" parent="."]
+z_index = -7
+position = Vector2(1325, 231)
+
+[node name="SmallStar1" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-181.6, 1.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.102237
+
+[node name="SmallStar2" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.0743097
+
+[node name="SmallStar3" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-128, 42.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.226532
+
+[node name="SmallStar4" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-139.2, 8.20003)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.117389
+
+[node name="SmallStar5" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-83.6, 9.80002)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.336299
+
+[node name="SmallStar6" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-65, -11.2)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.494725
+
+[node name="SmallStar7" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-152.6, -15.6)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.27979
+
+[node name="SmallStar8" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-103.2, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.702087
+
+[node name="SmallStar9" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-10, 66.4)
+scale = Vector2(0.4, 0.4)
+frame_progress = 0.932644
+
+[node name="SmallStar10" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(20, 31.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.498235
+
+[node name="SmallStar11" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(30.8, 3.00002)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.27326
+
+[node name="SmallStar12" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(12.8, -18.6)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.580662
+
+[node name="SmallStar13" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-26.2, -9.99998)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.430849
+
+[node name="SmallStar14" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-30.6, 97.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.26184
+
+[node name="SmallStar15" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.743996
+
+[node name="SmallStar16" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(20.8, 108.8)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.677219
+
+[node name="SmallStar17" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.6, 120.4)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.960425
+
+[node name="SmallStar18" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-199.8, 123)
+scale = Vector2(0.6, 0.6)
+frame_progress = 0.310428
+
+[node name="SmallStar19" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-205.4, 100.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[node name="SmallStar20" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-182.8, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.102237
+
+[node name="SmallStar21" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-208.6, 40)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.0743097
+
+[node name="SmallStar22" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-100.4, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.226532
+
+[node name="SmallStar23" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-215.8, -20)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.117389
+
+[node name="SmallStar24" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-63.2, 49)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.336299
+
+[node name="SmallStar25" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-94, -19.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.494725
+
+[node name="SmallStar26" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-45.4, 112)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27979
+
+[node name="SmallStar27" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-126.2, 105.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.702087
+
+[node name="SmallStar28" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(10, 44.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.932644
+
+[node name="SmallStar29" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-22.2, 45)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.498235
+
+[node name="SmallStar30" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(55, 54)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.27326
+
+[node name="SmallStar31" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(39.2, 30.2)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.580662
+
+[node name="SmallStar32" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-29.6, 10)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.430849
+
+[node name="SmallStar33" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-3.80002, 120.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.26184
+
+[node name="SmallStar34" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(49.6, 85)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.743996
+
+[node name="SmallStar35" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(44.2, 124.4)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.677219
+
+[node name="SmallStar36" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-65.2, 130.6)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.960425
+
+[node name="SmallStar37" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-147.4, 129.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.310428
+
+[node name="SmallStar38" parent="Stars10" instance=ExtResource("19_jao1e")]
+position = Vector2(-179, 59.8)
+scale = Vector2(0.2, 0.2)
+frame_progress = 0.5346
+
+[connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

@@ -6,6 +6,7 @@ var colorCount = 1
 var count = 1
 var dialogue
 var elisia
+var finishCount = 500
 var indexer = 0
 var interacting = true
 var rng
@@ -25,6 +26,22 @@ func _ready():
 		%Macguffin2.visible = true
 	if user_prefs.crt_bool_check:
 		$CanvasLayer2.visible = true
+	%TimerDisplay.ending = true
+	if user_prefs.speedrun_bool_check:
+		%TimerDisplay.visible = true
+	else:
+		%TimerDisplay.visible = false
+	if user_prefs.achievement_big_dipper:
+		get_node("BigDipper").visible = true
+		print("this worked, again")
+	if user_prefs.achievement_little_dipper:
+		get_node("LittleDipper").visible = true
+	
+	if !interacting:
+		if finishCount <= 0:
+			$CanvasLayer3/MarginContainer.visible = true
+		elif finishCount > 0:
+			finishCount -= 1
 	
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -103,6 +120,10 @@ func _difficulty_sprite_determiner():
 			dialogue = elisia.get_meta("MACGUFFIN")
 		elif user_prefs.relaxed_macguffin2_flag:
 			dialogue = elisia.get_meta("MACGUFFIN2")
+		%TimerDisplay.ms = user_prefs.relaxed_ms
+		%TimerDisplay.s = user_prefs.relaxed_s
+		%TimerDisplay.m = user_prefs.relaxed_m
+		%TimerDisplay.h = user_prefs.relaxed_h
 	elif user_prefs.difficulty_dropdown_index == 1:
 		if !user_prefs.foddian_boots_flag && !user_prefs.foddian_rockets_flag && !user_prefs.foddian_jetpack_flag:
 			elisia.play("human_floating")
@@ -128,6 +149,10 @@ func _difficulty_sprite_determiner():
 			dialogue = elisia.get_meta("MACGUFFIN")
 		elif user_prefs.foddian_macguffin2_flag:
 			dialogue = elisia.get_meta("MACGUFFIN2")
+		%TimerDisplay.ms = user_prefs.foddian_ms
+		%TimerDisplay.s = user_prefs.foddian_s
+		%TimerDisplay.m = user_prefs.foddian_m
+		%TimerDisplay.h = user_prefs.foddian_h
 	elif user_prefs.difficulty_dropdown_index == 2:
 		if !user_prefs.permadeath_boots_flag && !user_prefs.permadeath_rockets_flag && !user_prefs.permadeath_jetpack_flag:
 			elisia.play("human_floating")
@@ -153,4 +178,13 @@ func _difficulty_sprite_determiner():
 			dialogue = elisia.get_meta("MACGUFFIN")
 		elif user_prefs.permadeath_macguffin2_flag:
 			dialogue = elisia.get_meta("MACGUFFIN2")
+		%TimerDisplay.ms = user_prefs.permadeath_ms
+		%TimerDisplay.s = user_prefs.permadeath_s
+		%TimerDisplay.m = user_prefs.permadeath_m
+		%TimerDisplay.h = user_prefs.permadeath_h
 	pass
+
+
+func _on_quit_game_pressed():
+	get_tree().quit()
+	pass # Replace with function body.

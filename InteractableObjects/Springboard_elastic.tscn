@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnhb5fb30k7ma"]
+[gd_scene load_steps=19 format=3 uid="uid://cnhb5fb30k7ma"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Springboard_elastic.gd" id="1_5t31k"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_vm3po"]
 [ext_resource type="Texture2D" uid="uid://bwy36jpipuj6b" path="res://Graphics/big_mushroom.png" id="3_n5gex"]
+[ext_resource type="AudioStream" uid="uid://d265wctu8rah3" path="res://SFX/Bounce.mp3" id="4_h72vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87r6k"]
 radius = 8.0
@@ -128,5 +129,8 @@ sprite_frames = SubResource("SpriteFrames_k3ucr")
 animation = &"bounce"
 frame = 10
 frame_progress = 1.0
+
+[node name="Bounce" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_h72vw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

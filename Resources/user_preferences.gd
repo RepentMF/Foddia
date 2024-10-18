@@ -9,6 +9,12 @@ class_name UserPreferences extends Resource
 @export var crt_bool_check: bool = true
 @export var speedrun_bool_check: bool = false
 
+@export var bad_ending: bool = false
+@export var achievement_bad_ending: bool = false
+@export var achievement_big_dipper: bool = false
+@export var achievement_fuzzy_dice: bool = false
+@export var achievement_little_dipper: bool = false
+
 @export var relaxed_boots_flag: bool = false
 @export var relaxed_rockets_flag: bool = false
 @export var relaxed_jetpack_flag: bool = false

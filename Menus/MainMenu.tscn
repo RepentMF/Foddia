@@ -1,14 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=30 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_qp85b"]
 [ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="3_7pwpf"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="3_8g8yg"]
+[ext_resource type="Texture2D" uid="uid://8b3h8oapx5y7" path="res://Graphics/MainMenu_bg_badEnd.png" id="6_1qws7"]
 [ext_resource type="Texture2D" uid="uid://qc1b77ocktna" path="res://Graphics/MainMenu_Parallax0.png" id="6_nfy2d"]
+[ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="6_t4ph0"]
 [ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="6_y8olb"]
+[ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="7_83fab"]
 [ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="7_cdkbr"]
 [ext_resource type="Texture2D" uid="uid://48pt8xcc7xgs" path="res://Graphics/MainMenu_Parallax0_1.png" id="8_cxcm5"]
+[ext_resource type="Texture2D" uid="uid://dmhete1n30yr2" path="res://Graphics/Macguffin3_Driving.png" id="8_f7b7y"]
 [ext_resource type="Texture2D" uid="uid://hcfiija3i00e" path="res://Graphics/MainMenu_Parallax3.png" id="11_4x0pt"]
 [ext_resource type="Texture2D" uid="uid://bvgahsb25gax4" path="res://Graphics/MainMenu_Parallax4.png" id="11_yohu6"]
 [ext_resource type="Texture2D" uid="uid://b6v0ukxnglwxk" path="res://Graphics/MainMenu_Parallax2_1.png" id="12_fgpoj"]
@@ -18,6 +22,42 @@
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="18_78h05"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qd8k"]
+atlas = ExtResource("6_t4ph0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fim7a"]
+atlas = ExtResource("6_t4ph0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtftp"]
+atlas = ExtResource("6_t4ph0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cae6v"]
+atlas = ExtResource("6_t4ph0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_roho3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qd8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fim7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtftp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cae6v")
+}],
+"loop": true,
+"name": &"MG",
+"speed": 30.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
 shader = ExtResource("18_78h05")
@@ -113,11 +153,69 @@ theme = ExtResource("2_qp85b")
 text = "Quit"
 
 [node name="MainMenuBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 z_index = -1
 texture_filter = 1
 position = Vector2(639.5, 351)
 scale = Vector2(7.23034, 5.84)
 texture = ExtResource("2_au53e")
+script = ExtResource("3_7pwpf")
+
+[node name="Macguffin" type="AnimatedSprite2D" parent="MainMenuBg"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture_filter = 1
+position = Vector2(-63.6238, 0)
+rotation = 0.576355
+scale = Vector2(0.876334, 1.02711)
+skew = -0.543924
+sprite_frames = SubResource("SpriteFrames_roho3")
+animation = &"MG"
+autoplay = "MG"
+flip_h = true
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="Macguffin2" type="Sprite2D" parent="MainMenuBg"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(-66.8369, 66.9089)
+rotation = -0.605305
+scale = Vector2(1, 1.118)
+skew = 0.181232
+texture = ExtResource("7_83fab")
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="Macguffin3" type="Sprite2D" parent="MainMenuBg"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(-1.90735e-06, 0)
+texture = ExtResource("8_f7b7y")
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+
+[node name="BadMainMenuBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture_filter = 1
+position = Vector2(639.5, 351)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("6_1qws7")
 script = ExtResource("3_7pwpf")
 
 [node name="MainMenuParallax0" type="Sprite2D" parent="."]
@@ -129,7 +227,7 @@ texture = ExtResource("6_nfy2d")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 50
+metadata/Speed = 50.0
 
 [node name="MainMenuParallax0_1" type="Sprite2D" parent="."]
 z_index = -2
@@ -140,7 +238,7 @@ texture = ExtResource("8_cxcm5")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 50
+metadata/Speed = 50.0
 
 [node name="MainMenuParallax1" type="Sprite2D" parent="."]
 z_index = -3
@@ -151,7 +249,7 @@ texture = ExtResource("6_y8olb")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1910
 metadata/starting_position = 5770
-metadata/speed = 30
+metadata/Speed = 30.0
 
 [node name="MainMenuParallax1_1" type="Sprite2D" parent="."]
 z_index = -3
@@ -162,7 +260,7 @@ texture = ExtResource("6_y8olb")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1910
 metadata/starting_position = 5770
-metadata/speed = 30
+metadata/Speed = 30.0
 
 [node name="MainMenuParallax3" type="Sprite2D" parent="."]
 z_index = -4
@@ -173,7 +271,7 @@ texture = ExtResource("11_4x0pt")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1935
 metadata/starting_position = 5785
-metadata/speed = 5
+metadata/Speed = 5.0
 
 [node name="MainMenuParallax3_1" type="Sprite2D" parent="."]
 z_index = -4
@@ -184,7 +282,7 @@ texture = ExtResource("11_4x0pt")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1935
 metadata/starting_position = 5785
-metadata/speed = 5
+metadata/Speed = 5.0
 
 [node name="MainMenuParallax4" type="Sprite2D" parent="."]
 z_index = -5
@@ -195,7 +293,7 @@ texture = ExtResource("11_yohu6")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 2
+metadata/Speed = 2.0
 
 [node name="MainMenuParallax4_1" type="Sprite2D" parent="."]
 z_index = -5
@@ -206,7 +304,7 @@ texture = ExtResource("11_yohu6")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 2
+metadata/Speed = 2.0
 
 [node name="MainMenuParallax5" type="Sprite2D" parent="."]
 z_index = -6
@@ -217,7 +315,7 @@ texture = ExtResource("12_fgpoj")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 1
+metadata/Speed = 1.0
 
 [node name="MainMenuParallax5_1" type="Sprite2D" parent="."]
 z_index = -6
@@ -228,7 +326,7 @@ texture = ExtResource("12_fgpoj")
 script = ExtResource("7_cdkbr")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
-metadata/speed = 1
+metadata/Speed = 1.0
 
 [node name="MainMenuParallax6" type="Sprite2D" parent="."]
 z_index = -6
@@ -245,6 +343,7 @@ scale = Vector2(4.38, 3.538)
 texture = ExtResource("14_lh3in")
 
 [node name="ItemString" parent="." instance=ExtResource("16_6dkun")]
+visible = false
 position = Vector2(687, 31)
 scale = Vector2(5.2037, 5.24074)
 

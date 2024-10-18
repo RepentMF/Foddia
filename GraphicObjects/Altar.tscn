@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhca3q4rupytp"]
+
+[ext_resource type="Texture2D" uid="uid://d3rr4jct5174o" path="res://Graphics/Altar_back.png" id="1_hj51j"]
+[ext_resource type="Texture2D" uid="uid://bsnl0u6v8utjw" path="res://Graphics/Altar_front.png" id="2_vb3bs"]
+[ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="3_ebjrj"]
+[ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="4_qkscx"]
+[ext_resource type="PackedScene" uid="uid://cvfkh7dlfddqm" path="res://InteractableObjects/LedgeGrabRight.tscn" id="5_g7k84"]
+
+[node name="Altar" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_hj51j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 4
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("2_vb3bs")
+
+[node name="Floor" parent="." instance=ExtResource("3_ebjrj")]
+position = Vector2(-12, 82)
+scale = Vector2(7, 1)
+
+[node name="Floor2" parent="." instance=ExtResource("3_ebjrj")]
+position = Vector2(-12, -109)
+scale = Vector2(7, 1)
+
+[node name="LedgeGrabLeft" parent="." instance=ExtResource("4_qkscx")]
+position = Vector2(84, -146)
+
+[node name="LedgeGrabRight" parent="." instance=ExtResource("5_g7k84")]
+position = Vector2(-108, -146)

@@ -3,6 +3,9 @@ extends Area2D
 @onready var player = %Player
 @onready var UI = $UI_Sprite2D
 
+var endingCount = 0
+var drivingEnding = false
+
 var user_prefs: UserPreferences
 var dialogue
 var indexer = 0
@@ -18,21 +21,44 @@ func _ready():
 	UI.visible = false
 	pass # Replace with function body.
 
+func _physics_process(delta):
+	if drivingEnding:
+		%FadeInPanel.visible = true
+		if endingCount == 0:
+			%FadeInPanel.color = Color(0, 0, 0, 0)
+		if endingCount % 10 == 0 && %FadeInPanel.color.a < 1:
+			endingCount += 1
+			%FadeInPanel.color.a += .1
+		elif %FadeInPanel.color.a < 1:
+			endingCount += 1
+		elif %FadeInPanel.color.a >= 1:
+			get_tree().change_scene_to_file("res://Menus/DrivingEnding.tscn")
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !visible && name == "Shadow"  && player.hasMacguffin2:
 		visible = true
-	elif name == "Husband" && player.hasMacguffin && player.hasMacguffin2:
+		
+	if name == "Husband" && player.hasMacguffin2:
 		visible = false
-	elif !visible && name == "Husband"  && player.hasMacguffin && !player.hasMacguffin2:
+	if !visible && name == "Husband" && (player.hasMacguffin || player.hasMacguffin3):
+		print(visible, " ", name, " ", player.hasMacguffin, " ", player.hasMacguffin3)
 		visible = true
 	
+	if name == "TruckFront" && (player.hasMacguffin2 && !player.hasMacguffin && !player.hasMacguffin3):
+		visible = false
+	
 	if visible: 
-		if !name.contains("Sign"):
+		if !name.contains("Sign") && !name.contains("Truck"):
 			if player.hasMacguffin2:
 				dialogue = get_meta("Dead")
 				textCount = dialogue.size()
-			elif player.hasMacguffin:
+			elif player.hasMacguffin || player.hasMacguffin3:
+				dialogue = get_meta("Relieved")
+				textCount = dialogue.size()
+		elif name == "TruckFront":
+			if player.hasMacguffin || player.hasMacguffin3:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
 		
@@ -61,10 +87,15 @@ func _process(delta):
 	pass
 
 func _important_npc_check():
-	if name == "Husband":
-		if get_node("anim").animation == "relieved":
-			#get_tree().change_scene_to_file("res://Menus/DrivingEnding.tscn")
-			print("Driving Ending")
+	if name == "TruckFront" && (player.hasMacguffin || player.hasMacguffin3):
+		drivingEnding = true
+		%Player.anEnding = true
+		%Player.isInteracting = false
+	elif name == "Shadow":
+		if get_node("anim").animation == "dead":
+			player.badEnding = true
+			player.isDead = true
+			%Player.get_node("AudioPlayer/DeadLanded").play(0)
 	pass
 
 func _on_body_entered(body):

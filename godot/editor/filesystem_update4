@@ -1,4 +1,4 @@
-res://InteractableObjects/Player.tscn
+res://Menus/SummitEnding.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/NPC.gd
@@ -16,6 +16,10 @@ res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/NormalButtonTheme.tres
 res://Levels/OverworldRelaxed.tscn
-res://InteractableObjects/ZeroGravityCurrent.gd
-res://InteractableObjects/ZeroGravityCurrent.tscn
+res://Menus/MainMenu.tscn
 res://Menus/SpaceEnding.tscn
+res://InteractableObjects/Springboard.tscn
+res://InteractableObjects/Springboard.gd
+res://InteractableObjects/Player.tscn
+res://InteractableObjects/Springboard_elastic.tscn
+res://InteractableObjects/Springboard_elastic.gd
