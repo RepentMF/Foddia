@@ -80,15 +80,15 @@ func _difficulty_sprite_determiner():
 		elif !user_prefs.relaxed_boots_flag && user_prefs.relaxed_rockets_flag && !user_prefs.relaxed_jetpack_flag:
 			elisia.play("rocket_sitting")
 		elif !user_prefs.relaxed_boots_flag && !user_prefs.relaxed_rockets_flag && user_prefs.relaxed_jetpack_flag:
-			elisia.play("jetpack_floating")
+			elisia.play("jetpack_sitting")
 		if user_prefs.relaxed_boots_flag && user_prefs.relaxed_rockets_flag && !user_prefs.relaxed_jetpack_flag:
-			elisia.play("RR_floating")
+			elisia.play("RR_sitting")
 		elif user_prefs.relaxed_boots_flag && !user_prefs.relaxed_rockets_flag && user_prefs.relaxed_jetpack_flag:
-			elisia.play("RJ_floating")
+			elisia.play("RJ_sitting")
 		elif !user_prefs.relaxed_boots_flag && user_prefs.relaxed_rockets_flag && user_prefs.relaxed_jetpack_flag:
-			elisia.play("JR_floating")
+			elisia.play("JR_sitting")
 		if user_prefs.relaxed_boots_flag && user_prefs.relaxed_rockets_flag && user_prefs.relaxed_jetpack_flag:
-			elisia.play("RJR_floating")
+			elisia.play("RJR_sitting")
 			dialogue = elisia.get_meta("ROBOT")
 		if user_prefs.relaxed_macguffin3_flag:
 			dialogue = elisia.get_meta("MACGUFFIN3")
@@ -103,21 +103,21 @@ func _difficulty_sprite_determiner():
 		%TimerDisplay.h = user_prefs.relaxed_h
 	elif user_prefs.difficulty_dropdown_index == 1:
 		if !user_prefs.foddian_boots_flag && !user_prefs.foddian_rockets_flag && !user_prefs.foddian_jetpack_flag:
-			elisia.play("human_floating")
+			elisia.play("human_sitting")
 		if user_prefs.foddian_boots_flag && !user_prefs.foddian_rockets_flag && !user_prefs.foddian_jetpack_flag:
-			elisia.play("robot_floating")
+			elisia.play("robot_sitting")
 		elif !user_prefs.foddian_boots_flag && user_prefs.foddian_rockets_flag && !user_prefs.foddian_jetpack_flag:
-			elisia.play("rocket_floating")
+			elisia.play("rocket_sitting")
 		elif !user_prefs.foddian_boots_flag && !user_prefs.foddian_rockets_flag && user_prefs.foddian_jetpack_flag:
-			elisia.play("jetpack_floating")
+			elisia.play("jetpack_sitting")
 		if user_prefs.foddian_boots_flag && user_prefs.foddian_rockets_flag && !user_prefs.foddian_jetpack_flag:
-			elisia.play("RR_floating")
+			elisia.play("RR_sitting")
 		elif user_prefs.foddian_boots_flag && !user_prefs.foddian_rockets_flag && user_prefs.foddian_jetpack_flag:
-			elisia.play("RJ_floating")
+			elisia.play("RJ_sitting")
 		elif !user_prefs.foddian_boots_flag && user_prefs.foddian_rockets_flag && user_prefs.foddian_jetpack_flag:
-			elisia.play("JR_floating")
+			elisia.play("JR_sitting")
 		if user_prefs.foddian_boots_flag && user_prefs.foddian_rockets_flag && user_prefs.foddian_jetpack_flag:
-			elisia.play("RJR_floating")
+			elisia.play("RJR_sitting")
 			dialogue = elisia.get_meta("ROBOT")
 		if user_prefs.foddian_macguffin3_flag:
 			dialogue = elisia.get_meta("MACGUFFIN3")
@@ -132,21 +132,21 @@ func _difficulty_sprite_determiner():
 		%TimerDisplay.h = user_prefs.foddian_h
 	elif user_prefs.difficulty_dropdown_index == 2:
 		if !user_prefs.permadeath_boots_flag && !user_prefs.permadeath_rockets_flag && !user_prefs.permadeath_jetpack_flag:
-			elisia.play("human_floating")
+			elisia.play("human_sitting")
 		if user_prefs.permadeath_boots_flag && !user_prefs.permadeath_rockets_flag && !user_prefs.permadeath_jetpack_flag:
-			elisia.play("robot_floating")
+			elisia.play("robot_sitting")
 		elif !user_prefs.permadeath_boots_flag && user_prefs.permadeath_rockets_flag && !user_prefs.permadeath_jetpack_flag:
-			elisia.play("rocket_floating")
+			elisia.play("rocket_sitting")
 		elif !user_prefs.permadeath_boots_flag && !user_prefs.permadeath_rockets_flag && user_prefs.permadeath_jetpack_flag:
-			elisia.play("jetpack_floating")
+			elisia.play("jetpack_sitting")
 		if user_prefs.permadeath_boots_flag && user_prefs.permadeath_rockets_flag && !user_prefs.permadeath_jetpack_flag:
-			elisia.play("RR_floating")
+			elisia.play("RR_sitting")
 		elif user_prefs.permadeath_boots_flag && !user_prefs.permadeath_rockets_flag && user_prefs.permadeath_jetpack_flag:
-			elisia.play("RJ_floating")
+			elisia.play("RJ_sitting")
 		elif !user_prefs.permadeath_boots_flag && user_prefs.permadeath_rockets_flag && user_prefs.permadeath_jetpack_flag:
-			elisia.play("JR_floating")
+			elisia.play("JR_sitting")
 		if user_prefs.permadeath_boots_flag && user_prefs.permadeath_rockets_flag && user_prefs.permadeath_jetpack_flag:
-			elisia.play("RJR_floating")
+			elisia.play("RJR_sitting")
 			dialogue = elisia.get_meta("ROBOT")
 		if user_prefs.permadeath_macguffin3_flag:
 			dialogue = elisia.get_meta("MACGUFFIN3")

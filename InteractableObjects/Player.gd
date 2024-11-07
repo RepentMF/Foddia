@@ -7,6 +7,9 @@ var anim
 @onready var anim_rocket = $Player_rocket
 @onready var anim_jetpack = $Player_jetpack
 @onready var anim_legs_rocket = $Player_legs_rocket
+@onready var anim_rocket_jetpack = $Player_rocket_jetpack
+@onready var anim_legs_jetpack = $Player_legs_jetpack
+@onready var anim_robot = $Player_robot
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
 @onready var timer = %TimerDisplay
@@ -232,21 +235,62 @@ func _ready():
 		timer.s = user_prefs.permadeath_s
 		timer.m = user_prefs.permadeath_m
 		timer.h = user_prefs.permadeath_h
-	# Case RR
-	if hasNewLegs && hasRocketJump && !hasJetpack:
+	# Case Robot
+	if hasNewLegs && hasRocketJump && hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = true
+		anim = anim_robot
+	# Case RJ
+	elif !hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = true
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
+		anim = anim_rocket_jetpack
+	# Case LJ
+	elif hasNewLegs && !hasRocketJump && hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = true
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
+		anim = anim_legs_jetpack
+	# Case LR
+	elif hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
 		anim_legs_rocket.visible = true
+		anim_robot.visible = false
+		anim = anim_robot
 		anim = anim_legs_rocket
-	# Case Robot
+	# Case Legs
 	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_legs
 	# Case Rocket
 	elif !hasNewLegs && hasRocketJump && !hasJetpack:
@@ -255,6 +299,10 @@ func _ready():
 		anim_rocket.visible = true
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_rocket
 	# Case Jetpack
 	elif !hasNewLegs && !hasRocketJump && hasJetpack:
@@ -263,6 +311,10 @@ func _ready():
 		anim_rocket.visible = false
 		anim_jetpack.visible = true
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_jetpack
 	# Case Human
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
@@ -271,6 +323,10 @@ func _ready():
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_norm
 	pass
 
@@ -305,40 +361,97 @@ func _process(delta):
 		rocket1.modulate = Color(.35, .33, 1, 1)
 	elif countRocketJumps == 0:
 		rocket2.modulate = Color(.35, .33, 1, 1)
-	if hasNewLegs && hasRocketJump && !hasJetpack:
+	# Case Robot
+	if hasNewLegs && hasRocketJump && hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = true
+		anim = anim_robot
+	# Case RJ
+	elif !hasNewLegs && hasRocketJump && hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = true
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
+		anim = anim_rocket_jetpack
+	# Case LJ
+	elif hasNewLegs && !hasRocketJump && hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = true
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
+		anim = anim_legs_jetpack
+	# Case LR
+	elif hasNewLegs && hasRocketJump && !hasJetpack:
+		anim_norm.visible = false
+		anim_legs.visible = false
+		anim_rocket.visible = false
+		anim_jetpack.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
 		anim_legs_rocket.visible = true
+		anim_robot.visible = false
 		anim = anim_legs_rocket
+	# Case Legs
 	elif hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = true
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_legs
+	# Case Rocket
 	elif !hasNewLegs && hasRocketJump && !hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = true
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_rocket
+	# Case Jetpack
 	elif !hasNewLegs && !hasRocketJump && hasJetpack:
 		anim_norm.visible = false
 		anim_legs.visible = false
 		anim_rocket.visible = false
 		anim_jetpack.visible = true
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_jetpack
+	# Case Human
 	elif !hasNewLegs && !hasRocketJump && !hasJetpack:
 		anim_norm.visible = true
 		anim_legs.visible = false
 		anim_rocket.visible = false
 		anim_jetpack.visible = false
 		anim_legs_rocket.visible = false
+		anim_rocket_jetpack.visible = false
+		anim_legs_jetpack.visible = false
+		anim_legs_rocket.visible = false
+		anim_robot.visible = false
 		anim = anim_norm
 	if !isInteracting:
 		if Input.is_action_just_pressed("ui_menu"):
@@ -470,8 +583,25 @@ func _physics_process(delta):
 				print("Dead Driving Ending")
 				user_prefs.bad_ending = true
 				user_prefs.achievement_bad_ending = true
+				user_prefs.save()
 				get_tree().quit()
-			isDead = false
+			elif user_prefs.difficulty_dropdown_index == 2:
+				user_prefs.permadeath_save = Vector2(260, 130)
+				user_prefs.permadeath_boots_flag = false
+				user_prefs.permadeath_rockets_flag = false
+				user_prefs.permadeath_jetpack_flag = false
+				user_prefs.permadeath_fuel_count = 1000
+				user_prefs.permadeath_macguffin_flag = false
+				user_prefs.permadeath_macguffin2_flag = false
+				user_prefs.permadeath_macguffin3_flag = false
+				user_prefs.permadeath_ms = 0
+				user_prefs.permadeath_s = 0
+				user_prefs.permadeath_m = 0
+				user_prefs.permadeath_h = 0
+				user_prefs.save()
+				get_tree().quit()
+			else:
+				isDead = false
 		elif %FadeInPanel.visible && !isInZeroG && !anEnding:
 			if %FadeInPanel.color == Color(0, 0, 0, 1):
 				%FadeInPanel.visible = false
@@ -830,7 +960,6 @@ func _physics_process(delta):
 				user_prefs.save()
 			elif user_prefs.difficulty_dropdown_index == 2:
 				user_prefs.permadeath_save = global_position
-				user_prefs.permadeath_checkpoint = checkpoint
 				user_prefs.permadeath_boots_flag = hasNewLegs
 				user_prefs.permadeath_rockets_flag = hasRocketJump
 				user_prefs.permadeath_jetpack_flag = hasJetpack
@@ -934,9 +1063,9 @@ func on_grab_with_legs(body):
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
-		if countHangTime >= 137 && !isInWindCurrent:
+		if countHangTime >= 137 && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
-		elif countHangTime >= 400 && isInWindCurrent:
+		elif countHangTime >= 400 && isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
 	if isInElevator:
 		isDead = false

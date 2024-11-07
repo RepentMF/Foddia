@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://ditq880x3rghj"
+uid="uid://be43aw7we763u"
 path="res://godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618f984ad5842.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

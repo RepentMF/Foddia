@@ -23,6 +23,9 @@ func _process(delta):
 		queue_free()
 	elif user_prefs.foddian_jetpack_flag && user_prefs.difficulty_dropdown_index == 1:
 		queue_free()
+	elif user_prefs.permadeath_jetpack_flag && user_prefs.difficulty_dropdown_index == 2:
+		queue_free()
+	
 	if interacting && Input.is_action_just_released("ui_click"):
 		if indexer == 0:
 			%DialogueBox.visible = true

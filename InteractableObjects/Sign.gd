@@ -5,6 +5,7 @@ extends Area2D
 
 var endingCount = 0
 var drivingEnding = false
+var summitEnding = false
 
 var user_prefs: UserPreferences
 var dialogue
@@ -33,6 +34,17 @@ func _physics_process(delta):
 			endingCount += 1
 		elif %FadeInPanel.color.a >= 1:
 			get_tree().change_scene_to_file("res://Menus/DrivingEnding.tscn")
+	elif summitEnding:
+		%FadeInPanel.visible = true
+		if endingCount == 0:
+			%FadeInPanel.color = Color(0, 0, 0, 0)
+		if endingCount % 10 == 0 && %FadeInPanel.color.a < 1:
+			endingCount += 1
+			%FadeInPanel.color.a += .1
+		elif %FadeInPanel.color.a < 1:
+			endingCount += 1
+		elif %FadeInPanel.color.a >= 1:
+			get_tree().change_scene_to_file("res://Menus/SummitEnding.tscn")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +66,7 @@ func _process(delta):
 			if player.hasMacguffin2:
 				dialogue = get_meta("Dead")
 				textCount = dialogue.size()
-			elif player.hasMacguffin || player.hasMacguffin3:
+			if player.hasMacguffin || player.hasMacguffin3:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
 		elif name == "TruckFront":
@@ -96,6 +108,10 @@ func _important_npc_check():
 			player.badEnding = true
 			player.isDead = true
 			%Player.get_node("AudioPlayer/DeadLanded").play(0)
+	elif name == "SummitEnding":
+		summitEnding = true
+		%Player.anEnding = true
+		%Player.isInteracting = false
 	pass
 
 func _on_body_entered(body):

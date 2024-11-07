@@ -43,6 +43,7 @@ func _physics_process(delta):
 
 func _on_new_game_pressed():
 	user_prefs.bad_ending = false
+	print(get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id())
 	if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
 		user_prefs.relaxed_checkpoint = Vector2(260, 130)
 		user_prefs.relaxed_save = Vector2(260, 130)
@@ -72,7 +73,7 @@ func _on_new_game_pressed():
 		user_prefs.relaxed_flag13 = false
 		user_prefs.relaxed_flag14 = false
 		user_prefs.save()
-	elif get_node("MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 1:
+	elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 1:
 		user_prefs.foddian_save = Vector2(260, 130)
 		user_prefs.foddian_boots_flag = false
 		user_prefs.foddian_rockets_flag = false
@@ -88,7 +89,7 @@ func _on_new_game_pressed():
 		user_prefs.foddian_flag1 = false
 		user_prefs.foddian_flag11 = false
 		user_prefs.save()
-	elif get_node("MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
+	elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
 		user_prefs.permadeath_save = Vector2(260, 130)
 		user_prefs.permadeath_boots_flag = false
 		user_prefs.permadeath_rockets_flag = false
@@ -101,8 +102,6 @@ func _on_new_game_pressed():
 		user_prefs.permadeath_s = 0
 		user_prefs.permadeath_m = 0
 		user_prefs.permadeath_h = 0
-		user_prefs.permadeath_flag1 = false
-		user_prefs.permadeath_flag11 = false
 		user_prefs.save()
 	load = true
 	pass # Replace with function body.
@@ -134,7 +133,13 @@ func load_game():
 		count += 1
 		colorCount += 0.1
 		$ColorRect.color.a = colorCount
+		$CanvasLayer/MarginContainer/VBoxContainer.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.0745
 	elif $ColorRect.color.a < 1:
 		count += 1
 	elif $ColorRect.color.a == 1:
-		get_tree().change_scene_to_file("res://game.tscn")
+		if user_prefs.difficulty_dropdown_index == 0:
+			get_tree().change_scene_to_file("res://Levels/OverworldRelaxed.tscn")
+		elif user_prefs.difficulty_dropdown_index == 1:
+			get_tree().change_scene_to_file("res://Levels/OverworldFoddian.tscn")
+		elif user_prefs.difficulty_dropdown_index == 2:
+			get_tree().change_scene_to_file("res://Levels/OverworldPermadeath.tscn")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://oh3w8nqpmpi8"]
+
+[ext_resource type="Script" path="res://InteractableObjects/RadioPlayer.gd" id="1_rbsby"]
+[ext_resource type="AudioStream" uid="uid://be43aw7we763u" path="res://OST/CantTurnBack_foddia.mp3" id="2_reo1m"]
+[ext_resource type="AudioStream" uid="uid://cxq8hl8kdcqge" path="res://OST/LostAgain_foddia.mp3" id="3_vxtda"]
+
+[node name="RadioPlayer" type="Node2D"]
+script = ExtResource("1_rbsby")
+
+[node name="CantTurnBack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_reo1m")
+
+[node name="LostAgain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vxtda")

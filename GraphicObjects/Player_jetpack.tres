@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://cjnt48wdxem6h"]
+[gd_resource type="SpriteFrames" load_steps=46 format=3 uid="uid://cjnt48wdxem6h"]
 
 [ext_resource type="Texture2D" uid="uid://4x56pn6ii1xv" path="res://Graphics/player_jetpack.png" id="1_ipkaa"]
 
@@ -105,26 +105,6 @@ region = Rect2(150, 124, 25, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_10n8t"]
 atlas = ExtResource("1_ipkaa")
 region = Rect2(25, 62, 25, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcngl"]
-atlas = ExtResource("1_ipkaa")
-region = Rect2(50, 62, 25, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ach6"]
-atlas = ExtResource("1_ipkaa")
-region = Rect2(75, 62, 25, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2bdxc"]
-atlas = ExtResource("1_ipkaa")
-region = Rect2(100, 62, 25, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kkipm"]
-atlas = ExtResource("1_ipkaa")
-region = Rect2(125, 62, 25, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkjhl"]
-atlas = ExtResource("1_ipkaa")
-region = Rect2(0, 93, 25, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2b5s5"]
 atlas = ExtResource("1_ipkaa")
@@ -308,21 +288,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_10n8t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bcngl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ach6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2bdxc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kkipm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nkjhl")
 }],
 "loop": false,
 "name": &"n_jump",
@@ -390,7 +355,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ejm24")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t7no7")
 }],
 "loop": true,

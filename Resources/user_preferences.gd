@@ -65,8 +65,6 @@ class_name UserPreferences extends Resource
 @export var permadeath_macguffin_flag: bool = false
 @export var permadeath_macguffin2_flag: bool = false
 @export var permadeath_macguffin3_flag: bool = false
-@export var permadeath_flag1: bool = false
-@export var permadeath_flag11: bool = false
 @export var permadeath_fuel_count: int = 1000
 @export var permadeath_ms: int = 0
 @export var permadeath_s: int = 0

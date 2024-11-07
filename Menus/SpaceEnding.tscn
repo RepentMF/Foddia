@@ -1386,6 +1386,7 @@ grow_vertical = 2
 script = ExtResource("1_3ml7q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("14_1003h")]
 unique_name_in_owner = true
@@ -1397,7 +1398,7 @@ scale = Vector2(1.72, 1.6)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("15_kxmj0")
-text = "0:00:00.0"
+text = " 0:00:00.0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 3

@@ -8,19 +8,16 @@ var hasBeenUsed = false
 var countTime = 120
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if anim.animation == "break" && anim.frame == 4:
 		anim.play("used")
-	elif hasBeenUsed && !anim.animation == "break" && !anim.animation == "used" && countTime != 0:
+	elif hasBeenUsed && !anim.animation == "break" && !anim.animation == "used" && countTime >= 110:
 		anim.play("break")
-	elif hasBeenUsed && anim.animation == "used" && countTime == 5:
+	elif hasBeenUsed && anim.animation == "used"  && anim.animation != "combine" && countTime <= 15:
 		anim.play("combine")
 	elif !hasBeenUsed:
 		anim.play("idle")
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+	
 	if hasBeenUsed:
 		if countTime > 0:
 				countTime -= 1

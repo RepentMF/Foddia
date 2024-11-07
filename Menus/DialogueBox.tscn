@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ykbih12rrilw"]
+[gd_scene load_steps=10 format=3 uid="uid://ykbih12rrilw"]
 
+[ext_resource type="Texture2D" uid="uid://csh8myg75sjh" path="res://Graphics/DialogueBox.png" id="1_72wm5"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="1_cpxif"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="1_kn0qf"]
 
@@ -52,12 +53,18 @@ animations = [{
 position = Vector2(0, 5)
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
+visible = false
 offset_left = 84.0
 offset_top = 688.0
 offset_right = 248.0
 offset_bottom = 859.0
 scale = Vector2(6.79782, -1.18724)
 color = Color(0, 0, 0.392157, 0.470588)
+
+[node name="DialogueBox" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(640, 586)
+texture = ExtResource("1_72wm5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 106.0

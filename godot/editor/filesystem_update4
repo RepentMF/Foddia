@@ -1,3 +1,4 @@
+res://Menus/MainMenu.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/NPC.gd
@@ -7,10 +8,13 @@ res://Menus/GraphicsMenuBg.gd
 res://Menus/MainMenu.gd
 res://Menus/MenuParallax.gd
 res://Menus/SwingingObject.gd
+res://Menus/NormalButtonTheme.tres
+res://InteractableObjects/Overworld.gdshader
 res://GraphicObjects/Player_normal.tres
 res://GraphicObjects/Player_legs.tres
-res://InteractableObjects/Overworld.gdshader
 res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
-res://Menus/NormalButtonTheme.tres
+res://InteractableObjects/Player.tscn
+res://Levels/OverworldPermadeath.tscn
+res://Levels/OverworldRelaxed.tscn

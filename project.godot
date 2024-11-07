@@ -94,3 +94,4 @@ ui_click={
 limits/opengl/max_renderable_lights=256
 limits/opengl/max_lights_per_object=1024
 environment/defaults/default_clear_color=Color(0.519531, 0.746094, 0.996094, 1)
+mesh_lod/lod_change/threshold_pixels=0.0

@@ -185,10 +185,10 @@ shape = SubResource("CircleShape2D_3goda")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.38419e-07, -2.38419e-07)
+position = Vector2(-1, -2.38419e-07)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_hb3fs")
-animation = &"used"
+animation = &"combine"
 autoplay = "idle"
 frame = 4
 frame_progress = 1.0

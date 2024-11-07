@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://benk0ctn2tvgi"]
+[gd_scene load_steps=71 format=3 uid="uid://benk0ctn2tvgi"]
 
 [ext_resource type="Script" path="res://Menus/SummitEnding.gd" id="1_ngmfc"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_jjrnh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="5_fxwd8"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="6_fmriw"]
 [ext_resource type="Texture2D" uid="uid://86vmjdg4lkqm" path="res://Graphics/SummitEnding_Elisia_human.png" id="7_5nhw3"]
+[ext_resource type="Texture2D" uid="uid://fkmgpvsuibyd" path="res://Graphics/SummitEnding_Elisia.png" id="7_em8vu"]
 [ext_resource type="Texture2D" uid="uid://dauhwnau52enq" path="res://Graphics/SummitEnding_bg.png" id="8_p04or"]
 [ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="9_7xkb5"]
 [ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="10_axeab"]
@@ -26,6 +27,70 @@ shader_parameter/scanline_count = 50.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_03xxf"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp8y0"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 224, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjw8m"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 224, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkfjd"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 224, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgbp6"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 224, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3jtx"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 56, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efw23"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 56, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyxv6"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 56, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgq3n"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 56, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvq1a"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 168, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsphh"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 168, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t6du"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 168, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy2f2"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 168, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffs5l"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 112, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm61t"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 112, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axp65"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 112, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt5r2"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 112, 40, 56)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_a53f5"]
 atlas = ExtResource("7_5nhw3")
 region = Rect2(0, 0, 40, 56)
@@ -42,8 +107,124 @@ region = Rect2(80, 0, 40, 56)
 atlas = ExtResource("7_5nhw3")
 region = Rect2(120, 0, 40, 56)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r147q"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 392, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10txq"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 392, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctf0w"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 392, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbq31"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 392, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sygeu"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 280, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0inbh"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 280, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yf4i"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 280, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kv70"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 280, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7mdc"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(0, 336, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0krul"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(40, 336, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp6e5"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(80, 336, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwukt"]
+atlas = ExtResource("7_em8vu")
+region = Rect2(120, 336, 40, 56)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_j581k"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp8y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjw8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkfjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgbp6")
+}],
+"loop": true,
+"name": &"JR_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3jtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efw23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyxv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgq3n")
+}],
+"loop": true,
+"name": &"RJR_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvq1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsphh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t6du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy2f2")
+}],
+"loop": true,
+"name": &"RJ_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffs5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm61t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axp65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt5r2")
+}],
+"loop": true,
+"name": &"RR_sitting",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a53f5")
@@ -59,6 +240,57 @@ animations = [{
 }],
 "loop": true,
 "name": &"human_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r147q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10txq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctf0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbq31")
+}],
+"loop": true,
+"name": &"jetpack_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sygeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0inbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yf4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kv70")
+}],
+"loop": true,
+"name": &"robot_sitting",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7mdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0krul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp6e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwukt")
+}],
+"loop": true,
+"name": &"rocket_sitting",
 "speed": 20.0
 }]
 
@@ -180,9 +412,9 @@ grow_vertical = 2
 script = ExtResource("1_ngmfc")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer3"]
-visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -220,7 +452,7 @@ scale = Vector2(1.72, 1.6)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_ttaul")
-text = "0:00:00.0"
+text = " 0:00:00.0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -239,7 +471,6 @@ layer = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_jwv6m")
@@ -255,14 +486,13 @@ texture_filter = 1
 position = Vector2(590, 412)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_j581k")
-animation = &"human_sitting"
+animation = &"RJR_sitting"
 autoplay = "human_sitting"
-frame_progress = 0.670838
-metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
-metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  I  didn't  cause  the  end  of  the  world.)"]
-metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
-metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you'd  talk  about  before  we'd  go  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
-metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
+metadata/DIALOGUE = ["This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.", "The  world  is  so  much  bigger  than  us-  I  see  that  now.", "I  just  wish  I  could  see  you  one  last  time."]
+metadata/ROBOT = ["Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?", "A  world  where  it  would  just  be  us?", "As  cold  as  the  new  skin  I  wear  is,  at  least  I  didn't-"]
+metadata/MACGUFFIN2 = ["I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.", "But  I  can't  do  it  at  the  cost  of  everybody  else.", "I'm  sorry  my  loves."]
+metadata/MACGUFFIN3 = ["Can  you  see  them?", "The  stars  you  love  so  much?", "It  was  always  what  you'd  talk  about  before  we'd  go  to                      sleep.", "So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.", "...  I  miss  you  so  much."]
+metadata/MACGUFFIN = ["I'm  content  with  this...", "Finding  our  most  treasured  memory  here...", "This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.", "My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?"]
 
 [node name="SummitBg" type="Sprite2D" parent="."]
 unique_name_in_owner = true
