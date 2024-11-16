@@ -19,6 +19,8 @@ func _ready():
 		difficulty_dropdown.selected = user_prefs.difficulty_dropdown_index
 	if user_prefs.crt_bool_check:
 		crt.visible = true
+	else:
+		crt.visible = false
 	if user_prefs.bad_ending:
 		%BadMainMenuBg.visible = true
 		%MainMenuBg.visible = false

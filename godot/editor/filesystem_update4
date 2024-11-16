@@ -15,6 +15,7 @@ res://GraphicObjects/Player_legs.tres
 res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
+res://Menus/MainMenuAudioPlayer.gd
 res://InteractableObjects/Player.tscn
 res://Levels/OverworldPermadeath.tscn
 res://Levels/OverworldRelaxed.tscn

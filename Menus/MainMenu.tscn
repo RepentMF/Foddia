@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=32 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="18_78h05"]
+[ext_resource type="Script" path="res://Menus/MainMenuAudioPlayer.gd" id="23_rqw2y"]
+[ext_resource type="AudioStream" uid="uid://cc0ytk8rtn7av" path="res://SFX/CarEngine.mp3" id="24_e4v5l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qd8k"]
 atlas = ExtResource("6_t4ph0")
@@ -366,6 +368,12 @@ offset_top = -463.0
 offset_right = 2166.0
 offset_bottom = 1503.0
 texture = SubResource("CanvasTexture_pu5b6")
+
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("23_rqw2y")
+
+[node name="CarEngine" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("24_e4v5l")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
