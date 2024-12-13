@@ -522,43 +522,7 @@ func _process(delta):
 			arms.position = Vector2(-5, -8)
 			
 		#Handle ponytail nonsense; in air, physics crazy, on ground, physics contained
-		if !anim.flip_h:
-			get_node("PinJoint2DLeft").visible = true
-			get_node("PinJoint2DRight").visible = false
-			get_node("PinJoint2DLeftAir").visible = false
-			get_node("PinJoint2DRightAir").visible = false
-			if !isHoldingRope && !is_on_floor():
-				get_node("PinJoint2DLeft").visible = false
-				get_node("PinJoint2DLeftAir").visible = true
-				if wasBouncing || wasSwinging:
-					get_node("PinJoint2DLeft").visible = true
-					get_node("PinJoint2DLeftAir").visible = false
-		else:
-			get_node("PinJoint2DLeft").visible = false
-			get_node("PinJoint2DRight").visible = true
-			get_node("PinJoint2DLeftAir").visible = false
-			get_node("PinJoint2DRightAir").visible = false
-			if !isHoldingRope && !is_on_floor():
-				get_node("PinJoint2DRight").visible = false
-				get_node("PinJoint2DRightAir").visible = true
-				if wasBouncing || wasSwinging:
-					get_node("PinJoint2DRight").visible = true
-					get_node("PinJoint2DRightAir").visible = false
-		
-		get_node("PinJoint2DLeft").z_index = 0
-		get_node("PinJoint2DRight").z_index = 0
-		
-		if landedSoft || landedHard || isGrabbingLedge:
-			get_node("PinJoint2DLeft").visible = false
-			get_node("PinJoint2DRight").visible = false
-			get_node("PinJoint2DLeftAir").visible = false
-			get_node("PinJoint2DRightAir").visible = false
-			if hasRocketJump:
-				get_node("Rocket_1").visible = false
-				get_node("Rocket_2").visible = false
-		elif isHoldingRope && !is_on_floor():
-			get_node("PinJoint2DLeft").z_index = 1
-			get_node("PinJoint2DRight").z_index = 1
+		handle_ponytail()
 	pass
 
 func _physics_process(delta):
@@ -991,6 +955,46 @@ func crawl_ledge():
 func explode():
 	var instance = explosion.instantiate()
 	add_child(instance)
+	pass
+
+func handle_ponytail():
+	if !anim.flip_h:
+		get_node("PinJoint2DLeft").visible = true
+		get_node("PinJoint2DRight").visible = false
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+		if !isHoldingRope && !is_on_floor():
+			get_node("PinJoint2DLeft").visible = false
+			get_node("PinJoint2DLeftAir").visible = true
+			if wasBouncing || wasSwinging:
+				get_node("PinJoint2DLeft").visible = true
+				get_node("PinJoint2DLeftAir").visible = false
+	else:
+		get_node("PinJoint2DLeft").visible = false
+		get_node("PinJoint2DRight").visible = true
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+		if !isHoldingRope && !is_on_floor():
+			get_node("PinJoint2DRight").visible = false
+			get_node("PinJoint2DRightAir").visible = true
+			if wasBouncing || wasSwinging:
+				get_node("PinJoint2DRight").visible = true
+				get_node("PinJoint2DRightAir").visible = false
+		
+	get_node("PinJoint2DLeft").z_index = 0
+	get_node("PinJoint2DRight").z_index = 0
+		
+	if landedSoft || landedHard || isGrabbingLedge:
+		get_node("PinJoint2DLeft").visible = false
+		get_node("PinJoint2DRight").visible = false
+		get_node("PinJoint2DLeftAir").visible = false
+		get_node("PinJoint2DRightAir").visible = false
+		if hasRocketJump:
+			get_node("Rocket_1").visible = false
+			get_node("Rocket_2").visible = false
+	elif isHoldingRope && !is_on_floor():
+		get_node("PinJoint2DLeft").z_index = 1
+		get_node("PinJoint2DRight").z_index = 1
 	pass
 
 func smoke():

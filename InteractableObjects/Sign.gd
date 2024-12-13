@@ -61,16 +61,23 @@ func _process(delta):
 	if name == "TruckFront" && (player.hasMacguffin2 && !player.hasMacguffin && !player.hasMacguffin3):
 		visible = false
 	
-	if visible: 
-		if !name.contains("Sign") && !name.contains("Truck"):
+	if visible:
+		if name == "Husband" || name == "Shadow":
 			if player.hasMacguffin2:
 				dialogue = get_meta("Dead")
 				textCount = dialogue.size()
-			if player.hasMacguffin || player.hasMacguffin3:
+			if player.hasMacguffin:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
 		elif name == "TruckFront":
 			if player.hasMacguffin || player.hasMacguffin3:
+				dialogue = get_meta("Relieved")
+				textCount = dialogue.size()
+		elif !name.contains("Sign") && !name.contains("Truck"):
+			if player.hasMacguffin2:
+				dialogue = get_meta("Dead")
+				textCount = dialogue.size()
+			if player.hasMacguffin:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
 		

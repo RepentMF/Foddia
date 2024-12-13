@@ -45,7 +45,6 @@ func _physics_process(delta):
 
 func _on_new_game_pressed():
 	user_prefs.bad_ending = false
-	print(get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id())
 	if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
 		user_prefs.relaxed_checkpoint = Vector2(260, 130)
 		user_prefs.relaxed_save = Vector2(260, 130)

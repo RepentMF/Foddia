@@ -39,7 +39,6 @@ func _on_body_entered(body):
 					body.velocity.x = -1.1 * body.velocity.x
 					body.velocity.y = 0
 				elif rotation == 0:
-					print(body.countHangTime, " ", body.velocity.x)
 					if body.countHangTime >= 55 && abs(body.velocity.x) < 230:
 						body.velocity.y =  -1 * body.velocity.y
 					else:

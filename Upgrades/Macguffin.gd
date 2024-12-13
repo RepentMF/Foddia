@@ -51,14 +51,12 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	print("this happened")
 	if body.name == "Player":
 		isNearUpgrade = true
 		UI.visible = true
 	pass # Replace with function body.
 
 func _on_body_exited(body):
-	print("this also happened")
 	if body.name == "Player":
 		isNearUpgrade = false
 		UI.visible = false

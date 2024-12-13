@@ -13,10 +13,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if in_fade:
-		fade_in()
-	elif out_fade:
-		fade_out()
+	#if in_fade:
+	#	fade_in()
+	#elif out_fade:
+	#	fade_out()
 	position.y -= 5
 	pass
 
