@@ -1,4 +1,3 @@
-res://InteractableObjects/Player.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/NPC.gd
@@ -16,11 +15,3 @@ res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/NormalButtonTheme.tres
-res://InteractableObjects/Player.gd
-res://Levels/OverworldPermadeath.tscn
-res://Upgrades/Macguffin.gd
-res://InteractableObjects/Springboard.gd
-res://InteractableObjects/SwingingRope.tscn
-res://Levels/OverworldRelaxed.tscn
-res://InteractableObjects/SwingingRope.gd
-res://InteractableObjects/VisibleArea2D.gd
