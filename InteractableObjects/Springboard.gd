@@ -60,5 +60,6 @@ func _on_body_entered(body):
 					body.velocity.x = 20
 			body.wasBouncing = true
 			body.countHangTime = 0
+			body.countBounces += 1
 			hasBeenUsed = true
 	pass # Replace with function body.

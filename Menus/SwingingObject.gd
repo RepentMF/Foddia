@@ -10,7 +10,7 @@ var swing_right = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
-	if user_prefs.achievement_fuzzy_dice:
+	if user_prefs.achievement_dice:
 		get_parent().visible = true
 	else:
 		get_parent().visible = false

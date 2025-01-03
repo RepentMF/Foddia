@@ -39,5 +39,6 @@ func _on_body_entered(body):
 				body.velocity.y =  -1 * abs(body.velocity.y)
 			body.wasBouncing = true
 			body.countHangTime = 0
+			body.countBounces += 1
 			hasBeenUsed = true
 	pass # Replace with function body.

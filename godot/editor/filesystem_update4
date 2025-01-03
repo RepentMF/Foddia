@@ -1,3 +1,4 @@
+res://InteractableObjects/Player.tscn
 res://GraphicObjects/Explosion.gd
 res://GraphicObjects/Wind.gd
 res://InteractableObjects/NPC.gd
@@ -15,3 +16,13 @@ res://GraphicObjects/Player_rocket.tres
 res://GraphicObjects/Player_jetpack.tres
 res://GraphicObjects/Player_legs_rocket.tres
 res://Menus/NormalButtonTheme.tres
+res://Levels/OverworldRelaxed.tscn
+res://Menus/AudioMenu.tscn
+res://InteractableObjects/AchievementHandler_Player.gd
+res://Menus/DrivingEnding.tscn
+res://InteractableObjects/AchievementHandler_Ending.gd
+res://Menus/SpaceEnding.tscn
+res://Menus/SummitEnding.tscn
+res://Menus/DrivingEnding.gd
+res://Menus/MainMenu.tscn
+res://InteractableObjects/Player.gd

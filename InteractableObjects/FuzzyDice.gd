@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if user_prefs.achievement_fuzzy_dice:
+	if user_prefs.achievement_dice:
 		queue_free()
 		
 	if interacting && Input.is_action_just_released("ui_click"):
@@ -36,7 +36,7 @@ func _process(delta):
 			%DialogueBox.visible = false
 			interacting = false
 			%Player.isInteracting = false
-			user_prefs.achievement_fuzzy_dice = true
+			user_prefs.achievement_dice = true
 			queue_free()
 	elif !interacting && isNearUpgrade && Input.is_action_just_pressed("ui_click"):
 		interacting = true

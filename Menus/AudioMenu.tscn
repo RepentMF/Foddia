@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://jcop5yjxgopl"]
+[gd_scene load_steps=11 format=3 uid="uid://jcop5yjxgopl"]
 
 [ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="2_lxluf"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_th3ii"]
 [ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="3_iu2q5"]
 [ext_resource type="Script" path="res://Menus/AudioMenuBg.gd" id="4_68veo"]
+[ext_resource type="Script" path="res://Menus/MainMenuAudioPlayer.gd" id="6_eoenl"]
+[ext_resource type="AudioStream" uid="uid://cc0ytk8rtn7av" path="res://SFX/CarEngine.mp3" id="7_oqvja"]
+[ext_resource type="AudioStream" uid="uid://cth75cdh8gdu6" path="res://SFX/CarEngineStart.mp3" id="8_iuq00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hxhkh"]
 shader = ExtResource("2_lxluf")
@@ -23,6 +26,7 @@ script = ExtResource("1_rk3ja")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_hxhkh")
@@ -130,6 +134,23 @@ scroll_active = false
 autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Node2D6" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+position = Vector2(27, 70)
+scale = Vector2(1, 0.8)
+
+[node name="VoiceActingCheckBox" type="CheckBox" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D6"]
+unique_name_in_owner = true
+texture_filter = 1
+offset_left = -27.5
+offset_top = -25.9375
+offset_right = 124.5
+offset_bottom = -8.93749
+theme = ExtResource("2_th3ii")
+theme_override_colors/font_color = Color(0.585938, 0.617188, 0.582031, 1)
+theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
+text = "Voice Acting"
+metadata/_edit_use_anchors_ = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 texture_filter = 1
@@ -138,6 +159,19 @@ scale = Vector2(7.5, 6)
 texture = ExtResource("3_iu2q5")
 script = ExtResource("4_68veo")
 
+[node name="AudioPlayer" type="Node2D" parent="."]
+script = ExtResource("6_eoenl")
+
+[node name="CarEngine" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("7_oqvja")
+
+[node name="CarEngine2" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("7_oqvja")
+
+[node name="CarEngineStart" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("8_iuq00")
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
 [connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D2/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D6/VoiceActingCheckBox" to="." method="_on_voice_acting_check_button_toggled"]

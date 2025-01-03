@@ -37,12 +37,6 @@ func _ready():
 	if user_prefs.achievement_little_dipper:
 		get_node("LittleDipper").visible = true
 	
-	if !interacting:
-		if finishCount <= 0:
-			$CanvasLayer3/MarginContainer.visible = true
-		elif finishCount > 0:
-			finishCount -= 1
-	
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	stars = get_node("Stars")
@@ -59,6 +53,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if !interacting:
+		if finishCount <= 0:
+			$CanvasLayer3/MarginContainer.visible = true
+		elif finishCount > 0:
+			finishCount -= 1
+	
 	if count % 10 == 0 && $ColorRect.color.a > 0:
 		count += 1
 		colorCount -= 0.1

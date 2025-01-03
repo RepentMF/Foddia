@@ -38,6 +38,7 @@ const Up = Vector2(0, -1)
 var checkpoint = Vector2(260, 130)
 var count = 0
 var countAirTime = 0
+var countBounces = 0
 var countHangTime = 0
 var countJetpackFuel = 1000.0
 var countRocketJumps = 2
@@ -332,6 +333,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(countBounces)
 	fuel.value = (countJetpackFuel / maxJetpackFuel) * 100
 	if hasJetpack:
 		fuel.visible = true
@@ -546,7 +548,6 @@ func _physics_process(delta):
 			if badEnding:
 				print("Dead Driving Ending")
 				user_prefs.bad_ending = true
-				user_prefs.achievement_bad_ending = true
 				user_prefs.save()
 				get_tree().quit()
 			elif user_prefs.difficulty_dropdown_index == 2:
@@ -787,6 +788,7 @@ func _physics_process(delta):
 							$Rocket_2.rotation = -2.35619
 		# Handle grounded movement
 		else:
+			countBounces = 0
 			hasRocketed = false
 			smokeCount = 30
 			countHangTime = 0

@@ -39,16 +39,16 @@ func _ready():
 		print("this worked, again")
 	if user_prefs.achievement_little_dipper:
 		get_node("LittleDipper").visible = true
-	
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
 	if !interacting:
 		if finishCount <= 0:
 			$CanvasLayer3/MarginContainer.visible = true
 		elif finishCount > 0:
 			finishCount -= 1
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+	
 	if count % 10 == 0 && $ColorRect.color.a > 0:
 		count += 1
 		colorCount -= 0.1

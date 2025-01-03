@@ -1,6 +1,7 @@
-[gd_scene load_steps=212 format=3 uid="uid://c3bpw5had3jpd"]
+[gd_scene load_steps=213 format=3 uid="uid://c3bpw5had3jpd"]
 
 [ext_resource type="Script" path="res://Menus/SpaceEnding.gd" id="1_3ml7q"]
+[ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Ending.gd" id="2_a18q4"]
 [ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="2_chclh"]
 [ext_resource type="Texture2D" uid="uid://cbsa1gtwybuwh" path="res://Graphics/SpaceEnding_bg.png" id="3_t5uqb"]
 [ext_resource type="Texture2D" uid="uid://v6m5bxusxtd0" path="res://Graphics/SpaceEnding_Elisia_human.png" id="4_2m2pd"]
@@ -1386,7 +1387,7 @@ grow_vertical = 2
 script = ExtResource("1_3ml7q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+script = ExtResource("2_a18q4")
 
 [node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("14_1003h")]
 unique_name_in_owner = true

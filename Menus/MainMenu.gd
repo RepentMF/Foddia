@@ -28,7 +28,7 @@ func _ready():
 		%BadMainMenuBg.visible = false
 		%MainMenuBg.visible = true
 	
-	if user_prefs.achievement_fuzzy_dice:
+	if user_prefs.achievement_dice:
 		$ItemString.visible = true
 	if (user_prefs.relaxed_macguffin_flag && user_prefs.difficulty_dropdown_index == 0) || (user_prefs.foddian_macguffin_flag && user_prefs.difficulty_dropdown_index == 1) || (user_prefs.permadeath_macguffin_flag && user_prefs.difficulty_dropdown_index == 2):
 		%Macguffin.visible = true
@@ -39,6 +39,10 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	if user_prefs.bad_ending && !user_prefs.achievement_true:
+		user_prefs.achievement_true = true
+	#	if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
+	#		Steam.setAchievement("ACHIEVEMENT_TRUE")
 	if load:
 		load_game()
 	pass

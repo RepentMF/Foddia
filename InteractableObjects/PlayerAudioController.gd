@@ -1,5 +1,7 @@
 extends Node2D
 
+var user_prefs: UserPreferences
+
 var rng
 var deadLanded
 var hardAir
@@ -26,6 +28,7 @@ var rocketCount
 var ropeCount
 
 func _ready():
+	user_prefs = UserPreferences.load_or_create()
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	deadLanded = get_node("DeadLanded")
@@ -52,6 +55,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	change_all_volumes()
+	
 	if player.countRocketJumps == player.maxRocketJumps:
 		rocketCount = 2
 
@@ -126,10 +131,12 @@ func _physics_process(delta):
 		softAir.volume_db += 0.02
 		if player.countHangTime > 300 && !hardAir.is_playing():
 			hardAir.play(.05)
-			hardAir.volume_db = softAir.volume_db - 2.0
+			if hardAir.volume_db < 24:
+				hardAir.volume_db = softAir.volume_db - 2.0
 		if player.countHangTime > 300 && hardAir.get_playback_position() > 1.69566671 && !hardAir2.is_playing():
 			hardAir2.play(.05)
-			hardAir2.volume_db = softAir.volume_db - 2.0
+			if hardAir.volume_db < 24:
+				hardAir2.volume_db = softAir.volume_db - 2.0
 	
 	if justLanded && !softLanded.is_playing() && !hardLanded.is_playing():
 		if player.landedHard && dead:
@@ -151,4 +158,25 @@ func _physics_process(delta):
 		hardAir.volume_db = -10
 		hardAir2.stop()
 		hardAir2.volume_db = -10
+	pass
+
+func change_volume(volume):
+	var temp_volume = 0
+	if volume >= 51:
+		temp_volume = (0.48 * volume) - 24
+	elif volume < 51:
+		temp_volume = (1.6 * volume) - 80
+	return temp_volume
+	pass
+
+func change_all_volumes():
+	deadLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
+	hardLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
+	jumping.volume_db = change_volume(user_prefs.sfx_audio_level)
+	rocketJumped.volume_db = change_volume(user_prefs.sfx_audio_level)
+	ropeClimbed.volume_db = change_volume(user_prefs.sfx_audio_level)
+	ropeGrabbed.volume_db = change_volume(user_prefs.sfx_audio_level)
+	running.volume_db = change_volume(user_prefs.sfx_audio_level)
+	softLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
+	walking.volume_db = change_volume(user_prefs.sfx_audio_level)
 	pass

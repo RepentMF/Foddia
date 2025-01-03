@@ -29,7 +29,7 @@ func _ready():
 		%TimerDisplay.visible = true
 	else:
 		%TimerDisplay.visible = false
-	if user_prefs.achievement_fuzzy_dice:
+	if user_prefs.achievement_dice:
 		get_node("ItemString").visible = true
 	pass # Replace with function body.
 

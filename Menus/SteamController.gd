@@ -6,17 +6,17 @@ var AppID = "3351110"
 func _ready():
 	OS.set_environment("SteamAppID", AppID)
 	OS.set_environment("SteamGameID", AppID)
-	Steam.steamInit()
-	var isRunning = Steam.isSteamRunning()
+	#Steam.steamInit()
+	#var isRunning = Steam.isSteamRunning()
 	
-	if !isRunning:
-		print("Error: Steam is not running")
-		return
+	#if !isRunning:
+	#	print("Error: Steam is not running")
+	#	return
 	
-	print("Steam is running.")
+	#print("Steam is running.")
 	
-	var id = Steam.getSteamID()
-	var name = Steam.getFriendPersonaName(id)
+	#var id = Steam.getSteamID()
+	#var name = Steam.getFriendPersonaName(id)
 	print("Username: ", str(name))
 	pass # Replace with function body.
 

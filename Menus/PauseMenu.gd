@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var speedrun_checkbox = %SpeedrunCheckButton
 @onready var music_slider = %MusicSlider
 @onready var sfx_slider = %SFXSlider
+@onready var voice_acting_checkbox = %VoiceActingCheckBox
 
 var user_prefs: UserPreferences
 
@@ -76,6 +77,12 @@ func _on_music_slider_value_changed(value):
 func _on_sfx_slider_value_changed(value):
 	if user_prefs:
 		user_prefs.sfx_audio_level = value
+		user_prefs.save()
+	pass # Replace with function body.
+
+func _on_voice_acting_check_button_toggled(button_pressed):
+	if user_prefs:
+		user_prefs.voice_acting_bool_check = button_pressed
 		user_prefs.save()
 	pass # Replace with function body.
 

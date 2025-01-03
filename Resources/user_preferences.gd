@@ -4,16 +4,28 @@ class_name UserPreferences extends Resource
 @export_range(0, 2, 1) var difficulty_dropdown_index: int = 1
 @export_range(0, 1, 0.05) var music_audio_level: float = 1.0
 @export_range(0, 1, 0.05) var sfx_audio_level: float = 1.0
+@export var voice_acting_bool_check: bool = false
 @export var fullscreen_bool_check: bool = false
 @export var screenshake_bool_check: bool = true
 @export var crt_bool_check: bool = true
 @export var speedrun_bool_check: bool = false
 
 @export var bad_ending: bool = false
-@export var achievement_bad_ending: bool = false
 @export var achievement_big_dipper: bool = false
-@export var achievement_fuzzy_dice: bool = false
+@export var achievement_car: bool = false
+@export var achievement_flag: bool = false
+@export var achievement_dice: bool = false
 @export var achievement_little_dipper: bool = false
+@export var achievement_medal: bool = false
+@export var achievement_mountain: bool = false
+@export var achievement_mushroom: bool = false
+@export var achievement_oof: bool = false
+@export var achievement_robot: bool = false
+@export var achievement_space: bool = false
+@export var achievement_speedrun1: bool = false
+@export var achievement_speedrun2: bool = false
+@export var achievement_speedrun3: bool = false
+@export var achievement_true: bool = false
 
 @export var relaxed_boots_flag: bool = false
 @export var relaxed_rockets_flag: bool = false
