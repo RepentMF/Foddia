@@ -61,4 +61,3 @@ func _on_body_exited(body):
 		isNearUpgrade = false
 		UI.visible = false
 	pass # Replace with function body.
-

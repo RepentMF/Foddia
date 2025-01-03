@@ -17,7 +17,7 @@ func _physics_process(delta):
 	#	fade_in()
 	#elif out_fade:
 	#	fade_out()
-	position.y -= 5
+	#position.y -= 5
 	pass
 
 func fade_in():

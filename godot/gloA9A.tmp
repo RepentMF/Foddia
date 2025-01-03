@@ -1,0 +1,7 @@
+list=[{
+"base": &"Resource",
+"class": &"UserPreferences",
+"icon": "",
+"language": &"GDScript",
+"path": "res://Resources/user_preferences.gd"
+}]

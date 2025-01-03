@@ -36,30 +36,30 @@ func _physics_process(delta):
 
 func handle_dice_achievement():
 	dice_opposite = !user_prefs.achievement_dice
-#	if !Steam.getAchievement("ACHIEVEMENT_DICE")["achieved"]:
-#		Steam.setAchievement("ACHIEVEMENT_DICE")
+	if !Steam.getAchievement("ACHIEVEMENT_DICE")["achieved"]:
+		Steam.setAchievement("ACHIEVEMENT_DICE")
 	pass
 
 func handle_dipper_achievement():
 	dipper_opposite = (user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper)
-#	if !Steam.getAchievement("ACHIEVEMENT_DIPPER")["achieved"]:
-#		Steam.setAchievement("ACHIEVEMENT_DIPPER")
+	if !Steam.getAchievement("ACHIEVEMENT_DIPPER")["achieved"]:
+		Steam.setAchievement("ACHIEVEMENT_DIPPER")
 	pass
 
 func handle_mushroom_achievement():
 	if player.countBounces >= 5:
 		mush_setter = true
-	#if mush_setter && player.velocity.y == 0:
-	#	if !Steam.getAchievement("ACHIEVEMENT_MUSHROOM")["achieved"]:
-	#		Steam.setAchievement("ACHIEVEMENT_MUSHROOM")
-	#		user_prefs.achievement_mushroom = true
+	if mush_setter && player.velocity.y == 0:
+		if !Steam.getAchievement("ACHIEVEMENT_MUSHROOM")["achieved"]:
+			Steam.setAchievement("ACHIEVEMENT_MUSHROOM")
+			user_prefs.achievement_mushroom = true
 	pass
 
 func handle_oof_achievement():
 	if player.countHangTime > 1190:
 		oof_setter = true
-	#if oof_setter && player.velocity.y == 0:
-	#	if !Steam.getAchievement("ACHIEVEMENT_OOF")["achieved"]:
-	#		Steam.setAchievement("ACHIEVEMENT_OOF")
-	#		user_prefs.achievement_oof = true
+	if oof_setter && player.velocity.y == 0:
+		if !Steam.getAchievement("ACHIEVEMENT_OOF")["achieved"]:
+			Steam.setAchievement("ACHIEVEMENT_OOF")
+			user_prefs.achievement_oof = true
 	pass

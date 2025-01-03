@@ -41,8 +41,8 @@ func _ready():
 func _physics_process(delta):
 	if user_prefs.bad_ending && !user_prefs.achievement_true:
 		user_prefs.achievement_true = true
-	#	if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
-	#		Steam.setAchievement("ACHIEVEMENT_TRUE")
+		if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
+			Steam.setAchievement("ACHIEVEMENT_TRUE")
 	if load:
 		load_game()
 	pass

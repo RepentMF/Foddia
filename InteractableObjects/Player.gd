@@ -333,7 +333,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(countBounces)
 	fuel.value = (countJetpackFuel / maxJetpackFuel) * 100
 	if hasJetpack:
 		fuel.visible = true
@@ -546,7 +545,6 @@ func _physics_process(delta):
 			%FadeInPanel.visible = true
 			%FadeInPanel.color = Color(1, 0, 0, 1)
 			if badEnding:
-				print("Dead Driving Ending")
 				user_prefs.bad_ending = true
 				user_prefs.save()
 				get_tree().quit()
