@@ -11,13 +11,11 @@ func _ready():
 	initial = position
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	#if in_fade:
-	#	fade_in()
-	#elif out_fade:
-	#	fade_out()
-	#position.y -= 5
+	if in_fade:
+		fade_in()
+	elif out_fade:
+		fade_out()
 	pass
 
 func fade_in():

@@ -9,4 +9,5 @@ func _ready():
 func _on_area_entered(area):
 	if area.get_parent().name == "Player":
 		user_prefs.achievement_big_dipper = true
+		user_prefs.save()
 	pass # Replace with function body.

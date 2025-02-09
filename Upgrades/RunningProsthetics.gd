@@ -42,6 +42,8 @@ func _process(delta):
 			%Player.isInteracting = false
 			%Player.hasNewLegs = true
 			%Player.maxRunSpeed *= 1.2
+			%QuickAudioPlayer.startPlaying = true
+			%QuickAudioPlayer.reparent(get_tree().get_root())
 			queue_free()
 	elif !interacting && isNearUpgrade && Input.is_action_just_pressed("ui_click"):
 		interacting = true

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dceosgcuni4id"
-path="res://godot/imported/Foddia_title_card_test6.png-66f345ded6cb23afe5a1976907b12cf9.ctex"
+path="res://.godot/imported/Foddia_title_card_test6.png-66f345ded6cb23afe5a1976907b12cf9.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/Foddia_title_card_test6.png"
-dest_files=["res://godot/imported/Foddia_title_card_test6.png-66f345ded6cb23afe5a1976907b12cf9.ctex"]
+dest_files=["res://.godot/imported/Foddia_title_card_test6.png-66f345ded6cb23afe5a1976907b12cf9.ctex"]
 
 [params]
 

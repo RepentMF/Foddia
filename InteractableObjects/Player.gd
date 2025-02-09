@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var anim
+var temp_volume
 @onready var arms = $HandsArea2D
 @onready var anim_norm = $Player_normal
 @onready var anim_legs = $Player_legs
@@ -23,6 +24,7 @@ var anim
 @onready var dialogue = %DialogueBox
 
 var user_prefs: UserPreferences
+var rs
 var explosion = preload("res://GraphicObjects/Explosion.tscn")
 var smoking = preload("res://GraphicObjects/Smoking.tscn")
 
@@ -108,6 +110,7 @@ var wasSwinging = false
 
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
+	rs = RenderingServer
 	if user_prefs.new_game:
 		if user_prefs.difficulty_dropdown_index == 0:
 			user_prefs.relaxed_checkpoint = Vector2(260, 130)
@@ -174,6 +177,7 @@ func _ready():
 		user_prefs.save()
 	# Loading Relaxed Playthrough
 	if user_prefs.difficulty_dropdown_index == 0:
+		rs.set_default_clear_color(Color (.52, .74, .99, 1))
 		global_position = user_prefs.relaxed_save
 		checkpoint = user_prefs.relaxed_checkpoint
 		if user_prefs.relaxed_boots_flag:
@@ -196,6 +200,7 @@ func _ready():
 		timer.h = user_prefs.relaxed_h
 	# Loading Foddian Playthrough
 	elif user_prefs.difficulty_dropdown_index == 1:
+		rs.set_default_clear_color(Color (.06, .17, .31, 1))
 		global_position = user_prefs.foddian_save
 		if user_prefs.foddian_boots_flag:
 			hasNewLegs = true
@@ -333,6 +338,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if temp_volume != %SFXVolumeHandler.SFX_volume:
+		temp_volume = %SFXVolumeHandler.SFX_volume
+		get_node("GrabLedge").volume_db = temp_volume
 	fuel.value = (countJetpackFuel / maxJetpackFuel) * 100
 	if hasJetpack:
 		fuel.visible = true
@@ -358,7 +366,10 @@ func _process(delta):
 		macguffin3.visible = true
 	else:
 		macguffin3.visible = false
-	if countRocketJumps == 1:
+	if countRocketJumps == 2:
+		rocket1.modulate = Color(1, 1, 1, 1)
+		rocket2.modulate = Color(1, 1, 1, 1)
+	elif countRocketJumps == 1:
 		rocket1.modulate = Color(.35, .33, 1, 1)
 	elif countRocketJumps == 0:
 		rocket2.modulate = Color(.35, .33, 1, 1)
@@ -535,8 +546,6 @@ func _physics_process(delta):
 			%FadeInPanel.visible = false
 	if !isInteracting:
 		direction = sign(velocity.x)
-		#Handle death conditions
-		#if !isDead || !hasReset:
 		if isDead:
 			$AudioPlayer.dead = true
 			global_position = checkpoint
@@ -586,9 +595,12 @@ func _physics_process(delta):
 			rocket2.modulate = Color(1, 1, 1, 1)
 			countHangTime = 0
 			runSpeed = minRunSpeed
+			countBounces = 0
 			if hasRocketJump:
 				get_node("Rocket_1").visible = false
 				get_node("Rocket_2").visible = false
+				smokeCount = 30
+				hasRocketed = false
 		elif Input.is_action_just_released("ui_cancel") && (!hasJetpack && countJetpackFuel > 0):
 			hasReleasedRope = true
 		# Enable running toggle
@@ -721,7 +733,7 @@ func _physics_process(delta):
 							velocity.y = sign(velocity.y) * JetpackSpeed
 						if int (countJetpackFuel) % 10 == 0:
 							smoke()
-					elif !Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
+					elif !Input.is_action_pressed("ui_accept") || countJetpackFuel <= 0:
 						isJetpacking = false
 				elif hasRocketJump:
 					if hasRocketed:
@@ -891,51 +903,6 @@ func _physics_process(delta):
 				if rotation > 0:
 					rotation = 0
 		timer.rotation = 0
-		if NOTIFICATION_WM_CLOSE_REQUEST:
-			if user_prefs.difficulty_dropdown_index == 0:
-				user_prefs.relaxed_save = global_position
-				user_prefs.relaxed_checkpoint = checkpoint
-				user_prefs.relaxed_boots_flag = hasNewLegs
-				user_prefs.relaxed_rockets_flag = hasRocketJump
-				user_prefs.relaxed_jetpack_flag = hasJetpack
-				user_prefs.relaxed_fuel_count = countJetpackFuel
-				user_prefs.relaxed_macguffin_flag = hasMacguffin
-				user_prefs.relaxed_macguffin2_flag = hasMacguffin2
-				user_prefs.relaxed_macguffin3_flag = hasMacguffin3
-				user_prefs.relaxed_ms = timer.ms
-				user_prefs.relaxed_s = timer.s
-				user_prefs.relaxed_m = timer.m
-				user_prefs.relaxed_h = timer.h
-				user_prefs.save()
-			elif user_prefs.difficulty_dropdown_index == 1:
-				user_prefs.foddian_save = global_position
-				user_prefs.foddian_checkpoint = checkpoint
-				user_prefs.foddian_boots_flag = hasNewLegs
-				user_prefs.foddian_rockets_flag = hasRocketJump
-				user_prefs.foddian_jetpack_flag = hasJetpack
-				user_prefs.foddian_fuel_count = countJetpackFuel
-				user_prefs.foddian_macguffin_flag = hasMacguffin
-				user_prefs.foddian_macguffin2_flag = hasMacguffin2
-				user_prefs.foddian_macguffin3_flag = hasMacguffin3
-				user_prefs.foddian_ms = timer.ms
-				user_prefs.foddian_s = timer.s
-				user_prefs.foddian_m = timer.m
-				user_prefs.foddian_h = timer.h
-				user_prefs.save()
-			elif user_prefs.difficulty_dropdown_index == 2:
-				user_prefs.permadeath_save = global_position
-				user_prefs.permadeath_boots_flag = hasNewLegs
-				user_prefs.permadeath_rockets_flag = hasRocketJump
-				user_prefs.permadeath_jetpack_flag = hasJetpack
-				user_prefs.permadeath_fuel_count = countJetpackFuel
-				user_prefs.permadeath_macguffin_flag = hasMacguffin
-				user_prefs.permadeath_macguffin2_flag = hasMacguffin2
-				user_prefs.permadeath_macguffin3_flag = hasMacguffin3
-				user_prefs.permadeath_ms = timer.ms
-				user_prefs.permadeath_s = timer.s
-				user_prefs.permadeath_m = timer.m
-				user_prefs.permadeath_h = timer.h
-				user_prefs.save()
 	pass
 
 func ascend_ledge():
@@ -1003,12 +970,13 @@ func smoke():
 	pass
 
 func use_hands(body):
-	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab"):
+	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel"):
 		#if velocity.x != maxRunSpeed:
 		climbYValue = body.global_position.y + 1
 		climbXValue = body.global_position.x
 		isGrabbingLedge = true
 		isFreefalling = false
+		get_node("GrabLedge").play()
 	elif body.name.contains("RopeLinkage") && swingRope == null:
 		isNearRope = true
 		if !isHoldingRope:
@@ -1067,7 +1035,7 @@ func on_grab_with_legs(body):
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
-		if countHangTime >= 137 && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
+		if (((countHangTime >= 137 * (countBounces + 1) * 4 / 5 && countBounces > 0) || (countHangTime >= 350 && countBounces > 0)) || (countHangTime >= 137 && countBounces == 0)) && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
 		elif countHangTime >= 400 && isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
@@ -1081,4 +1049,51 @@ func _on_release_with_legs(body):
 			isNearRope = false
 			swingRope = null
 			#ropeTempPosition = 0
+	pass
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:	
+		if user_prefs.difficulty_dropdown_index == 0:
+			user_prefs.relaxed_save = global_position
+			user_prefs.relaxed_checkpoint = checkpoint
+			user_prefs.relaxed_boots_flag = hasNewLegs
+			user_prefs.relaxed_rockets_flag = hasRocketJump
+			user_prefs.relaxed_jetpack_flag = hasJetpack
+			user_prefs.relaxed_fuel_count = countJetpackFuel
+			user_prefs.relaxed_macguffin_flag = hasMacguffin
+			user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+			user_prefs.relaxed_macguffin3_flag = hasMacguffin3
+			user_prefs.relaxed_ms = timer.ms
+			user_prefs.relaxed_s = timer.s
+			user_prefs.relaxed_m = timer.m
+			user_prefs.relaxed_h = timer.h
+		elif user_prefs.difficulty_dropdown_index == 1:
+			user_prefs.foddian_save = global_position
+			user_prefs.foddian_checkpoint = checkpoint
+			user_prefs.foddian_boots_flag = hasNewLegs
+			user_prefs.foddian_rockets_flag = hasRocketJump
+			user_prefs.foddian_jetpack_flag = hasJetpack
+			user_prefs.foddian_fuel_count = countJetpackFuel
+			user_prefs.foddian_macguffin_flag = hasMacguffin
+			user_prefs.foddian_macguffin2_flag = hasMacguffin2
+			user_prefs.foddian_macguffin3_flag = hasMacguffin3
+			user_prefs.foddian_ms = timer.ms
+			user_prefs.foddian_s = timer.s
+			user_prefs.foddian_m = timer.m
+			user_prefs.foddian_h = timer.h
+		elif user_prefs.difficulty_dropdown_index == 2:
+			user_prefs.permadeath_save = global_position
+			user_prefs.permadeath_boots_flag = hasNewLegs
+			user_prefs.permadeath_rockets_flag = hasRocketJump
+			user_prefs.permadeath_jetpack_flag = hasJetpack
+			user_prefs.permadeath_fuel_count = countJetpackFuel
+			user_prefs.permadeath_macguffin_flag = hasMacguffin
+			user_prefs.permadeath_macguffin2_flag = hasMacguffin2
+			user_prefs.permadeath_macguffin3_flag = hasMacguffin3
+			user_prefs.permadeath_ms = timer.ms
+			user_prefs.permadeath_s = timer.s
+			user_prefs.permadeath_m = timer.m
+			user_prefs.permadeath_h = timer.h
+		user_prefs.save()
+		get_tree().quit()
 	pass

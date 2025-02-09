@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cf6v8hs6purdp"
-path="res://godot/imported/Jumping.mp3-ac66fcea36021d116ee77fc9c67d090f.mp3str"
+path="res://.godot/imported/Jumping.mp3-ac66fcea36021d116ee77fc9c67d090f.mp3str"
 
 [deps]
 
 source_file="res://SFX/Jumping.mp3"
-dest_files=["res://godot/imported/Jumping.mp3-ac66fcea36021d116ee77fc9c67d090f.mp3str"]
+dest_files=["res://.godot/imported/Jumping.mp3-ac66fcea36021d116ee77fc9c67d090f.mp3str"]
 
 [params]
 

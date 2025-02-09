@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ixi2w52frosl"
-path="res://godot/imported/LandedSoft.mp3-97464dfcefadb091b22330bf3e499da7.mp3str"
+path="res://.godot/imported/LandedSoft.mp3-97464dfcefadb091b22330bf3e499da7.mp3str"
 
 [deps]
 
 source_file="res://SFX/LandedSoft.mp3"
-dest_files=["res://godot/imported/LandedSoft.mp3-97464dfcefadb091b22330bf3e499da7.mp3str"]
+dest_files=["res://.godot/imported/LandedSoft.mp3-97464dfcefadb091b22330bf3e499da7.mp3str"]
 
 [params]
 

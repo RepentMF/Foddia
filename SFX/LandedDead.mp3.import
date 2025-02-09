@@ -3,17 +3,17 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dm5n6dd5nl2ic"
-path="res://godot/imported/LandedDead.mp3-8ac373d831d88f38693d216f9f796e40.mp3str"
+path="res://.godot/imported/LandedDead.mp3-8ac373d831d88f38693d216f9f796e40.mp3str"
 
 [deps]
 
 source_file="res://SFX/LandedDead.mp3"
-dest_files=["res://godot/imported/LandedDead.mp3-8ac373d831d88f38693d216f9f796e40.mp3str"]
+dest_files=["res://.godot/imported/LandedDead.mp3-8ac373d831d88f38693d216f9f796e40.mp3str"]
 
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

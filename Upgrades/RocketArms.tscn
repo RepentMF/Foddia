@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dycxk34c23v45"]
+[gd_scene load_steps=24 format=3 uid="uid://dycxk34c23v45"]
 
 [ext_resource type="Script" path="res://Upgrades/RocketArms.gd" id="1_m1k8y"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_1vros"]
 [ext_resource type="Texture2D" uid="uid://b03qux71pw8sw" path="res://Graphics/RocketArms.png" id="3_ui74e"]
+[ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="4_jrfum"]
+[ext_resource type="AudioStream" uid="uid://dfdskqstr1ixl" path="res://SFX/UpgradeItem_Pickup.mp3" id="6_ngwex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 8.0
@@ -147,6 +149,12 @@ position = Vector2(0, -49)
 sprite_frames = SubResource("SpriteFrames_3uk74")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="QuickAudioPlayer" parent="." instance=ExtResource("4_jrfum")]
+unique_name_in_owner = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="QuickAudioPlayer"]
+stream = ExtResource("6_ngwex")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

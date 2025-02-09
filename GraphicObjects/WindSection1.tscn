@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3b3qnjmdkrsu"]
+
+[sub_resource type="Gradient" id="Gradient_qkm1v"]
+offsets = PackedFloat32Array(0, 0.5166, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.623529, 1, 1, 0.470588, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r7p2w"]
+gradient = SubResource("Gradient_qkm1v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jw7wa"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 2500, 0)
+emission_shape = 3
+emission_box_extents = Vector3(8500, 0, 1)
+gravity = Vector3(0, -98, 0)
+scale_min = 10.0
+scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_r7p2w")
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 0.1
+
+[node name="WindParticle" type="GPUParticles2D"]
+position = Vector2(16, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_jw7wa")
+lifetime = 10.0
+speed_scale = 3.0
+fixed_fps = 15
+visibility_rect = Rect2(-8400, -2250, 16800, 4500)
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.6

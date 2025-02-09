@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ctvsrfmh8hj8p"
-path="res://godot/imported/TestofPatience_Radio_foddia.mp3-01b6b0906b5b388e6ff9f60bb099d15d.mp3str"
+path="res://.godot/imported/TestofPatience_Radio_foddia.mp3-01b6b0906b5b388e6ff9f60bb099d15d.mp3str"
 
 [deps]
 
 source_file="res://OST/TestofPatience_Radio_foddia.mp3"
-dest_files=["res://godot/imported/TestofPatience_Radio_foddia.mp3-01b6b0906b5b388e6ff9f60bb099d15d.mp3str"]
+dest_files=["res://.godot/imported/TestofPatience_Radio_foddia.mp3-01b6b0906b5b388e6ff9f60bb099d15d.mp3str"]
 
 [params]
 

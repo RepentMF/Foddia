@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://d265wctu8rah3"
-path="res://godot/imported/Bounce.mp3-eb37ed846590a54e42b5b50f7256494c.mp3str"
+path="res://.godot/imported/Bounce.mp3-eb37ed846590a54e42b5b50f7256494c.mp3str"
 
 [deps]
 
 source_file="res://SFX/Bounce.mp3"
-dest_files=["res://godot/imported/Bounce.mp3-eb37ed846590a54e42b5b50f7256494c.mp3str"]
+dest_files=["res://.godot/imported/Bounce.mp3-eb37ed846590a54e42b5b50f7256494c.mp3str"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7d5moeq8mkji"
-path="res://godot/imported/AchievementSilver.png-e26d98ea73163000c635e01f48b5416d.ctex"
+path="res://.godot/imported/AchievementSilver.png-e26d98ea73163000c635e01f48b5416d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/AchievementSilver.png"
-dest_files=["res://godot/imported/AchievementSilver.png-e26d98ea73163000c635e01f48b5416d.ctex"]
+dest_files=["res://.godot/imported/AchievementSilver.png-e26d98ea73163000c635e01f48b5416d.ctex"]
 
 [params]
 

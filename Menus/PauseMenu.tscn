@@ -183,6 +183,7 @@ autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D6" type="Node2D" parent="MarginContainer/AudioOptions"]
+visible = false
 position = Vector2(34.5822, 99.1354)
 scale = Vector2(1.3, 1.04)
 
@@ -199,6 +200,23 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Voice Acting"
 metadata/_edit_use_anchors_ = true
 
+[node name="Node2D7" type="Node2D" parent="MarginContainer/AudioOptions"]
+position = Vector2(34.5822, 96.83)
+scale = Vector2(1.3, 1.04)
+
+[node name="RadioSongsCheckBox" type="CheckBox" parent="MarginContainer/AudioOptions/Node2D7"]
+unique_name_in_owner = true
+texture_filter = 1
+offset_left = -27.5
+offset_top = -25.9375
+offset_right = 124.5
+offset_bottom = -8.93749
+theme = ExtResource("3_y6l3s")
+theme_override_colors/font_color = Color(0.863281, 0.863281, 0.863281, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Radio Filtered OST"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
@@ -213,3 +231,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="value_changed" from="MarginContainer/AudioOptions/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/AudioOptions/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D6/VoiceActingCheckBox" to="." method="_on_voice_acting_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_radio_songs_check_box_toggled"]

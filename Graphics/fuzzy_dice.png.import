@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2bwrdtjw6w6n"
-path="res://godot/imported/fuzzy_dice.png-655602d59270a322bef547b546f91864.ctex"
+path="res://.godot/imported/fuzzy_dice.png-655602d59270a322bef547b546f91864.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/fuzzy_dice.png"
-dest_files=["res://godot/imported/fuzzy_dice.png-655602d59270a322bef547b546f91864.ctex"]
+dest_files=["res://.godot/imported/fuzzy_dice.png-655602d59270a322bef547b546f91864.ctex"]
 
 [params]
 

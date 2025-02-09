@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ydiy0vhn7tfw"
-path="res://godot/imported/overworld_background.png-85de7006b43cae33d358a0670dc5180a.ctex"
+path="res://.godot/imported/overworld_background.png-85de7006b43cae33d358a0670dc5180a.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/overworld_background.png"
-dest_files=["res://godot/imported/overworld_background.png-85de7006b43cae33d358a0670dc5180a.ctex"]
+dest_files=["res://.godot/imported/overworld_background.png-85de7006b43cae33d358a0670dc5180a.ctex"]
 
 [params]
 

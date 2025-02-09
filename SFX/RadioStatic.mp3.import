@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dt0hcuhx1hfcr"
-path="res://godot/imported/RadioStatic.mp3-6b0b75e9e1621cd4e7fa5cac873c6bf4.mp3str"
+path="res://.godot/imported/RadioStatic.mp3-6b0b75e9e1621cd4e7fa5cac873c6bf4.mp3str"
 
 [deps]
 
 source_file="res://SFX/RadioStatic.mp3"
-dest_files=["res://godot/imported/RadioStatic.mp3-6b0b75e9e1621cd4e7fa5cac873c6bf4.mp3str"]
+dest_files=["res://.godot/imported/RadioStatic.mp3-6b0b75e9e1621cd4e7fa5cac873c6bf4.mp3str"]
 
 [params]
 

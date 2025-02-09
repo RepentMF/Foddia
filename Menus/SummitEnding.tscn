@@ -1,9 +1,12 @@
-[gd_scene load_steps=71 format=3 uid="uid://benk0ctn2tvgi"]
+[gd_scene load_steps=75 format=3 uid="uid://benk0ctn2tvgi"]
 
 [ext_resource type="Script" path="res://Menus/SummitEnding.gd" id="1_ngmfc"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_jjrnh"]
+[ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Ending.gd" id="2_s6agb"]
+[ext_resource type="Script" path="res://Menus/MainMenuAudioPlayer.gd" id="2_xmss4"]
 [ext_resource type="PackedScene" uid="uid://bxd6mc5xyl0o7" path="res://Menus/TimerDisplay.tscn" id="3_okfui"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="4_ttaul"]
+[ext_resource type="AudioStream" uid="uid://dg7jqvuivojqk" path="res://SFX/HardAir.mp3" id="4_ttaxy"]
 [ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="5_fxwd8"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="6_fmriw"]
 [ext_resource type="Texture2D" uid="uid://86vmjdg4lkqm" path="res://Graphics/SummitEnding_Elisia_human.png" id="7_5nhw3"]
@@ -20,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://v38yvgpoepjf" path="res://GraphicObjects/small_star.tscn" id="19_jao1e"]
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="23_4d4xe"]
 [ext_resource type="Texture2D" uid="uid://dddfdxduqxuwt" path="res://Graphics/MainMenu_Parallax8.png" id="24_js8qs"]
+[ext_resource type="PackedScene" uid="uid://dhaoup6hj3t7l" path="res://SFX/SFXVolumeHandler.tscn" id="24_us7am"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv6m"]
 shader = ExtResource("6_fmriw")
@@ -412,6 +416,7 @@ grow_vertical = 2
 script = ExtResource("1_ngmfc")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
+script = ExtResource("2_s6agb")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer3"]
 visible = false
@@ -486,11 +491,11 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_j581k")
 animation = &"RJR_sitting"
 autoplay = "human_sitting"
-metadata/DIALOGUE = ["This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.", "The  world  is  so  much  bigger  than  us-  I  see  that  now.", "I  just  wish  I  could  see  you  one  last  time."]
+metadata/DIALOGUE = ["Gods,  I  worked  hard  for  this.  I  don't  know  if  I've  ever  put  this  much  effort  into  anything  else.", "...", "This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.", "The  world  is  so  much  bigger  than  us-  I  see  that  now.", "I  just  wish  I  could  see  you  one  last  time."]
 metadata/ROBOT = ["Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?", "A  world  where  it  would  just  be  us?", "As  cold  as  the  new  skin  I  wear  is,  at  least  I  didn't-"]
-metadata/MACGUFFIN2 = ["I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.", "But  I  can't  do  it  at  the  cost  of  everybody  else.", "I'm  sorry  my  loves."]
-metadata/MACGUFFIN3 = ["Can  you  see  them?", "The  stars  you  love  so  much?", "It  was  always  what  you'd  talk  about  before  we'd  go  to                      sleep.", "So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.", "...  I  miss  you  so  much."]
-metadata/MACGUFFIN = ["I'm  content  with  this...", "Finding  our  most  treasured  memory  here...", "This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.", "My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?"]
+metadata/MACGUFFIN2 = ["I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world                                        again.", "But  I  can't  do  it  at  the  cost  of  everybody  else.", "I'm  sorry  my  loves."]
+metadata/MACGUFFIN3 = ["Can  you  see  them?", "The  stars  you  love  so  much?", "It  was  always  what  you'd  talk  about  before  we'd  go  to                      sleep.", "So  excited  to  learn  anything  you  could  about  my  work.  It  was                                                  all  I  could  do  just  to  keep  you  entertained.                                               Otherwise,  you'd  just  wander  off.", "...  I  miss  you  so  much."]
+metadata/MACGUFFIN = ["Gods,  I  worked  hard  for  this.  I  don't  know  if  I've  ever  put  this  much  effort  into  anything  else.", "...", "I'm  content  with  this...", "Finding  our  most  treasured  memory  here...", "This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.", "My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?"]
 
 [node name="SummitBg" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -621,6 +626,7 @@ scale = Vector2(0.25, 0.25)
 [node name="Stars" type="Node2D" parent="."]
 z_index = -7
 position = Vector2(187, 49)
+script = ExtResource("2_xmss4")
 
 [node name="SmallStar1" parent="Stars" instance=ExtResource("19_jao1e")]
 position = Vector2(-181.6, 1.4)
@@ -811,6 +817,18 @@ frame_progress = 0.310428
 position = Vector2(-179, 59.8)
 scale = Vector2(0.2, 0.2)
 frame_progress = 0.5346
+
+[node name="CarEngine" type="AudioStreamPlayer2D" parent="Stars"]
+stream = ExtResource("4_ttaxy")
+
+[node name="CarEngine2" type="AudioStreamPlayer2D" parent="Stars"]
+stream = ExtResource("4_ttaxy")
+
+[node name="CarEngineStart" type="AudioStreamPlayer2D" parent="Stars"]
+stream = ExtResource("4_ttaxy")
+
+[node name="StartGame" type="AudioStreamPlayer2D" parent="Stars"]
+stream = ExtResource("4_ttaxy")
 
 [node name="Stars2" type="Node2D" parent="."]
 z_index = -7
@@ -2557,5 +2575,8 @@ frame_progress = 0.310428
 position = Vector2(-179, 59.8)
 scale = Vector2(0.2, 0.2)
 frame_progress = 0.5346
+
+[node name="SFXVolumeHandler" parent="." instance=ExtResource("24_us7am")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

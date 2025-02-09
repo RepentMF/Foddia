@@ -41,6 +41,8 @@ func _process(delta):
 			interacting = false
 			%Player.isInteracting = false
 			%Player.hasMacguffin = true
+			%QuickAudioPlayer.startPlaying = true
+			%QuickAudioPlayer.reparent(get_tree().get_root())
 			queue_free()
 	elif !interacting && isNearUpgrade && Input.is_action_just_pressed("ui_click"):
 		interacting = true

@@ -37,6 +37,8 @@ func _process(delta):
 			interacting = false
 			%Player.isInteracting = false
 			user_prefs.achievement_dice = true
+			%QuickAudioPlayer.startPlaying = true
+			%QuickAudioPlayer.reparent(get_tree().get_root())
 			queue_free()
 	elif !interacting && isNearUpgrade && Input.is_action_just_pressed("ui_click"):
 		interacting = true

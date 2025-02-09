@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf6mm6a72ldks"
-path="res://godot/imported/big_mushroom_boy.png-06a60a8bdb2dee30ba2edbede320aa4b.ctex"
+path="res://.godot/imported/big_mushroom_boy.png-06a60a8bdb2dee30ba2edbede320aa4b.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/big_mushroom_boy.png"
-dest_files=["res://godot/imported/big_mushroom_boy.png-06a60a8bdb2dee30ba2edbede320aa4b.ctex"]
+dest_files=["res://.godot/imported/big_mushroom_boy.png-06a60a8bdb2dee30ba2edbede320aa4b.ctex"]
 
 [params]
 

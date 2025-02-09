@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://5qgb1rmcwvmq"]
+[gd_scene load_steps=38 format=3 uid="uid://5qgb1rmcwvmq"]
 
 [ext_resource type="Script" path="res://Menus/DrivingEnding.gd" id="1_ppvel"]
 [ext_resource type="PackedScene" uid="uid://bxd6mc5xyl0o7" path="res://Menus/TimerDisplay.tscn" id="2_u5gd3"]
@@ -11,13 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://qc1b77ocktna" path="res://Graphics/MainMenu_Parallax0.png" id="11_bli12"]
 [ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="12_6jddx"]
 [ext_resource type="Texture2D" uid="uid://48pt8xcc7xgs" path="res://Graphics/MainMenu_Parallax0_1.png" id="13_kp5pk"]
+[ext_resource type="Script" path="res://Menus/MainMenuAudioPlayer.gd" id="14_hcc3f"]
 [ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="14_k0h56"]
 [ext_resource type="Texture2D" uid="uid://hcfiija3i00e" path="res://Graphics/MainMenu_Parallax3.png" id="15_0a4tv"]
 [ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="15_byy4g"]
 [ext_resource type="Texture2D" uid="uid://bvgahsb25gax4" path="res://Graphics/MainMenu_Parallax4.png" id="16_bo388"]
 [ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="16_ktxi7"]
+[ext_resource type="AudioStream" uid="uid://cc0ytk8rtn7av" path="res://SFX/CarEngine.mp3" id="17_3syp1"]
 [ext_resource type="Texture2D" uid="uid://b6v0ukxnglwxk" path="res://Graphics/MainMenu_Parallax2_1.png" id="17_tewdt"]
 [ext_resource type="Texture2D" uid="uid://debbh1xump61i" path="res://Graphics/MainMenu_Parallax5.png" id="18_j4rsn"]
+[ext_resource type="AudioStream" uid="uid://cth75cdh8gdu6" path="res://SFX/CarEngineStart.mp3" id="18_t534n"]
+[ext_resource type="AudioStream" uid="uid://cdhw13gyuaiuu" path="res://SFX/StartGame.mp3" id="19_ewooo"]
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="19_puyg7"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="20_flg1a"]
 [ext_resource type="Texture2D" uid="uid://b2bwrdtjw6w6n" path="res://Graphics/fuzzy_dice.png" id="21_ixryl"]
@@ -25,6 +29,7 @@
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="22_gvsy4"]
 [ext_resource type="Texture2D" uid="uid://dddfdxduqxuwt" path="res://Graphics/MainMenu_Parallax8.png" id="23_g6rih"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="24_e1q37"]
+[ext_resource type="PackedScene" uid="uid://dhaoup6hj3t7l" path="res://SFX/SFXVolumeHandler.tscn" id="30_hkur4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv6m"]
 shader = ExtResource("21_urlx5")
@@ -105,6 +110,18 @@ texture_filter = 1
 layout_mode = 2
 theme = ExtResource("24_e1q37")
 text = "Thank you for playing!"
+
+[node name="CarEngine" type="AudioStreamPlayer2D" parent="CanvasLayer3/MarginContainer"]
+stream = ExtResource("17_3syp1")
+
+[node name="CarEngine2" type="AudioStreamPlayer2D" parent="CanvasLayer3/MarginContainer"]
+stream = ExtResource("17_3syp1")
+
+[node name="CarEngineStart" type="AudioStreamPlayer2D" parent="CanvasLayer3/MarginContainer"]
+stream = ExtResource("18_t534n")
+
+[node name="StartGame" type="AudioStreamPlayer2D" parent="CanvasLayer3/MarginContainer"]
+stream = ExtResource("19_ewooo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -208,6 +225,7 @@ metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  brin
 visible = false
 position = Vector2(687, 31)
 scale = Vector2(5.2037, 5.24074)
+script = ExtResource("14_hcc3f")
 
 [node name="FuzzyDice" type="Sprite2D" parent="ItemString"]
 texture_filter = 1
@@ -215,6 +233,19 @@ position = Vector2(-1.53738, 19.2721)
 scale = Vector2(0.960854, 0.954064)
 texture = ExtResource("21_ixryl")
 script = ExtResource("22_gvsy4")
+
+[node name="CarEngine" type="AudioStreamPlayer2D" parent="ItemString"]
+stream = ExtResource("17_3syp1")
+
+[node name="CarEngine2" type="AudioStreamPlayer2D" parent="ItemString"]
+stream = ExtResource("17_3syp1")
+
+[node name="CarEngineStart" type="AudioStreamPlayer2D" parent="ItemString"]
+stream = ExtResource("18_t534n")
+
+[node name="StartGame" type="AudioStreamPlayer2D" parent="ItemString"]
+unique_name_in_owner = true
+stream = ExtResource("19_ewooo")
 
 [node name="MainMenuParallax0" type="Sprite2D" parent="."]
 z_index = -3
@@ -351,5 +382,8 @@ texture = ExtResource("23_g6rih")
 metadata/looping_position = -1930
 metadata/starting_position = 5770
 metadata/speed = 50
+
+[node name="SFXVolumeHandler" parent="." instance=ExtResource("30_hkur4")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

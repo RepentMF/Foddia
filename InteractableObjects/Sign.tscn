@@ -57,6 +57,8 @@ metadata/DIALOGUE = ["Here's sentence number 1.", "Here's sentence number 2.", "
 shape = SubResource("RectangleShape2D_tte65")
 
 [node name="UI_Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+z_as_relative = false
 texture_filter = 1
 position = Vector2(0, -58)
 sprite_frames = SubResource("SpriteFrames_5hh27")

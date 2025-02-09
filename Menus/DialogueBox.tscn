@@ -1,8 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://ykbih12rrilw"]
+[gd_scene load_steps=16 format=3 uid="uid://ykbih12rrilw"]
 
-[ext_resource type="Texture2D" uid="uid://csh8myg75sjh" path="res://Graphics/DialogueBox.png" id="1_72wm5"]
+[ext_resource type="Texture2D" uid="uid://csh8myg75sjh" path="res://Graphics/DialogueBox4.png" id="1_72wm5"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="1_cpxif"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="1_kn0qf"]
+[ext_resource type="Script" path="res://Menus/DialogueBox.gd" id="1_u3qvx"]
+[ext_resource type="Texture2D" uid="uid://tnipoxhhgqgi" path="res://Graphics/DialogueBox1.png" id="2_0njgf"]
+[ext_resource type="Texture2D" uid="uid://b1jy6mlkwxy2h" path="res://Graphics/DialogueBox2.png" id="3_kq5yh"]
+[ext_resource type="Texture2D" uid="uid://dc4pot1g1b20b" path="res://Graphics/DialogueBox3.png" id="4_0otyp"]
+[ext_resource type="Texture2D" uid="uid://bf22ytk8f46rg" path="res://Graphics/DialogueBox5.png" id="6_swqy7"]
+[ext_resource type="Texture2D" uid="uid://stldgyxhypqd" path="res://Graphics/DialogueBox6.png" id="7_j2p6r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1m2h"]
 atlas = ExtResource("1_kn0qf")
@@ -48,12 +54,13 @@ animations = [{
 }]
 
 [node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_u3qvx")
+metadata/Boxes = [ExtResource("2_0njgf"), ExtResource("3_kq5yh"), ExtResource("4_0otyp"), ExtResource("1_72wm5"), ExtResource("6_swqy7"), ExtResource("7_j2p6r")]
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, 5)
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
-visible = false
 offset_left = 84.0
 offset_top = 688.0
 offset_right = 248.0

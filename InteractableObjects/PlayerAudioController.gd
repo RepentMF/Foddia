@@ -1,12 +1,15 @@
 extends Node2D
 
-var user_prefs: UserPreferences
+var temp_volume
 
 var rng
 var deadLanded
 var hardAir
 var hardAir2
+var hardAirMax
 var hardLanded
+var jetpackPuffed
+var jetpackHissed
 var jumping
 var player
 var rocketJumped
@@ -14,6 +17,7 @@ var ropeClimbed
 var ropeGrabbed
 var running
 var softAir
+var softAirMax
 var softLanded
 var walking
 
@@ -28,13 +32,14 @@ var rocketCount
 var ropeCount
 
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	deadLanded = get_node("DeadLanded")
 	hardAir = get_node("HardAir")
 	hardAir2 = get_node("HardAir2")
 	hardLanded = get_node("HardLanded")
+	jetpackHissed = get_node("JetpackHiss")
+	jetpackPuffed = get_node("JetpackPuff")
 	jumping = get_node("Jumping")
 	player = get_parent()
 	rocketJumped = get_node("RocketJumped")
@@ -54,9 +59,22 @@ func _ready():
 	ropeCount = 0
 	pass
 
-func _physics_process(delta):
-	change_all_volumes()
+func _process(delta):
+	if temp_volume != get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume:
+		temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
+		change_all_volumes()
 	
+	if player.isHoldingRope || player.is_on_floor() || player.wasBouncing || player.isGrabbingLedge:
+		hangCount = 0
+		softAir.stop()
+		softAir.volume_db = temp_volume - 10
+		hardAir.stop()
+		hardAir.volume_db = temp_volume - 15
+		hardAir2.stop()
+		hardAir2.volume_db = temp_volume - 15
+	pass
+
+func _physics_process(delta):
 	if player.countRocketJumps == player.maxRocketJumps:
 		rocketCount = 2
 
@@ -89,6 +107,15 @@ func _physics_process(delta):
 		justGrabbedRope = true
 	else:
 		justGrabbedRope = false
+	
+	if player.isJetpacking:
+		if !jetpackHissed.is_playing():
+			jetpackHissed.play()
+		if !jetpackPuffed.is_playing():
+			jetpackPuffed.play()
+	elif !player.isJetpacking:
+		jetpackPuffed.stop()
+		jetpackHissed.stop()
 	
 	if !walking.is_playing() && player.is_on_floor() && abs(player.velocity.x) < 126 && abs(player.velocity.x) > 0:
 		walking.pitch_scale = rng.randf_range(1.0, 1.2)
@@ -123,20 +150,22 @@ func _physics_process(delta):
 			ropeClimbed.stop()
 			ropeCount = 0
 	
-	if player.countHangTime > 49 && player.countHangTime == hangCount && !player.isInZeroG:
-		softAir.play(.81)
-	elif player.countHangTime > 49 && hangCount == 0:
-		hangCount = player.countHangTime + 1
-	elif hangCount != 0:
-		softAir.volume_db += 0.02
-		if player.countHangTime > 300 && !hardAir.is_playing():
-			hardAir.play(.05)
-			if hardAir.volume_db < 24:
-				hardAir.volume_db = softAir.volume_db - 2.0
-		if player.countHangTime > 300 && hardAir.get_playback_position() > 1.69566671 && !hardAir2.is_playing():
-			hardAir2.play(.05)
-			if hardAir.volume_db < 24:
-				hardAir2.volume_db = softAir.volume_db - 2.0
+	if !player.isInElevator && !player.isInZeroG:
+		if player.countHangTime > 49 && player.countHangTime == hangCount:
+			softAir.play(.81)
+		elif player.countHangTime > 49 && hangCount == 0:
+			hangCount = player.countHangTime + 1
+		elif hangCount != 0:
+			if softAir.volume_db < softAirMax:
+				softAir.volume_db += 0.02
+			if player.countHangTime > 300 && !hardAir.is_playing():
+				hardAir.play(.05)
+				if hardAir.volume_db < hardAirMax:
+					hardAir.volume_db = softAir.volume_db - 2.0
+			if player.countHangTime > 300 && hardAir.get_playback_position() > 1.69566671 && !hardAir2.is_playing():
+				hardAir2.play(.05)
+				if hardAir.volume_db < hardAirMax:
+					hardAir2.volume_db = softAir.volume_db - 2.0
 	
 	if justLanded && !softLanded.is_playing() && !hardLanded.is_playing():
 		if player.landedHard && dead:
@@ -149,34 +178,18 @@ func _physics_process(delta):
 		elif player.landedSoft:
 			softLanded.pitch_scale = rng.randf_range(.9, 1.2)
 			softLanded.play(0)
-	
-	if player.isHoldingRope || player.is_on_floor() || player.wasBouncing:
-		hangCount = 0
-		softAir.stop()
-		softAir.volume_db = -10
-		hardAir.stop()
-		hardAir.volume_db = -10
-		hardAir2.stop()
-		hardAir2.volume_db = -10
-	pass
-
-func change_volume(volume):
-	var temp_volume = 0
-	if volume >= 51:
-		temp_volume = (0.48 * volume) - 24
-	elif volume < 51:
-		temp_volume = (1.6 * volume) - 80
-	return temp_volume
 	pass
 
 func change_all_volumes():
-	deadLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
-	hardLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
-	jumping.volume_db = change_volume(user_prefs.sfx_audio_level)
-	rocketJumped.volume_db = change_volume(user_prefs.sfx_audio_level)
-	ropeClimbed.volume_db = change_volume(user_prefs.sfx_audio_level)
-	ropeGrabbed.volume_db = change_volume(user_prefs.sfx_audio_level)
-	running.volume_db = change_volume(user_prefs.sfx_audio_level)
-	softLanded.volume_db = change_volume(user_prefs.sfx_audio_level)
-	walking.volume_db = change_volume(user_prefs.sfx_audio_level)
+	deadLanded.volume_db = temp_volume
+	hardLanded.volume_db = temp_volume
+	jumping.volume_db = temp_volume
+	rocketJumped.volume_db = temp_volume
+	ropeClimbed.volume_db = temp_volume
+	ropeGrabbed.volume_db = temp_volume
+	running.volume_db = temp_volume
+	softLanded.volume_db = temp_volume
+	walking.volume_db = temp_volume
+	softAirMax = temp_volume
+	hardAirMax = temp_volume
 	pass

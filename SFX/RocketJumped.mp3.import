@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c1bk5hdbusgnh"
-path="res://godot/imported/RocketJumped.mp3-b76310e388e67ce967aae4a907a02428.mp3str"
+path="res://.godot/imported/RocketJumped.mp3-b76310e388e67ce967aae4a907a02428.mp3str"
 
 [deps]
 
 source_file="res://SFX/RocketJumped.mp3"
-dest_files=["res://godot/imported/RocketJumped.mp3-b76310e388e67ce967aae4a907a02428.mp3str"]
+dest_files=["res://.godot/imported/RocketJumped.mp3-b76310e388e67ce967aae4a907a02428.mp3str"]
 
 [params]
 

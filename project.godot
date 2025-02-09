@@ -10,19 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Foddia"
-run/main_scene="res://Menus/MainMenu.tscn"
-config/use_hidden_project_data_directory=false
+config/name="Foddia-Demo"
+config/version="v0.9.7"
+run/main_scene="res://Graphics/tbg_video_holder.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=30
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-config/icon="res://icon.svg"
+config/icon="res://FoddiaDemo_ico.ico"
+config/windows_native_icon="res://FoddiaDemo_ico.ico"
 
 [debug]
 
 file_logging/enable_file_logging=true
-settings/stdout/print_fps=true
 
 [display]
 
@@ -43,6 +43,8 @@ ui_select={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":67,"physical_keycode":0,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 ui_cancel={
@@ -56,6 +58,7 @@ ui_left={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":9,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 ui_right={
@@ -63,6 +66,7 @@ ui_right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194321,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 ui_up={
@@ -97,8 +101,6 @@ ui_click={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 limits/opengl/max_renderable_lights=256
 limits/opengl/max_lights_per_object=1024
 environment/defaults/default_clear_color=Color(0.519531, 0.746094, 0.996094, 1)

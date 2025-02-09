@@ -1,9 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxsb2p78idkqe"]
+[gd_scene load_steps=30 format=3 uid="uid://cxsb2p78idkqe"]
 
 [ext_resource type="PackedScene" uid="uid://b1vmjhwsuakij" path="res://InteractableObjects/Floor.tscn" id="1_nv3tv"]
 [ext_resource type="Script" path="res://InteractableObjects/Elevator.gd" id="1_qooh2"]
 [ext_resource type="Texture2D" uid="uid://bajj77xrkd2bp" path="res://Graphics/elevator.png" id="2_xvfsd"]
 [ext_resource type="Texture2D" uid="uid://cuie5oljsnlcx" path="res://Graphics/elevator_background.png" id="3_wkt8b"]
+[ext_resource type="AudioStream" uid="uid://o5b7ba84epfm" path="res://SFX/Opening.mp3" id="5_q3rq8"]
+[ext_resource type="AudioStream" uid="uid://dmfpcmxgwm754" path="res://SFX/Closing.mp3" id="6_qmwds"]
+[ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="7_yxgwh"]
+[ext_resource type="AudioStream" uid="uid://nfauc7rxdsqe" path="res://SFX/UpDown.mp3" id="8_mwjq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh6l5"]
 atlas = ExtResource("2_xvfsd")
@@ -219,6 +223,18 @@ color = Color(0, 1, 0, 1)
 energy = 1.75
 texture = SubResource("GradientTexture2D_uhnvx")
 texture_scale = 2.0
+
+[node name="Opening" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q3rq8")
+
+[node name="Closing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qmwds")
+
+[node name="Switched" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_yxgwh")
+
+[node name="UpDown" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_mwjq6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

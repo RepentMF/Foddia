@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1ie2b1hsufyp"
-path="res://godot/imported/ChecklistUpkeep.png-45d983a31f9aaa626bafe9564c3a43ad.ctex"
+path="res://.godot/imported/ChecklistUpkeep.png-45d983a31f9aaa626bafe9564c3a43ad.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://ChecklistUpkeep.png"
-dest_files=["res://godot/imported/ChecklistUpkeep.png-45d983a31f9aaa626bafe9564c3a43ad.ctex"]
+dest_files=["res://.godot/imported/ChecklistUpkeep.png-45d983a31f9aaa626bafe9564c3a43ad.ctex"]
 
 [params]
 

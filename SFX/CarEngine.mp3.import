@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cc0ytk8rtn7av"
-path="res://godot/imported/CarEngine.mp3-a8ff11c24678263fc0ecb30ff9fd2044.mp3str"
+path="res://.godot/imported/CarEngine.mp3-a8ff11c24678263fc0ecb30ff9fd2044.mp3str"
 
 [deps]
 
 source_file="res://SFX/CarEngine.mp3"
-dest_files=["res://godot/imported/CarEngine.mp3-a8ff11c24678263fc0ecb30ff9fd2044.mp3str"]
+dest_files=["res://.godot/imported/CarEngine.mp3-a8ff11c24678263fc0ecb30ff9fd2044.mp3str"]
 
 [params]
 

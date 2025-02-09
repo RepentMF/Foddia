@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bm7wflxpo3c02"
-path="res://godot/imported/TrialsAbound_foddia.mp3-f4e1825cbccc458c02091fc4314ee207.mp3str"
+path="res://.godot/imported/TrialsAbound_foddia.mp3-f4e1825cbccc458c02091fc4314ee207.mp3str"
 
 [deps]
 
 source_file="res://OST/TrialsAbound_foddia.mp3"
-dest_files=["res://godot/imported/TrialsAbound_foddia.mp3-f4e1825cbccc458c02091fc4314ee207.mp3str"]
+dest_files=["res://.godot/imported/TrialsAbound_foddia.mp3-f4e1825cbccc458c02091fc4314ee207.mp3str"]
 
 [params]
 

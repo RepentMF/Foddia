@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bljd8rvhdetp5"
-path="res://godot/imported/Achievement_Dipper.png-b359575693745535e817d7d5da3fc2fc.ctex"
+path="res://.godot/imported/Achievement_Dipper.png-b359575693745535e817d7d5da3fc2fc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/Achievement_Dipper.png"
-dest_files=["res://godot/imported/Achievement_Dipper.png-b359575693745535e817d7d5da3fc2fc.ctex"]
+dest_files=["res://.godot/imported/Achievement_Dipper.png-b359575693745535e817d7d5da3fc2fc.ctex"]
 
 [params]
 

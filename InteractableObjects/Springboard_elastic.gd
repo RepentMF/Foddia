@@ -15,6 +15,11 @@ func _ready():
 	rng.randomize()
 	bounce = get_node("Bounce")
 	pass # Replace with function body.
+	
+func _process(delta):
+	if bounce.volume_db != %SFXVolumeHandler.SFX_volume:
+		bounce.volume_db = %SFXVolumeHandler.SFX_volume
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

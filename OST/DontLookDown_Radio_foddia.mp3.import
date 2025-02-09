@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cgvlao5imdatq"
-path="res://godot/imported/DontLookDown_Radio_foddia.mp3-b9f3afcf6290cbf3ca4204809555ec3b.mp3str"
+path="res://.godot/imported/DontLookDown_Radio_foddia.mp3-b9f3afcf6290cbf3ca4204809555ec3b.mp3str"
 
 [deps]
 
 source_file="res://OST/DontLookDown_Radio_foddia.mp3"
-dest_files=["res://godot/imported/DontLookDown_Radio_foddia.mp3-b9f3afcf6290cbf3ca4204809555ec3b.mp3str"]
+dest_files=["res://.godot/imported/DontLookDown_Radio_foddia.mp3-b9f3afcf6290cbf3ca4204809555ec3b.mp3str"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baxhcp567glqg"
-path="res://godot/imported/player_legs.png-f9cb1eb4848a902fa68bf8844514c0e4.ctex"
+path="res://.godot/imported/player_legs.png-f9cb1eb4848a902fa68bf8844514c0e4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/player_legs.png"
-dest_files=["res://godot/imported/player_legs.png-f9cb1eb4848a902fa68bf8844514c0e4.ctex"]
+dest_files=["res://.godot/imported/player_legs.png-f9cb1eb4848a902fa68bf8844514c0e4.ctex"]
 
 [params]
 

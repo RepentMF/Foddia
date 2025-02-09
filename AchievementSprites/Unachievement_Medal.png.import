@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blkgv334jkg27"
-path="res://godot/imported/Unachievement_Medal.png-bed0be6f81f0754dcbe63672c94c265f.ctex"
+path="res://.godot/imported/Unachievement_Medal.png-bed0be6f81f0754dcbe63672c94c265f.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/Unachievement_Medal.png"
-dest_files=["res://godot/imported/Unachievement_Medal.png-bed0be6f81f0754dcbe63672c94c265f.ctex"]
+dest_files=["res://.godot/imported/Unachievement_Medal.png-bed0be6f81f0754dcbe63672c94c265f.ctex"]
 
 [params]
 

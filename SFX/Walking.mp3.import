@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b7f7t3yw8weoc"
-path="res://godot/imported/Walking.mp3-6c596785453382b0022edca0c13518c6.mp3str"
+path="res://.godot/imported/Walking.mp3-6c596785453382b0022edca0c13518c6.mp3str"
 
 [deps]
 
 source_file="res://SFX/Walking.mp3"
-dest_files=["res://godot/imported/Walking.mp3-6c596785453382b0022edca0c13518c6.mp3str"]
+dest_files=["res://.godot/imported/Walking.mp3-6c596785453382b0022edca0c13518c6.mp3str"]
 
 [params]
 

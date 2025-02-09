@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuie5oljsnlcx"
-path="res://godot/imported/elevator_background.png-f16c4cfabdc5a6cbf50be76234f5862b.ctex"
+path="res://.godot/imported/elevator_background.png-f16c4cfabdc5a6cbf50be76234f5862b.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/elevator_background.png"
-dest_files=["res://godot/imported/elevator_background.png-f16c4cfabdc5a6cbf50be76234f5862b.ctex"]
+dest_files=["res://.godot/imported/elevator_background.png-f16c4cfabdc5a6cbf50be76234f5862b.ctex"]
 
 [params]
 

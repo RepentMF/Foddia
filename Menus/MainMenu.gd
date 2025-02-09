@@ -7,10 +7,16 @@ var user_prefs: UserPreferences
 
 var colorCount = 0
 var count = 1
+var gameStart = true
 var load = false
 
 func _ready():
+	Engine.max_fps = 30
 	user_prefs = UserPreferences.load_or_create()
+	if user_prefs.tooltips_bool_check:
+		%TooltipsCheckBox.button_pressed = true
+	else:
+		%TooltipsCheckBox.button_pressed = false
 	if user_prefs.fullscreen_bool_check:
 		get_window().mode = Window.MODE_FULLSCREEN
 	else:
@@ -39,112 +45,160 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if user_prefs.bad_ending && !user_prefs.achievement_true:
-		user_prefs.achievement_true = true
-		if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
-			Steam.setAchievement("ACHIEVEMENT_TRUE")
-	if load:
+	if !load:
+		if gameStart:	
+			gameStart = false
+		if %Title.texture != %Title.get_meta("Titles")[user_prefs.title_color_index]:
+			%Title.texture = %Title.get_meta("Titles")[user_prefs.title_color_index]
+		if !user_prefs.demo:
+			if user_prefs.bad_ending && !user_prefs.achievement_true:
+				user_prefs.achievement_true = true
+				if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
+					Steam.setAchievement("ACHIEVEMENT_TRUE")
+					Steam.storeStats()
+	elif load:
+		%Title.visible = true
+		%Credits.visible = false
+		%DialogueBox.visible = false
+		%MainMenuBg.texture = %MainMenuNotLookingBg.texture
 		load_game()
 	pass
 
 func _on_new_game_pressed():
-	user_prefs.bad_ending = false
-	if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
-		user_prefs.relaxed_checkpoint = Vector2(260, 130)
-		user_prefs.relaxed_save = Vector2(260, 130)
-		user_prefs.relaxed_boots_flag = false
-		user_prefs.relaxed_rockets_flag = false
-		user_prefs.relaxed_jetpack_flag = false
-		user_prefs.relaxed_fuel_count = 1000
-		user_prefs.relaxed_macguffin_flag = false
-		user_prefs.relaxed_macguffin2_flag = false
-		user_prefs.relaxed_macguffin3_flag = false
-		user_prefs.relaxed_ms = 0
-		user_prefs.relaxed_s = 0
-		user_prefs.relaxed_m = 0
-		user_prefs.relaxed_h = 0
-		user_prefs.relaxed_flag1 = false
-		user_prefs.relaxed_flag2 = false
-		user_prefs.relaxed_flag3 = false
-		user_prefs.relaxed_flag4 = false
-		user_prefs.relaxed_flag5 = false
-		user_prefs.relaxed_flag6 = false
-		user_prefs.relaxed_flag7 = false
-		user_prefs.relaxed_flag8 = false
-		user_prefs.relaxed_flag9 = false
-		user_prefs.relaxed_flag10 = false
-		user_prefs.relaxed_flag11 = false
-		user_prefs.relaxed_flag12 = false
-		user_prefs.relaxed_flag13 = false
-		user_prefs.relaxed_flag14 = false
-		user_prefs.save()
-	elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 1:
-		user_prefs.foddian_save = Vector2(260, 130)
-		user_prefs.foddian_boots_flag = false
-		user_prefs.foddian_rockets_flag = false
-		user_prefs.foddian_jetpack_flag = false
-		user_prefs.foddian_fuel_count = 1000
-		user_prefs.foddian_macguffin_flag = false
-		user_prefs.foddian_macguffin2_flag = false
-		user_prefs.foddian_macguffin3_flag = false
-		user_prefs.foddian_ms = 0
-		user_prefs.foddian_s = 0
-		user_prefs.foddian_m = 0
-		user_prefs.foddian_h = 0
-		user_prefs.foddian_flag1 = false
-		user_prefs.foddian_flag11 = false
-		user_prefs.save()
-	elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
-		user_prefs.permadeath_save = Vector2(260, 130)
-		user_prefs.permadeath_boots_flag = false
-		user_prefs.permadeath_rockets_flag = false
-		user_prefs.permadeath_jetpack_flag = false
-		user_prefs.permadeath_fuel_count = 1000
-		user_prefs.permadeath_macguffin_flag = false
-		user_prefs.permadeath_macguffin2_flag = false
-		user_prefs.permadeath_macguffin3_flag = false
-		user_prefs.permadeath_ms = 0
-		user_prefs.permadeath_s = 0
-		user_prefs.permadeath_m = 0
-		user_prefs.permadeath_h = 0
-		user_prefs.save()
-	load = true
+	if !load:
+		%StartGame.play()
+		user_prefs.bad_ending = false
+		if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
+			user_prefs.relaxed_checkpoint = Vector2(260, 130)
+			user_prefs.relaxed_save = Vector2(260, 130)
+			user_prefs.relaxed_boots_flag = false
+			user_prefs.relaxed_rockets_flag = false
+			user_prefs.relaxed_jetpack_flag = false
+			user_prefs.relaxed_fuel_count = 1000
+			user_prefs.relaxed_macguffin_flag = false
+			user_prefs.relaxed_macguffin2_flag = false
+			user_prefs.relaxed_macguffin3_flag = false
+			user_prefs.relaxed_ms = 0
+			user_prefs.relaxed_s = 0
+			user_prefs.relaxed_m = 0
+			user_prefs.relaxed_h = 0
+			user_prefs.relaxed_flag1 = false
+			user_prefs.relaxed_flag2 = false
+			user_prefs.relaxed_flag3 = false
+			user_prefs.relaxed_flag4 = false
+			user_prefs.relaxed_flag5 = false
+			user_prefs.relaxed_flag6 = false
+			user_prefs.relaxed_flag7 = false
+			user_prefs.relaxed_flag8 = false
+			user_prefs.relaxed_flag9 = false
+			user_prefs.relaxed_flag10 = false
+			user_prefs.relaxed_flag11 = false
+			user_prefs.relaxed_flag12 = false
+			user_prefs.relaxed_flag13 = false
+			user_prefs.relaxed_flag14 = false
+			user_prefs.save()
+		elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 1:
+			user_prefs.foddian_save = Vector2(260, 130)
+			user_prefs.foddian_boots_flag = false
+			user_prefs.foddian_rockets_flag = false
+			user_prefs.foddian_jetpack_flag = false
+			user_prefs.foddian_fuel_count = 1000
+			user_prefs.foddian_macguffin_flag = false
+			user_prefs.foddian_macguffin2_flag = false
+			user_prefs.foddian_macguffin3_flag = false
+			user_prefs.foddian_ms = 0
+			user_prefs.foddian_s = 0
+			user_prefs.foddian_m = 0
+			user_prefs.foddian_h = 0
+			user_prefs.foddian_flag1 = false
+			user_prefs.foddian_flag11 = false
+			user_prefs.save()
+		elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
+			user_prefs.permadeath_save = Vector2(260, 130)
+			user_prefs.permadeath_boots_flag = false
+			user_prefs.permadeath_rockets_flag = false
+			user_prefs.permadeath_jetpack_flag = false
+			user_prefs.permadeath_fuel_count = 1000
+			user_prefs.permadeath_macguffin_flag = false
+			user_prefs.permadeath_macguffin2_flag = false
+			user_prefs.permadeath_macguffin3_flag = false
+			user_prefs.permadeath_ms = 0
+			user_prefs.permadeath_s = 0
+			user_prefs.permadeath_m = 0
+			user_prefs.permadeath_h = 0
+			user_prefs.save()
+		load = true
 	pass # Replace with function body.
 
 func _on_start_game_pressed():
-	load = true
+	if !load:
+		%StartGame.play()
+		load = true
 	pass # Replace with function body.
 
 func _on_change_difficulty_item_selected(index):
-	if user_prefs:
-		user_prefs.difficulty_dropdown_index = index
-		user_prefs.save()
+	if !load:
+		if user_prefs:
+			user_prefs.difficulty_dropdown_index = index
+			user_prefs.save()
 	pass # Replace with function body.
 	
 func _on_go_to_display_menu_pressed():
-	get_tree().change_scene_to_file("res://Menus/GraphicsMenu.tscn")
+	if !load:
+		get_tree().change_scene_to_file("res://Menus/GraphicsMenu.tscn")
 	pass # Replace with function body.
 
 func _on_go_to_audio_menu_pressed():
-	get_tree().change_scene_to_file("res://Menus/AudioMenu.tscn")
+	if !load:
+		get_tree().change_scene_to_file("res://Menus/AudioMenu.tscn")
 	pass # Replace with function body.
 
 func _on_quit_game_pressed():
-	get_tree().quit()
+	if !load:
+		get_tree().quit()
+	pass # Replace with function body.
+
+func _on_credits_check_box_toggled(toggled_on):
+	if !load:
+		if toggled_on:
+			%Credits.visible = true
+			%Title.visible = false
+			%DialogueBox.visible = false
+		else:
+			%Credits.visible = false
+			%Title.visible = true
 	pass # Replace with function body.
 	
+func _on_tooltips_check_box_toggled(toggled_on):
+	if !load:
+		if toggled_on:
+			user_prefs.tooltips_bool_check = true
+			if !gameStart && !%Credits.visible:
+				%DialogueBox.get_node("RichTextLabel").text = %TooltipsCheckBox.get_meta("Tooltip")
+				%DialogueBox.visible = true
+				%MainMenuBg.texture = %MainMenuLookingBg.texture
+		else:
+			user_prefs.tooltips_bool_check = false
+			%DialogueBox.visible = false
+			%MainMenuBg.texture = %MainMenuNotLookingBg.texture
+		user_prefs.save()
+	pass # Replace with function body.
+
 func load_game():
 	if count % 10 == 0 && $ColorRect.color.a < 1:
 		count += 1
 		colorCount += 0.1
 		$ColorRect.color.a = colorCount
 		$CanvasLayer/MarginContainer/VBoxContainer.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.0745
+		$CanvasLayer3/Control/Credits.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
+		$CanvasLayer3/Control/CreditsCheckBox.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
+		$CanvasLayer3/Control/TooltipsCheckBox.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
 	elif $ColorRect.color.a < 1:
 		count += 1
 	elif $ColorRect.color.a == 1:
 		if user_prefs.difficulty_dropdown_index == 0:
-			get_tree().change_scene_to_file("res://Levels/OverworldRelaxed.tscn")
+			get_tree().change_scene_to_file("res://Levels/OverworldRelaxed_demo.tscn")
 		elif user_prefs.difficulty_dropdown_index == 1:
-			get_tree().change_scene_to_file("res://Levels/OverworldFoddian.tscn")
+			get_tree().change_scene_to_file("res://Levels/OverworldFoddian_demo.tscn")
 		elif user_prefs.difficulty_dropdown_index == 2:
-			get_tree().change_scene_to_file("res://Levels/OverworldPermadeath.tscn")
+			get_tree().change_scene_to_file("res://Levels/OverworldPermadeath_demo.tscn")

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkiseu1tv8gwq"
-path="res://godot/imported/Achievement_Mushroom.png-2a902e65db002267bec9d9b7ff9047b7.ctex"
+path="res://.godot/imported/Achievement_Mushroom.png-2a902e65db002267bec9d9b7ff9047b7.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/Achievement_Mushroom.png"
-dest_files=["res://godot/imported/Achievement_Mushroom.png-2a902e65db002267bec9d9b7ff9047b7.ctex"]
+dest_files=["res://.godot/imported/Achievement_Mushroom.png-2a902e65db002267bec9d9b7ff9047b7.ctex"]
 
 [params]
 

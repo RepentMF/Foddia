@@ -7,6 +7,7 @@ var fadeOutMax
 var waitCount
 var waitMax
 var startCount
+var repeat
 var shown
 
 var current
@@ -38,6 +39,7 @@ func _ready():
 	waitCount = 0
 	waitMax = 300
 	shown = true
+	repeat = true
 	previous = -1
 	selected = -2
 	current = -3
@@ -63,43 +65,44 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	choose_area()
+	if player.countHangTime < 50:
+		choose_area()
 	#text = title_card_text
 	pass
 
 func choose_area():
 	if player.position.x > 500 && player.position.x < 5820 && player.position.y < 130 && player.position.y > -3300:
-		# Area 1
+		# Area 1, The Foddian Forest
 		selected = 0
-	elif player.position.x > 5820 && player.position.x < 14600 && player.position.y < 130 && player.position.y > -3300:
-		# Area 2
+	elif player.position.x > 5820 && player.position.x < 14600 && player.position.y < 130 && player.position.y > -2400:
+		# Area 2, Beta Bluffs
 		selected = 1
 	elif player.position.x > 14600 && player.position.x < 17750 && player.position.y < 130 && player.position.y > -3300:
-		# Area 3
+		# Area 3, Construction Yard Cliffs
 		selected = 2
-	elif player.position.x > 6450 && player.position.x < 12800 && player.position.y < -3300 && player.position.y > -6350:
-		# Area 4
+	elif player.position.x > 7150 && player.position.x < 12800 && player.position.y < -3300 && player.position.y > -6350:
+		# Area 4, Mushroom Matching
 		selected = 3
-	elif player.position.x > -90 && player.position.x < 6450 && player.position.y < -3300 && player.position.y > -6350:
-		# Area 5
+	elif player.position.x > -90 && player.position.x < 6600 && player.position.y < -3300 && player.position.y > -6350:
+		# Area 5, Flash Falls
 		selected = 4
 	elif player.position.x > 6430 && player.position.x < 10800 && player.position.y < -6350 && player.position.y > -7440:
-		# Area 6
+		# Area 6, Pumped Puffball Project
 		selected = 5
 	elif player.position.x > 6555 && player.position.x < 16270 && player.position.y < -7440 && player.position.y > -12435:
-		# Area 7
+		# Area 7, Dyno Dangling
 		selected = 6
 	elif player.position.x > 7100 && player.position.x < 22090 && player.position.y < -12435 && player.position.y > -17380:
-		# Area 8
+		# Area 8, Switching Swings
 		selected = 7
 	elif player.position.x > 9730 && player.position.x < 14275 && player.position.y < -17380 && player.position.y > -19260:
-		# Area 9
+		# Area 9, Sliding Smear
 		selected = 8
 	elif player.position.x > 14340 && player.position.x < 17850 && player.position.y < -19260 && player.position.y > -22530:
-		# Area 10
+		# Area 10, The Problem
 		selected = 9
 	elif player.position.x > 15760 && player.position.x < 16525 && player.position.y < -22530 && player.position.y > -22850:
-		# Area 11
+		# Area 11, Mount Foddy Summit
 		selected = 10
 	elif player.position.x > -90 && player.position.x < 26850 && player.position.y < -23000:
 		# Space
@@ -108,35 +111,42 @@ func choose_area():
 		# Pandemonium 1
 		selected = 12
 	
-	if selected != current && shown:
-		if previous == selected:
-			startCount += 1
+	if !repeat:
+		if selected != current && shown:
+			if previous == selected:
+				startCount += 1
+			if previous != selected && selected != -2:
+				previous = selected
+				startCount = 0
+			elif startCount > 124 && previous == selected:
+				startCount = 0
+				current = selected
+				text = titles[selected]
+				shown = false
+		else:
+			if fadeInCount < fadeInMax:
+				fadeInCount += 1
+				if fadeInCount % 20 == 0:
+					modulate.a += .0745
+					if modulate.a > 1:
+						modulate.a = 1
+			elif waitCount < waitMax:
+				waitCount += 1
+			elif fadeOutCount < fadeOutMax:
+				fadeOutCount += 1
+				if fadeOutCount % 20 == 0:
+					modulate.a -= .0745
+					if modulate.a < 0:
+						modulate.a = 0
+						startCount = 0
+						fadeInCount = 0
+						fadeOutCount = 0
+						waitCount = 0
+						shown = true
+						repeat = true
+	elif repeat:
 		if previous != selected && selected != -2:
-			previous = selected
-			startCount = 0
-		elif startCount > 124 && previous == selected:
-			startCount = 0
-			current = selected
-			text = titles[selected]
-			shown = false
-	elif selected == current && !shown:
-		if fadeInCount < fadeInMax:
-			fadeInCount += 1
-			if fadeInCount % 20 == 0:
-				modulate.a += .0745
-				if modulate.a > 1:
-					modulate.a = 1
-		elif waitCount < waitMax:
-			waitCount += 1
-		elif fadeOutCount < fadeOutMax:
-			fadeOutCount += 1
-			if fadeOutCount % 20 == 0:
-				modulate.a -= .0745
-				if modulate.a < 0:
-					modulate.a = 0
-					startCount = 0
-					fadeInCount = 0
-					fadeOutCount = 0
-					waitCount = 0
-					shown = true
+				previous = selected
+				repeat = false
+				startCount = 0
 	pass

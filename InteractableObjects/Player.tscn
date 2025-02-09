@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=169 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://dm5n6dd5nl2ic" path="res://SFX/LandedDead.mp3" id="20_www36"]
 [ext_resource type="AudioStream" uid="uid://c5auorp6pp6sl" path="res://SFX/SoftAir.mp3" id="21_p4slo"]
 [ext_resource type="AudioStream" uid="uid://dg7jqvuivojqk" path="res://SFX/HardAir.mp3" id="22_egw0g"]
+[ext_resource type="AudioStream" uid="uid://34hlglxyrvf0" path="res://SFX/JetpackPuff.mp3" id="26_6nbl2"]
+[ext_resource type="AudioStream" uid="uid://h7u2xt6w2dxy" path="res://SFX/JetpackHiss.mp3" id="26_k2tlt"]
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Player.gd" id="26_w3cgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
@@ -1440,6 +1442,14 @@ volume_db = 5.0
 
 [node name="HardAir2" type="AudioStreamPlayer2D" parent="AudioPlayer"]
 stream = ExtResource("22_egw0g")
+volume_db = 5.0
+
+[node name="JetpackHiss" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("26_k2tlt")
+volume_db = 5.0
+
+[node name="JetpackPuff" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("26_6nbl2")
 volume_db = 5.0
 
 [node name="AchievementHandler" type="Node2D" parent="."]

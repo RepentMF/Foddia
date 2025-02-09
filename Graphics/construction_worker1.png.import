@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4eof4s07maw5"
-path="res://godot/imported/construction_worker1.png-b890aefb7019286bb7e002871ca4e4b4.ctex"
+path="res://.godot/imported/construction_worker1.png-b890aefb7019286bb7e002871ca4e4b4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/construction_worker1.png"
-dest_files=["res://godot/imported/construction_worker1.png-b890aefb7019286bb7e002871ca4e4b4.ctex"]
+dest_files=["res://.godot/imported/construction_worker1.png-b890aefb7019286bb7e002871ca4e4b4.ctex"]
 
 [params]
 

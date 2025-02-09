@@ -8,7 +8,6 @@ var pos = Vector2(0, 0)
 func _ready():
 	pos = global_position
 	rotation = randf_range(0, 359)
-	print(rotation)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

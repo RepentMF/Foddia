@@ -20,6 +20,10 @@ func _ready():
 	dialogue = get_meta("DIALOGUE")
 	textCount = dialogue.size()
 	UI.visible = false
+	
+	if name.contains("BillBoard"):
+		if !user_prefs.tooltips_bool_check:
+			visible = false
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -55,7 +59,6 @@ func _process(delta):
 	if name == "Husband" && player.hasMacguffin2:
 		visible = false
 	if !visible && name == "Husband" && (player.hasMacguffin || player.hasMacguffin3):
-		print(visible, " ", name, " ", player.hasMacguffin, " ", player.hasMacguffin3)
 		visible = true
 	
 	if name == "TruckFront" && (player.hasMacguffin2 && !player.hasMacguffin && !player.hasMacguffin3):
@@ -122,13 +125,25 @@ func _important_npc_check():
 	pass
 
 func _on_body_entered(body):
-	if body.name == "Player":
-		isNearSign = true
-		UI.visible = true
+	if !name.contains("BillBoard"):
+		if body.name == "Player":
+			isNearSign = true
+			UI.visible = true
+	else:
+		if user_prefs.tooltips_bool_check:
+			if body.name == "Player":
+				isNearSign = true
+				UI.visible = true
 	pass # Replace with function body.
 
 func _on_body_exited(body):
-	if body.name == "Player":
-		isNearSign = false
-		UI.visible = false
+	if !name.contains("BillBoard"):
+		if body.name == "Player":
+			isNearSign = false
+			UI.visible = false
+	else:
+		if user_prefs.tooltips_bool_check:
+			if body.name == "Player":
+				isNearSign = false
+				UI.visible = false
 	pass # Replace with function body.

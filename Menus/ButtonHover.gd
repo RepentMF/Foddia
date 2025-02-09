@@ -1,0 +1,43 @@
+extends Button
+
+var user_prefs: UserPreferences
+
+var tooltip
+var tooltip_txt
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	user_prefs = UserPreferences.load_or_create()
+	
+	tooltip_txt = get_meta("Tooltip")
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	if get_node("OptionSelect") != null:
+		get_node("OptionSelect").volume_db = %SFXVolumeHandler.SFX_volume
+	if user_prefs.tooltips_bool_check:
+		tooltip = true
+	else:
+		tooltip = false
+	pass
+	
+func _on_mouse_entered():
+	if tooltip && !%Credits.visible:
+		%DialogueBox.get_node("RichTextLabel").text = tooltip_txt
+		%DialogueBox.get_node("UI_Sprite2D").visible = false
+		%DialogueBox.visible = true
+		%MainMenuBg.texture = %MainMenuLookingBg.texture
+	pass # Replace with function body.
+
+func _on_mouse_exited():
+	if tooltip && !%Credits.visible:
+		%DialogueBox.get_node("RichTextLabel").text = tooltip_txt
+		%DialogueBox.get_node("UI_Sprite2D").visible = false
+		%DialogueBox.visible = false
+		%MainMenuBg.texture = %MainMenuNotLookingBg.texture
+	pass # Replace with function body.
+
+func _on_button_up():
+	get_node("OptionSelect").play()
+	pass # Replace with function body.

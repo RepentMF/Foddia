@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://be43aw7we763u"
-path="res://godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618f984ad5842.mp3str"
+path="res://.godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618f984ad5842.mp3str"
 
 [deps]
 
 source_file="res://OST/CantTurnBack_foddia.mp3"
-dest_files=["res://godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618f984ad5842.mp3str"]
+dest_files=["res://.godot/imported/CantTurnBack_foddia.mp3-5b69b589ec5c5cf0412618f984ad5842.mp3str"]
 
 [params]
 

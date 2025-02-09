@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0uxvmx2g4el4"
-path="res://godot/imported/Layer1.png-3274fa21d5fd4468061b0f69bb34ccc4.ctex"
+path="res://.godot/imported/Layer1.png-3274fa21d5fd4468061b0f69bb34ccc4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/road side - Copy/Layer1.png"
-dest_files=["res://godot/imported/Layer1.png-3274fa21d5fd4468061b0f69bb34ccc4.ctex"]
+dest_files=["res://.godot/imported/Layer1.png-3274fa21d5fd4468061b0f69bb34ccc4.ctex"]
 
 [params]
 

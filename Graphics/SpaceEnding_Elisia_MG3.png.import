@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqhss6u7jaa6e"
-path="res://godot/imported/SpaceEnding_Elisia_MG3.png-b4e11edca3393e5e82835d65149dd9a8.ctex"
+path="res://.godot/imported/SpaceEnding_Elisia_MG3.png-b4e11edca3393e5e82835d65149dd9a8.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/SpaceEnding_Elisia_MG3.png"
-dest_files=["res://godot/imported/SpaceEnding_Elisia_MG3.png-b4e11edca3393e5e82835d65149dd9a8.ctex"]
+dest_files=["res://.godot/imported/SpaceEnding_Elisia_MG3.png-b4e11edca3393e5e82835d65149dd9a8.ctex"]
 
 [params]
 

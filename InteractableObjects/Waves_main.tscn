@@ -1,0 +1,4611 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckgoh6lgalk6t"]
+
+[ext_resource type="PackedScene" uid="uid://clmdiweuj2dyj" path="res://GraphicObjects/Wind.tscn" id="1_2tl06"]
+[ext_resource type="PackedScene" uid="uid://cq3do0knj4p0y" path="res://GraphicObjects/Wind2.tscn" id="2_t6s7b"]
+
+[node name="Waves_main" type="Node2D"]
+
+[node name="Wave1" type="Node2D" parent="."]
+position = Vector2(0, 4718)
+
+[node name="Wind" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6010, -7891)
+
+[node name="Wind2" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6073, -8077)
+
+[node name="Wind3" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6133.5, -7752.5)
+
+[node name="Wind4" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6186.5, -8583)
+
+[node name="Wind5" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6257.5, -8314)
+
+[node name="Wind6" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6320.5, -8510.5)
+
+[node name="Wind7" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6381, -8145)
+
+[node name="Wind8" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6444, -8938)
+
+[node name="Wind9" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6516.5, -8688)
+
+[node name="Wind10" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6579.5, -7894)
+
+[node name="Wind11" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6640, -8035.5)
+
+[node name="Wind12" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6703, -7755.5)
+
+[node name="Wind13" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6754, -8601)
+
+[node name="Wind14" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6827, -8317)
+
+[node name="Wind15" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6887.5, -8469)
+
+[node name="Wind16" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6950.5, -8148)
+
+[node name="Wind17" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7014.5, -8895)
+
+[node name="Wind18" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7077.5, -8703)
+
+[node name="Wind19" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7138, -7550.5)
+
+[node name="Wind20" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7201, -7879.5)
+
+[node name="Wind21" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7262, -8080.5)
+
+[node name="Wind22" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7325, -7800.5)
+
+[node name="Wind23" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7375.5, -8586.5)
+
+[node name="Wind24" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7448.5, -8302.5)
+
+[node name="Wind25" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7521, -8441)
+
+[node name="Wind26" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7584, -8120)
+
+[node name="Wind27" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7644.5, -8868.5)
+
+[node name="Wind28" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7707.5, -8676.5)
+
+[node name="Wind29" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7768.5, -7583.5)
+
+[node name="Wind30" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7831.5, -7912.5)
+
+[node name="Wind31" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7892, -8054)
+
+[node name="Wind32" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7955, -7774)
+
+[node name="Wind33" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8016.5, -8613.5)
+
+[node name="Wind34" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8089.5, -8329.5)
+
+[node name="Wind35" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8150, -8481.5)
+
+[node name="Wind36" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8213, -8160.5)
+
+[node name="Wind37" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8274, -8968.5)
+
+[node name="Wind38" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8337, -8776.5)
+
+[node name="Wind39" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8397.5, -7624)
+
+[node name="Wind40" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8460.5, -7953)
+
+[node name="Wind41" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8533, -8081)
+
+[node name="Wind42" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8596, -7801)
+
+[node name="Wind43" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8646.5, -8587)
+
+[node name="Wind44" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8719.5, -8303)
+
+[node name="Wind45" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8780.5, -8514.5)
+
+[node name="Wind46" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8843.5, -8193.5)
+
+[node name="Wind47" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8904, -8942)
+
+[node name="Wind48" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8967, -8750)
+
+[node name="Wind49" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9031, -7596)
+
+[node name="Wind50" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9094, -7925)
+
+[node name="Wind51" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9154.5, -8066.5)
+
+[node name="Wind52" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9217.5, -7786.5)
+
+[node name="Wind53" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9268.5, -8632)
+
+[node name="Wind54" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9341.5, -8348)
+
+[node name="Wind55" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9402, -8500)
+
+[node name="Wind56" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9465, -8179)
+
+[node name="Wind57" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9537.5, -8914)
+
+[node name="Wind58" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9600.5, -8722)
+
+[node name="Wind59" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9661, -7569.5)
+
+[node name="Wind60" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9724, -7898.5)
+
+[node name="Wind61" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9785, -8099.5)
+
+[node name="Wind62" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9848, -7819.5)
+
+[node name="Wind63" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9898.5, -8605.5)
+
+[node name="Wind64" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9971.5, -8321.5)
+
+[node name="Wind65" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10041.5, -8481)
+
+[node name="Wind66" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10104.5, -8160)
+
+[node name="Wind67" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10165, -8908.5)
+
+[node name="Wind68" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10228, -8716.5)
+
+[node name="Wind69" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10289, -7623.5)
+
+[node name="Wind70" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10352, -7952.5)
+
+[node name="Wind71" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10412.5, -8094)
+
+[node name="Wind72" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10475.5, -7814)
+
+[node name="Wind73" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10538, -8586.5)
+
+[node name="Wind74" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10611, -8302.5)
+
+[node name="Wind75" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10671.5, -8454.5)
+
+[node name="Wind76" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10734.5, -8133.5)
+
+[node name="Wind77" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10795.5, -8941.5)
+
+[node name="Wind78" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10858.5, -8749.5)
+
+[node name="Wind79" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10919, -7597)
+
+[node name="Wind80" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10982, -7926)
+
+[node name="Wind81" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11046, -8066)
+
+[node name="Wind82" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11109, -7786)
+
+[node name="Wind83" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11159.5, -8572)
+
+[node name="Wind84" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11232.5, -8288)
+
+[node name="Wind85" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11293.5, -8499.5)
+
+[node name="Wind86" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11356.5, -8178.5)
+
+[node name="Wind87" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11417, -8927)
+
+[node name="Wind88" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11480, -8735)
+
+[node name="Wind89" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11552.5, -7569)
+
+[node name="Wind90" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11615.5, -7898)
+
+[node name="Wind91" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11676, -8039.5)
+
+[node name="Wind92" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11739, -7759.5)
+
+[node name="Wind93" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11790, -8605)
+
+[node name="Wind94" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11863, -8321)
+
+[node name="Wind95" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11923.5, -8473)
+
+[node name="Wind96" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11986.5, -8152)
+
+[node name="Wind97" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12058, -8954)
+
+[node name="Wind98" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12121, -8762)
+
+[node name="Wind99" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12181.5, -7609.5)
+
+[node name="Wind100" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12244.5, -7938.5)
+
+[node name="Wind101" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12305.5, -8139.5)
+
+[node name="Wind102" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12368.5, -7859.5)
+
+[node name="Wind103" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12419, -8645.5)
+
+[node name="Wind104" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12492, -8361.5)
+
+[node name="Wind105" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12564.5, -8500)
+
+[node name="Wind106" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12627.5, -8179)
+
+[node name="Wind107" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12688, -8927.5)
+
+[node name="Wind108" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12751, -8735.5)
+
+[node name="Wind109" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12812, -7642.5)
+
+[node name="Wind110" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12875, -7971.5)
+
+[node name="Wind111" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12935.5, -8113)
+
+[node name="Wind112" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12998.5, -7833)
+
+[node name="Wind113" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13052.5, -8617.5)
+
+[node name="Wind114" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13125.5, -8333.5)
+
+[node name="Wind115" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13186, -8485.5)
+
+[node name="Wind116" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13249, -8164.5)
+
+[node name="Wind117" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13310, -8972.5)
+
+[node name="Wind118" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13373, -8780.5)
+
+[node name="Wind119" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13433.5, -7628)
+
+[node name="Wind120" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13496.5, -7957)
+
+[node name="Wind121" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13569, -8085)
+
+[node name="Wind122" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13632, -7805)
+
+[node name="Wind123" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13682.5, -8591)
+
+[node name="Wind124" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13755.5, -8307)
+
+[node name="Wind125" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13816.5, -8518.5)
+
+[node name="Wind126" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13879.5, -8197.5)
+
+[node name="Wind127" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13940, -8946)
+
+[node name="Wind128" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14003, -8754)
+
+[node name="Wind129" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14063.5, -7577)
+
+[node name="Wind130" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14126.5, -7906)
+
+[node name="Wind131" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14187, -8047.5)
+
+[node name="Wind132" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14250, -7767.5)
+
+[node name="Wind133" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14301, -8613)
+
+[node name="Wind134" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14374, -8329)
+
+[node name="Wind135" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14434.5, -8481)
+
+[node name="Wind136" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14497.5, -8160)
+
+[node name="Wind137" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14570, -8895)
+
+[node name="Wind138" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14633, -8703)
+
+[node name="Wind139" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14693.5, -7550.5)
+
+[node name="Wind140" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14756.5, -7879.5)
+
+[node name="Wind141" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14817.5, -8080.5)
+
+[node name="Wind142" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14880.5, -7800.5)
+
+[node name="Wind143" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14931, -8586.5)
+
+[node name="Wind144" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15004, -8302.5)
+
+[node name="Wind145" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15068, -8453)
+
+[node name="Wind146" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15131, -8132)
+
+[node name="Wind147" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15191.5, -8880.5)
+
+[node name="Wind148" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15254.5, -8688.5)
+
+[node name="Wind149" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15315.5, -7595.5)
+
+[node name="Wind150" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15378.5, -7924.5)
+
+[node name="Wind151" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15439, -8066)
+
+[node name="Wind152" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15502, -7786)
+
+[node name="Wind153" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15564.5, -8558.5)
+
+[node name="Wind154" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15637.5, -8274.5)
+
+[node name="Wind155" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15698, -8426.5)
+
+[node name="Wind156" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15761, -8105.5)
+
+[node name="Wind157" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15822, -8913.5)
+
+[node name="Wind158" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15885, -8721.5)
+
+[node name="Wind159" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15945.5, -7569)
+
+[node name="Wind160" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16008.5, -7898)
+
+[node name="Wind161" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16080, -8093)
+
+[node name="Wind162" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16143, -7813)
+
+[node name="Wind163" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16193.5, -8599)
+
+[node name="Wind164" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16266.5, -8315)
+
+[node name="Wind165" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16327.5, -8526.5)
+
+[node name="Wind166" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16390.5, -8205.5)
+
+[node name="Wind167" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16451, -8954)
+
+[node name="Wind168" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16514, -8762)
+
+[node name="Wind169" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16586.5, -7596)
+
+[node name="Wind170" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16649.5, -7925)
+
+[node name="Wind171" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16710, -8066.5)
+
+[node name="Wind172" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16773, -7786.5)
+
+[node name="Wind173" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16824, -8632)
+
+[node name="Wind174" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16897, -8348)
+
+[node name="Wind175" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16957.5, -8500)
+
+[node name="Wind176" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17020.5, -8179)
+
+[node name="Wind177" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17084.5, -8926)
+
+[node name="Wind178" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17147.5, -8734)
+
+[node name="Wind179" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17208, -7581.5)
+
+[node name="Wind180" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17271, -7910.5)
+
+[node name="Wind181" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17332, -8111.5)
+
+[node name="Wind182" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17395, -7831.5)
+
+[node name="Wind183" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17445.5, -8617.5)
+
+[node name="Wind184" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17518.5, -8333.5)
+
+[node name="Wind185" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17591, -8472)
+
+[node name="Wind186" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17654, -8151)
+
+[node name="Wind187" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17714.5, -8899.5)
+
+[node name="Wind188" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17777.5, -8707.5)
+
+[node name="Wind189" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17838.5, -7614.5)
+
+[node name="Wind190" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17901.5, -7943.5)
+
+[node name="Wind191" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17962, -8085)
+
+[node name="Wind192" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18025, -7805)
+
+[node name="Wind193" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18085, -8598.5)
+
+[node name="Wind194" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18158, -8314.5)
+
+[node name="Wind195" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18218.5, -8466.5)
+
+[node name="Wind196" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18281.5, -8145.5)
+
+[node name="Wind197" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18342.5, -8953.5)
+
+[node name="Wind198" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18405.5, -8761.5)
+
+[node name="Wind199" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18466, -7609)
+
+[node name="Wind200" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18529, -7938)
+
+[node name="Wind201" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18601.5, -8066)
+
+[node name="Wind202" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18664.5, -7786)
+
+[node name="Wind203" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18715, -8572)
+
+[node name="Wind204" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18788, -8288)
+
+[node name="Wind205" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18849, -8499.5)
+
+[node name="Wind206" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18912, -8178.5)
+
+[node name="Wind207" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18972.5, -8927)
+
+[node name="Wind208" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19035.5, -8735)
+
+[node name="Wind209" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19099.5, -7581)
+
+[node name="Wind210" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19162.5, -7910)
+
+[node name="Wind211" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19223, -8051.5)
+
+[node name="Wind212" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19286, -7771.5)
+
+[node name="Wind213" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19337, -8617)
+
+[node name="Wind214" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19410, -8333)
+
+[node name="Wind215" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19470.5, -8485)
+
+[node name="Wind216" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19533.5, -8164)
+
+[node name="Wind217" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19606, -8899)
+
+[node name="Wind218" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19669, -8707)
+
+[node name="Wind219" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19729.5, -7554.5)
+
+[node name="Wind220" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19792.5, -7883.5)
+
+[node name="Wind221" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19853.5, -8084.5)
+
+[node name="Wind222" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19916.5, -7804.5)
+
+[node name="Wind223" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19967, -8590.5)
+
+[node name="Wind224" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20040, -8306.5)
+
+[node name="Wind225" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20111.5, -8512)
+
+[node name="Wind226" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20174.5, -8191)
+
+[node name="Wind227" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20235, -8939.5)
+
+[node name="Wind228" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20298, -8747.5)
+
+[node name="Wind229" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20359, -7654.5)
+
+[node name="Wind230" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20422, -7983.5)
+
+[node name="Wind231" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20482.5, -8125)
+
+[node name="Wind232" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20545.5, -7845)
+
+[node name="Wind233" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20608, -8617.5)
+
+[node name="Wind234" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20681, -8333.5)
+
+[node name="Wind235" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20741.5, -8485.5)
+
+[node name="Wind236" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20804.5, -8164.5)
+
+[node name="Wind237" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20865.5, -8972.5)
+
+[node name="Wind238" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20928.5, -8780.5)
+
+[node name="Wind239" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20989, -7628)
+
+[node name="Wind240" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21052, -7957)
+
+[node name="Wind241" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21116, -8097)
+
+[node name="Wind242" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21179, -7817)
+
+[node name="Wind243" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21229.5, -8603)
+
+[node name="Wind244" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21302.5, -8319)
+
+[node name="Wind245" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21363.5, -8530.5)
+
+[node name="Wind246" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21426.5, -8209.5)
+
+[node name="Wind247" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21487, -8958)
+
+[node name="Wind248" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21550, -8766)
+
+[node name="Wind249" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21622.5, -7600)
+
+[node name="Wind250" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21685.5, -7929)
+
+[node name="Wind251" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21746, -8070.5)
+
+[node name="Wind252" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21809, -7790.5)
+
+[node name="Wind253" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21860, -8636)
+
+[node name="Wind254" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21933, -8352)
+
+[node name="Wind255" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21993.5, -8504)
+
+[node name="Wind256" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22056.5, -8183)
+
+[node name="Wind257" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22109.5, -8907.5)
+
+[node name="Wind258" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22172.5, -8715.5)
+
+[node name="Wind259" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22233.5, -7622.5)
+
+[node name="Wind260" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22296.5, -7951.5)
+
+[node name="Wind261" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22357, -8093)
+
+[node name="Wind262" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22420, -7813)
+
+[node name="Wind263" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22482.5, -8585.5)
+
+[node name="Wind264" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22555.5, -8301.5)
+
+[node name="Wind265" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22616, -8453.5)
+
+[node name="Wind266" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22679, -8132.5)
+
+[node name="Wind267" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22740, -8940.5)
+
+[node name="Wind268" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22803, -8748.5)
+
+[node name="Wind269" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6010, -10957)
+
+[node name="Wind270" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6073, -11143)
+
+[node name="Wind271" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6133.5, -10818.5)
+
+[node name="Wind272" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6186.5, -11649)
+
+[node name="Wind273" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6257.5, -11380)
+
+[node name="Wind274" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6320.5, -11576.5)
+
+[node name="Wind275" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6381, -11211)
+
+[node name="Wind276" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6444, -12004)
+
+[node name="Wind277" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6516.5, -11754)
+
+[node name="Wind278" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6579.5, -10960)
+
+[node name="Wind279" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6640, -11101.5)
+
+[node name="Wind280" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6703, -10821.5)
+
+[node name="Wind281" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6754, -11667)
+
+[node name="Wind282" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6827, -11383)
+
+[node name="Wind283" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6887.5, -11535)
+
+[node name="Wind284" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6950.5, -11214)
+
+[node name="Wind285" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7014.5, -11961)
+
+[node name="Wind286" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7077.5, -11769)
+
+[node name="Wind287" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7138, -10616.5)
+
+[node name="Wind288" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7201, -10945.5)
+
+[node name="Wind289" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7262, -11146.5)
+
+[node name="Wind290" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7325, -10866.5)
+
+[node name="Wind291" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7375.5, -11652.5)
+
+[node name="Wind292" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7448.5, -11368.5)
+
+[node name="Wind293" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7521, -11507)
+
+[node name="Wind294" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7584, -11186)
+
+[node name="Wind295" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7644.5, -11934.5)
+
+[node name="Wind296" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7707.5, -11742.5)
+
+[node name="Wind297" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7768.5, -10649.5)
+
+[node name="Wind298" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7831.5, -10978.5)
+
+[node name="Wind299" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7892, -11120)
+
+[node name="Wind300" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7955, -10840)
+
+[node name="Wind301" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8016.5, -11679.5)
+
+[node name="Wind302" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8089.5, -11395.5)
+
+[node name="Wind303" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8150, -11547.5)
+
+[node name="Wind304" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8213, -11226.5)
+
+[node name="Wind305" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8274, -12034.5)
+
+[node name="Wind306" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8337, -11842.5)
+
+[node name="Wind307" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8397.5, -10690)
+
+[node name="Wind308" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8460.5, -11019)
+
+[node name="Wind309" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8533, -11147)
+
+[node name="Wind310" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8596, -10867)
+
+[node name="Wind311" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8646.5, -11653)
+
+[node name="Wind312" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8719.5, -11369)
+
+[node name="Wind313" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8780.5, -11580.5)
+
+[node name="Wind314" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8843.5, -11259.5)
+
+[node name="Wind315" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8904, -12008)
+
+[node name="Wind316" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8967, -11816)
+
+[node name="Wind317" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9031, -10662)
+
+[node name="Wind318" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9094, -10991)
+
+[node name="Wind319" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9154.5, -11132.5)
+
+[node name="Wind320" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9217.5, -10852.5)
+
+[node name="Wind321" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9268.5, -11698)
+
+[node name="Wind322" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9341.5, -11414)
+
+[node name="Wind323" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9402, -11566)
+
+[node name="Wind324" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9465, -11245)
+
+[node name="Wind325" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9537.5, -11980)
+
+[node name="Wind326" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9600.5, -11788)
+
+[node name="Wind327" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9661, -10635.5)
+
+[node name="Wind328" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9724, -10964.5)
+
+[node name="Wind329" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9785, -11165.5)
+
+[node name="Wind330" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9848, -10885.5)
+
+[node name="Wind331" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9898.5, -11671.5)
+
+[node name="Wind332" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9971.5, -11387.5)
+
+[node name="Wind333" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10041.5, -11547)
+
+[node name="Wind334" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10104.5, -11226)
+
+[node name="Wind335" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10165, -11974.5)
+
+[node name="Wind336" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10228, -11782.5)
+
+[node name="Wind337" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10289, -10689.5)
+
+[node name="Wind338" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10352, -11018.5)
+
+[node name="Wind339" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10412.5, -11160)
+
+[node name="Wind340" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10475.5, -10880)
+
+[node name="Wind341" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10538, -11652.5)
+
+[node name="Wind342" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10611, -11368.5)
+
+[node name="Wind343" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10671.5, -11520.5)
+
+[node name="Wind344" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10734.5, -11199.5)
+
+[node name="Wind345" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10795.5, -12007.5)
+
+[node name="Wind346" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10858.5, -11815.5)
+
+[node name="Wind347" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10919, -10663)
+
+[node name="Wind348" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10982, -10992)
+
+[node name="Wind349" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11046, -11132)
+
+[node name="Wind350" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11109, -10852)
+
+[node name="Wind351" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11159.5, -11638)
+
+[node name="Wind352" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11232.5, -11354)
+
+[node name="Wind353" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11293.5, -11565.5)
+
+[node name="Wind354" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11356.5, -11244.5)
+
+[node name="Wind355" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11417, -11993)
+
+[node name="Wind356" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11480, -11801)
+
+[node name="Wind357" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11552.5, -10635)
+
+[node name="Wind358" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11615.5, -10964)
+
+[node name="Wind359" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11676, -11105.5)
+
+[node name="Wind360" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11739, -10825.5)
+
+[node name="Wind361" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11790, -11671)
+
+[node name="Wind362" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11863, -11387)
+
+[node name="Wind363" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11923.5, -11539)
+
+[node name="Wind364" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11986.5, -11218)
+
+[node name="Wind365" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12058, -12020)
+
+[node name="Wind366" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12121, -11828)
+
+[node name="Wind367" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12181.5, -10675.5)
+
+[node name="Wind368" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12244.5, -11004.5)
+
+[node name="Wind369" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12305.5, -11205.5)
+
+[node name="Wind370" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12368.5, -10925.5)
+
+[node name="Wind371" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12419, -11711.5)
+
+[node name="Wind372" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12492, -11427.5)
+
+[node name="Wind373" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12564.5, -11566)
+
+[node name="Wind374" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12627.5, -11245)
+
+[node name="Wind375" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12688, -11993.5)
+
+[node name="Wind376" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12751, -11801.5)
+
+[node name="Wind377" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12812, -10708.5)
+
+[node name="Wind378" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12875, -11037.5)
+
+[node name="Wind379" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12935.5, -11179)
+
+[node name="Wind380" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12998.5, -10899)
+
+[node name="Wind381" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13052.5, -11683.5)
+
+[node name="Wind382" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13125.5, -11399.5)
+
+[node name="Wind383" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13186, -11551.5)
+
+[node name="Wind384" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13249, -11230.5)
+
+[node name="Wind385" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13310, -12038.5)
+
+[node name="Wind386" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13373, -11846.5)
+
+[node name="Wind387" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13433.5, -10694)
+
+[node name="Wind388" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13496.5, -11023)
+
+[node name="Wind389" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13569, -11151)
+
+[node name="Wind390" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13632, -10871)
+
+[node name="Wind391" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13682.5, -11657)
+
+[node name="Wind392" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13755.5, -11373)
+
+[node name="Wind393" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13816.5, -11584.5)
+
+[node name="Wind394" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13879.5, -11263.5)
+
+[node name="Wind395" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13940, -12012)
+
+[node name="Wind396" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14003, -11820)
+
+[node name="Wind397" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14063.5, -10643)
+
+[node name="Wind398" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14126.5, -10972)
+
+[node name="Wind399" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14187, -11113.5)
+
+[node name="Wind400" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14250, -10833.5)
+
+[node name="Wind401" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14301, -11679)
+
+[node name="Wind402" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14374, -11395)
+
+[node name="Wind403" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14434.5, -11547)
+
+[node name="Wind404" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14497.5, -11226)
+
+[node name="Wind405" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14570, -11961)
+
+[node name="Wind406" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14633, -11769)
+
+[node name="Wind407" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14693.5, -10616.5)
+
+[node name="Wind408" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14756.5, -10945.5)
+
+[node name="Wind409" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14817.5, -11146.5)
+
+[node name="Wind410" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14880.5, -10866.5)
+
+[node name="Wind411" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14931, -11652.5)
+
+[node name="Wind412" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15004, -11368.5)
+
+[node name="Wind413" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15068, -11519)
+
+[node name="Wind414" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15131, -11198)
+
+[node name="Wind415" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15191.5, -11946.5)
+
+[node name="Wind416" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15254.5, -11754.5)
+
+[node name="Wind417" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15315.5, -10661.5)
+
+[node name="Wind418" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15378.5, -10990.5)
+
+[node name="Wind419" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15439, -11132)
+
+[node name="Wind420" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15502, -10852)
+
+[node name="Wind421" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15564.5, -11624.5)
+
+[node name="Wind422" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15637.5, -11340.5)
+
+[node name="Wind423" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15698, -11492.5)
+
+[node name="Wind424" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15761, -11171.5)
+
+[node name="Wind425" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15822, -11979.5)
+
+[node name="Wind426" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15885, -11787.5)
+
+[node name="Wind427" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15945.5, -10635)
+
+[node name="Wind428" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16008.5, -10964)
+
+[node name="Wind429" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16080, -11159)
+
+[node name="Wind430" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16143, -10879)
+
+[node name="Wind431" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16193.5, -11665)
+
+[node name="Wind432" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16266.5, -11381)
+
+[node name="Wind433" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16327.5, -11592.5)
+
+[node name="Wind434" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16390.5, -11271.5)
+
+[node name="Wind435" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16451, -12020)
+
+[node name="Wind436" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16514, -11828)
+
+[node name="Wind437" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16586.5, -10662)
+
+[node name="Wind438" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16649.5, -10991)
+
+[node name="Wind439" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16710, -11132.5)
+
+[node name="Wind440" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16773, -10852.5)
+
+[node name="Wind441" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16824, -11698)
+
+[node name="Wind442" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16897, -11414)
+
+[node name="Wind443" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16957.5, -11566)
+
+[node name="Wind444" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17020.5, -11245)
+
+[node name="Wind445" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17084.5, -11992)
+
+[node name="Wind446" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17147.5, -11800)
+
+[node name="Wind447" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17208, -10647.5)
+
+[node name="Wind448" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17271, -10976.5)
+
+[node name="Wind449" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17332, -11177.5)
+
+[node name="Wind450" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17395, -10897.5)
+
+[node name="Wind451" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17445.5, -11683.5)
+
+[node name="Wind452" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17518.5, -11399.5)
+
+[node name="Wind453" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17591, -11538)
+
+[node name="Wind454" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17654, -11217)
+
+[node name="Wind455" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17714.5, -11965.5)
+
+[node name="Wind456" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17777.5, -11773.5)
+
+[node name="Wind457" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17838.5, -10680.5)
+
+[node name="Wind458" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17901.5, -11009.5)
+
+[node name="Wind459" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17962, -11151)
+
+[node name="Wind460" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18025, -10871)
+
+[node name="Wind461" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18085, -11664.5)
+
+[node name="Wind462" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18158, -11380.5)
+
+[node name="Wind463" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18218.5, -11532.5)
+
+[node name="Wind464" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18281.5, -11211.5)
+
+[node name="Wind465" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18342.5, -12019.5)
+
+[node name="Wind466" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18405.5, -11827.5)
+
+[node name="Wind467" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18466, -10675)
+
+[node name="Wind468" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18529, -11004)
+
+[node name="Wind469" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18601.5, -11132)
+
+[node name="Wind470" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18664.5, -10852)
+
+[node name="Wind471" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18715, -11638)
+
+[node name="Wind472" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18788, -11354)
+
+[node name="Wind473" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18849, -11565.5)
+
+[node name="Wind474" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18912, -11244.5)
+
+[node name="Wind475" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18972.5, -11993)
+
+[node name="Wind476" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19035.5, -11801)
+
+[node name="Wind477" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19099.5, -10647)
+
+[node name="Wind478" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19162.5, -10976)
+
+[node name="Wind479" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19223, -11117.5)
+
+[node name="Wind480" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19286, -10837.5)
+
+[node name="Wind481" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19337, -11683)
+
+[node name="Wind482" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19410, -11399)
+
+[node name="Wind483" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19470.5, -11551)
+
+[node name="Wind484" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19533.5, -11230)
+
+[node name="Wind485" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19606, -11965)
+
+[node name="Wind486" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19669, -11773)
+
+[node name="Wind487" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19729.5, -10620.5)
+
+[node name="Wind488" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19792.5, -10949.5)
+
+[node name="Wind489" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19853.5, -11150.5)
+
+[node name="Wind490" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19916.5, -10870.5)
+
+[node name="Wind491" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19967, -11656.5)
+
+[node name="Wind492" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20040, -11372.5)
+
+[node name="Wind493" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20111.5, -11578)
+
+[node name="Wind494" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20174.5, -11257)
+
+[node name="Wind495" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20235, -12005.5)
+
+[node name="Wind496" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20298, -11813.5)
+
+[node name="Wind497" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20359, -10720.5)
+
+[node name="Wind498" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20422, -11049.5)
+
+[node name="Wind499" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20482.5, -11191)
+
+[node name="Wind500" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20545.5, -10911)
+
+[node name="Wind501" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20608, -11683.5)
+
+[node name="Wind502" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20681, -11399.5)
+
+[node name="Wind503" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20741.5, -11551.5)
+
+[node name="Wind504" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20804.5, -11230.5)
+
+[node name="Wind505" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20865.5, -12038.5)
+
+[node name="Wind506" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20928.5, -11846.5)
+
+[node name="Wind507" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20989, -10694)
+
+[node name="Wind508" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21052, -11023)
+
+[node name="Wind509" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21116, -11163)
+
+[node name="Wind510" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21179, -10883)
+
+[node name="Wind511" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21229.5, -11669)
+
+[node name="Wind512" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21302.5, -11385)
+
+[node name="Wind513" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21363.5, -11596.5)
+
+[node name="Wind514" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21426.5, -11275.5)
+
+[node name="Wind515" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21487, -12024)
+
+[node name="Wind516" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21550, -11832)
+
+[node name="Wind517" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21622.5, -10666)
+
+[node name="Wind518" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21685.5, -10995)
+
+[node name="Wind519" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21746, -11136.5)
+
+[node name="Wind520" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21809, -10856.5)
+
+[node name="Wind521" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21860, -11702)
+
+[node name="Wind522" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21933, -11418)
+
+[node name="Wind523" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21993.5, -11570)
+
+[node name="Wind524" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22056.5, -11249)
+
+[node name="Wind525" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22109.5, -11973.5)
+
+[node name="Wind526" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22172.5, -11781.5)
+
+[node name="Wind527" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22233.5, -10688.5)
+
+[node name="Wind528" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22296.5, -11017.5)
+
+[node name="Wind529" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22357, -11159)
+
+[node name="Wind530" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22420, -10879)
+
+[node name="Wind531" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22482.5, -11651.5)
+
+[node name="Wind532" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22555.5, -11367.5)
+
+[node name="Wind533" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22616, -11519.5)
+
+[node name="Wind534" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22679, -11198.5)
+
+[node name="Wind535" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22740, -12006.5)
+
+[node name="Wind536" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22803, -11814.5)
+
+[node name="Wind537" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6010, -9418)
+
+[node name="Wind538" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6073, -9604)
+
+[node name="Wind539" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6133.5, -9279.5)
+
+[node name="Wind540" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6186.5, -10110)
+
+[node name="Wind541" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6257.5, -9841)
+
+[node name="Wind542" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6320.5, -10037.5)
+
+[node name="Wind543" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6381, -9672)
+
+[node name="Wind544" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6444, -10465)
+
+[node name="Wind545" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6516.5, -10215)
+
+[node name="Wind546" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6579.5, -9421)
+
+[node name="Wind547" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6640, -9562.5)
+
+[node name="Wind548" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6703, -9282.5)
+
+[node name="Wind549" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6754, -10128)
+
+[node name="Wind550" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6827, -9844)
+
+[node name="Wind551" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(6887.5, -9996)
+
+[node name="Wind552" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(6950.5, -9675)
+
+[node name="Wind553" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7014.5, -10422)
+
+[node name="Wind554" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7077.5, -10230)
+
+[node name="Wind555" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7138, -9077.5)
+
+[node name="Wind556" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7201, -9406.5)
+
+[node name="Wind557" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7262, -9607.5)
+
+[node name="Wind558" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7325, -9327.5)
+
+[node name="Wind559" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7375.5, -10113.5)
+
+[node name="Wind560" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7448.5, -9829.5)
+
+[node name="Wind561" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7521, -9968)
+
+[node name="Wind562" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7584, -9647)
+
+[node name="Wind563" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7644.5, -10395.5)
+
+[node name="Wind564" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7707.5, -10203.5)
+
+[node name="Wind565" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7768.5, -9110.5)
+
+[node name="Wind566" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7831.5, -9439.5)
+
+[node name="Wind567" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(7892, -9581)
+
+[node name="Wind568" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(7955, -9301)
+
+[node name="Wind569" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8016.5, -10140.5)
+
+[node name="Wind570" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8089.5, -9856.5)
+
+[node name="Wind571" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8150, -10008.5)
+
+[node name="Wind572" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8213, -9687.5)
+
+[node name="Wind573" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8274, -10495.5)
+
+[node name="Wind574" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8337, -10303.5)
+
+[node name="Wind575" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8397.5, -9151)
+
+[node name="Wind576" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8460.5, -9480)
+
+[node name="Wind577" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8533, -9608)
+
+[node name="Wind578" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8596, -9328)
+
+[node name="Wind579" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8646.5, -10114)
+
+[node name="Wind580" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8719.5, -9830)
+
+[node name="Wind581" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8780.5, -10041.5)
+
+[node name="Wind582" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8843.5, -9720.5)
+
+[node name="Wind583" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(8904, -10469)
+
+[node name="Wind584" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(8967, -10277)
+
+[node name="Wind585" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9031, -9123)
+
+[node name="Wind586" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9094, -9452)
+
+[node name="Wind587" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9154.5, -9593.5)
+
+[node name="Wind588" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9217.5, -9313.5)
+
+[node name="Wind589" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9268.5, -10159)
+
+[node name="Wind590" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9341.5, -9875)
+
+[node name="Wind591" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9402, -10027)
+
+[node name="Wind592" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9465, -9706)
+
+[node name="Wind593" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9537.5, -10441)
+
+[node name="Wind594" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9600.5, -10249)
+
+[node name="Wind595" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9661, -9096.5)
+
+[node name="Wind596" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9724, -9425.5)
+
+[node name="Wind597" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9785, -9626.5)
+
+[node name="Wind598" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9848, -9346.5)
+
+[node name="Wind599" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(9898.5, -10132.5)
+
+[node name="Wind600" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(9971.5, -9848.5)
+
+[node name="Wind601" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10041.5, -10008)
+
+[node name="Wind602" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10104.5, -9687)
+
+[node name="Wind603" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10165, -10435.5)
+
+[node name="Wind604" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10228, -10243.5)
+
+[node name="Wind605" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10289, -9150.5)
+
+[node name="Wind606" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10352, -9479.5)
+
+[node name="Wind607" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10412.5, -9621)
+
+[node name="Wind608" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10475.5, -9341)
+
+[node name="Wind609" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10538, -10113.5)
+
+[node name="Wind610" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10611, -9829.5)
+
+[node name="Wind611" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10671.5, -9981.5)
+
+[node name="Wind612" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10734.5, -9660.5)
+
+[node name="Wind613" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10795.5, -10468.5)
+
+[node name="Wind614" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10858.5, -10276.5)
+
+[node name="Wind615" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(10919, -9124)
+
+[node name="Wind616" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(10982, -9453)
+
+[node name="Wind617" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11046, -9593)
+
+[node name="Wind618" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11109, -9313)
+
+[node name="Wind619" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11159.5, -10099)
+
+[node name="Wind620" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11232.5, -9815)
+
+[node name="Wind621" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11293.5, -10026.5)
+
+[node name="Wind622" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11356.5, -9705.5)
+
+[node name="Wind623" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11417, -10454)
+
+[node name="Wind624" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11480, -10262)
+
+[node name="Wind625" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11552.5, -9096)
+
+[node name="Wind626" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11615.5, -9425)
+
+[node name="Wind627" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11676, -9566.5)
+
+[node name="Wind628" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11739, -9286.5)
+
+[node name="Wind629" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11790, -10132)
+
+[node name="Wind630" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11863, -9848)
+
+[node name="Wind631" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(11923.5, -10000)
+
+[node name="Wind632" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(11986.5, -9679)
+
+[node name="Wind633" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12058, -10481)
+
+[node name="Wind634" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12121, -10289)
+
+[node name="Wind635" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12181.5, -9136.5)
+
+[node name="Wind636" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12244.5, -9465.5)
+
+[node name="Wind637" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12305.5, -9666.5)
+
+[node name="Wind638" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12368.5, -9386.5)
+
+[node name="Wind639" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12419, -10172.5)
+
+[node name="Wind640" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12492, -9888.5)
+
+[node name="Wind641" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12564.5, -10027)
+
+[node name="Wind642" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12627.5, -9706)
+
+[node name="Wind643" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12688, -10454.5)
+
+[node name="Wind644" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12751, -10262.5)
+
+[node name="Wind645" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12812, -9169.5)
+
+[node name="Wind646" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12875, -9498.5)
+
+[node name="Wind647" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(12935.5, -9640)
+
+[node name="Wind648" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(12998.5, -9360)
+
+[node name="Wind649" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13052.5, -10144.5)
+
+[node name="Wind650" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13125.5, -9860.5)
+
+[node name="Wind651" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13186, -10012.5)
+
+[node name="Wind652" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13249, -9691.5)
+
+[node name="Wind653" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13310, -10499.5)
+
+[node name="Wind654" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13373, -10307.5)
+
+[node name="Wind655" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13433.5, -9155)
+
+[node name="Wind656" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13496.5, -9484)
+
+[node name="Wind657" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13569, -9612)
+
+[node name="Wind658" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13632, -9332)
+
+[node name="Wind659" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13682.5, -10118)
+
+[node name="Wind660" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13755.5, -9834)
+
+[node name="Wind661" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13816.5, -10045.5)
+
+[node name="Wind662" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(13879.5, -9724.5)
+
+[node name="Wind663" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(13940, -10473)
+
+[node name="Wind664" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14003, -10281)
+
+[node name="Wind665" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14063.5, -9104)
+
+[node name="Wind666" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14126.5, -9433)
+
+[node name="Wind667" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14187, -9574.5)
+
+[node name="Wind668" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14250, -9294.5)
+
+[node name="Wind669" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14301, -10140)
+
+[node name="Wind670" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14374, -9856)
+
+[node name="Wind671" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14434.5, -10008)
+
+[node name="Wind672" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14497.5, -9687)
+
+[node name="Wind673" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14570, -10422)
+
+[node name="Wind674" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14633, -10230)
+
+[node name="Wind675" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14693.5, -9077.5)
+
+[node name="Wind676" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14756.5, -9406.5)
+
+[node name="Wind677" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14817.5, -9607.5)
+
+[node name="Wind678" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(14880.5, -9327.5)
+
+[node name="Wind679" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(14931, -10113.5)
+
+[node name="Wind680" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15004, -9829.5)
+
+[node name="Wind681" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15068, -9980)
+
+[node name="Wind682" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15131, -9659)
+
+[node name="Wind683" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15191.5, -10407.5)
+
+[node name="Wind684" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15254.5, -10215.5)
+
+[node name="Wind685" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15315.5, -9122.5)
+
+[node name="Wind686" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15378.5, -9451.5)
+
+[node name="Wind687" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15439, -9593)
+
+[node name="Wind688" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15502, -9313)
+
+[node name="Wind689" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15564.5, -10085.5)
+
+[node name="Wind690" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15637.5, -9801.5)
+
+[node name="Wind691" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15698, -9953.5)
+
+[node name="Wind692" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15761, -9632.5)
+
+[node name="Wind693" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15822, -10440.5)
+
+[node name="Wind694" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(15885, -10248.5)
+
+[node name="Wind695" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(15945.5, -9096)
+
+[node name="Wind696" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16008.5, -9425)
+
+[node name="Wind697" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16080, -9620)
+
+[node name="Wind698" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16143, -9340)
+
+[node name="Wind699" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16193.5, -10126)
+
+[node name="Wind700" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16266.5, -9842)
+
+[node name="Wind701" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16327.5, -10053.5)
+
+[node name="Wind702" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16390.5, -9732.5)
+
+[node name="Wind703" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16451, -10481)
+
+[node name="Wind704" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16514, -10289)
+
+[node name="Wind705" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16586.5, -9123)
+
+[node name="Wind706" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16649.5, -9452)
+
+[node name="Wind707" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16710, -9593.5)
+
+[node name="Wind708" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16773, -9313.5)
+
+[node name="Wind709" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16824, -10159)
+
+[node name="Wind710" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(16897, -9875)
+
+[node name="Wind711" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(16957.5, -10027)
+
+[node name="Wind712" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17020.5, -9706)
+
+[node name="Wind713" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17084.5, -10453)
+
+[node name="Wind714" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17147.5, -10261)
+
+[node name="Wind715" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17208, -9108.5)
+
+[node name="Wind716" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17271, -9437.5)
+
+[node name="Wind717" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17332, -9638.5)
+
+[node name="Wind718" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17395, -9358.5)
+
+[node name="Wind719" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17445.5, -10144.5)
+
+[node name="Wind720" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17518.5, -9860.5)
+
+[node name="Wind721" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17591, -9999)
+
+[node name="Wind722" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17654, -9678)
+
+[node name="Wind723" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17714.5, -10426.5)
+
+[node name="Wind724" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17777.5, -10234.5)
+
+[node name="Wind725" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17838.5, -9141.5)
+
+[node name="Wind726" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(17901.5, -9470.5)
+
+[node name="Wind727" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(17962, -9612)
+
+[node name="Wind728" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18025, -9332)
+
+[node name="Wind729" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18085, -10125.5)
+
+[node name="Wind730" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18158, -9841.5)
+
+[node name="Wind731" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18218.5, -9993.5)
+
+[node name="Wind732" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18281.5, -9672.5)
+
+[node name="Wind733" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18342.5, -10480.5)
+
+[node name="Wind734" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18405.5, -10288.5)
+
+[node name="Wind735" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18466, -9136)
+
+[node name="Wind736" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18529, -9465)
+
+[node name="Wind737" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18601.5, -9593)
+
+[node name="Wind738" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18664.5, -9313)
+
+[node name="Wind739" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18715, -10099)
+
+[node name="Wind740" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18788, -9815)
+
+[node name="Wind741" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18849, -10026.5)
+
+[node name="Wind742" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(18912, -9705.5)
+
+[node name="Wind743" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(18972.5, -10454)
+
+[node name="Wind744" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19035.5, -10262)
+
+[node name="Wind745" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19099.5, -9108)
+
+[node name="Wind746" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19162.5, -9437)
+
+[node name="Wind747" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19223, -9578.5)
+
+[node name="Wind748" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19286, -9298.5)
+
+[node name="Wind749" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19337, -10144)
+
+[node name="Wind750" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19410, -9860)
+
+[node name="Wind751" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19470.5, -10012)
+
+[node name="Wind752" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19533.5, -9691)
+
+[node name="Wind753" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19606, -10426)
+
+[node name="Wind754" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19669, -10234)
+
+[node name="Wind755" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19729.5, -9081.5)
+
+[node name="Wind756" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19792.5, -9410.5)
+
+[node name="Wind757" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19853.5, -9611.5)
+
+[node name="Wind758" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(19916.5, -9331.5)
+
+[node name="Wind759" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(19967, -10117.5)
+
+[node name="Wind760" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20040, -9833.5)
+
+[node name="Wind761" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20111.5, -10039)
+
+[node name="Wind762" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20174.5, -9718)
+
+[node name="Wind763" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20235, -10466.5)
+
+[node name="Wind764" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20298, -10274.5)
+
+[node name="Wind765" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20359, -9181.5)
+
+[node name="Wind766" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20422, -9510.5)
+
+[node name="Wind767" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20482.5, -9652)
+
+[node name="Wind768" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20545.5, -9372)
+
+[node name="Wind769" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20608, -10144.5)
+
+[node name="Wind770" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20681, -9860.5)
+
+[node name="Wind771" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20741.5, -10012.5)
+
+[node name="Wind772" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20804.5, -9691.5)
+
+[node name="Wind773" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20865.5, -10499.5)
+
+[node name="Wind774" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(20928.5, -10307.5)
+
+[node name="Wind775" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(20989, -9155)
+
+[node name="Wind776" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21052, -9484)
+
+[node name="Wind777" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21116, -9624)
+
+[node name="Wind778" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21179, -9344)
+
+[node name="Wind779" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21229.5, -10130)
+
+[node name="Wind780" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21302.5, -9846)
+
+[node name="Wind781" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21363.5, -10057.5)
+
+[node name="Wind782" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21426.5, -9736.5)
+
+[node name="Wind783" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21487, -10485)
+
+[node name="Wind784" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21550, -10293)
+
+[node name="Wind785" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21622.5, -9127)
+
+[node name="Wind786" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21685.5, -9456)
+
+[node name="Wind787" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21746, -9597.5)
+
+[node name="Wind788" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21809, -9317.5)
+
+[node name="Wind789" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21860, -10163)
+
+[node name="Wind790" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(21933, -9879)
+
+[node name="Wind791" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(21993.5, -10031)
+
+[node name="Wind792" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22056.5, -9710)
+
+[node name="Wind793" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22109.5, -10434.5)
+
+[node name="Wind794" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22172.5, -10242.5)
+
+[node name="Wind795" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22233.5, -9149.5)
+
+[node name="Wind796" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22296.5, -9478.5)
+
+[node name="Wind797" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22357, -9620)
+
+[node name="Wind798" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22420, -9340)
+
+[node name="Wind799" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22482.5, -10112.5)
+
+[node name="Wind800" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22555.5, -9828.5)
+
+[node name="Wind801" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22616, -9980.5)
+
+[node name="Wind802" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22679, -9659.5)
+
+[node name="Wind803" parent="Wave1" instance=ExtResource("1_2tl06")]
+position = Vector2(22740, -10467.5)
+
+[node name="Wind804" parent="Wave1" instance=ExtResource("2_t6s7b")]
+position = Vector2(22803, -10275.5)
+
+[node name="Wave2" type="Node2D" parent="."]
+position = Vector2(6332, -517)
+
+[node name="Wind3" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -15891)
+
+[node name="Wind4" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -16721.5)
+
+[node name="Wind5" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -16452.5)
+
+[node name="Wind6" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -16649)
+
+[node name="Wind7" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -16283.5)
+
+[node name="Wind8" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -17076.5)
+
+[node name="Wind9" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -16826.5)
+
+[node name="Wind10" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -16032.5)
+
+[node name="Wind11" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -16174)
+
+[node name="Wind15" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -16907)
+
+[node name="Wind16" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -17737.5)
+
+[node name="Wind17" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -17468.5)
+
+[node name="Wind18" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -17665)
+
+[node name="Wind19" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -17299.5)
+
+[node name="Wind20" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -18092.5)
+
+[node name="Wind21" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -17842.5)
+
+[node name="Wind22" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -17048.5)
+
+[node name="Wind23" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -17190)
+
+[node name="Wind28" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7987.5, -15338.5)
+
+[node name="Wind29" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8058.5, -15069.5)
+
+[node name="Wind30" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8121.5, -15266)
+
+[node name="Wind32" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8245, -15693.5)
+
+[node name="Wind12" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7934.5, -15471)
+
+[node name="Wind13" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15453.5)
+
+[node name="Wind14" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15184.5)
+
+[node name="Wind24" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15381)
+
+[node name="Wind25" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8182, -15863.5)
+
+[node name="Wind26" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -15808.5)
+
+[node name="Wind33" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15558.5)
+
+[node name="Wind36" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(8380.5, -15612.5)
+
+[node name="Wind37" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(8441, -15754)
+
+[node name="Wind38" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15639)
+
+[node name="Wind39" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16469.5)
+
+[node name="Wind40" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16200.5)
+
+[node name="Wind41" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16397)
+
+[node name="Wind42" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16031.5)
+
+[node name="Wind43" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16824.5)
+
+[node name="Wind44" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16574.5)
+
+[node name="Wind45" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15780.5)
+
+[node name="Wind46" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15922)
+
+[node name="Wind47" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -16884)
+
+[node name="Wind48" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17714.5)
+
+[node name="Wind49" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17445.5)
+
+[node name="Wind50" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17642)
+
+[node name="Wind51" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17276.5)
+
+[node name="Wind52" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18069.5)
+
+[node name="Wind53" parent="Wave2" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17025.5)
+
+[node name="Wind54" parent="Wave2" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17167)
+
+[node name="Wave3" type="Node2D" parent="."]
+position = Vector2(7812, -517)
+
+[node name="Wind3" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -15891)
+
+[node name="Wind4" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -16721.5)
+
+[node name="Wind5" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -16452.5)
+
+[node name="Wind6" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -16649)
+
+[node name="Wind7" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -16283.5)
+
+[node name="Wind8" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -17076.5)
+
+[node name="Wind9" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -16826.5)
+
+[node name="Wind10" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -16032.5)
+
+[node name="Wind11" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -16174)
+
+[node name="Wind15" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -16907)
+
+[node name="Wind16" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -17737.5)
+
+[node name="Wind17" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -17468.5)
+
+[node name="Wind18" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -17665)
+
+[node name="Wind19" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -17299.5)
+
+[node name="Wind20" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -18092.5)
+
+[node name="Wind21" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -17842.5)
+
+[node name="Wind22" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -17048.5)
+
+[node name="Wind23" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -17190)
+
+[node name="Wind28" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7987.5, -15338.5)
+
+[node name="Wind29" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8058.5, -15069.5)
+
+[node name="Wind30" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8121.5, -15266)
+
+[node name="Wind32" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8245, -15693.5)
+
+[node name="Wind12" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7934.5, -15471)
+
+[node name="Wind13" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15453.5)
+
+[node name="Wind14" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15184.5)
+
+[node name="Wind24" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15381)
+
+[node name="Wind25" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8182, -15863.5)
+
+[node name="Wind26" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -15808.5)
+
+[node name="Wind33" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15558.5)
+
+[node name="Wind36" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(8380.5, -15612.5)
+
+[node name="Wind37" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(8441, -15754)
+
+[node name="Wind38" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15639)
+
+[node name="Wind39" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16469.5)
+
+[node name="Wind40" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16200.5)
+
+[node name="Wind41" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16397)
+
+[node name="Wind42" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16031.5)
+
+[node name="Wind43" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16824.5)
+
+[node name="Wind44" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16574.5)
+
+[node name="Wind45" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15780.5)
+
+[node name="Wind46" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15922)
+
+[node name="Wind47" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -16884)
+
+[node name="Wind48" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17714.5)
+
+[node name="Wind49" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17445.5)
+
+[node name="Wind50" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17642)
+
+[node name="Wind51" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17276.5)
+
+[node name="Wind52" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18069.5)
+
+[node name="Wind53" parent="Wave3" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17025.5)
+
+[node name="Wind54" parent="Wave3" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17167)
+
+[node name="Wave4" type="Node2D" parent="."]
+position = Vector2(1405, 994)
+
+[node name="Wind3" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14623)
+
+[node name="Wind13" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15453.5)
+
+[node name="Wind14" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15184.5)
+
+[node name="Wind24" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15381)
+
+[node name="Wind25" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15015.5)
+
+[node name="Wind26" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -15808.5)
+
+[node name="Wind33" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15558.5)
+
+[node name="Wind36" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -14764.5)
+
+[node name="Wind37" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -14906)
+
+[node name="Wind38" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15639)
+
+[node name="Wind39" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16469.5)
+
+[node name="Wind40" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16200.5)
+
+[node name="Wind41" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16397)
+
+[node name="Wind42" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16031.5)
+
+[node name="Wind43" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16824.5)
+
+[node name="Wind44" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16574.5)
+
+[node name="Wind45" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15780.5)
+
+[node name="Wind46" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15922)
+
+[node name="Wind47" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -16884)
+
+[node name="Wind48" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17714.5)
+
+[node name="Wind49" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17445.5)
+
+[node name="Wind50" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17642)
+
+[node name="Wind51" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17276.5)
+
+[node name="Wind52" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18069.5)
+
+[node name="Wind53" parent="Wave4" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17025.5)
+
+[node name="Wind54" parent="Wave4" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17167)
+
+[node name="Wave5" type="Node2D" parent="."]
+position = Vector2(-15, 1290)
+
+[node name="Wind3" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14974)
+
+[node name="Wind13" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15804.5)
+
+[node name="Wind14" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15535.5)
+
+[node name="Wind24" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15732)
+
+[node name="Wind25" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15366.5)
+
+[node name="Wind26" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16159.5)
+
+[node name="Wind33" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15909.5)
+
+[node name="Wind36" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15115.5)
+
+[node name="Wind37" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15257)
+
+[node name="Wind38" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15990)
+
+[node name="Wind39" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16820.5)
+
+[node name="Wind40" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16551.5)
+
+[node name="Wind41" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16748)
+
+[node name="Wind42" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16382.5)
+
+[node name="Wind43" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17175.5)
+
+[node name="Wind44" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16925.5)
+
+[node name="Wind45" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16131.5)
+
+[node name="Wind46" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16273)
+
+[node name="Wind47" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17235)
+
+[node name="Wind48" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18065.5)
+
+[node name="Wind49" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17796.5)
+
+[node name="Wind50" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17993)
+
+[node name="Wind51" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17627.5)
+
+[node name="Wind52" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18420.5)
+
+[node name="Wind53" parent="Wave5" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17376.5)
+
+[node name="Wind54" parent="Wave5" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17518)
+
+[node name="Wave6" type="Node2D" parent="."]
+position = Vector2(2793, 1290)
+
+[node name="Wind3" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14940)
+
+[node name="Wind13" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15770.5)
+
+[node name="Wind14" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15501.5)
+
+[node name="Wind24" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15698)
+
+[node name="Wind25" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15332.5)
+
+[node name="Wind26" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16125.5)
+
+[node name="Wind33" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15875.5)
+
+[node name="Wind36" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15081.5)
+
+[node name="Wind37" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15223)
+
+[node name="Wind38" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15956)
+
+[node name="Wind39" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16786.5)
+
+[node name="Wind40" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16517.5)
+
+[node name="Wind41" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16714)
+
+[node name="Wind42" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16348.5)
+
+[node name="Wind43" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17141.5)
+
+[node name="Wind44" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16891.5)
+
+[node name="Wind45" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16097.5)
+
+[node name="Wind46" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16239)
+
+[node name="Wind47" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17201)
+
+[node name="Wind48" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18031.5)
+
+[node name="Wind49" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17762.5)
+
+[node name="Wind50" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17959)
+
+[node name="Wind51" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17593.5)
+
+[node name="Wind52" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18386.5)
+
+[node name="Wind53" parent="Wave6" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17342.5)
+
+[node name="Wind54" parent="Wave6" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17484)
+
+[node name="Wave7" type="Node2D" parent="."]
+position = Vector2(5603, 1290)
+
+[node name="Wind3" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14895)
+
+[node name="Wind13" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15725.5)
+
+[node name="Wind14" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15456.5)
+
+[node name="Wind24" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15653)
+
+[node name="Wind25" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15287.5)
+
+[node name="Wind26" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16080.5)
+
+[node name="Wind33" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15830.5)
+
+[node name="Wind36" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15036.5)
+
+[node name="Wind37" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15178)
+
+[node name="Wind38" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15911)
+
+[node name="Wind39" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16741.5)
+
+[node name="Wind40" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16472.5)
+
+[node name="Wind41" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16669)
+
+[node name="Wind42" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16303.5)
+
+[node name="Wind43" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17096.5)
+
+[node name="Wind44" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16846.5)
+
+[node name="Wind45" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16052.5)
+
+[node name="Wind46" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16194)
+
+[node name="Wind47" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17156)
+
+[node name="Wind48" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17986.5)
+
+[node name="Wind49" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17717.5)
+
+[node name="Wind50" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17914)
+
+[node name="Wind51" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17548.5)
+
+[node name="Wind52" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18341.5)
+
+[node name="Wind53" parent="Wave7" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17297.5)
+
+[node name="Wind54" parent="Wave7" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17439)
+
+[node name="Wave8" type="Node2D" parent="."]
+position = Vector2(4183, 1290)
+
+[node name="Wind3" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14906)
+
+[node name="Wind13" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15736.5)
+
+[node name="Wind14" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15467.5)
+
+[node name="Wind24" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15664)
+
+[node name="Wind25" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15298.5)
+
+[node name="Wind26" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16091.5)
+
+[node name="Wind33" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15841.5)
+
+[node name="Wind36" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15047.5)
+
+[node name="Wind37" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15189)
+
+[node name="Wind38" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15922)
+
+[node name="Wind39" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16752.5)
+
+[node name="Wind40" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16483.5)
+
+[node name="Wind41" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16680)
+
+[node name="Wind42" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16314.5)
+
+[node name="Wind43" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17107.5)
+
+[node name="Wind44" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16857.5)
+
+[node name="Wind45" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16063.5)
+
+[node name="Wind46" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16205)
+
+[node name="Wind47" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17167)
+
+[node name="Wind48" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17997.5)
+
+[node name="Wind49" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17728.5)
+
+[node name="Wind50" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17925)
+
+[node name="Wind51" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17559.5)
+
+[node name="Wind52" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18352.5)
+
+[node name="Wind53" parent="Wave8" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17308.5)
+
+[node name="Wind54" parent="Wave8" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17450)
+
+[node name="Wave9" type="Node2D" parent="."]
+position = Vector2(6991, 1290)
+
+[node name="Wind3" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14974)
+
+[node name="Wind13" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15804.5)
+
+[node name="Wind14" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15535.5)
+
+[node name="Wind24" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15732)
+
+[node name="Wind25" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15366.5)
+
+[node name="Wind26" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16159.5)
+
+[node name="Wind33" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15909.5)
+
+[node name="Wind36" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15115.5)
+
+[node name="Wind37" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15257)
+
+[node name="Wind38" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15990)
+
+[node name="Wind39" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16820.5)
+
+[node name="Wind40" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16551.5)
+
+[node name="Wind41" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16748)
+
+[node name="Wind42" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16382.5)
+
+[node name="Wind43" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17175.5)
+
+[node name="Wind44" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16925.5)
+
+[node name="Wind45" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16131.5)
+
+[node name="Wind46" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16273)
+
+[node name="Wind47" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17235)
+
+[node name="Wind48" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18065.5)
+
+[node name="Wind49" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17796.5)
+
+[node name="Wind50" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17993)
+
+[node name="Wind51" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17627.5)
+
+[node name="Wind52" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18420.5)
+
+[node name="Wind53" parent="Wave9" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17376.5)
+
+[node name="Wind54" parent="Wave9" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17518)
+
+[node name="Wave10" type="Node2D" parent="."]
+position = Vector2(8421, 1290)
+
+[node name="Wind3" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14884)
+
+[node name="Wind13" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15714.5)
+
+[node name="Wind14" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15445.5)
+
+[node name="Wind24" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15642)
+
+[node name="Wind25" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15276.5)
+
+[node name="Wind26" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16069.5)
+
+[node name="Wind33" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15819.5)
+
+[node name="Wind36" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15025.5)
+
+[node name="Wind37" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15167)
+
+[node name="Wind38" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15900)
+
+[node name="Wind39" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16730.5)
+
+[node name="Wind40" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16461.5)
+
+[node name="Wind41" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16658)
+
+[node name="Wind42" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16292.5)
+
+[node name="Wind43" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17085.5)
+
+[node name="Wind44" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16835.5)
+
+[node name="Wind45" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16041.5)
+
+[node name="Wind46" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16183)
+
+[node name="Wind47" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17145)
+
+[node name="Wind48" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17975.5)
+
+[node name="Wind49" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17706.5)
+
+[node name="Wind50" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17903)
+
+[node name="Wind51" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17537.5)
+
+[node name="Wind52" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18330.5)
+
+[node name="Wind53" parent="Wave10" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17286.5)
+
+[node name="Wind54" parent="Wave10" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17428)
+
+[node name="Wave11" type="Node2D" parent="."]
+position = Vector2(11672, 1290)
+
+[node name="Wind3" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15019)
+
+[node name="Wind13" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15849.5)
+
+[node name="Wind14" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15580.5)
+
+[node name="Wind24" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15777)
+
+[node name="Wind25" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15411.5)
+
+[node name="Wind26" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16204.5)
+
+[node name="Wind33" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15954.5)
+
+[node name="Wind36" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15160.5)
+
+[node name="Wind37" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15302)
+
+[node name="Wind38" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -16035)
+
+[node name="Wind39" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16865.5)
+
+[node name="Wind40" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16596.5)
+
+[node name="Wind41" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16793)
+
+[node name="Wind42" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16427.5)
+
+[node name="Wind43" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17220.5)
+
+[node name="Wind44" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16970.5)
+
+[node name="Wind45" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16176.5)
+
+[node name="Wind46" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16318)
+
+[node name="Wind47" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17280)
+
+[node name="Wind48" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18110.5)
+
+[node name="Wind49" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17841.5)
+
+[node name="Wind50" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -18038)
+
+[node name="Wind51" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17672.5)
+
+[node name="Wind52" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18465.5)
+
+[node name="Wind53" parent="Wave11" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17421.5)
+
+[node name="Wind54" parent="Wave11" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17563)
+
+[node name="Wave12" type="Node2D" parent="."]
+position = Vector2(9981, 1290)
+
+[node name="Wind3" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14816)
+
+[node name="Wind13" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15646.5)
+
+[node name="Wind14" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15377.5)
+
+[node name="Wind24" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15574)
+
+[node name="Wind25" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15208.5)
+
+[node name="Wind26" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16001.5)
+
+[node name="Wind33" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15751.5)
+
+[node name="Wind36" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -14957.5)
+
+[node name="Wind37" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15099)
+
+[node name="Wind38" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15832)
+
+[node name="Wind39" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16662.5)
+
+[node name="Wind40" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16393.5)
+
+[node name="Wind41" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16590)
+
+[node name="Wind42" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16224.5)
+
+[node name="Wind43" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17017.5)
+
+[node name="Wind44" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16767.5)
+
+[node name="Wind45" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15973.5)
+
+[node name="Wind46" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16115)
+
+[node name="Wind47" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17077)
+
+[node name="Wind48" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17907.5)
+
+[node name="Wind49" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17638.5)
+
+[node name="Wind50" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17835)
+
+[node name="Wind51" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17469.5)
+
+[node name="Wind52" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18262.5)
+
+[node name="Wind53" parent="Wave12" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17218.5)
+
+[node name="Wind54" parent="Wave12" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17360)
+
+[node name="Wave13" type="Node2D" parent="."]
+position = Vector2(13382, 1290)
+
+[node name="Wind3" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14918)
+
+[node name="Wind13" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15748.5)
+
+[node name="Wind14" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15479.5)
+
+[node name="Wind24" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15676)
+
+[node name="Wind25" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15310.5)
+
+[node name="Wind26" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16103.5)
+
+[node name="Wind33" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15853.5)
+
+[node name="Wind36" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15059.5)
+
+[node name="Wind37" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15201)
+
+[node name="Wind38" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15934)
+
+[node name="Wind39" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16764.5)
+
+[node name="Wind40" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16495.5)
+
+[node name="Wind41" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16692)
+
+[node name="Wind42" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16326.5)
+
+[node name="Wind43" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17119.5)
+
+[node name="Wind44" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16869.5)
+
+[node name="Wind45" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16075.5)
+
+[node name="Wind46" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16217)
+
+[node name="Wind47" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17179)
+
+[node name="Wind48" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18009.5)
+
+[node name="Wind49" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17740.5)
+
+[node name="Wind50" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17937)
+
+[node name="Wind51" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17571.5)
+
+[node name="Wind52" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18364.5)
+
+[node name="Wind53" parent="Wave13" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17320.5)
+
+[node name="Wind54" parent="Wave13" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17462)
+
+[node name="Wave14" type="Node2D" parent="."]
+position = Vector2(9350, -2652)
+
+[node name="Wind3" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -11399)
+
+[node name="Wind4" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -12229.5)
+
+[node name="Wind5" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -11960.5)
+
+[node name="Wind6" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -12157)
+
+[node name="Wind7" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -11791.5)
+
+[node name="Wind8" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -12584.5)
+
+[node name="Wind9" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -12334.5)
+
+[node name="Wind10" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -11540.5)
+
+[node name="Wind11" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -11682)
+
+[node name="Wind15" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -12415)
+
+[node name="Wind16" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -13245.5)
+
+[node name="Wind17" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -12976.5)
+
+[node name="Wind18" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -13173)
+
+[node name="Wind19" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -12807.5)
+
+[node name="Wind20" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -13600.5)
+
+[node name="Wind21" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -13350.5)
+
+[node name="Wind22" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -12556.5)
+
+[node name="Wind23" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -12698)
+
+[node name="Wind27" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -13660)
+
+[node name="Wind28" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -14490.5)
+
+[node name="Wind29" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -14221.5)
+
+[node name="Wind30" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -14418)
+
+[node name="Wind31" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -14052.5)
+
+[node name="Wind32" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -14845.5)
+
+[node name="Wind34" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -13801.5)
+
+[node name="Wind35" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -13943)
+
+[node name="Wind12" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -14918)
+
+[node name="Wind13" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15748.5)
+
+[node name="Wind14" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15479.5)
+
+[node name="Wind24" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15676)
+
+[node name="Wind25" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -15310.5)
+
+[node name="Wind26" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16103.5)
+
+[node name="Wind33" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15853.5)
+
+[node name="Wind36" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15059.5)
+
+[node name="Wind37" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15201)
+
+[node name="Wind38" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15934)
+
+[node name="Wind39" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16764.5)
+
+[node name="Wind40" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16495.5)
+
+[node name="Wind41" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16692)
+
+[node name="Wind42" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16326.5)
+
+[node name="Wind43" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -17119.5)
+
+[node name="Wind44" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16869.5)
+
+[node name="Wind45" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -16075.5)
+
+[node name="Wind46" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -16217)
+
+[node name="Wind47" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -17179)
+
+[node name="Wind48" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -18009.5)
+
+[node name="Wind49" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17740.5)
+
+[node name="Wind50" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17937)
+
+[node name="Wind51" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17571.5)
+
+[node name="Wind52" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18364.5)
+
+[node name="Wind53" parent="Wave14" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17320.5)
+
+[node name="Wind54" parent="Wave14" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17462)
+
+[node name="Wave15" type="Node2D" parent="."]
+position = Vector2(7767, -3643)
+
+[node name="Wind3" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -15891)
+
+[node name="Wind4" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -16721.5)
+
+[node name="Wind5" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -16452.5)
+
+[node name="Wind6" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -16649)
+
+[node name="Wind7" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -16283.5)
+
+[node name="Wind8" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -17076.5)
+
+[node name="Wind9" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -16826.5)
+
+[node name="Wind10" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -16032.5)
+
+[node name="Wind11" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -16174)
+
+[node name="Wind15" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7958.5, -16907)
+
+[node name="Wind16" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8011.5, -17737.5)
+
+[node name="Wind17" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8082.5, -17468.5)
+
+[node name="Wind18" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8145.5, -17665)
+
+[node name="Wind19" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8206, -17299.5)
+
+[node name="Wind20" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8269, -18092.5)
+
+[node name="Wind21" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8341.5, -17842.5)
+
+[node name="Wind22" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8404.5, -17048.5)
+
+[node name="Wind23" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8465, -17190)
+
+[node name="Wind28" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7987.5, -15338.5)
+
+[node name="Wind29" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8058.5, -15069.5)
+
+[node name="Wind30" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8121.5, -15266)
+
+[node name="Wind32" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8245, -15693.5)
+
+[node name="Wind12" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7934.5, -15471)
+
+[node name="Wind13" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -15453.5)
+
+[node name="Wind14" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -15184.5)
+
+[node name="Wind24" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -15381)
+
+[node name="Wind25" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8182, -15863.5)
+
+[node name="Wind26" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -15808.5)
+
+[node name="Wind33" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -15558.5)
+
+[node name="Wind36" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(8380.5, -15612.5)
+
+[node name="Wind37" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(8441, -15754)
+
+[node name="Wind38" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -15639)
+
+[node name="Wind39" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -16469.5)
+
+[node name="Wind40" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -16200.5)
+
+[node name="Wind41" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -16397)
+
+[node name="Wind42" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -16031.5)
+
+[node name="Wind43" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -16824.5)
+
+[node name="Wind44" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7606, -16574.5)
+
+[node name="Wind45" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -15780.5)
+
+[node name="Wind46" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -15922)
+
+[node name="Wind47" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7223, -16884)
+
+[node name="Wind48" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7276, -17714.5)
+
+[node name="Wind49" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7347, -17445.5)
+
+[node name="Wind50" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7410, -17642)
+
+[node name="Wind51" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7470.5, -17276.5)
+
+[node name="Wind52" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7533.5, -18069.5)
+
+[node name="Wind53" parent="Wave15" instance=ExtResource("2_t6s7b")]
+position = Vector2(7669, -17025.5)
+
+[node name="Wind54" parent="Wave15" instance=ExtResource("1_2tl06")]
+position = Vector2(7729.5, -17167)

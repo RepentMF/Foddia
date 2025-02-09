@@ -23,7 +23,7 @@ func _process(delta):
 				right.play("pressed")
 			elif Input.is_action_just_released("ui_right"):
 				right.play("idle")
-	else:
+	else: #elif check if left and right are already playing idle; if they are, do nothing
 		left.play("idle")
 		right.play("idle")
 		left.visible = false

@@ -3,18 +3,19 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://hcb3an67qg80"
-path="res://godot/imported/UnderTheFeetOfMany4.otf-569829f5496e05bf94515fbce284d8a2.fontdata"
+path="res://.godot/imported/UnderTheFeetOfMany4.otf-569829f5496e05bf94515fbce284d8a2.fontdata"
 
 [deps]
 
 source_file="res://Menus/UnderTheFeetOfMany4.otf"
-dest_files=["res://godot/imported/UnderTheFeetOfMany4.otf-569829f5496e05bf94515fbce284d8a2.fontdata"]
+dest_files=["res://.godot/imported/UnderTheFeetOfMany4.otf-569829f5496e05bf94515fbce284d8a2.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=0
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

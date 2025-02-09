@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://73ymxfj4gwmv"
-path="res://godot/imported/hiker.png-0a033fda881833f53e32b511622e03e9.ctex"
+path="res://.godot/imported/hiker.png-0a033fda881833f53e32b511622e03e9.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/hiker.png"
-dest_files=["res://godot/imported/hiker.png-0a033fda881833f53e32b511622e03e9.ctex"]
+dest_files=["res://.godot/imported/hiker.png-0a033fda881833f53e32b511622e03e9.ctex"]
 
 [params]
 

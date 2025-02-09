@@ -1,5 +1,7 @@
 extends Area2D
 
+var temp_volume
+
 @onready var anim = $AnimatedSprite2D
 
 const InitialTime = 120
@@ -9,6 +11,9 @@ var countTime = 120
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if temp_volume != %SFXVolumeHandler.SFX_volume:
+		temp_volume = %SFXVolumeHandler.SFX_volume
+		get_node("Refill").volume_db = temp_volume
 	if anim.animation == "break" && anim.frame == 4:
 		anim.play("used")
 	elif hasBeenUsed && !anim.animation == "break" && !anim.animation == "used" && countTime >= 110:
@@ -36,5 +41,10 @@ func _on_body_entered(body):
 				body.rocket1.modulate = Color(1, 1, 1, 1)
 				body.rocket2.modulate = Color(1, 1, 1, 1)
 				body.countJetpackFuel = body.maxJetpackFuel
-			hasBeenUsed = true
+				hasBeenUsed = true
+			if !get_node("Refill").is_playing():
+				get_node("Refill").play()
+			elif get_node("Refill").get_playback_position() > get_node("Refill").stream.get_length() - 0.05:
+				get_node("Refill").stop()
+				get_node("Refill").play()
 	pass # Replace with function body.

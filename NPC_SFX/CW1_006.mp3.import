@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c82x70fopxxrk"
-path="res://godot/imported/CW1_006.mp3-1533b070f60382caf401b482ca1f17fa.mp3str"
+path="res://.godot/imported/CW1_006.mp3-1533b070f60382caf401b482ca1f17fa.mp3str"
 
 [deps]
 
 source_file="res://NPC_SFX/CW1_006.mp3"
-dest_files=["res://godot/imported/CW1_006.mp3-1533b070f60382caf401b482ca1f17fa.mp3str"]
+dest_files=["res://.godot/imported/CW1_006.mp3-1533b070f60382caf401b482ca1f17fa.mp3str"]
 
 [params]
 

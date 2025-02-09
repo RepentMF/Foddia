@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://37u0wcwbqa2k"]
+[gd_scene load_steps=19 format=3 uid="uid://37u0wcwbqa2k"]
 
 [ext_resource type="Script" path="res://InteractableObjects/CheckFlag.gd" id="1_7jqv0"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="2_kr0tq"]
 [ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="3_my6uh"]
+[ext_resource type="AudioStream" uid="uid://doi8ow5kos6na" path="res://SFX/FlagRepeat_Pickup.mp3" id="4_dctbs"]
+[ext_resource type="AudioStream" uid="uid://denj30jkpm8ls" path="res://SFX/FlagFirst_Pickup.mp3" id="5_qrl52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vojkd"]
 size = Vector2(4, 67)
@@ -121,5 +123,13 @@ position = Vector2(1.90735e-06, -10)
 scale = Vector2(1.91667, 1.91667)
 sprite_frames = SubResource("SpriteFrames_a6x7q")
 animation = &"flag_waving"
+
+[node name="PassFlag" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dctbs")
+volume_db = 15.0
+
+[node name="OpenFlag" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qrl52")
+volume_db = 15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ci26g0a7cmr3f"]
+[gd_scene load_steps=27 format=3 uid="uid://ci26g0a7cmr3f"]
 
 [ext_resource type="Script" path="res://InteractableObjects/RefillCharge.gd" id="1_hi8k4"]
 [ext_resource type="Texture2D" uid="uid://do1ma4a4r5s1h" path="res://icon.svg" id="1_lrpim"]
 [ext_resource type="Texture2D" uid="uid://bjjmawep4g4km" path="res://Graphics/Refill.png" id="3_wxiwm"]
+[ext_resource type="AudioStream" uid="uid://cxuslxclyjhp7" path="res://SFX/Refill.mp3" id="5_47j3b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 13.0
@@ -192,5 +193,8 @@ animation = &"combine"
 autoplay = "idle"
 frame = 4
 frame_progress = 1.0
+
+[node name="Refill" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_47j3b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

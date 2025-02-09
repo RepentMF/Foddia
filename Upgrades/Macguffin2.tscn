@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjt7dbjsbcwj2"]
+[gd_scene load_steps=16 format=3 uid="uid://bjt7dbjsbcwj2"]
 
 [ext_resource type="Script" path="res://Upgrades/Macguffin2.gd" id="1_hi6dc"]
 [ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="2_ctqg4"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_uos8c"]
+[ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="4_3yul3"]
+[ext_resource type="Script" path="res://InteractableObjects/QuickAudioPlayer.gd" id="5_ujwi4"]
+[ext_resource type="AudioStream" uid="uid://yt3uajax63qp" path="res://SFX/Macguffin2Item_Pickup.mp3" id="6_ns56d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 8.0
@@ -81,6 +84,13 @@ position = Vector2(0, -49)
 sprite_frames = SubResource("SpriteFrames_imjh8")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="QuickAudioPlayer" parent="." instance=ExtResource("4_3yul3")]
+unique_name_in_owner = true
+script = ExtResource("5_ujwi4")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="QuickAudioPlayer"]
+stream = ExtResource("6_ns56d")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://deko05fxmatnw"
-path="res://godot/imported/Whistling1.mp3-c70dc32667c07d69e6d5552ec52fb1fc.mp3str"
+path="res://.godot/imported/Whistling1.mp3-c70dc32667c07d69e6d5552ec52fb1fc.mp3str"
 
 [deps]
 
 source_file="res://SFX/Whistling1.mp3"
-dest_files=["res://godot/imported/Whistling1.mp3-c70dc32667c07d69e6d5552ec52fb1fc.mp3str"]
+dest_files=["res://.godot/imported/Whistling1.mp3-c70dc32667c07d69e6d5552ec52fb1fc.mp3str"]
 
 [params]
 

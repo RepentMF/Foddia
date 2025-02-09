@@ -9,12 +9,21 @@ var placement = false
 var countTime = 0 
 var countTime2 = 0
 var countTime3 = 0
+var temp_volume
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lightRed.enabled = false
 	lightGreen.enabled = true
 	pass # Replace with function body.
+
+func _process(delta):
+	if temp_volume != %SFXVolumeHandler.SFX_volume:
+		temp_volume = %SFXVolumeHandler.SFX_volume
+		get_node("Switched").volume_db = temp_volume
+		get_node("Opening").volume_db = temp_volume
+		get_node("Closing").volume_db = temp_volume
+		get_node("UpDown").volume_db = temp_volume
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -27,6 +36,8 @@ func _physics_process(delta):
 			countTime2 += 1
 			anim.play("door_closing")
 			lightRed.enabled = true
+			get_node("Switched").play()
+			get_node("Closing").play()
 		elif countTime2 < 80:
 			get_node("ElevatorWall1").global_position.y += 1
 			get_node("ElevatorWall2").global_position.y += 1
@@ -35,6 +46,8 @@ func _physics_process(delta):
 				anim.pause()
 		# Doors have closed
 		elif countTime2 == 80:
+			if countTime == 0:
+				get_node("UpDown").play()
 			# Elevator has not reached destination yet
 			if countTime < 2645: #3104
 				countTime += 1
@@ -50,6 +63,7 @@ func _physics_process(delta):
 					countTime3 += 1
 					anim.play("door_opening")
 					lightGreen.enabled = true
+					get_node("Opening").play()
 				elif countTime3 < 80:
 					get_node("ElevatorWall1").global_position.y -= 1
 					get_node("ElevatorWall2").global_position.y -= 1

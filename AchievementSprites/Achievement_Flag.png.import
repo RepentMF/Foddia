@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmtanmtnrbnqm"
-path="res://godot/imported/Achievement_Flag.png-30a3fd60f5b7711840f98531cdc359bd.ctex"
+path="res://.godot/imported/Achievement_Flag.png-30a3fd60f5b7711840f98531cdc359bd.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/Achievement_Flag.png"
-dest_files=["res://godot/imported/Achievement_Flag.png-30a3fd60f5b7711840f98531cdc359bd.ctex"]
+dest_files=["res://.godot/imported/Achievement_Flag.png-30a3fd60f5b7711840f98531cdc359bd.ctex"]
 
 [params]
 

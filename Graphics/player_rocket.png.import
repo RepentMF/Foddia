@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdhdd0mkxvhhd"
-path="res://godot/imported/player_rocket.png-1ab0cfa696209c80fd71852547aba737.ctex"
+path="res://.godot/imported/player_rocket.png-1ab0cfa696209c80fd71852547aba737.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/player_rocket.png"
-dest_files=["res://godot/imported/player_rocket.png-1ab0cfa696209c80fd71852547aba737.ctex"]
+dest_files=["res://.godot/imported/player_rocket.png-1ab0cfa696209c80fd71852547aba737.ctex"]
 
 [params]
 

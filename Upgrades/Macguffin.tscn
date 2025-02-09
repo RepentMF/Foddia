@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ceu60wp08ha24"]
+[gd_scene load_steps=19 format=3 uid="uid://ceu60wp08ha24"]
 
 [ext_resource type="Script" path="res://Upgrades/Macguffin.gd" id="1_j8k8l"]
 [ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="2_leil8"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_ldrm1"]
+[ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="4_qscqu"]
+[ext_resource type="Script" path="res://InteractableObjects/QuickAudioPlayer.gd" id="5_54igy"]
+[ext_resource type="AudioStream" uid="uid://mmxm2c0u4wpy" path="res://SFX/MacguffinItem_Pickup.mp3" id="6_p8ftx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wd1s"]
 atlas = ExtResource("2_leil8")
@@ -109,6 +112,13 @@ position = Vector2(0, -49)
 sprite_frames = SubResource("SpriteFrames_7v0ma")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="QuickAudioPlayer" parent="." instance=ExtResource("4_qscqu")]
+unique_name_in_owner = true
+script = ExtResource("5_54igy")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="QuickAudioPlayer"]
+stream = ExtResource("6_p8ftx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

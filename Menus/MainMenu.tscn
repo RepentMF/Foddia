@@ -1,11 +1,14 @@
-[gd_scene load_steps=34 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=47 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_qp85b"]
 [ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="3_7pwpf"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="3_8g8yg"]
+[ext_resource type="Script" path="res://Menus/ButtonHover.gd" id="4_h5eoc"]
+[ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="5_i63vp"]
 [ext_resource type="Texture2D" uid="uid://8b3h8oapx5y7" path="res://Graphics/MainMenu_bg_badEnd.png" id="6_1qws7"]
+[ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="6_731h4"]
 [ext_resource type="Texture2D" uid="uid://qc1b77ocktna" path="res://Graphics/MainMenu_Parallax0.png" id="6_nfy2d"]
 [ext_resource type="Texture2D" uid="uid://py4lmq1p22cl" path="res://Graphics/Macguffin.png" id="6_t4ph0"]
 [ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="6_y8olb"]
@@ -18,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b6v0ukxnglwxk" path="res://Graphics/MainMenu_Parallax2_1.png" id="12_fgpoj"]
 [ext_resource type="Texture2D" uid="uid://debbh1xump61i" path="res://Graphics/MainMenu_Parallax5.png" id="13_xo7q0"]
 [ext_resource type="Texture2D" uid="uid://b2bwrdtjw6w6n" path="res://Graphics/fuzzy_dice.png" id="14_cjrk4"]
+[ext_resource type="Texture2D" uid="uid://gg2cpngyy1qc" path="res://Graphics/MainMenu_Looking_bg.png" id="14_k74de"]
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="14_lh3in"]
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
@@ -26,6 +30,21 @@
 [ext_resource type="AudioStream" uid="uid://cc0ytk8rtn7av" path="res://SFX/CarEngine.mp3" id="24_e4v5l"]
 [ext_resource type="AudioStream" uid="uid://cth75cdh8gdu6" path="res://SFX/CarEngineStart.mp3" id="25_qlfbg"]
 [ext_resource type="Script" path="res://Menus/SteamController.gd" id="25_u4pyw"]
+[ext_resource type="AudioStream" uid="uid://cdhw13gyuaiuu" path="res://SFX/StartGame.mp3" id="26_dnhxk"]
+[ext_resource type="PackedScene" uid="uid://dhaoup6hj3t7l" path="res://SFX/SFXVolumeHandler.tscn" id="31_1mnl0"]
+[ext_resource type="PackedScene" uid="uid://blu7xsab8vmp4" path="res://OST/OSTVolumeHandler.tscn" id="32_8yiny"]
+[ext_resource type="Texture2D" uid="uid://d1npn7n8trdxe" path="res://Graphics/Foddia_title_demo1.png" id="33_jynr7"]
+[ext_resource type="Texture2D" uid="uid://b4e843en703jk" path="res://Graphics/Foddia_title_demo2.png" id="34_y61eo"]
+[ext_resource type="Texture2D" uid="uid://ckhg7ib6rjb2d" path="res://Graphics/Foddia_title_demo3.png" id="35_b3emr"]
+[ext_resource type="Texture2D" uid="uid://svm5ocjq7y6n" path="res://Graphics/Foddia_title_demo4.png" id="36_y1dnm"]
+[ext_resource type="Texture2D" uid="uid://ccowxuc1pwxm3" path="res://Graphics/Foddia_title_demo5.png" id="37_yjg7h"]
+[ext_resource type="Texture2D" uid="uid://ctv0smm8uvk8" path="res://Graphics/Foddia_title_demo6.png" id="38_boo8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
+shader = ExtResource("18_78h05")
+shader_parameter/scanline_count = 50.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pu5b6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qd8k"]
 atlas = ExtResource("6_t4ph0")
@@ -63,12 +82,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
-shader = ExtResource("18_78h05")
-shader_parameter/scanline_count = 50.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_pu5b6"]
-
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -79,7 +92,7 @@ grow_vertical = 2
 script = ExtResource("1_wf5ce")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = 1
+z_index = 2
 layout_mode = 0
 offset_left = -360.0
 offset_top = -240.0
@@ -97,12 +110,18 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -1296.0
-offset_top = -56.0
+offset_top = -21.0
 offset_right = -1132.0
-offset_bottom = 115.0
+offset_bottom = 150.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.735, 1.735)
+
+[node name="DialogueBox" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_i63vp")]
+unique_name_in_owner = true
+visible = false
+offset = Vector2(0, -450)
+transform = Transform2D(1, 0, 0, 1, 0, -450)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 modulate = Color(1, 1, 1, 0.745098)
@@ -115,12 +134,22 @@ layout_mode = 2
 theme = ExtResource("2_qp85b")
 theme_override_fonts/font = ExtResource("3_8g8yg")
 text = "New Hike"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while                    holding  no  items  and  starting  at  the  base  of  the  mountain."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/New Game"]
+stream = ExtResource("6_731h4")
 
 [node name="Start Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Embark"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty,  holding  all                   items  that  were  collected  during  that  climb  and  starting                   from  where  the  hike  left  off,  if  there  was  a  previous  hike."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Start Game"]
+stream = ExtResource("6_731h4")
 
 [node name="ChangeDifficulty" type="OptionButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -136,24 +165,179 @@ popup/item_1/text = "Foddian"
 popup/item_1/id = 1
 popup/item_2/text = "Permadeath"
 popup/item_2/id = 2
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Relaxed:  Checkpoints  are  available  and  plentiful.  A  stroll.                     Foddian:  No  fall  damage,  but  lots  of  emotional  damage.                     Permadeath:  One  mistake  allowed.  Like  real  life."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty"]
+stream = ExtResource("6_731h4")
 
 [node name="Go to Display Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Change Visuals"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Opens  up  the  graphics  menu."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu"]
+stream = ExtResource("6_731h4")
 
 [node name="Go to Audio Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Change Tunes"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Opens  up  the  audio  menu."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu"]
+stream = ExtResource("6_731h4")
 
 [node name="Quit Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Quit"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Closes  the  game's  .exe."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Quit Game"]
+stream = ExtResource("6_731h4")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_1n0o6")
+offset_left = -823.0
+offset_top = -463.0
+offset_right = 2166.0
+offset_bottom = 1503.0
+texture = SubResource("CanvasTexture_pu5b6")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -266.0
+offset_right = 32.0
+offset_bottom = -226.0
+
+[node name="Credits" type="RichTextLabel" parent="CanvasLayer3/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 709.0
+offset_top = 304.0
+offset_right = 1746.0
+offset_bottom = 1208.0
+theme = ExtResource("2_qp85b")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_8g8yg")
+theme_override_font_sizes/normal_font_size = 27
+text = " 
+ Lead Creative Director - Matthew Nelson
+
+ Lead Level Designer - Matthew Nelson
+
+ Lead Musical Composer - Danny Roa
+ Lead Musical Arranger - Danny Roa
+ Musical Consultant - Danny Roa
+ Musical Composer - Matthew Nelson
+ Musical Arranger - Matthew Nelson
+
+ Writing and Story Consultant - Viola Boleman
+ Writer - Matthew Nelson
+
+ Programming Consultant - Gavin C. Greif
+ Game Programmer - Matthew Nelson
+
+ Artist - Matthew Nelson
+ Background Artist - Dansci
+
+ Game Engine - Godot
+ OST Programs - Garage Band, MuseScore, Petaporon
+ SFX Programs - Bfxr, Vegas Pro 14"
+
+[node name="CreditsCheckBox" type="CheckBox" parent="CanvasLayer3/Control"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.4875
+anchor_top = 14.9984
+anchor_right = 2.4875
+anchor_bottom = 15.2984
+offset_left = -27.5
+offset_top = -25.9375
+offset_right = 124.5
+offset_bottom = -8.93749
+theme = ExtResource("2_qp85b")
+theme_override_colors/font_color = Color(0.686275, 0.690196, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.141176, 0.152941, 0.12549, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+text = "Credits"
+script = ExtResource("4_h5eoc")
+metadata/_edit_use_anchors_ = true
+metadata/Tooltip = ""
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer3/Control/CreditsCheckBox"]
+stream = ExtResource("6_731h4")
+
+[node name="TooltipsCheckBox" type="CheckBox" parent="CanvasLayer3/Control"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.4875
+anchor_top = 15.7234
+anchor_right = 2.4875
+anchor_bottom = 16.0234
+offset_left = -27.5
+offset_top = -25.9375
+offset_right = 124.5
+offset_bottom = -8.93749
+theme = ExtResource("2_qp85b")
+theme_override_colors/font_color = Color(0.686275, 0.690196, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.141176, 0.152941, 0.12549, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+text = "Tooltips"
+script = ExtResource("4_h5eoc")
+metadata/_edit_use_anchors_ = true
+metadata/Tooltip = "View  tips  for  many  of  the  options  in  the  main  menu.  Also  adds                                         in-game  post-it  boards  to  assist  with  game                                        knowledge."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer3/Control/TooltipsCheckBox"]
+stream = ExtResource("6_731h4")
+
+[node name="BadMainMenuBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture_filter = 1
+position = Vector2(640, 351)
+scale = Vector2(7.23034, 5.84)
+texture = ExtResource("6_1qws7")
+script = ExtResource("3_7pwpf")
+
+[node name="Macguffin2" type="Sprite2D" parent="BadMainMenuBg"]
+z_index = 1
+texture_filter = 1
+position = Vector2(-66.8369, 66.9089)
+rotation = -0.605305
+scale = Vector2(1, 1.118)
+skew = 0.181232
+texture = ExtResource("7_83fab")
+metadata/DIALOGUE = ["(I  guess  I  should've  expected  this...)", "(This  is  rather  beautiful.  I  wonder  if  you  would've  liked  this  as              much  as  I  do  right  now.)", "(But  there's  no  going  back  now.  I  could  have  saved  you.  Maybe              this  is  for  the  best, though.)", "(The  world  is  so  much  bigger  than  us-  I  see  that  now.)", "(I  just  wish  I  could  see  you  one  last  time.)"]
+metadata/ROBOT = ["(I  guess  I  should've  expected  this...)", "(Even  if  I'd  found  the  power  to  bring  you  back... would  you  have              even  wanted  to  live  in  a  world  like  that?)", "(A  world  where  it  would  just  be  us?)", "(As  cold  as  the  new  skin  I  wear  is-  at  least  your  mother's  not  a  murderer.)"]
+metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  want  so  badly  for  you  to  be  alive  here  with  me  in  this  world  again.)", "(But  I  can't  do  it  at  the  cost  of  everybody  else.  I  won't  become  that  monster.)", "(I'm  sorry,  Jenesis...  Broderick...)"]
+metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
+metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
 
 [node name="MainMenuBg" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -211,15 +395,15 @@ metadata/MACGUFFIN2 = ["(I...)", "(I  couldn't  go  through  with  it.)", "(I  w
 metadata/MACGUFFIN3 = ["(Can  you  see  it?)", "(This  boundless  sea  of  stars?)", "(It  was  always  what  you  talked  about  before  we  went  to                      sleep.)", "(So  excited  to  learn  anything  you  could  about  my  work.  It  was  all  I  could  do  just  to  keep  you  entertained.  Otherwise,  you'd                      just  wander  off  to  wherever  you  pleased.)", "(Now  you  and  I  will  sleep  here.)", "(Together,  among  this  radiant  universe  that  I  wish  you  got  to                      see  more  of.  I  wish  you  could  have  shown  me  more  of  what  made  it  so  wondrous  to  you.)", "(I  love  you,  Jenesis.)"]
 metadata/MACGUFFIN = ["(I'm  content  with  this...)", "(I  came  here  to  bring  you  both  back.  But  finding  our  most                  treasured  memory  here...)", "(This  flag...  our  family's  flag.  Our  family's  livelihood.  I  remember  exactly  what  you  mean  to  me.)", "(My  memories  of  you  are  all  I  have  anymore.  So  what  more                      could  I  need?)", "(I'll  see  you  soon,  my  loves.)"]
 
-[node name="BadMainMenuBg" type="Sprite2D" parent="."]
+[node name="MainMenuLookingBg" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
-z_index = -1
-texture_filter = 1
-position = Vector2(639.5, 351)
-scale = Vector2(7.23034, 5.84)
-texture = ExtResource("6_1qws7")
-script = ExtResource("3_7pwpf")
+position = Vector2(-328, 160)
+texture = ExtResource("14_k74de")
+
+[node name="MainMenuNotLookingBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-328, 392)
+texture = ExtResource("2_au53e")
 
 [node name="MainMenuParallax0" type="Sprite2D" parent="."]
 z_index = -3
@@ -358,18 +542,6 @@ scale = Vector2(0.960854, 0.954064)
 texture = ExtResource("14_cjrk4")
 script = ExtResource("15_olmf2")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 0
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
-material = SubResource("ShaderMaterial_1n0o6")
-offset_left = -823.0
-offset_top = -463.0
-offset_right = 2166.0
-offset_bottom = 1503.0
-texture = SubResource("CanvasTexture_pu5b6")
-
 [node name="AudioPlayer" type="Node2D" parent="."]
 script = ExtResource("23_rqw2y")
 
@@ -382,12 +554,47 @@ stream = ExtResource("24_e4v5l")
 [node name="CarEngineStart" type="AudioStreamPlayer2D" parent="AudioPlayer"]
 stream = ExtResource("25_qlfbg")
 
+[node name="StartGame" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+unique_name_in_owner = true
+stream = ExtResource("26_dnhxk")
+
 [node name="SteamController" type="Node2D" parent="."]
 script = ExtResource("25_u4pyw")
 
+[node name="SFXVolumeHandler" parent="." instance=ExtResource("31_1mnl0")]
+unique_name_in_owner = true
+
+[node name="OSTVolumeHandler" parent="." instance=ExtResource("32_8yiny")]
+unique_name_in_owner = true
+
+[node name="Title" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(878, 400)
+texture = ExtResource("33_jynr7")
+metadata/Titles = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource("35_b3emr"), ExtResource("36_y1dnm"), ExtResource("37_yjg7h"), ExtResource("38_boo8b")]
+
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="CanvasLayer/MarginContainer/VBoxContainer/New Game" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="CanvasLayer/MarginContainer/VBoxContainer/New Game" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="CanvasLayer/MarginContainer/VBoxContainer/Start Game" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="CanvasLayer/MarginContainer/VBoxContainer/Start Game" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_button_up"]
 [connection signal="item_selected" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" to="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" to="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="button_up" from="CanvasLayer3/Control/CreditsCheckBox" to="CanvasLayer3/Control/CreditsCheckBox" method="_on_button_up"]
+[connection signal="toggled" from="CanvasLayer3/Control/CreditsCheckBox" to="." method="_on_credits_check_box_toggled"]
+[connection signal="button_up" from="CanvasLayer3/Control/TooltipsCheckBox" to="CanvasLayer3/Control/TooltipsCheckBox" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer3/Control/TooltipsCheckBox" to="CanvasLayer3/Control/TooltipsCheckBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer3/Control/TooltipsCheckBox" to="CanvasLayer3/Control/TooltipsCheckBox" method="_on_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer3/Control/TooltipsCheckBox" to="." method="_on_tooltips_check_box_toggled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cnovtinhjb2b8"]
+[gd_scene load_steps=29 format=3 uid="uid://cnovtinhjb2b8"]
 
 [ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_0psag"]
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_j6u63"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://InteractableObjects/CreakArea.gd" id="10_8cais"]
 [ext_resource type="AudioStream" uid="uid://e8u5jep1aikc" path="res://SFX/RopeSwung.mp3" id="11_ka66p"]
 [ext_resource type="AudioStream" uid="uid://dfc1tmycb4hgc" path="res://SFX/RopeGrabbed.mp3" id="12_o4jus"]
+[ext_resource type="AudioStream" uid="uid://cd0d1inct0mg" path="res://SFX/RopeSnap.mp3" id="13_o810m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7chc"]
 atlas = ExtResource("7_hvppy")
@@ -152,6 +153,9 @@ position = Vector2(0, -36)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
+[node name="RopeSnap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_o810m")
+
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, 17)
 node_b = NodePath("../RopeLinkageTop")
@@ -285,7 +289,7 @@ position = Vector2(-7, 0)
 script = ExtResource("10_8cais")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaLeft"]
-position = Vector2(-80.5, 64.5)
+position = Vector2(-64.5, 64.5)
 shape = SubResource("RectangleShape2D_xbexl")
 
 [node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://0e8aobvt0f6w"]
+
+[ext_resource type="PackedScene" uid="uid://72qrj23hq1sl" path="res://InteractableObjects/WindCurrent.tscn" id="1_kej2c"]
+
+[node name="WindCurrents_pandemonium" type="Node2D"]
+position = Vector2(-336, 96)
+
+[node name="WindCurrent3" parent="." instance=ExtResource("1_kej2c")]
+position = Vector2(23144, -70)
+scale = Vector2(22.32, 6)
+
+[node name="WindCurrent4" parent="." instance=ExtResource("1_kej2c")]
+position = Vector2(25632, -70)
+scale = Vector2(22.32, 6)
+
+[node name="WindCurrent2" parent="." instance=ExtResource("1_kej2c")]
+position = Vector2(9086, 1059)
+scale = Vector2(28, 6)
+
+[node name="WindCurrent1" parent="." instance=ExtResource("1_kej2c")]
+position = Vector2(3480, 2892)
+scale = Vector2(78.8, 42)

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dfc1tmycb4hgc"
-path="res://godot/imported/RopeGrabbed.mp3-3526454105e345bd0b661d86da6264d5.mp3str"
+path="res://.godot/imported/RopeGrabbed.mp3-3526454105e345bd0b661d86da6264d5.mp3str"
 
 [deps]
 
 source_file="res://SFX/RopeGrabbed.mp3"
-dest_files=["res://godot/imported/RopeGrabbed.mp3-3526454105e345bd0b661d86da6264d5.mp3str"]
+dest_files=["res://.godot/imported/RopeGrabbed.mp3-3526454105e345bd0b661d86da6264d5.mp3str"]
 
 [params]
 

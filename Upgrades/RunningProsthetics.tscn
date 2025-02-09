@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://pep6as5g76w6"]
+[gd_scene load_steps=24 format=3 uid="uid://pep6as5g76w6"]
 
 [ext_resource type="Script" path="res://Upgrades/RunningProsthetics.gd" id="1_okw0b"]
 [ext_resource type="Texture2D" uid="uid://cjeknhjxc86sa" path="res://Graphics/RunningProsthetics.png" id="3_lifmx"]
 [ext_resource type="Texture2D" uid="uid://bqw7ybbeq2esp" path="res://Graphics/ui_click.png" id="3_pom1b"]
+[ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="4_phv7e"]
+[ext_resource type="AudioStream" uid="uid://dfdskqstr1ixl" path="res://SFX/UpgradeItem_Pickup.mp3" id="6_nfn3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3goda"]
 radius = 8.0
@@ -147,6 +149,12 @@ position = Vector2(0, -49)
 sprite_frames = SubResource("SpriteFrames_30axg")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="QuickAudioPlayer" parent="." instance=ExtResource("4_phv7e")]
+unique_name_in_owner = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="QuickAudioPlayer"]
+stream = ExtResource("6_nfn3r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

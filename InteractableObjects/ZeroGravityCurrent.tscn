@@ -7,6 +7,7 @@
 size = Vector2(100.5, 100)
 
 [node name="ZeroGravityCurrent" type="Area2D"]
+visible = false
 script = ExtResource("1_6fi0h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

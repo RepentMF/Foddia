@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=3 uid="uid://c3bpw5had3jpd"]
+[gd_scene load_steps=216 format=3 uid="uid://c3bpw5had3jpd"]
 
 [ext_resource type="Script" path="res://Menus/SpaceEnding.gd" id="1_3ml7q"]
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Ending.gd" id="2_a18q4"]
@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://bxfnlari2n7qv" path="res://InteractableObjects/LittleDipper.tscn" id="16_uivnw"]
 [ext_resource type="PackedScene" uid="uid://d3a3dc7mxiikv" path="res://InteractableObjects/BigDipper.tscn" id="17_hmvm5"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="22_b0pxc"]
+[ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="24_6pmqp"]
+[ext_resource type="AudioStream" uid="uid://btfratdli0e5r" path="res://OST/MaytheStarsFollowYou_foddia.mp3" id="25_rnqbs"]
+[ext_resource type="PackedScene" uid="uid://blu7xsab8vmp4" path="res://OST/OSTVolumeHandler.tscn" id="26_torx1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1layx"]
 atlas = ExtResource("4_yfwg7")
@@ -1759,5 +1762,13 @@ texture_filter = 1
 layout_mode = 2
 theme = ExtResource("22_b0pxc")
 text = "Thank you for playing!"
+
+[node name="QuickAudioPlayer" parent="." instance=ExtResource("24_6pmqp")]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="QuickAudioPlayer"]
+stream = ExtResource("25_rnqbs")
+
+[node name="SFXVolumeHandler" parent="." instance=ExtResource("26_torx1")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b2lped6txuqle"
-path="res://godot/imported/LostAgain3_foddia.mp3-fd7693b9b8919b2305de9107d321a59d.mp3str"
+path="res://.godot/imported/LostAgain3_foddia.mp3-fd7693b9b8919b2305de9107d321a59d.mp3str"
 
 [deps]
 
 source_file="res://OST/LostAgain3_foddia.mp3"
-dest_files=["res://godot/imported/LostAgain3_foddia.mp3-fd7693b9b8919b2305de9107d321a59d.mp3str"]
+dest_files=["res://.godot/imported/LostAgain3_foddia.mp3-fd7693b9b8919b2305de9107d321a59d.mp3str"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjfql43sd8p24"
-path="res://godot/imported/ui_left_arrow.png-89d110db9bf138af547e1037284a7a49.ctex"
+path="res://.godot/imported/ui_left_arrow.png-89d110db9bf138af547e1037284a7a49.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/ui_left_arrow.png"
-dest_files=["res://godot/imported/ui_left_arrow.png-89d110db9bf138af547e1037284a7a49.ctex"]
+dest_files=["res://.godot/imported/ui_left_arrow.png-89d110db9bf138af547e1037284a7a49.ctex"]
 
 [params]
 

@@ -253,7 +253,7 @@ position = Vector2(-7, 0)
 script = ExtResource("8_xke76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaLeft"]
-position = Vector2(-80.5, 64.5)
+position = Vector2(-64.5, 64.5)
 shape = SubResource("RectangleShape2D_cjafm")
 
 [node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]

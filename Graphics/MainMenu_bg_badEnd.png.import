@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8b3h8oapx5y7"
-path="res://godot/imported/MainMenu_bg_badEnd.png-dd59a11d37073dd51dd23358313f5ef7.ctex"
+path="res://.godot/imported/MainMenu_bg_badEnd.png-dd59a11d37073dd51dd23358313f5ef7.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Graphics/MainMenu_bg_badEnd.png"
-dest_files=["res://godot/imported/MainMenu_bg_badEnd.png-dd59a11d37073dd51dd23358313f5ef7.ctex"]
+dest_files=["res://.godot/imported/MainMenu_bg_badEnd.png-dd59a11d37073dd51dd23358313f5ef7.ctex"]
 
 [params]
 

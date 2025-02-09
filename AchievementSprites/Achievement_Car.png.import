@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhk00ut08kj6h"
-path="res://godot/imported/Achievement_Car.png-d90092977140ef27b53e64cd1685632a.ctex"
+path="res://.godot/imported/Achievement_Car.png-d90092977140ef27b53e64cd1685632a.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://AchievementSprites/Achievement_Car.png"
-dest_files=["res://godot/imported/Achievement_Car.png-d90092977140ef27b53e64cd1685632a.ctex"]
+dest_files=["res://.godot/imported/Achievement_Car.png-d90092977140ef27b53e64cd1685632a.ctex"]
 
 [params]
 

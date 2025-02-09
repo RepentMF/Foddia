@@ -12,7 +12,7 @@ var player
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	dice_opposite = !user_prefs.achievement_dice
-	dipper_opposite = (user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper)
+	#dipper_opposite = (user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper)
 	mush_setter = user_prefs.achievement_mushroom
 	oof_setter = user_prefs.achievement_oof
 	player = get_parent()
@@ -20,30 +20,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if user_prefs.achievement_dice:
-		if dice_opposite:
-			handle_dice_achievement()
-	if user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper:
-		if dipper_opposite:
+	if !user_prefs.demo:
+		if user_prefs.achievement_dice:
+			if dice_opposite:
+				handle_dice_achievement()
+		if user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper:
 			handle_dipper_achievement()
-	if !user_prefs.achievement_mushroom:
-		handle_mushroom_achievement()
-	if !user_prefs.achievement_oof:
-		handle_oof_achievement()
-	
-	user_prefs.save()
+		if !user_prefs.achievement_mushroom:
+			handle_mushroom_achievement()
+		if !user_prefs.achievement_oof:
+			handle_oof_achievement()
 	pass
 
 func handle_dice_achievement():
 	dice_opposite = !user_prefs.achievement_dice
 	if !Steam.getAchievement("ACHIEVEMENT_DICE")["achieved"]:
 		Steam.setAchievement("ACHIEVEMENT_DICE")
+		Steam.storeStats()
+		user_prefs.save()
 	pass
 
 func handle_dipper_achievement():
 	dipper_opposite = (user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper)
 	if !Steam.getAchievement("ACHIEVEMENT_DIPPER")["achieved"]:
 		Steam.setAchievement("ACHIEVEMENT_DIPPER")
+		Steam.storeStats()
+		user_prefs.save()
 	pass
 
 func handle_mushroom_achievement():
@@ -52,7 +54,9 @@ func handle_mushroom_achievement():
 	if mush_setter && player.velocity.y == 0:
 		if !Steam.getAchievement("ACHIEVEMENT_MUSHROOM")["achieved"]:
 			Steam.setAchievement("ACHIEVEMENT_MUSHROOM")
+			Steam.storeStats()
 			user_prefs.achievement_mushroom = true
+			user_prefs.save()
 	pass
 
 func handle_oof_achievement():
@@ -61,5 +65,7 @@ func handle_oof_achievement():
 	if oof_setter && player.velocity.y == 0:
 		if !Steam.getAchievement("ACHIEVEMENT_OOF")["achieved"]:
 			Steam.setAchievement("ACHIEVEMENT_OOF")
+			Steam.storeStats()
 			user_prefs.achievement_oof = true
+			user_prefs.save()
 	pass

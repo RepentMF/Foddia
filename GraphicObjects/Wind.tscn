@@ -6,7 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8gp6"]
 
 [node name="Wind" type="Sprite2D"]
-self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 texture = ExtResource("1_t0icc")
 hframes = 5
