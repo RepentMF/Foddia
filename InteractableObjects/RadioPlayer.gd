@@ -107,13 +107,13 @@ func _physics_process(delta):
 				album[current].volume_db -= 1
 				audio_changeable = false
 		
-		if (player.position.y > 750) || player.hasMacguffin2:
+		#if (player.position.y > 750) || player.hasMacguffin2:
 			# Pandemonium 2
-			selected = 8
-		elif player.position.x > -90 && player.position.x < 17500 && player.position.y < 130 && player.position.y > -3300:
+		#	selected = 8
+		if player.position.x > -90 && player.position.x < 26850 && player.position.y < 130 && player.position.y > -1970:
 			# Areas 1, 2, and 3
 			selected = 0
-		elif player.position.x > 2200 && player.position.x < 12890 && player.position.y < -3300 && player.position.y > -6350:
+		elif player.position.x > 2200 && player.position.x < 26850 && player.position.y < -3300 && player.position.y > -6350:
 			# Areas 4 and 5
 			selected = 1
 		elif player.position.x > 6200 && player.position.x < 17990 && player.position.y < -6350 && player.position.y > -12410:
@@ -128,14 +128,14 @@ func _physics_process(delta):
 		elif player.position.x > 15760 && player.position.x < 16525 && player.position.y < -22530 && player.position.y > -22850:
 			# Area 11
 			selected = 5
-		elif player.position.x > -90 && player.position.x < 26850 && player.position.y < -23000:
+		#elif player.position.x > -90 && player.position.x < 26850 && player.position.y < -23000:
 			# Space, change song to radio static later on
-			selected = 6
-			if current == 6:
-				album[current].stop()
-		elif player.position.x > 17500 && player.position.x < 26850 && player.position.y < 750 && player.position.y > -12250:
+		#	selected = 6
+		#	if current == 6:
+		#		album[current].stop()
+		#elif player.position.x > 17500 && player.position.x < 26850 && player.position.y < 750 && player.position.y > -12250:
 			# Pandemonium 1
-			selected = 7
+		#	selected = 7
 		
 		if audio_changeable:
 			if songIsPlaying:
