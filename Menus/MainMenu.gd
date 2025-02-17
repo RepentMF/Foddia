@@ -7,6 +7,7 @@ var user_prefs: UserPreferences
 
 var colorCount = 0
 var count = 1
+var cursor_highlighted = -100
 var gameStart = true
 var load = false
 
@@ -46,6 +47,9 @@ func _ready():
 
 func _physics_process(delta):
 	if !load:
+		use_keyboard_or_gamepad()
+	
+	if !load:
 		if gameStart:	
 			gameStart = false
 		if %Title.texture != %Title.get_meta("Titles")[user_prefs.title_color_index]:
@@ -63,6 +67,58 @@ func _physics_process(delta):
 		%MainMenuBg.texture = %MainMenuNotLookingBg.texture
 		load_game()
 	pass
+
+func use_keyboard_or_gamepad():
+	if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
+		cursor_highlighted = 0
+	elif cursor_highlighted == -101:
+		%CreditsCheckBox.release_focus()
+		%TooltipsCheckBox.release_focus()
+		%"New Game".release_focus()
+		%"Start Game".release_focus()
+		%ChangeDifficulty.release_focus()
+		%"Go to Display Menu".release_focus()
+		%"Go to Audio Menu".release_focus()
+		%"Quit Game".release_focus()
+		cursor_highlighted = -100
+	elif cursor_highlighted != -100:
+		if cursor_highlighted != 6:
+			if cursor_highlighted > -2:
+				if Input.is_action_just_pressed("ui_up"):
+					cursor_highlighted -= 1
+			if cursor_highlighted < 5:
+				if Input.is_action_just_pressed("ui_down"):
+					cursor_highlighted += 1
+		if user_prefs.tooltips_bool_check && !%Credits.visible:
+			%DialogueBox.visible = true
+			%MainMenuBg.texture = %MainMenuLookingBg.texture
+		elif %Credits.visible:
+			%DialogueBox.visible = false
+			%MainMenuBg.texture = %MainMenuCreditsLookingBg.texture
+		else:
+			%DialogueBox.visible = false
+			%MainMenuBg.texture = %MainMenuNotLookingBg.texture
+		if cursor_highlighted == -1:
+			%TooltipsCheckBox.grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %TooltipsCheckBox.get_meta("Tooltip")
+		elif cursor_highlighted == 0:
+			%"New Game".grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %"New Game".get_meta("Tooltip")
+		elif cursor_highlighted == 1:
+			%"Start Game".grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %"Start Game".get_meta("Tooltip")
+		elif cursor_highlighted == 2:
+			%ChangeDifficulty.grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %ChangeDifficulty.get_meta("Tooltip")
+		elif cursor_highlighted == 3:
+			%"Go to Display Menu".grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %"Go to Display Menu".get_meta("Tooltip")
+		elif cursor_highlighted == 4:
+			%"Go to Audio Menu".grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %"Go to Audio Menu".get_meta("Tooltip")
+		elif cursor_highlighted == 5:
+			%"Quit Game".grab_focus()
+			%DialogueBox.get_node("RichTextLabel").text = %"Quit Game".get_meta("Tooltip")
 
 func _on_new_game_pressed():
 	if !load:
@@ -164,9 +220,11 @@ func _on_credits_check_box_toggled(toggled_on):
 			%Credits.visible = true
 			%Title.visible = false
 			%DialogueBox.visible = false
+			%MainMenuBg.texture = %MainMenuCreditsLookingBg.texture
 		else:
 			%Credits.visible = false
 			%Title.visible = true
+			%MainMenuBg.texture = %MainMenuNotLookingBg.texture
 	pass # Replace with function body.
 	
 func _on_tooltips_check_box_toggled(toggled_on):
@@ -180,7 +238,10 @@ func _on_tooltips_check_box_toggled(toggled_on):
 		else:
 			user_prefs.tooltips_bool_check = false
 			%DialogueBox.visible = false
-			%MainMenuBg.texture = %MainMenuNotLookingBg.texture
+			if %Credits.visible:
+				%MainMenuBg.texture = %MainMenuCreditsLookingBg.texture
+			else:
+				%MainMenuBg.texture = %MainMenuNotLookingBg.texture
 		user_prefs.save()
 	pass # Replace with function body.
 
@@ -202,3 +263,7 @@ func load_game():
 			get_tree().change_scene_to_file("res://Levels/OverworldFoddian_demo.tscn")
 		elif user_prefs.difficulty_dropdown_index == 2:
 			get_tree().change_scene_to_file("res://Levels/OverworldPermadeath_demo.tscn")
+
+func _on_change_difficulty_item_focused(index):
+	cursor_highlighted = 6
+	pass # Replace with function body.

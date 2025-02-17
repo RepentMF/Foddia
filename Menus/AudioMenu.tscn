@@ -57,13 +57,15 @@ position = Vector2(1.75063, 7.1955)
 scale = Vector2(0.999999, 1)
 
 [node name="Return to Main Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D"]
+unique_name_in_owner = true
 texture_filter = 1
 offset_right = 92.0
 offset_bottom = 19.0
 theme = ExtResource("2_th3ii")
 theme_override_colors/font_color = Color(0.589844, 0.621094, 0.585938, 1)
 theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
-text = "Hike Setup"
+theme_override_font_sizes/font_size = 12
+text = "Back  to  Hike  Setup"
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D2" type="Node2D" parent="CanvasLayer/MarginContainer/VBoxContainer"]
@@ -155,7 +157,7 @@ offset_bottom = -8.93749
 theme = ExtResource("2_th3ii")
 theme_override_colors/font_color = Color(0.585938, 0.617188, 0.582031, 1)
 theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
-text = "Voice Acting"
+text = "Voice  Acting"
 script = ExtResource("4_gtwtl")
 metadata/_edit_use_anchors_ = true
 metadata/Tooltip = ""
@@ -177,7 +179,7 @@ offset_bottom = -8.93749
 theme = ExtResource("2_th3ii")
 theme_override_colors/font_color = Color(0.585938, 0.617188, 0.582031, 1)
 theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
-text = "Radio Filtered OST"
+text = "Radio  Filtered  OST"
 script = ExtResource("4_gtwtl")
 metadata/_edit_use_anchors_ = true
 metadata/Tooltip = ""
@@ -218,10 +220,15 @@ unique_name_in_owner = true
 [node name="OSTVolumeHandler" parent="." instance=ExtResource("13_xgfd4")]
 unique_name_in_owner = true
 
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D/Return to Main Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D/Return to Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D2/MusicSlider" to="." method="_on_mouse_entered"]
 [connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D3/SFXSlider" to="." method="_on_mouse_entered"]
 [connection signal="value_changed" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D6/VoiceActingCheckBox" to="CanvasLayer/MarginContainer/VBoxContainer/Node2D6/VoiceActingCheckBox" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D6/VoiceActingCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D6/VoiceActingCheckBox" to="." method="_on_voice_acting_check_button_toggled"]
 [connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D7/RadioSongsChangeBool" to="CanvasLayer/MarginContainer/VBoxContainer/Node2D7/RadioSongsChangeBool" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D7/RadioSongsChangeBool" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/Node2D7/RadioSongsChangeBool" to="." method="_on_radio_songs_change_bool_toggled"]

@@ -6,6 +6,8 @@ extends Control
 @onready var voice_acting_checkbox = %VoiceActingCheckBox
 @onready var radio_songs_checkbox = %RadioSongsChangeBool
 
+var cursor_highlighted = -100
+
 var user_prefs: UserPreferences
 
 func _ready():
@@ -33,8 +35,37 @@ func _ready():
 		%Node2D5.position = Vector2(-3.00006, 77.5)
 
 func _process(delta):
+	use_keyboard_or_gamepad()
 	get_node("OptionSelect").volume_db = %SFXVolumeHandler.SFX_volume
 	pass
+
+func use_keyboard_or_gamepad():
+	if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
+		cursor_highlighted = 0
+	elif cursor_highlighted == -101:
+		%"Return to Main Menu".release_focus()
+		%VoiceActingCheckBox.release_focus()
+		%RadioSongsChangeBool.release_focus()
+		%MusicSlider.release_focus()
+		%SFXSlider.release_focus()
+		cursor_highlighted = -100
+	elif cursor_highlighted != -100:
+		if cursor_highlighted > -1:
+			if Input.is_action_just_pressed("ui_up"):
+				cursor_highlighted -= 1
+		if cursor_highlighted < 3:
+			if Input.is_action_just_pressed("ui_down"):
+				cursor_highlighted += 1
+		if cursor_highlighted == -1:
+			%"Return to Main Menu".grab_focus()
+		#elif cursor_highlighted == 0:
+		#	%VoiceActingCheckBox.grab_focus()
+		elif cursor_highlighted == 0:
+			%RadioSongsChangeBool.grab_focus()
+		elif cursor_highlighted == 1:
+			%MusicSlider.grab_focus()
+		elif cursor_highlighted == 2:
+			%SFXSlider.grab_focus()
 
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
@@ -62,4 +93,8 @@ func _on_radio_songs_change_bool_toggled(button_pressed):
 	if user_prefs:
 		user_prefs.radio_songs_bool_check = button_pressed
 		user_prefs.save()
+	pass # Replace with function body.
+
+func _on_mouse_entered():
+	cursor_highlighted = -101
 	pass # Replace with function body.

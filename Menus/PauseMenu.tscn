@@ -8,13 +8,59 @@
 process_mode = 2
 script = ExtResource("1_narsn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect1" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0.963103, 0.463808, 1.34766e-06, 0.470588)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0.654902, 0.654902, 0.654902, 0.470588)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0.87, 0.87, 0, 0.470588)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+visible = false
 offset_left = -360.0
 offset_top = -240.0
 offset_right = -196.0
 offset_bottom = -69.0001
 scale = Vector2(11.8958, 6.38123)
 color = Color(0, 0, 0.392157, 0.470588)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(0.113725, 0.745098, 0.27451, 0.470588)
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -240.0
+offset_right = -196.0
+offset_bottom = -69.0001
+scale = Vector2(11.8958, 6.38123)
+color = Color(1, 0.470588, 0.968627, 0.470588)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
@@ -37,46 +83,52 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Keep Hiking" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Keep Hiking"
+text = "Keep  Hiking"
 
 [node name="Go to Display Menu" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Change Visuals"
+text = "Change  Visuals"
 
 [node name="Go to Audio Menu" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Change Tunes"
+text = "Change  Tunes"
 
 [node name="New Game" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "New Hike"
+text = "New  Hike"
 
 [node name="Back to the Car" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Back to the Car"
+text = "Back  to  Hike  Setup"
 
 [node name="Quit Game" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Quit"
+text = "Quit  Hiking"
 
 [node name="GraphicsOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -84,11 +136,12 @@ visible = false
 layout_mode = 2
 
 [node name="Return to Pause Menu" type="Button" parent="MarginContainer/GraphicsOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Hike Setup"
+text = "Back  to  thinking..."
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
@@ -106,7 +159,7 @@ theme = ExtResource("3_y6l3s")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "CRT Filter"
+text = "CRT  Filter"
 
 [node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
@@ -115,19 +168,20 @@ theme = ExtResource("3_y6l3s")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Speedrun Timer"
+text = "Speedrun  Timer"
 
 [node name="AudioOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Return to Pause Menu" type="Button" parent="MarginContainer/AudioOptions"]
+[node name="Return to Pause Menu 2" type="Button" parent="MarginContainer/AudioOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
-text = "Hike Setup"
+text = "Back  to  thinking..."
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/AudioOptions"]
 unique_name_in_owner = true
@@ -197,7 +251,7 @@ offset_bottom = -8.93749
 theme = ExtResource("3_y6l3s")
 theme_override_colors/font_color = Color(0.863281, 0.863281, 0.863281, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Voice Acting"
+text = "Voice  Acting"
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D7" type="Node2D" parent="MarginContainer/AudioOptions"]
@@ -214,21 +268,36 @@ offset_bottom = -8.93749
 theme = ExtResource("3_y6l3s")
 theme_override_colors/font_color = Color(0.863281, 0.863281, 0.863281, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Radio Filtered OST"
+text = "Radio  Filtered  OST"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/New Game" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Back to the Car" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Back to the Car" to="." method="_on_back_to_the_car_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Quit Game" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/GraphicsOptions/Return to Pause Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/GraphicsOptions/Return to Pause Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/GraphicsOptions/FullscreenCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/GraphicsOptions/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="mouse_entered" from="MarginContainer/GraphicsOptions/CRTFilterCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/GraphicsOptions/CRTFilterCheckBox" to="." method="_on_crt_filter_check_box_toggled"]
+[connection signal="mouse_entered" from="MarginContainer/GraphicsOptions/SpeedrunCheckButton" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/GraphicsOptions/SpeedrunCheckButton" to="." method="_on_speedrun_check_button_toggled"]
-[connection signal="pressed" from="MarginContainer/AudioOptions/Return to Pause Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/Return to Pause Menu 2" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/AudioOptions/Return to Pause Menu 2" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/MusicSlider" to="." method="_on_mouse_entered"]
 [connection signal="value_changed" from="MarginContainer/AudioOptions/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/SFXSlider" to="." method="_on_mouse_entered"]
 [connection signal="value_changed" from="MarginContainer/AudioOptions/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D6/VoiceActingCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D6/VoiceActingCheckBox" to="." method="_on_voice_acting_check_button_toggled"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_radio_songs_check_box_toggled"]

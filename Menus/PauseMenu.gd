@@ -10,6 +10,7 @@ extends CanvasLayer
 
 var user_prefs: UserPreferences
 
+var cursor_highlighted = -100
 var spoof_fullscreen_bool
 var fullscreen_changed
 
@@ -22,9 +23,56 @@ func _ready():
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 		spoof_fullscreen_bool = false
+	if user_prefs.title_color_index == 0:
+		get_node("ColorRect1").visible = true
+		get_node("ColorRect2").visible = false
+		get_node("ColorRect3").visible = false
+		get_node("ColorRect4").visible = false
+		get_node("ColorRect5").visible = false
+		get_node("ColorRect6").visible = false
+	elif user_prefs.title_color_index == 1:
+		get_node("ColorRect1").visible = false
+		get_node("ColorRect2").visible = true
+		get_node("ColorRect3").visible = false
+		get_node("ColorRect4").visible = false
+		get_node("ColorRect5").visible = false
+		get_node("ColorRect6").visible = false
+	elif user_prefs.title_color_index == 2:
+		get_node("ColorRect1").visible = false
+		get_node("ColorRect2").visible = false
+		get_node("ColorRect3").visible = true
+		get_node("ColorRect4").visible = false
+		get_node("ColorRect5").visible = false
+		get_node("ColorRect6").visible = false
+	elif user_prefs.title_color_index == 3:
+		get_node("ColorRect1").visible = false
+		get_node("ColorRect2").visible = false
+		get_node("ColorRect3").visible = false
+		get_node("ColorRect4").visible = true
+		get_node("ColorRect5").visible = false
+		get_node("ColorRect6").visible = false
+	elif user_prefs.title_color_index == 4:
+		get_node("ColorRect1").visible = false
+		get_node("ColorRect2").visible = false
+		get_node("ColorRect3").visible = false
+		get_node("ColorRect4").visible = false
+		get_node("ColorRect5").visible = true
+		get_node("ColorRect6").visible = false
+	elif user_prefs.title_color_index == 5:
+		get_node("ColorRect1").visible = false
+		get_node("ColorRect2").visible = false
+		get_node("ColorRect3").visible = false
+		get_node("ColorRect4").visible = false
+		get_node("ColorRect5").visible = false
+		get_node("ColorRect6").visible = true
 	pass
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_menu"):
+		_on_keep_hiking_pressed()
+	
+	use_keyboard_or_gamepad()
+	
 	if spoof_fullscreen_bool != user_prefs.fullscreen_bool_check:
 		fullscreen_changed = true
 	if fullscreen_changed:
@@ -37,8 +85,85 @@ func _process(delta):
 		fullscreen_changed = false
 	pass
 
+func use_keyboard_or_gamepad():
+	if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
+		cursor_highlighted = 0
+	elif cursor_highlighted == -101:
+		if %PauseOptions.visible:
+			%"Keep Hiking".release_focus()
+			%"Go to Display Menu".release_focus()
+			%"Go to Audio Menu".release_focus()
+			%"New Game".release_focus()
+			%"Back to the Car".release_focus()
+			%"Quit Game".release_focus()
+		elif %GraphicsOptions.visible:
+			%"Return to Pause Menu".release_focus()
+			%"FullscreenCheckBox".release_focus()
+			%CRTFilterCheckBox.release_focus()
+			%SpeedrunCheckButton.release_focus()
+		elif %AudioOptions.visible:
+			%"Return to Pause Menu 2".release_focus()
+			%MusicSlider.release_focus()
+			%SFXSlider.release_focus()
+			%VoiceActingCheckBox.release_focus()
+			%RadioSongsCheckBox.release_focus()
+		cursor_highlighted = -100
+	elif cursor_highlighted != -100:
+		if %PauseOptions.visible:
+			if cursor_highlighted > -1:
+				if Input.is_action_just_pressed("ui_up"):
+					cursor_highlighted -= 1
+			if cursor_highlighted < 5:
+				if Input.is_action_just_pressed("ui_down"):
+					cursor_highlighted += 1
+			if cursor_highlighted == 0:
+				%"Keep Hiking".grab_focus()
+			elif cursor_highlighted == 1:
+				%"Go to Display Menu".grab_focus()
+			elif cursor_highlighted == 2:
+				%"Go to Audio Menu".grab_focus()
+			elif cursor_highlighted == 3:
+				%"New Game".grab_focus()
+			elif cursor_highlighted == 4:
+				%"Back to the Car".grab_focus()
+			elif cursor_highlighted == 5:
+				%"Quit Game".grab_focus()
+		elif %GraphicsOptions.visible:
+			if cursor_highlighted > -1:
+				if Input.is_action_just_pressed("ui_up"):
+					cursor_highlighted -= 1
+			if cursor_highlighted < 3:
+				if Input.is_action_just_pressed("ui_down"):
+					cursor_highlighted += 1
+			if cursor_highlighted == 0:
+				%"Return to Pause Menu".grab_focus()
+			elif cursor_highlighted == 1:
+				%FullscreenCheckBox.grab_focus()
+			elif cursor_highlighted == 2:
+				%CRTFilterCheckBox.grab_focus()
+			elif cursor_highlighted == 3:
+				%SpeedrunCheckButton.grab_focus()
+		elif %AudioOptions.visible:
+			if cursor_highlighted > -1:
+				if Input.is_action_just_pressed("ui_up"):
+					cursor_highlighted -= 1
+			if cursor_highlighted < 4:
+				if Input.is_action_just_pressed("ui_down"):
+					cursor_highlighted += 1
+			if cursor_highlighted == 0:
+				%"Return to Pause Menu 2".grab_focus()
+			elif cursor_highlighted == 1:
+				%MusicSlider.grab_focus()
+			elif cursor_highlighted == 2:
+				%SFXSlider.grab_focus()
+			elif cursor_highlighted == 3:
+				%VoiceActingCheckBox.grab_focus()
+			elif cursor_highlighted == 4:
+				%RadioSongsCheckBox.grab_focus()
+
 func _on_keep_hiking_pressed():
-	if  name == "PauseMenu" && get_tree().paused:
+	if  name == "PauseMenu" && get_tree().paused && %Player.pausePressed:
+		cursor_highlighted = -100
 		get_tree().paused = false
 		visible = false
 	pass # Replace with function body.
@@ -46,6 +171,7 @@ func _on_keep_hiking_pressed():
 func _on_go_to_display_menu_pressed():
 	%PauseOptions.visible = false
 	%GraphicsOptions.visible = true
+	cursor_highlighted = -100
 	if crt_checkbox:
 		crt_checkbox.button_pressed = user_prefs.crt_bool_check
 	if fullscreen_checkbox:
@@ -75,6 +201,7 @@ func _on_speedrun_check_button_toggled(button_pressed):
 func _on_go_to_audio_menu_pressed():
 	%PauseOptions.visible = false
 	%AudioOptions.visible = true
+	cursor_highlighted = -100
 	if music_slider:
 		music_slider.value = user_prefs.music_audio_level
 	if sfx_slider:
@@ -113,6 +240,7 @@ func _on_return_to_main_menu_pressed():
 	%PauseOptions.visible = true
 	%GraphicsOptions.visible = false
 	%AudioOptions.visible = false
+	cursor_highlighted = -100
 	pass # Replace with function body.
 
 func _on_new_game_pressed():
@@ -178,3 +306,7 @@ func _save_player_info():
 		user_prefs.permadeath_m = %Player.timer.m
 		user_prefs.permadeath_h = %Player.timer.h
 	user_prefs.save()
+
+func _on_mouse_entered():
+	cursor_highlighted = -101
+	pass # Replace with function body.

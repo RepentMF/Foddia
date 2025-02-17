@@ -23,6 +23,8 @@ func _physics_process(delta):
 	pass
 	
 func _on_mouse_entered():
+	if get_tree().root.get_node("MainMenu") != null:
+		get_tree().root.get_node("MainMenu").cursor_highlighted = -101
 	if tooltip && !%Credits.visible:
 		%DialogueBox.get_node("RichTextLabel").text = tooltip_txt
 		%DialogueBox.get_node("UI_Sprite2D").visible = false

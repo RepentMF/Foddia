@@ -47,6 +47,7 @@ var countRocketJumps = 2
 
 var fadeInCount = 100
 var game_start = true
+var pausePressed = false
 
 var climbXValue = 0
 var climbYValue = 0
@@ -466,9 +467,12 @@ func _process(delta):
 		anim_robot.visible = false
 		anim = anim_norm
 	if !isInteracting:
-		if Input.is_action_just_pressed("ui_menu"):
+		if Input.is_action_just_pressed("ui_menu") && !pausePressed:
 			%PauseMenu.visible = true
+			pausePressed = true
 			get_tree().paused = true
+		elif Input.is_action_just_pressed("ui_menu") && pausePressed:
+			pausePressed = false
 		CRT.visible = user_prefs.crt_bool_check
 		timer.visible = user_prefs.speedrun_bool_check
 		# Temporary static rope fix that will probably be permanent
@@ -545,7 +549,8 @@ func _physics_process(delta):
 			game_start = false
 			%FadeInPanel.visible = false
 	if !isInteracting:
-		direction = sign(velocity.x)
+		if direction != sign(velocity.x) && velocity.x != 0:
+			direction = sign(velocity.x)
 		if isDead:
 			$AudioPlayer.dead = true
 			global_position = checkpoint
@@ -697,7 +702,7 @@ func _physics_process(delta):
 			else:
 				gravity = gravityStandard
 			velocity.y += gravity * delta
-			lastGroundDirection = sign(velocity.x)
+			lastGroundDirection = direction
 			wasFalling = true
 			if velocity.y > 0:
 				countHangTime += 1
@@ -814,6 +819,7 @@ func _physics_process(delta):
 			elif wasJumping:
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					landedSoft = true
+					print("818")
 				wasJumping = false
 			if isOnIce && !landedSoft && !landedHard:
 				# Handle moving left and right speeds

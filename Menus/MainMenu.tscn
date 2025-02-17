@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=48 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://gg2cpngyy1qc" path="res://Graphics/MainMenu_Looking_bg.png" id="14_k74de"]
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="14_lh3in"]
 [ext_resource type="Script" path="res://Menus/SwingingObject.gd" id="15_olmf2"]
+[ext_resource type="Texture2D" uid="uid://c7kjfrgadsgcl" path="res://Graphics/MainMenu_CreditsLooking_bg.png" id="15_qih6k"]
 [ext_resource type="PackedScene" uid="uid://0sa1stdqcgc3" path="res://GraphicObjects/ItemString.tscn" id="16_6dkun"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="18_78h05"]
 [ext_resource type="Script" path="res://Menus/MainMenuAudioPlayer.gd" id="23_rqw2y"]
@@ -129,11 +130,12 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="New Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
 theme_override_fonts/font = ExtResource("3_8g8yg")
-text = "New Hike"
+text = "New  Hike"
 script = ExtResource("4_h5eoc")
 metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while                    holding  no  items  and  starting  at  the  base  of  the  mountain."
 
@@ -141,10 +143,11 @@ metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty
 stream = ExtResource("6_731h4")
 
 [node name="Start Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
-text = "Embark"
+text = "Continue  Hike"
 script = ExtResource("4_h5eoc")
 metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty,  holding  all                   items  that  were  collected  during  that  climb  and  starting                   from  where  the  hike  left  off,  if  there  was  a  previous  hike."
 
@@ -172,10 +175,11 @@ metadata/Tooltip = "Relaxed:  Checkpoints  are  available  and  plentiful.  A  s
 stream = ExtResource("6_731h4")
 
 [node name="Go to Display Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
-text = "Change Visuals"
+text = "Change  Visuals"
 script = ExtResource("4_h5eoc")
 metadata/Tooltip = "Opens  up  the  graphics  menu."
 
@@ -183,10 +187,11 @@ metadata/Tooltip = "Opens  up  the  graphics  menu."
 stream = ExtResource("6_731h4")
 
 [node name="Go to Audio Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
-text = "Change Tunes"
+text = "Change  Tunes"
 script = ExtResource("4_h5eoc")
 metadata/Tooltip = "Opens  up  the  audio  menu."
 
@@ -194,10 +199,11 @@ metadata/Tooltip = "Opens  up  the  audio  menu."
 stream = ExtResource("6_731h4")
 
 [node name="Quit Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
-text = "Quit"
+text = "Quit  Hiking"
 script = ExtResource("4_h5eoc")
 metadata/Tooltip = "Closes  the  game's  .exe."
 
@@ -400,6 +406,11 @@ unique_name_in_owner = true
 position = Vector2(-328, 160)
 texture = ExtResource("14_k74de")
 
+[node name="MainMenuCreditsLookingBg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-328, -80)
+texture = ExtResource("15_qih6k")
+
 [node name="MainMenuNotLookingBg" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-328, 392)
@@ -580,6 +591,7 @@ metadata/Titles = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="CanvasLayer/MarginContainer/VBoxContainer/Start Game" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_button_up"]
+[connection signal="item_focused" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_focused"]
 [connection signal="item_selected" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_exited"]

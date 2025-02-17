@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var UI = $UI_Sprite2D
+@onready var UI_keyboard = $UI_Sprite2D
+@onready var UI_controller = $UI_Sprite2D2
 
 var user_prefs: UserPreferences
 var dialogue
@@ -8,6 +9,7 @@ var indexer = 0
 var interacting = false
 var isNearUpgrade = false
 var textCount = 0
+var UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,6 +53,8 @@ func _process(delta):
 		%DialogueBox.get_node("RichTextLabel").text = dialogue[indexer]
 		UI.visible = false
 	pass
+
+
 
 func _on_body_entered(body):
 	if body.name == "Player":

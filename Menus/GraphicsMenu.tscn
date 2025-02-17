@@ -74,13 +74,14 @@ position = Vector2(529, 207)
 scale = Vector2(2.1793, 1.74344)
 
 [node name="Return to Main Menu" type="Button" parent="CanvasLayer/Node2D"]
+unique_name_in_owner = true
 texture_filter = 1
 offset_left = -19.7724
 offset_top = -30.5832
 offset_right = 132.228
 offset_bottom = -11.5832
 theme = ExtResource("2_n8g5v")
-text = "Hike Setup"
+text = "Back  to  Hike  Setup"
 metadata/_edit_use_anchors_ = true
 metadata/Tooltip = ""
 
@@ -139,7 +140,7 @@ offset_top = -30.5832
 offset_right = 132.228
 offset_bottom = -13.5832
 theme = ExtResource("2_n8g5v")
-text = "CRT Filter"
+text = "CRT  Filter"
 script = ExtResource("7_f6e0g")
 metadata/_edit_use_anchors_ = true
 metadata/Tooltip = ""
@@ -159,9 +160,10 @@ offset_top = -30.5832
 offset_right = 132.228
 offset_bottom = -13.5832
 theme = ExtResource("2_n8g5v")
-text = "Speedrun Timer"
+text = "Speedrun  Timer"
 script = ExtResource("7_f6e0g")
 metadata/Tooltip = ""
+metadata/_edit_group_ = true
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/Node2D5/SpeedrunCheckButton"]
 stream = ExtResource("11_va1ml")
@@ -234,4 +236,5 @@ unique_name_in_owner = true
 [connection signal="button_up" from="CanvasLayer/Node2D5/SpeedrunCheckButton" to="CanvasLayer/Node2D5/SpeedrunCheckButton" method="_on_button_up"]
 [connection signal="toggled" from="CanvasLayer/Node2D5/SpeedrunCheckButton" to="." method="_on_speedrun_check_button_toggled"]
 [connection signal="button_up" from="CanvasLayer/Node2D6/ChangeTitleColor" to="CanvasLayer/Node2D6/ChangeTitleColor" method="_on_button_up"]
+[connection signal="item_focused" from="CanvasLayer/Node2D6/ChangeTitleColor" to="." method="_on_change_title_color_item_focused"]
 [connection signal="item_selected" from="CanvasLayer/Node2D6/ChangeTitleColor" to="." method="_on_change_title_color_item_selected"]
