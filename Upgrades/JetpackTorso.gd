@@ -4,10 +4,12 @@ extends Area2D
 @onready var UI_controller = $UI_Sprite2D2
 
 var user_prefs: UserPreferences
+var controlsHaveChanged
 var dialogue
 var indexer = 0
 var interacting = false
 var isNearUpgrade = false
+var temp_UI
 var textCount = 0
 var UI
 
@@ -21,6 +23,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if controlsHaveChanged:
+		change_icons()
+	
 	if user_prefs.relaxed_jetpack_flag && user_prefs.difficulty_dropdown_index == 0:
 		queue_free()
 	elif user_prefs.foddian_jetpack_flag && user_prefs.difficulty_dropdown_index == 1:
@@ -54,7 +59,13 @@ func _process(delta):
 		UI.visible = false
 	pass
 
-
+func change_icons():
+	if UI == UI_controller:
+		UI = UI_keyboard
+	elif UI == UI_keyboard:
+		UI = UI_controller
+	controlsHaveChanged = false
+	pass
 
 func _on_body_entered(body):
 	if body.name == "Player":
