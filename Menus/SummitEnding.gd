@@ -36,7 +36,6 @@ func _ready():
 		%TimerDisplay.visible = false
 	if user_prefs.achievement_big_dipper:
 		get_node("BigDipper").visible = true
-		print("this worked, again")
 	if user_prefs.achievement_little_dipper:
 		get_node("LittleDipper").visible = true
 	pass # Replace with function body.

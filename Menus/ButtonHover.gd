@@ -27,7 +27,6 @@ func _on_mouse_entered():
 		get_tree().root.get_node("MainMenu").cursor_highlighted = -101
 	if tooltip && !%Credits.visible:
 		%DialogueBox.get_node("RichTextLabel").text = tooltip_txt
-		%DialogueBox.get_node("UI_Sprite2D").visible = false
 		%DialogueBox.visible = true
 		%MainMenuBg.texture = %MainMenuLookingBg.texture
 	pass # Replace with function body.
@@ -35,7 +34,6 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	if tooltip && !%Credits.visible:
 		%DialogueBox.get_node("RichTextLabel").text = tooltip_txt
-		%DialogueBox.get_node("UI_Sprite2D").visible = false
 		%DialogueBox.visible = false
 		%MainMenuBg.texture = %MainMenuNotLookingBg.texture
 	pass # Replace with function body.

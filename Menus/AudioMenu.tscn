@@ -59,12 +59,15 @@ scale = Vector2(0.999999, 1)
 [node name="Return to Main Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Node2D"]
 unique_name_in_owner = true
 texture_filter = 1
-offset_right = 92.0
-offset_bottom = 19.0
+offset_left = 10.2494
+offset_top = 0.0544968
+offset_right = 102.249
+offset_bottom = 19.0545
+scale = Vector2(0.789999, 1)
 theme = ExtResource("2_th3ii")
 theme_override_colors/font_color = Color(0.589844, 0.621094, 0.585938, 1)
 theme_override_colors/font_outline_color = Color(0.449219, 0.457031, 0.421875, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 9
 text = "Back  to  Hike  Setup"
 metadata/_edit_use_anchors_ = true
 

@@ -167,11 +167,12 @@ func _physics_process(delta):
 				if hardAir.volume_db < hardAirMax:
 					hardAir2.volume_db = softAir.volume_db - 2.0
 	
-	if justLanded && !softLanded.is_playing() && !hardLanded.is_playing():
-		if player.landedHard && dead:
+	if (justLanded && !softLanded.is_playing() && !hardLanded.is_playing()) || player.forceDied:
+		if (player.landedHard && dead) || player.forceDied:
 			deadLanded.pitch_scale = rng.randf_range(.9, 1.2)
 			deadLanded.play(0)
 			dead = false
+			player.forceDied = false
 		elif player.landedHard:
 			hardLanded.pitch_scale = rng.randf_range(.9, 1.2)
 			hardLanded.play(0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=49 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://drtennaimv54h" path="res://Graphics/MainMenu_Parallax1.png" id="6_y8olb"]
 [ext_resource type="Texture2D" uid="uid://dknf6lpk8dfhd" path="res://Graphics/Macguffin2.png" id="7_83fab"]
 [ext_resource type="Script" path="res://Menus/MenuParallax.gd" id="7_cdkbr"]
+[ext_resource type="Texture2D" uid="uid://dejdwo4q7j4fc" path="res://Graphics/MultipleArrow.png" id="7_cs1kr"]
 [ext_resource type="Texture2D" uid="uid://48pt8xcc7xgs" path="res://Graphics/MainMenu_Parallax0_1.png" id="8_cxcm5"]
 [ext_resource type="Texture2D" uid="uid://dmhete1n30yr2" path="res://Graphics/Macguffin3_Driving.png" id="8_f7b7y"]
 [ext_resource type="Texture2D" uid="uid://hcfiija3i00e" path="res://Graphics/MainMenu_Parallax3.png" id="11_4x0pt"]
@@ -105,18 +106,20 @@ color = Color(0, 0, 0, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1296.0
-offset_top = -21.0
-offset_right = -1132.0
-offset_bottom = 150.0
+offset_left = -1376.0
+offset_top = -8.0
+offset_right = -1212.0
+offset_bottom = 163.0
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(1.735, 1.735)
+scale = Vector2(2.1, 2.1)
+theme_override_constants/margin_left = 50
 
 [node name="DialogueBox" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_i63vp")]
 unique_name_in_owner = true
@@ -125,7 +128,6 @@ offset = Vector2(0, -450)
 transform = Transform2D(1, 0, 0, 1, 0, -450)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -137,9 +139,10 @@ theme = ExtResource("2_qp85b")
 theme_override_fonts/font = ExtResource("3_8g8yg")
 text = "New  Hike"
 script = ExtResource("4_h5eoc")
-metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while                    holding  no  items  and  starting  at  the  base  of  the  mountain."
+metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty  from                     the  base  of  the  mountain."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/New Game"]
+scale = Vector2(-1.42075, 1)
 stream = ExtResource("6_731h4")
 
 [node name="Start Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
@@ -149,7 +152,7 @@ layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Continue  Hike"
 script = ExtResource("4_h5eoc")
-metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty,  holding  all                   items  that  were  collected  during  that  climb  and  starting                   from  where  the  hike  left  off,  if  there  was  a  previous  hike."
+metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty  from  where                  the  hike  left  off,  if  there  was  a  previous  hike."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Start Game"]
 stream = ExtResource("6_731h4")
@@ -159,6 +162,7 @@ unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_qp85b")
+theme_override_icons/arrow = ExtResource("7_cs1kr")
 toggle_mode = false
 alignment = 1
 selected = 1
@@ -236,38 +240,39 @@ offset_bottom = -226.0
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 709.0
-offset_top = 304.0
-offset_right = 1746.0
-offset_bottom = 1208.0
+offset_left = 700.0
+offset_top = 284.0
+offset_right = 1737.0
+offset_bottom = 1188.0
 theme = ExtResource("2_qp85b")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("3_8g8yg")
 theme_override_font_sizes/normal_font_size = 27
 text = " 
- Lead Creative Director - Matthew Nelson
+ Lead  Creative  Director  -  Matthew  Nelson
 
- Lead Level Designer - Matthew Nelson
+ Lead  Level  Designer  -  Matthew  Nelson
 
- Lead Musical Composer - Danny Roa
- Lead Musical Arranger - Danny Roa
- Musical Consultant - Danny Roa
- Musical Composer - Matthew Nelson
- Musical Arranger - Matthew Nelson
+ Lead  Musical  Composer  -  Danny  Roa
+ Lead  Musical  Arranger  -  Danny  Roa
+ Musical  Consultant  -  Danny  Roa
+ Musical  Composer  -  Matthew  Nelson
+ Musical  Arranger  -  Matthew  Nelson
 
- Writing and Story Consultant - Viola Boleman
- Writer - Matthew Nelson
+ Writing  and  Story  Consultant  -  Viola  Boleman
+ Writer  -  Matthew  Nelson
 
- Programming Consultant - Gavin C. Greif
- Game Programmer - Matthew Nelson
+ Programming  Consultant  -  Gavin  C.  Greif
+ Game  Programmer  -  Matthew  Nelson
 
- Artist - Matthew Nelson
- Background Artist - Dansci
+ Artist  -  Matthew  Nelson
+ Background Artist  -  Dansci
+ Retro  TV  Filter  Shader  -  LetsGameDev
 
- Game Engine - Godot
- OST Programs - Garage Band, MuseScore, Petaporon
- SFX Programs - Bfxr, Vegas Pro 14"
+ Game  Engine  -  Godot
+ OST  Programs  -  Garage  Band,  MuseScore,  Petaporon
+ SFX  Programs  -  Bfxr,  Vegas  Pro  14"
 
 [node name="CreditsCheckBox" type="CheckBox" parent="CanvasLayer3/Control"]
 unique_name_in_owner = true
@@ -580,6 +585,7 @@ unique_name_in_owner = true
 
 [node name="Title" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(878, 400)
 texture = ExtResource("33_jynr7")
 metadata/Titles = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource("35_b3emr"), ExtResource("36_y1dnm"), ExtResource("37_yjg7h"), ExtResource("38_boo8b")]

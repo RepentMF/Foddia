@@ -1,7 +1,9 @@
 extends Area2D
 
 @onready var player = %Player
-@onready var UI = $UI_Sprite2D
+@onready var UI_keyboard = $UI_Keyboard
+@onready var UI_controller = $UI_Controller
+@onready var UI = $UI_Keyboard
 
 var endingCount = 0
 var drivingEnding = false
@@ -20,8 +22,11 @@ func _ready():
 	dialogue = get_meta("DIALOGUE")
 	textCount = dialogue.size()
 	UI.visible = false
+	change_colors()
 	
-	if name.contains("BillBoard"):
+	if name.contains("BillBoard") || name.contains("Truck"):
+		UI_keyboard.position.y = -80
+		UI_controller.position.y = -100
 		if !user_prefs.tooltips_bool_check:
 			visible = false
 	pass # Replace with function body.
@@ -53,6 +58,9 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if %Player.changeControls:
+		change_icons()
+	
 	if !visible && name == "Shadow"  && player.hasMacguffin2:
 		visible = true
 		
@@ -124,6 +132,31 @@ func _important_npc_check():
 		%Player.isInteracting = false
 	pass
 
+func change_colors():
+	if user_prefs.title_color_index == 0:
+		UI_keyboard.modulate = Color(.945, .494, .095)
+		UI_controller.modulate = Color(.945, .494, .095)
+	elif user_prefs.title_color_index == 2:
+		UI_keyboard.modulate = Color(1, .980, .267)
+		UI_controller.modulate = Color(1, .980, .267)
+	elif user_prefs.title_color_index == 3:
+		UI_keyboard.modulate = Color(.059, .369, .969)
+		UI_controller.modulate = Color(.059, .369, .969)
+	elif user_prefs.title_color_index == 4:
+		UI_keyboard.modulate = Color(.059, .655, .255)
+		UI_controller.modulate = Color(.059, .655, .255)
+	elif user_prefs.title_color_index == 5:
+		UI_keyboard.modulate = Color(.937, .373, .902)
+		UI_controller.modulate = Color(.937, .373, .902)
+	pass
+
+func change_icons():
+	if %Player.currentMoveMethod == "Keyboard":
+		UI = UI_keyboard
+	elif %Player.currentMoveMethod == "Controller":
+		UI = UI_controller
+	pass
+
 func _on_body_entered(body):
 	if !name.contains("BillBoard"):
 		if body.name == "Player":
@@ -141,9 +174,13 @@ func _on_body_exited(body):
 		if body.name == "Player":
 			isNearSign = false
 			UI.visible = false
+			UI_keyboard.visible = false
+			UI_controller.visible = false
 	else:
 		if user_prefs.tooltips_bool_check:
 			if body.name == "Player":
 				isNearSign = false
 				UI.visible = false
+				UI_keyboard.visible = false
+				UI_controller.visible = false
 	pass # Replace with function body.

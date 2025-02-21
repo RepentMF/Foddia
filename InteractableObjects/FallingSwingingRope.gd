@@ -16,7 +16,6 @@ func _physics_process(delta):
 	if willFall:
 		if count == 300:
 			get_parent().get_node("RopeSnap").play()
-			print(get_parent().get_node("RopeSnap").is_playing())
 		if count > 0:
 			count -= 1
 		elif count == 0:

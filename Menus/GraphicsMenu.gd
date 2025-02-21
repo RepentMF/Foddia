@@ -47,7 +47,6 @@ func _physics_process(delta):
 	pass
 
 func use_keyboard_or_gamepad():
-	print(cursor_highlighted)
 	if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
 		cursor_highlighted = 0
 	elif cursor_highlighted == -101:

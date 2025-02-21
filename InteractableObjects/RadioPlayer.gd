@@ -256,7 +256,7 @@ func stop_other_songs():
 			master_album[n].stop()
 	pass
 
-func print_values():
+#func print_values():
 	#print(" ")
 	#print("Audio is changeable: ", audio_changeable)
 	#print("Current: ", current)
@@ -264,4 +264,4 @@ func print_values():
 	#print("Commercial is playing: ", commercialIsPlaying)
 	#print("Item jingle is playing: ", itemIsPlaying)
 	#print("Song is playing: ", songIsPlaying)
-	print("Radio static is playing: ", staticIsPlaying)
+	#print("Radio static is playing: ", staticIsPlaying)

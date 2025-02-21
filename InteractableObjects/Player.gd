@@ -49,14 +49,22 @@ var fadeInCount = 100
 var game_start = true
 var pausePressed = false
 
+var changeControls = false
+var changeSwinging = false
 var climbXValue = 0
 var climbYValue = 0
+var currentConfirmMethod
+var currentMoveMethod
+var currentSwingMethod
 var deathParticle : PackedScene
 var direction = 0
 var gravity = 365
 var gravityLight = 100
 var gravityStandard = 365
 var lastGroundDirection = 0
+var lastConfirmMethod
+var lastMoveMethod
+var lastSwingMethod
 var zoomStandard = Vector2(1, 1)
 
 var hasJetpack = false
@@ -89,6 +97,7 @@ var softCount = 33
 var hardCount = 200
 
 var deadFadeCount = 0
+var forceDied = false
 var hairPosition = Vector2(-6, -14)
 var jumpSpeed = 100
 var jumpSpeedStandard = 100
@@ -339,6 +348,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	check_controls()
+	check_swinging()
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
 		temp_volume = %SFXVolumeHandler.SFX_volume
 		get_node("GrabLedge").volume_db = temp_volume
@@ -549,6 +560,8 @@ func _physics_process(delta):
 			game_start = false
 			%FadeInPanel.visible = false
 	if !isInteracting:
+		if forceDied:
+			isDead = true
 		if direction != sign(velocity.x) && velocity.x != 0:
 			direction = sign(velocity.x)
 		if isDead:
@@ -690,7 +703,7 @@ func _physics_process(delta):
 				crawl_ledge()
 			elif isClimbingLedge:
 				ascend_ledge()
-			elif Input.is_action_pressed("ui_accept"):
+			elif Input.is_action_pressed("ui_jump"):
 				isClimbingLedge = true
 				ascend_ledge()
 		# Add the gravity, handle aerial movement and calculations
@@ -715,7 +728,7 @@ func _physics_process(delta):
 			# Handle jetpack or rocket jumps
 			if !isFreefalling:
 				if hasJetpack:
-					if Input.is_action_pressed("ui_accept") && countJetpackFuel > 0:
+					if Input.is_action_pressed("ui_jump") && countJetpackFuel > 0:
 						isJetpacking = true
 						countJetpackFuel -= 1
 						countHangTime = 0
@@ -738,7 +751,7 @@ func _physics_process(delta):
 							velocity.y = sign(velocity.y) * JetpackSpeed
 						if int (countJetpackFuel) % 10 == 0:
 							smoke()
-					elif !Input.is_action_pressed("ui_accept") || countJetpackFuel <= 0:
+					elif !Input.is_action_pressed("ui_jump") || countJetpackFuel <= 0:
 						isJetpacking = false
 				elif hasRocketJump:
 					if hasRocketed:
@@ -748,7 +761,7 @@ func _physics_process(delta):
 						else:
 							smokeCount = 30
 							hasRocketed = false
-					if Input.is_action_just_pressed("ui_accept") && countRocketJumps > 0:
+					if Input.is_action_just_pressed("ui_jump") && countRocketJumps > 0:
 						hasRocketed = true
 						countRocketJumps -= 1
 						countHangTime = 0
@@ -819,7 +832,6 @@ func _physics_process(delta):
 			elif wasJumping:
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					landedSoft = true
-					print("818")
 				wasJumping = false
 			if isOnIce && !landedSoft && !landedHard:
 				# Handle moving left and right speeds
@@ -836,7 +848,7 @@ func _physics_process(delta):
 				if abs(velocity.x) > maxIceRunSpeed:
 					velocity.x = maxIceRunSpeed * sign(velocity.x)
 				# Handle jumping
-				if Input.is_action_just_pressed("ui_accept"):
+				if Input.is_action_just_pressed("ui_jump"):
 					velocity.y = -jumpSpeed - (abs(velocity.x) * .25)
 			elif !landedSoft && !landedHard:
 				# Enable running toggle
@@ -845,7 +857,7 @@ func _physics_process(delta):
 				elif Input.is_action_just_released("ui_select"):
 					isRunning = false
 				# Handle jumping
-				if Input.is_action_just_pressed("ui_accept"):
+				if Input.is_action_just_pressed("ui_jump"):
 					velocity.y = -jumpSpeed - (runSpeed * .25)
 					wasJumping = true
 				# Handle moving left and right speeds
@@ -1041,7 +1053,7 @@ func on_grab_with_legs(body):
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
-		if (((countHangTime >= 137 * (countBounces + 1) * 4 / 5 && countBounces > 0) || (countHangTime >= 350 && countBounces > 0)) || (countHangTime >= 137 && countBounces == 0)) && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
+		if (((countHangTime >= 137 * (countBounces + 1) * 4 / 5 && countBounces > 0) || (countHangTime >= 140 && countBounces > 0)) || (countHangTime >= 137 && countBounces == 0)) && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
 		elif countHangTime >= 400 && isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
@@ -1055,6 +1067,39 @@ func _on_release_with_legs(body):
 			isNearRope = false
 			swingRope = null
 			#ropeTempPosition = 0
+	pass
+
+func check_controls():
+	if Input.is_action_just_pressed("ui_left") || Input.is_action_just_pressed("ui_right"):
+		if Input.is_key_pressed(KEY_LEFT) || Input.is_key_pressed(KEY_RIGHT):
+			lastMoveMethod = "Keyboard"
+		else:
+			lastMoveMethod = "Controller"
+	if Input.is_action_just_pressed("ui_click"):
+		if Input.is_key_pressed(KEY_ENTER):
+			lastConfirmMethod = "Keyboard"
+		else:
+			lastConfirmMethod = "Controller"
+	if currentMoveMethod != lastMoveMethod || currentConfirmMethod != lastConfirmMethod:
+		currentMoveMethod = lastMoveMethod
+		currentConfirmMethod = lastConfirmMethod
+		changeControls = true
+	elif currentMoveMethod == lastMoveMethod  && currentConfirmMethod == lastConfirmMethod && changeControls:
+		changeControls = false
+	pass
+
+func check_swinging():
+	if Input.is_action_just_pressed("swing_leftrow") || Input.is_action_just_pressed("swing_rightrow"):
+		lastSwingMethod = "Keyboard"
+	elif Input.is_action_just_pressed("swing_left") || Input.is_action_just_pressed("swing_right"):
+		lastSwingMethod = "DPAD"
+	elif Input.is_action_just_pressed("swing_lb") || Input.is_action_just_pressed("swing_rb"):
+		lastSwingMethod = "Bumpers"
+	if currentSwingMethod != lastSwingMethod:
+		currentSwingMethod = lastSwingMethod
+		changeSwinging = true
+	elif currentSwingMethod == lastSwingMethod && changeSwinging:
+		changeSwinging = false
 	pass
 
 func _notification(what):
