@@ -1,0 +1,49 @@
+[gd_scene load_steps=28 format=3 uid="uid://c3bcxd3yqv4l3"]
+
+[ext_resource type="PackedScene" uid="uid://cfcc5t8pfobyi" path="res://InteractableObjects/NPC.tscn" id="1_2orh4"]
+[ext_resource type="PackedScene" uid="uid://bi5y5b64px0my" path="res://GraphicObjects/Hiker.tscn" id="2_ahxek"]
+[ext_resource type="Script" path="res://InteractableObjects/NPC.gd" id="3_x08jd"]
+[ext_resource type="Script" path="res://Levels/NPCAudioPlayer.gd" id="4_g5mtm"]
+[ext_resource type="AudioStream" uid="uid://brcph7gwlhl4q" path="res://NPC_SFX/HI_001.mp3" id="5_ahmrl"]
+[ext_resource type="AudioStream" uid="uid://dstvn3bqdtme0" path="res://NPC_SFX/HI_002.mp3" id="6_yf05x"]
+[ext_resource type="AudioStream" uid="uid://d1xqj0qpl807t" path="res://NPC_SFX/HI_003.mp3" id="7_o5bw3"]
+[ext_resource type="AudioStream" uid="uid://cl8numi3vjah8" path="res://NPC_SFX/HI_004.mp3" id="8_3wunt"]
+[ext_resource type="AudioStream" uid="uid://oaewclousvbe" path="res://NPC_SFX/HI_005.mp3" id="9_bu7n4"]
+[ext_resource type="AudioStream" uid="uid://bfrqdledj4oyn" path="res://NPC_SFX/HI_006.mp3" id="10_p7k3p"]
+[ext_resource type="AudioStream" uid="uid://dlx8scl81idjy" path="res://NPC_SFX/HI_007.mp3" id="11_jmlyf"]
+[ext_resource type="AudioStream" uid="uid://c43jlj2smfad1" path="res://NPC_SFX/HI_008.mp3" id="12_4aped"]
+[ext_resource type="AudioStream" uid="uid://c74ur8rwspbun" path="res://NPC_SFX/HI_009.mp3" id="13_gsh3k"]
+[ext_resource type="AudioStream" uid="uid://btc7y5k7p85am" path="res://NPC_SFX/HI_010.mp3" id="14_kdk84"]
+[ext_resource type="AudioStream" uid="uid://cu5r0lqq0uqp2" path="res://NPC_SFX/HI_011.mp3" id="15_dqywa"]
+[ext_resource type="AudioStream" uid="uid://c4acd4ktc11yc" path="res://NPC_SFX/HI_012.mp3" id="16_hn6wa"]
+[ext_resource type="AudioStream" uid="uid://dgp1p85m3cblo" path="res://NPC_SFX/HI_013.mp3" id="17_3e0eg"]
+[ext_resource type="AudioStream" uid="uid://b4ahh215tsdmp" path="res://NPC_SFX/HI_014.mp3" id="18_n2oat"]
+[ext_resource type="AudioStream" uid="uid://cfwvrospc4kni" path="res://NPC_SFX/HI_200.mp3" id="19_tn32i"]
+[ext_resource type="AudioStream" uid="uid://jx5ll1y5y3do" path="res://NPC_SFX/HI_100.mp3" id="20_qwtju"]
+[ext_resource type="AudioStream" uid="uid://d22josu7ejexp" path="res://NPC_SFX/HI_101.mp3" id="21_cholj"]
+[ext_resource type="AudioStream" uid="uid://cx4sxmsva1we0" path="res://NPC_SFX/HI_102.mp3" id="22_gjuli"]
+[ext_resource type="AudioStream" uid="uid://dv7yihdilsjd2" path="res://NPC_SFX/HI_103.mp3" id="23_sfc8q"]
+[ext_resource type="AudioStream" uid="uid://bxgstk6xf20oh" path="res://NPC_SFX/HI_104.mp3" id="24_0yu5w"]
+[ext_resource type="AudioStream" uid="uid://dyynjhvmo4tpo" path="res://NPC_SFX/HI_105.mp3" id="25_kimpv"]
+[ext_resource type="AudioStream" uid="uid://ccqkwysarwvq1" path="res://NPC_SFX/HI_106.mp3" id="26_gkhh4"]
+[ext_resource type="AudioStream" uid="uid://8h7koobbvduq" path="res://NPC_SFX/HI_107.mp3" id="27_8egdh"]
+
+[node name="HikerHolder" type="Node2D"]
+
+[node name="Hiker" parent="." instance=ExtResource("1_2orh4")]
+position = Vector2(17453, -19504)
+metadata/DIALOGUE = ["Ah.  Another  hiker.  Seems  like  you  made  it  up  here  just  fine.", "I'm  pretty  sure  you  and  I  are  the  only  two  who've  ever  made  it  this  high.", "I  mean.  I  guess  other  than  whoever  installed  that  elevator.", "Probably  whoever  was  trying  to  make  a  hotel  here?  I  don't                          know.", "There's  only  a  bit  left  to  go.", "I  know  we've  only  just  met  but...  I've  never  finished  a  climb              before.  Think  you  could  make  it  to  the  top?  For  the  both  of  us?", "Pretty  stupid  of  me,  huh?  Starting  with  the  tallest  climb  on              Earth?  Well.  I  guess  I  just  wanted  people  to  remember  me              for  something  amazing...", "I'm  even  the  one  that  put  up  all  of  those  swing  ropes  leading  to  the  summit.  That  is,  of  course,  before  I  slipped  and  rolled  back                         down  here.", "Hahaha... \"c'est  la  vie\"  and  whatnot.", "I'm  sure  it's  been  a  long  way  for  you.", "And  I  don't  just  mean  on  this  mountain.", "Whatever  you're  doing  here...", "However  you  got  here:", "I  hope  you  find  what  you're  looking  for."]
+metadata/Dead = ["", "You  find  what  you  were  looking  for?.."]
+metadata/Relieved = ["Woah!  That's  an  incredible  find!  Somebody  else  was  here  before  us??", "... that  look  in  your  eyes  makes  me  think  it's  not  actually  what  you came  here  for, though.", "Like  you're  remembering  something  bittersweet.  Something  that  you  feel  you  can't  let  go  of?", "But  to  be  honest,  I'm  glad  you  found  it.  Something  to  show  for  your  efforts!", "Are  you  sad  that  your  journey  is  coming  to  an  end?", "I'd  say  that  this  means  you  can  move  forward,  though.  With              sheer  and  utter  confidence,  no  less.", "If  you  overcame  this,  what's  stopping  you  from  living  your  life              now?", "You  can  do  anything."]
+
+[node name="anim" parent="Hiker" instance=ExtResource("2_ahxek")]
+scale = Vector2(1.5, 1.5)
+animation = &"idle"
+flip_h = true
+script = ExtResource("3_x08jd")
+
+[node name="Hiker_dialogue" type="AudioStreamPlayer2D" parent="Hiker"]
+script = ExtResource("4_g5mtm")
+metadata/dialogue = [ExtResource("5_ahmrl"), ExtResource("6_yf05x"), ExtResource("7_o5bw3"), ExtResource("8_3wunt"), ExtResource("9_bu7n4"), ExtResource("10_p7k3p"), ExtResource("11_jmlyf"), ExtResource("12_4aped"), ExtResource("13_gsh3k"), ExtResource("14_kdk84"), ExtResource("15_dqywa"), ExtResource("16_hn6wa"), ExtResource("17_3e0eg"), ExtResource("18_n2oat")]
+metadata/dead = [ExtResource("19_tn32i")]
+metadata/relieved = [ExtResource("20_qwtju"), ExtResource("21_cholj"), ExtResource("22_gjuli"), ExtResource("23_sfc8q"), ExtResource("24_0yu5w"), ExtResource("25_kimpv"), ExtResource("26_gkhh4"), ExtResource("27_8egdh")]
