@@ -14,6 +14,7 @@ var load = false
 func _ready():
 	Engine.max_fps = 30
 	user_prefs = UserPreferences.load_or_create()
+	user_prefs.demo = false
 	if user_prefs.tooltips_bool_check:
 		%TooltipsCheckBox.button_pressed = true
 	else:
@@ -52,9 +53,13 @@ func _physics_process(delta):
 	if !load:
 		if gameStart:	
 			gameStart = false
-		if %Title.texture != %Title.get_meta("Titles")[user_prefs.title_color_index]:
-			%Title.texture = %Title.get_meta("Titles")[user_prefs.title_color_index]
-		if !user_prefs.demo:
+		if user_prefs.demo:
+			if %Title.texture != %Title.get_meta("Titles_demo")[user_prefs.title_color_index]:
+				%Title.texture = %Title.get_meta("Titles_demo")[user_prefs.title_color_index]
+		else:
+			if %Title.texture != %Title.get_meta("Titles")[user_prefs.title_color_index]:
+				%Title.texture = %Title.get_meta("Titles")[user_prefs.title_color_index]
+		if !user_prefs.demo && Steam.isSteamRunning():
 			if user_prefs.bad_ending && !user_prefs.achievement_true:
 				user_prefs.achievement_true = true
 				if !Steam.getAchievement("ACHIEVEMENT_TRUE")["achieved"]:
@@ -69,61 +74,72 @@ func _physics_process(delta):
 	pass
 
 func use_keyboard_or_gamepad():
-	if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
-		cursor_highlighted = 0
-	elif cursor_highlighted == -101:
-		%CreditsCheckBox.release_focus()
-		%TooltipsCheckBox.release_focus()
-		%"New Game".release_focus()
-		%"Start Game".release_focus()
-		%ChangeDifficulty.release_focus()
-		%"Go to Display Menu".release_focus()
-		%"Go to Audio Menu".release_focus()
-		%"Quit Game".release_focus()
-		cursor_highlighted = -100
-	elif cursor_highlighted != -100:
-		if cursor_highlighted != 6:
-			if cursor_highlighted > -2:
-				if Input.is_action_just_pressed("ui_up"):
-					cursor_highlighted -= 1
-			if cursor_highlighted < 5:
-				if Input.is_action_just_pressed("ui_down"):
-					cursor_highlighted += 1
-		if user_prefs.tooltips_bool_check && !%Credits.visible:
-			%DialogueBox.visible = true
-			%MainMenuBg.texture = %MainMenuLookingBg.texture
-		elif %Credits.visible:
-			%DialogueBox.visible = false
-			%MainMenuBg.texture = %MainMenuCreditsLookingBg.texture
-		else:
-			%DialogueBox.visible = false
-			%MainMenuBg.texture = %MainMenuNotLookingBg.texture
-		if cursor_highlighted == -1:
-			%TooltipsCheckBox.grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %TooltipsCheckBox.get_meta("Tooltip")
-		elif cursor_highlighted == 0:
-			%"New Game".grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %"New Game".get_meta("Tooltip")
-		elif cursor_highlighted == 1:
-			%"Start Game".grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %"Start Game".get_meta("Tooltip")
-		elif cursor_highlighted == 2:
-			%ChangeDifficulty.grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %ChangeDifficulty.get_meta("Tooltip")
-		elif cursor_highlighted == 3:
-			%"Go to Display Menu".grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %"Go to Display Menu".get_meta("Tooltip")
-		elif cursor_highlighted == 4:
-			%"Go to Audio Menu".grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %"Go to Audio Menu".get_meta("Tooltip")
-		elif cursor_highlighted == 5:
-			%"Quit Game".grab_focus()
-			%DialogueBox.get_node("RichTextLabel").text = %"Quit Game".get_meta("Tooltip")
+	if !%ButtonsDisplay.visible:
+		if (Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_down")) && cursor_highlighted == -100:
+			cursor_highlighted = 0
+		elif cursor_highlighted == -101:
+			%CreditsCheckBox.release_focus()
+			%TooltipsCheckBox.release_focus()
+			%"New Game".release_focus()
+			%"Start Game".release_focus()
+			%ChangeDifficulty.release_focus()
+			%"Go to Display Menu".release_focus()
+			%"Go to Audio Menu".release_focus()
+			%"Quit Game".release_focus()
+			cursor_highlighted = -100
+		elif cursor_highlighted != -100:
+			if cursor_highlighted != 7:
+				if cursor_highlighted > -2:
+					if Input.is_action_just_pressed("ui_up"):
+						cursor_highlighted -= 1
+				if cursor_highlighted < 5:
+					if Input.is_action_just_pressed("ui_down"):
+						cursor_highlighted += 1
+			if user_prefs.tooltips_bool_check && !%Credits.visible:
+				%DialogueBox.visible = true
+				%MainMenuBg.texture = %MainMenuLookingBg.texture
+			elif %Credits.visible:
+				%DialogueBox.visible = false
+				%MainMenuBg.texture = %MainMenuCreditsLookingBg.texture
+			else:
+				%DialogueBox.visible = false
+				%MainMenuBg.texture = %MainMenuNotLookingBg.texture
+			if cursor_highlighted == -1:
+				%TooltipsCheckBox.grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %TooltipsCheckBox.get_meta("Tooltip")
+			elif cursor_highlighted == 0:
+				%"New Game".grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %"New Game".get_meta("Tooltip")
+			elif cursor_highlighted == 1:
+				%"Start Game".grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %"Start Game".get_meta("Tooltip")
+			elif cursor_highlighted == 2:
+				%ChangeDifficulty.grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %ChangeDifficulty.get_meta("Tooltip")
+			elif cursor_highlighted == 3:
+				%ControllerLayout.grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %ControllerLayout.get_meta("Tooltip")
+			elif cursor_highlighted == 4:
+				%"Go to Display Menu".grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %"Go to Display Menu".get_meta("Tooltip")
+			elif cursor_highlighted == 5:
+				%"Go to Audio Menu".grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %"Go to Audio Menu".get_meta("Tooltip")
+			elif cursor_highlighted == 6:
+				%"Quit Game".grab_focus()
+				%DialogueBox.get_node("RichTextLabel").text = %"Quit Game".get_meta("Tooltip")
+	elif %ButtonsDisplay.visible && !%ButtonsDisplay.started:
+		%ButtonsDisplay.started = true
+		get_tree().root.get_node("MainMenu/CanvasLayer/MarginContainer/DialogueBox").get_node("RichTextLabel").text = ""
+		get_tree().root.get_node("MainMenu/CanvasLayer/MarginContainer/DialogueBox").visible = true
+		release_focus()
 
 func _on_new_game_pressed():
 	if !load:
 		%StartGame.play()
 		user_prefs.bad_ending = false
+		user_prefs.dialogue_count = 0
+		user_prefs.teleportersAvailable = false
 		if get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 0:
 			user_prefs.relaxed_checkpoint = Vector2(260, 130)
 			user_prefs.relaxed_save = Vector2(260, 130)
@@ -152,6 +168,8 @@ func _on_new_game_pressed():
 			user_prefs.relaxed_flag12 = false
 			user_prefs.relaxed_flag13 = false
 			user_prefs.relaxed_flag14 = false
+			user_prefs.rel_last_song = "LostAgain"
+			user_prefs.rel_last_area = ""
 			user_prefs.save()
 		elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 1:
 			user_prefs.foddian_save = Vector2(260, 130)
@@ -166,8 +184,8 @@ func _on_new_game_pressed():
 			user_prefs.foddian_s = 0
 			user_prefs.foddian_m = 0
 			user_prefs.foddian_h = 0
-			user_prefs.foddian_flag1 = false
-			user_prefs.foddian_flag11 = false
+			user_prefs.fod_last_song = "LostAgain"
+			user_prefs.fod_last_area = ""
 			user_prefs.save()
 		elif get_node("CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty").get_selected_id() == 2:
 			user_prefs.permadeath_save = Vector2(260, 130)
@@ -182,6 +200,8 @@ func _on_new_game_pressed():
 			user_prefs.permadeath_s = 0
 			user_prefs.permadeath_m = 0
 			user_prefs.permadeath_h = 0
+			user_prefs.per_last_song = "LostAgain"
+			user_prefs.per_last_area = ""
 			user_prefs.save()
 		load = true
 	pass # Replace with function body.
@@ -198,7 +218,16 @@ func _on_change_difficulty_item_selected(index):
 			user_prefs.difficulty_dropdown_index = index
 			user_prefs.save()
 	pass # Replace with function body.
-	
+
+func _on_controller_layout_pressed():
+	if !load:
+		%ButtonsDisplay.visible = true
+		get_tree().root.get_node("MainMenu/CanvasLayer/MarginContainer/DialogueBox").visible = true
+		get_tree().root.get_node("MainMenu/CanvasLayer/MarginContainer/VBoxContainer").visible = false
+		get_tree().root.get_node("MainMenu/CanvasLayer3").visible = false
+		get_tree().root.get_node("MainMenu/Title").visible = false
+	pass # Replace with function body.
+
 func _on_go_to_display_menu_pressed():
 	if !load:
 		get_tree().change_scene_to_file("res://Menus/GraphicsMenu.tscn")
@@ -250,19 +279,27 @@ func load_game():
 		count += 1
 		colorCount += 0.1
 		$ColorRect.color.a = colorCount
-		$CanvasLayer/MarginContainer/VBoxContainer.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.0745
+		$CanvasLayer/MarginContainer/VBoxContainer.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.11
 		$CanvasLayer3/Control/Credits.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
 		$CanvasLayer3/Control/CreditsCheckBox.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
 		$CanvasLayer3/Control/TooltipsCheckBox.modulate.a = $CanvasLayer/MarginContainer/VBoxContainer.modulate.a - 0.06
 	elif $ColorRect.color.a < 1:
 		count += 1
 	elif $ColorRect.color.a == 1:
-		if user_prefs.difficulty_dropdown_index == 0:
-			get_tree().change_scene_to_file("res://Levels/OverworldRelaxed_demo.tscn")
-		elif user_prefs.difficulty_dropdown_index == 1:
-			get_tree().change_scene_to_file("res://Levels/OverworldFoddian_demo.tscn")
-		elif user_prefs.difficulty_dropdown_index == 2:
-			get_tree().change_scene_to_file("res://Levels/OverworldPermadeath_demo.tscn")
+		if user_prefs.demo:
+			if user_prefs.difficulty_dropdown_index == 0:
+				get_tree().change_scene_to_file("res://Levels/OverworldRelaxed_demo.tscn")
+			elif user_prefs.difficulty_dropdown_index == 1:
+				get_tree().change_scene_to_file("res://Levels/OverworldFoddian_demo.tscn")
+			elif user_prefs.difficulty_dropdown_index == 2:
+				get_tree().change_scene_to_file("res://Levels/OverworldPermadeath_demo.tscn")
+		else:
+			if user_prefs.difficulty_dropdown_index == 0:
+				get_tree().change_scene_to_file("res://Levels/OverworldRelaxed.tscn")
+			elif user_prefs.difficulty_dropdown_index == 1:
+				get_tree().change_scene_to_file("res://Levels/OverworldFoddian.tscn")
+			elif user_prefs.difficulty_dropdown_index == 2:
+				get_tree().change_scene_to_file("res://Levels/OverworldPermadeath.tscn")
 
 func _on_change_difficulty_item_focused(index):
 	cursor_highlighted = 6

@@ -12,15 +12,9 @@ func _ready():
 		Steam.steamInit()
 		var isRunning = Steam.isSteamRunning()
 		
-		#if !isRunning:
-			#print("Error: Steam is not running")
-		#	return
-		
-		#print("Steam is running.")
-		
-		var id = Steam.getSteamID()
-		var name = Steam.getFriendPersonaName(id)
-		#print("Username: ", str(name))
+		if isRunning:
+			var id = Steam.getSteamID()
+			var name = Steam.getFriendPersonaName(id)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

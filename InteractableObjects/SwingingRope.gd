@@ -5,21 +5,25 @@ extends Node2D
 var user_prefs: UserPreferences
 
 var currentSwingMethod
+var disabled
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	left.visible = false
 	right.visible = false
+	disabled = false
+	player = %Player
 	
 	change_colors()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if %Player.swingRope != null:
-		if %Player.swingRope.get_parent().name == name:
-			if currentSwingMethod != %Player.currentSwingMethod:
+	if player.swingRope != null:
+		if player.swingRope.get_parent().name == name:
+			if currentSwingMethod != player.currentSwingMethod:
 				change_icons()
 			left.visible = true
 			right.visible = true
@@ -31,11 +35,20 @@ func _process(delta):
 				right.play("pressed")
 			elif Input.is_action_just_released("ui_right"):
 				right.play("idle")
-	else: #elif check if left and right are already playing idle; if they are, do nothing
+			if !disabled:
+				for Node2D in get_children():
+					if Node2D.name.contains("Pinjoint"):
+						Node2D.disable_collision = true
+				disabled = true
+	elif left.visible && right.visible: #elif check if left and right are already playing idle; if they are, do nothing
 		left.play("idle")
 		right.play("idle")
 		left.visible = false
 		right.visible = false
+		for Node2D in get_children():
+			if Node2D.name.contains("Pinjoint"):
+				Node2D.disable_collision = true
+		disabled = false
 	pass
 
 func change_colors():
@@ -77,7 +90,7 @@ func change_colors():
 	pass
 
 func change_icons():
-	if %Player.currentSwingMethod == "Keyboard":
+	if player.currentSwingMethod == "Keyboard":
 		left = $UI_Keyboard_left
 		right = $UI_Keyboard_right
 		$UI_Arrow_left.visible = false
@@ -88,7 +101,7 @@ func change_icons():
 		$UI_Controller_right.visible = false
 		$UI_Controller_left.play("idle")
 		$UI_Controller_right.play("idle")
-	elif %Player.currentSwingMethod == "DPAD":
+	elif player.currentSwingMethod == "DPAD":
 		left = $UI_Arrow_left
 		right = $UI_Arrow_right
 		$UI_Keyboard_left.visible = false
@@ -99,7 +112,7 @@ func change_icons():
 		$UI_Controller_right.visible = false
 		$UI_Controller_left.play("idle")
 		$UI_Controller_right.play("idle")
-	elif %Player.currentSwingMethod == "Bumpers":
+	elif player.currentSwingMethod == "Bumpers":
 		left = $UI_Controller_left
 		right = $UI_Controller_right
 		$UI_Arrow_left.visible = false
@@ -110,5 +123,5 @@ func change_icons():
 		$UI_Controller_right.visible = false
 		$UI_Controller_left.play("idle")
 		$UI_Controller_right.play("idle")
-	currentSwingMethod = %Player.currentSwingMethod
+	currentSwingMethod = player.currentSwingMethod
 	pass

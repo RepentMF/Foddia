@@ -1,0 +1,472 @@
+[gd_scene load_steps=47 format=3 uid="uid://d140swyckf05s"]
+
+[ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_as6d8"]
+[ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_jsp82"]
+[ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="2_83sdi"]
+[ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_e6u8o"]
+[ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="2_t7c8r"]
+[ext_resource type="Script" path="res://InteractableObjects/RopeManager.gd" id="6_3y8do"]
+[ext_resource type="Texture2D" uid="uid://d020os3nkdnkt" path="res://Graphics/ui_leftrow_press.png" id="6_jwle0"]
+[ext_resource type="Texture2D" uid="uid://bduciq1mx7x5u" path="res://Graphics/ui_left_press.png" id="7_fm12n"]
+[ext_resource type="Texture2D" uid="uid://dk1kwcax1d6by" path="res://Graphics/ui_lb_press.png" id="8_sq5tt"]
+[ext_resource type="Script" path="res://InteractableObjects/CreakArea.gd" id="8_xke76"]
+[ext_resource type="Texture2D" uid="uid://d0dllukq37sdi" path="res://Graphics/ui_rightrow_press.png" id="8_yd32k"]
+[ext_resource type="AudioStream" uid="uid://dfc1tmycb4hgc" path="res://SFX/RopeGrabbed.mp3" id="9_6i14d"]
+[ext_resource type="Texture2D" uid="uid://s6l8g0fv3bc7" path="res://Graphics/ui_right_press.png" id="9_c541q"]
+[ext_resource type="AudioStream" uid="uid://e8u5jep1aikc" path="res://SFX/RopeSwung.mp3" id="9_s8ucq"]
+[ext_resource type="Texture2D" uid="uid://3vwubp4ic7rd" path="res://Graphics/ui_rb_press.png" id="11_qgjuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07gdl"]
+atlas = ExtResource("6_jwle0")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu6w2"]
+atlas = ExtResource("6_jwle0")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nee77"]
+atlas = ExtResource("6_jwle0")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh4b2"]
+atlas = ExtResource("6_jwle0")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvrb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07gdl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu6w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nee77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh4b2")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uraq"]
+atlas = ExtResource("7_fm12n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddled"]
+atlas = ExtResource("7_fm12n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8uox"]
+atlas = ExtResource("7_fm12n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40jb1"]
+atlas = ExtResource("7_fm12n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6m2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uraq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddled")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8uox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40jb1")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el17d"]
+atlas = ExtResource("8_sq5tt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqvfn"]
+atlas = ExtResource("8_sq5tt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xswic"]
+atlas = ExtResource("8_sq5tt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffj3s"]
+atlas = ExtResource("8_sq5tt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nfkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el17d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqvfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xswic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffj3s")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p68v"]
+atlas = ExtResource("8_yd32k")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxay7"]
+atlas = ExtResource("8_yd32k")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdd5"]
+atlas = ExtResource("8_yd32k")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2mwg"]
+atlas = ExtResource("8_yd32k")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a22h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p68v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxay7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grdd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2mwg")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_samt8"]
+atlas = ExtResource("9_c541q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urfau"]
+atlas = ExtResource("9_c541q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c76w2"]
+atlas = ExtResource("9_c541q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy0t4"]
+atlas = ExtResource("9_c541q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxhfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_samt8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urfau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c76w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy0t4")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oinsi"]
+atlas = ExtResource("11_qgjuo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5c47"]
+atlas = ExtResource("11_qgjuo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tea08"]
+atlas = ExtResource("11_qgjuo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkr26"]
+atlas = ExtResource("11_qgjuo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivrbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oinsi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5c47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tea08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkr26")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjafm"]
+size = Vector2(63, 131)
+
+[node name="SwingingRope" type="Node2D"]
+script = ExtResource("1_jsp82")
+
+[node name="Floor" parent="." instance=ExtResource("1_as6d8")]
+position = Vector2(0, -12)
+scale = Vector2(1, 0.15)
+mass = 1.0
+gravity_scale = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("2_t7c8r")
+hframes = 10
+vframes = 10
+frame = 19
+
+[node name="LedgeGrab" parent="." instance=ExtResource("2_e6u8o")]
+position = Vector2(0, -36)
+
+[node name="LedgeGrab2" parent="." instance=ExtResource("2_e6u8o")]
+position = Vector2(0, -36)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 17)
+node_a = NodePath("../Floor")
+node_b = NodePath("../RopeLinkageTop")
+bias = 0.9
+
+[node name="RopeLinkageTop" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 21)
+freeze = true
+freeze_mode = 1
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 26)
+node_a = NodePath("../RopeLinkageTop")
+node_b = NodePath("../RopeLinkage2")
+bias = 0.9
+
+[node name="RopeLinkage2" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 31)
+freeze_mode = 1
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 36)
+node_a = NodePath("../RopeLinkage2")
+node_b = NodePath("../RopeLinkage3")
+
+[node name="RopeLinkage3" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 41)
+freeze_mode = 1
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 46)
+node_a = NodePath("../RopeLinkage3")
+node_b = NodePath("../RopeLinkage4")
+
+[node name="RopeLinkage4" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 51)
+freeze_mode = 1
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(0, 56)
+node_a = NodePath("../RopeLinkage4")
+node_b = NodePath("../RopeLinkage5")
+
+[node name="RopeLinkage5" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 61)
+freeze_mode = 1
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(0, 66)
+node_a = NodePath("../RopeLinkage5")
+node_b = NodePath("../RopeLinkage6")
+
+[node name="RopeLinkage6" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 71)
+freeze_mode = 1
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+position = Vector2(0, 76)
+node_a = NodePath("../RopeLinkage6")
+node_b = NodePath("../RopeLinkage7")
+
+[node name="RopeLinkage7" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 81)
+freeze_mode = 1
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2(0, 86)
+node_a = NodePath("../RopeLinkage7")
+node_b = NodePath("../RopeLinkage8")
+
+[node name="RopeLinkage8" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 91)
+freeze_mode = 1
+
+[node name="PinJoint2D9" type="PinJoint2D" parent="."]
+position = Vector2(0, 96)
+node_a = NodePath("../RopeLinkage8")
+node_b = NodePath("../RopeLinkage9")
+
+[node name="RopeLinkage9" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 101)
+freeze_mode = 1
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="."]
+position = Vector2(0, 106)
+node_a = NodePath("../RopeLinkage9")
+node_b = NodePath("../RopeLinkage10")
+
+[node name="RopeLinkage10" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 111)
+freeze_mode = 1
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="."]
+position = Vector2(0, 116)
+node_a = NodePath("../RopeLinkage10")
+node_b = NodePath("../RopeLinkageBottom")
+
+[node name="RopeLinkageBottom" parent="." instance=ExtResource("2_83sdi")]
+position = Vector2(0, 121)
+script = ExtResource("6_3y8do")
+
+[node name="UI_Keyboard_left" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-18, -49)
+sprite_frames = SubResource("SpriteFrames_hvrb2")
+animation = &"idle"
+
+[node name="UI_Arrow_left" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-16, -49)
+sprite_frames = SubResource("SpriteFrames_p6m2f")
+animation = &"idle"
+
+[node name="UI_Controller_left" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-16, -49)
+sprite_frames = SubResource("SpriteFrames_4nfkh")
+animation = &"pressed"
+
+[node name="UI_Keyboard_right" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, -49)
+sprite_frames = SubResource("SpriteFrames_1a22h")
+animation = &"pressed"
+
+[node name="UI_Arrow_right" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(16, -49)
+sprite_frames = SubResource("SpriteFrames_uxhfs")
+animation = &"pressed"
+
+[node name="UI_Controller_right" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(16, -49)
+sprite_frames = SubResource("SpriteFrames_ivrbj")
+animation = &"pressed"
+
+[node name="CreakAreaLeft" type="Area2D" parent="."]
+position = Vector2(-7, 0)
+script = ExtResource("8_xke76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaLeft"]
+position = Vector2(-64.5, 64.5)
+shape = SubResource("RectangleShape2D_cjafm")
+
+[node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]
+stream = ExtResource("9_s8ucq")
+volume_db = 5.0
+
+[node name="RopeReleased" type="AudioStreamPlayer2D" parent="CreakAreaLeft"]
+stream = ExtResource("9_6i14d")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[node name="CreakAreaRight" type="Area2D" parent="."]
+position = Vector2(163, 0)
+script = ExtResource("8_xke76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreakAreaRight"]
+position = Vector2(-80.5, 64.5)
+shape = SubResource("RectangleShape2D_cjafm")
+
+[node name="RopeSwung" type="AudioStreamPlayer2D" parent="CreakAreaRight"]
+position = Vector2(-163, 0)
+stream = ExtResource("9_s8ucq")
+volume_db = 5.0
+
+[node name="RopeReleased" type="AudioStreamPlayer2D" parent="CreakAreaRight"]
+position = Vector2(-163, 0)
+stream = ExtResource("9_6i14d")
+volume_db = 5.0
+pitch_scale = 1.1
+
+[connection signal="area_entered" from="CreakAreaLeft" to="CreakAreaLeft" method="_on_creak_area_entered"]
+[connection signal="area_entered" from="CreakAreaRight" to="CreakAreaRight" method="_on_creak_area_entered"]

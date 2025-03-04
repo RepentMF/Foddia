@@ -4,6 +4,8 @@ extends Node2D
 @onready var lightRed = $PointLight2D
 @onready var lightGreen = $PointLight2D2
 
+var oneWayFloor
+
 var hasBeenUsed = false
 var placement = false
 var countTime = 0 
@@ -13,6 +15,7 @@ var temp_volume
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	oneWayFloor = get_parent().get_tree().root.get_node("Overworld/Floors_main/Area3_floors/Floor44")
 	lightRed.enabled = false
 	lightGreen.enabled = true
 	pass # Replace with function body.
@@ -38,6 +41,8 @@ func _physics_process(delta):
 			lightRed.enabled = true
 			get_node("Switched").play()
 			get_node("Closing").play()
+			oneWayFloor.get_node("CollisionShape2D").disabled = true
+			oneWayFloor.visible = false
 		elif countTime2 < 80:
 			get_node("ElevatorWall1").global_position.y += 1
 			get_node("ElevatorWall2").global_position.y += 1
@@ -71,10 +76,13 @@ func _physics_process(delta):
 					if anim.animation == "door_opening" && anim.frame == 6:
 						anim.pause()
 				elif countTime3 == 80:
+					%Player.isInElevator = false
 					hasBeenUsed = false
 					countTime = 0
 					countTime2 = 0
 					countTime3 = 0
+					oneWayFloor.get_node("CollisionShape2D").disabled = false
+					oneWayFloor.visible = true
 					if placement:
 						placement = false
 					else:
@@ -91,8 +99,3 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		body.isInElevator = true
 	pass # Replace with function body
-
-func _on_area_2d_2_body_exited(body):
-	if body.name == "Player":
-		body.isInElevator = false
-	pass # Replace with function body.

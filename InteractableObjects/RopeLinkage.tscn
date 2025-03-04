@@ -1,10 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1xtej1vo82ej"]
 
 [ext_resource type="Texture2D" uid="uid://dedkcw5v5d8uv" path="res://Graphics/rope_linkage.png" id="1_vyke1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so3di"]
-radius = 3.84615
-height = 17.0307
+[ext_resource type="Shape2D" uid="uid://dxgax0bldceat" path="res://Prefabs/RopeLinkageCapsule.tres" id="2_x5st1"]
 
 [node name="RopeLinkage" type="RigidBody2D"]
 collision_layer = 2
@@ -13,12 +10,12 @@ mass = 0.1
 center_of_mass_mode = 1
 can_sleep = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.04, 0.587175)
-shape = SubResource("CapsuleShape2D_so3di")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(1, 1.2)
 texture = ExtResource("1_vyke1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.04, 0.587175)
+shape = ExtResource("2_x5st1")

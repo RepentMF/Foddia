@@ -86,5 +86,5 @@ animations = [{
 [node name="ConstructionWorker_1" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_cwrdx")
-animation = &"relieved"
+animation = &"idle"
 autoplay = "idle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://oh3w8nqpmpi8"]
+[gd_scene load_steps=49 format=3 uid="uid://oh3w8nqpmpi8"]
 
 [ext_resource type="Script" path="res://InteractableObjects/RadioPlayer.gd" id="1_rbsby"]
 [ext_resource type="AudioStream" uid="uid://be43aw7we763u" path="res://OST/CantTurnBack_foddia.mp3" id="2_reo1m"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://btfratdli0e5r" path="res://OST/MaytheStarsFollowYou_foddia.mp3" id="4_u3aue"]
 [ext_resource type="AudioStream" uid="uid://d02r8pg51j565" path="res://OST/CantTurnBack3_foddia.mp3" id="4_uk8ko"]
 [ext_resource type="AudioStream" uid="uid://bm7wflxpo3c02" path="res://OST/TrialsAbound_foddia.mp3" id="5_4fprr"]
+[ext_resource type="AudioStream" uid="uid://d3cbxrhs6cncd" path="res://OST/CantTurnBack_Forever_foddia.mp3" id="5_vcbuq"]
 [ext_resource type="AudioStream" uid="uid://cgvlao5imdatq" path="res://OST/DontLookDown_Radio_foddia.mp3" id="5_xdrer"]
 [ext_resource type="AudioStream" uid="uid://rv62fgtpy4d7" path="res://OST/GnawingDesires_foddia.mp3" id="6_041w7"]
 [ext_resource type="AudioStream" uid="uid://cij16aq3tmwda" path="res://OST/CantTurnBack2_Radio_foddia.mp3" id="6_rv3pj"]
@@ -18,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://ctvsrfmh8hj8p" path="res://OST/TestofPatience_Radio_foddia.mp3" id="7_soxg2"]
 [ext_resource type="AudioStream" uid="uid://buvp8eoraa00m" path="res://OST/DontLookDown2_foddia.mp3" id="9_1pbcp"]
 [ext_resource type="AudioStream" uid="uid://d4enu0ig8ygjb" path="res://OST/LostAgain2_foddia.mp3" id="9_fjn7d"]
+[ext_resource type="AudioStream" uid="uid://diekvxt13hsr7" path="res://OST/CantTurnBack_RadioForever_foddia.mp3" id="9_fqlp4"]
 [ext_resource type="AudioStream" uid="uid://dtapxcmp28er1" path="res://OST/LostAgain_Radio_foddia.mp3" id="9_h4tp0"]
 [ext_resource type="AudioStream" uid="uid://dajnthggwabf4" path="res://OST/DontLookDown3_foddia.mp3" id="10_gnbmt"]
 [ext_resource type="AudioStream" uid="uid://b2lped6txuqle" path="res://OST/LostAgain3_foddia.mp3" id="10_x0ghe"]
@@ -25,17 +27,27 @@
 [ext_resource type="AudioStream" uid="uid://dk4i8ejkvaogp" path="res://OST/DontLookDown2_Radio_foddia.mp3" id="12_cpkdp"]
 [ext_resource type="AudioStream" uid="uid://bcv2wqli54kka" path="res://OST/LostAgain2_Radio_foddia.mp3" id="12_ydqvq"]
 [ext_resource type="AudioStream" uid="uid://bgq0oq6cmqpoe" path="res://OST/DontLookDown3_Radio_foddia.mp3" id="13_1p2o7"]
+[ext_resource type="AudioStream" uid="uid://cv4ri75vkn1ne" path="res://OST/DontLookDown_Forever_foddia.mp3" id="13_05dg7"]
 [ext_resource type="AudioStream" uid="uid://77i2wcgai41d" path="res://OST/LostAgain3_Radio_foddia.mp3" id="13_xj261"]
 [ext_resource type="AudioStream" uid="uid://bn6ohr3i7yfh" path="res://SFX/SummitAir.mp3" id="14_6omnu"]
 [ext_resource type="AudioStream" uid="uid://dt0hcuhx1hfcr" path="res://SFX/RadioStatic.mp3" id="15_6jg4r"]
 [ext_resource type="AudioStream" uid="uid://bys5so0axvde8" path="res://OST/TestofPatience2_foddia.mp3" id="15_qgpli"]
 [ext_resource type="AudioStream" uid="uid://bdcwhn8fuvjd0" path="res://OST/TestofPatience3_foddia.mp3" id="16_qi3ns"]
+[ext_resource type="AudioStream" uid="uid://cwselsf0tqwsd" path="res://OST/DontLookDown_RadioForever_foddia.mp3" id="17_xu2xa"]
 [ext_resource type="AudioStream" uid="uid://v08e6cg0d31c" path="res://OST/TestofPatience2_Radio_foddia.mp3" id="18_fpbgc"]
 [ext_resource type="AudioStream" uid="uid://4ymw23g1q30b" path="res://OST/TestofPatience3_Radio_foddia.mp3" id="19_ib0yl"]
+[ext_resource type="AudioStream" uid="uid://bhw6snqnsuao3" path="res://OST/TestofPatience_Forever_foddia.mp3" id="21_8r7h6"]
+[ext_resource type="AudioStream" uid="uid://twqc10go5gag" path="res://OST/TestofPatience_RadioForever_foddia.mp3" id="25_8as55"]
+[ext_resource type="AudioStream" uid="uid://bwpp5gl50kwk1" path="res://OST/LostAgain_Forever_foddia.mp3" id="29_bcgo8"]
 [ext_resource type="AudioStream" uid="uid://bjd6xmec8cxey" path="res://OST/TrialsAbound2_foddia.mp3" id="29_g5rck"]
 [ext_resource type="AudioStream" uid="uid://dns36idud124e" path="res://OST/TrialsAbound3_foddia.mp3" id="30_w7xw8"]
 [ext_resource type="AudioStream" uid="uid://dhkqosdeiev7d" path="res://OST/TrialsAbound2_Radio_foddia.mp3" id="32_rht21"]
 [ext_resource type="AudioStream" uid="uid://b720skl0rx2d7" path="res://OST/TrialsAbound3_Radio_foddia.mp3" id="33_7ae33"]
+[ext_resource type="AudioStream" uid="uid://ccpeksl7mw1c2" path="res://OST/LostAgain_RadioForever_foddia.mp3" id="33_s5buy"]
+[ext_resource type="AudioStream" uid="uid://cvhegwkqpl2nd" path="res://OST/TrialsAbound_Forever_foddia.mp3" id="39_hjh3i"]
+[ext_resource type="AudioStream" uid="uid://cs6vg0545qmdp" path="res://OST/TrialsAbound_RadioForever_foddia.mp3" id="43_4teu7"]
+[ext_resource type="AudioStream" uid="uid://crj2pku04ukti" path="res://OST/GnawingDesires_Forever_foddia.mp3" id="45_ev6o6"]
+[ext_resource type="AudioStream" uid="uid://rsje5lls0srw" path="res://OST/PainfulLonging_Forever_foddia.mp3" id="47_ko5kj"]
 
 [node name="RadioPlayer" type="Node2D"]
 script = ExtResource("1_rbsby")
@@ -43,117 +55,261 @@ script = ExtResource("1_rbsby")
 [node name="CantTurnBack" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 3)
 stream = ExtResource("2_reo1m")
+metadata/name = "CantTurnBack"
 
 [node name="CantTurnBack2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i3ol3")
+metadata/name = "CantTurnBack"
 
 [node name="CantTurnBack3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_uk8ko")
+metadata/name = "CantTurnBack"
+
+[node name="CantTurnBackForever" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 3)
+stream = ExtResource("5_vcbuq")
+metadata/name = "CantTurnBack"
 
 [node name="CantTurnBackRadio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i1mi5")
+metadata/name = "CantTurnBack"
 
 [node name="CantTurnBackRadio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rv3pj")
+metadata/name = "CantTurnBack"
 
 [node name="CantTurnBackRadio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_01ffi")
+metadata/name = "CantTurnBack"
+
+[node name="CantTurnBackRadioForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fqlp4")
+metadata/name = "CantTurnBack"
 
 [node name="DontLookDown" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wk8pv")
+metadata/name = "DontLookDown"
 
 [node name="DontLookDown2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_1pbcp")
+metadata/name = "DontLookDown"
 
 [node name="DontLookDown3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_gnbmt")
+metadata/name = "DontLookDown"
+
+[node name="DontLookDownForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_05dg7")
+metadata/name = "DontLookDown"
 
 [node name="DontLookDownRadio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xdrer")
+metadata/name = "DontLookDown"
 
 [node name="DontLookDownRadio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_cpkdp")
+metadata/name = "DontLookDown"
 
 [node name="DontLookDownRadio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_1p2o7")
+metadata/name = "DontLookDown"
+
+[node name="DontLookDownRadioForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_xu2xa")
+metadata/name = "DontLookDown"
 
 [node name="TestofPatience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tqbps")
+metadata/name = "TestofPatience"
 
 [node name="TestofPatience2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_qgpli")
+metadata/name = "TestofPatience"
 
 [node name="TestofPatience3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_qi3ns")
+metadata/name = "TestofPatience"
+
+[node name="TestofPatienceForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_8r7h6")
+metadata/name = "TestofPatience"
 
 [node name="TestofPatienceRadio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_soxg2")
+metadata/name = "TestofPatience"
 
 [node name="TestofPatienceRadio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_fpbgc")
+metadata/name = "TestofPatience"
 
 [node name="TestofPatienceRadio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_ib0yl")
+metadata/name = "TestofPatience"
+
+[node name="TestofPatienceRadioForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_8as55")
+metadata/name = "TestofPatience"
 
 [node name="LostAgain" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vxtda")
+metadata/name = "LostAgain"
 
 [node name="LostAgain2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_fjn7d")
+metadata/name = "LostAgain"
 
 [node name="LostAgain3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_x0ghe")
+metadata/name = "LostAgain"
+
+[node name="LostAgainForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_bcgo8")
+metadata/name = "LostAgain"
 
 [node name="LostAgainRadio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_h4tp0")
+metadata/name = "LostAgain"
 
 [node name="LostAgainRadio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ydqvq")
+metadata/name = "LostAgain"
 
 [node name="LostAgainRadio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_xj261")
+metadata/name = "LostAgain"
+
+[node name="LostAgainRadioForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_s5buy")
+metadata/name = "LostAgain"
 
 [node name="SummitAir" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_6omnu")
+metadata/name = "SummitAir"
 
 [node name="MaytheStarsFollowYou" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_u3aue")
+metadata/name = "MaytheStarsFollowYou"
+
+[node name="MaytheStarsFollowYouForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u3aue")
+metadata/name = "MaytheStarsFollowYou"
 
 [node name="TrialsAbound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_4fprr")
+metadata/name = "TrialsAbound"
 
 [node name="TrialsAbound2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_g5rck")
+metadata/name = "TrialsAbound"
 
 [node name="TrialsAbound3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("30_w7xw8")
+metadata/name = "TrialsAbound"
+
+[node name="TrialsAboundForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("39_hjh3i")
+metadata/name = "TrialsAbound"
 
 [node name="TrialsAboundRadio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_1m6f5")
+metadata/name = "TrialsAbound"
 
 [node name="TrialsAboundRadio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("32_rht21")
+metadata/name = "TrialsAbound"
 
 [node name="TrialsAboundRadio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("33_7ae33")
+metadata/name = "TrialsAbound"
+
+[node name="TrialsAboundRadioForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("43_4teu7")
+metadata/name = "TrialsAbound"
 
 [node name="GnawingDesires" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_041w7")
+metadata/name = "GnawingDesires"
 
 [node name="GnawingDesires2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_041w7")
+metadata/name = "GnawingDesires"
 
 [node name="GnawingDesires3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_041w7")
+metadata/name = "GnawingDesires"
+
+[node name="GnawingDesiresForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("45_ev6o6")
+metadata/name = "GnawingDesires"
 
 [node name="PainfulLonging" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_51wde")
+metadata/name = "PainfulLonging"
 
 [node name="PainfulLonging2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_51wde")
+metadata/name = "PainfulLonging"
 
 [node name="PainfulLonging3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_51wde")
+metadata/name = "PainfulLonging"
+
+[node name="PainfulLongingForever" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("47_ko5kj")
+metadata/name = "PainfulLonging"
 
 [node name="RadioStatic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_6jg4r")
+autoplay = true
+
+[connection signal="finished" from="CantTurnBack" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBack2" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBack3" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBackForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBackRadio" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBackRadio2" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBackRadio3" to="." method="_on_song_finished"]
+[connection signal="finished" from="CantTurnBackRadioForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDown" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDown2" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDown3" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDownForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDownRadio" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDownRadio2" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDownRadio3" to="." method="_on_song_finished"]
+[connection signal="finished" from="DontLookDownRadioForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatience" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatience2" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatience3" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatienceForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatienceRadio" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatienceRadio2" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatienceRadio3" to="." method="_on_song_finished"]
+[connection signal="finished" from="TestofPatienceRadioForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgain" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgain2" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgain3" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgainForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgainRadio" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgainRadio2" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgainRadio3" to="." method="_on_song_finished"]
+[connection signal="finished" from="LostAgainRadioForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="MaytheStarsFollowYou" to="." method="_on_song_finished"]
+[connection signal="finished" from="MaytheStarsFollowYouForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAbound" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAbound2" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAbound3" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAboundForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAboundRadio" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAboundRadio2" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAboundRadio3" to="." method="_on_song_finished"]
+[connection signal="finished" from="TrialsAboundRadioForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="GnawingDesires" to="." method="_on_song_finished"]
+[connection signal="finished" from="GnawingDesires2" to="." method="_on_song_finished"]
+[connection signal="finished" from="GnawingDesires3" to="." method="_on_song_finished"]
+[connection signal="finished" from="GnawingDesiresForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="PainfulLonging" to="." method="_on_song_finished"]
+[connection signal="finished" from="PainfulLonging2" to="." method="_on_song_finished"]
+[connection signal="finished" from="PainfulLonging3" to="." method="_on_song_finished"]
+[connection signal="finished" from="PainfulLongingForever" to="." method="_on_song_finished"]
+[connection signal="finished" from="RadioStatic" to="." method="_on_radio_static_finished"]

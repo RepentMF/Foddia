@@ -1,0 +1,89 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b4rtgnvsuy6pl"]
+
+[ext_resource type="Texture2D" uid="uid://dodkc7k7tu80y" path="res://Graphics/RMF.png" id="1_ik4qx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c3w8"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(0, 32, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk5ex"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eemrq"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8jlh"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(25, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pndn"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(50, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mjb4"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(75, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xmv"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(100, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lomna"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(125, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt2hx"]
+atlas = ExtResource("1_ik4qx")
+region = Rect2(150, 0, 25, 31)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c3w8")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk5ex")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eemrq")
+}],
+"loop": true,
+"name": &"relieved",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8jlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pndn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mjb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lomna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt2hx")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]

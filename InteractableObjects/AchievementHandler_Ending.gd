@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if !user_prefs.demo:
+	if !user_prefs.demo && Steam.isSteamRunning():
 		if %TimerDisplay.h < 10 && !user_prefs.achievement_speedrun1:
 			user_prefs.achievement_speedrun1 = true
 			if !Steam.getAchievement("ACHIEVEMENT_SPEEDRUN1")["achieved"]:

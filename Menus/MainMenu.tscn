@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=56 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -38,9 +38,16 @@
 [ext_resource type="Texture2D" uid="uid://d1npn7n8trdxe" path="res://Graphics/Foddia_title_demo1.png" id="33_jynr7"]
 [ext_resource type="Texture2D" uid="uid://b4e843en703jk" path="res://Graphics/Foddia_title_demo2.png" id="34_y61eo"]
 [ext_resource type="Texture2D" uid="uid://ckhg7ib6rjb2d" path="res://Graphics/Foddia_title_demo3.png" id="35_b3emr"]
+[ext_resource type="Texture2D" uid="uid://efoye8fvd3a" path="res://Graphics/Foddia_title_card1.png" id="36_0547j"]
 [ext_resource type="Texture2D" uid="uid://svm5ocjq7y6n" path="res://Graphics/Foddia_title_demo4.png" id="36_y1dnm"]
+[ext_resource type="Texture2D" uid="uid://cw02ajefajkqi" path="res://Graphics/Foddia_title_card2.png" id="37_raem0"]
 [ext_resource type="Texture2D" uid="uid://ccowxuc1pwxm3" path="res://Graphics/Foddia_title_demo5.png" id="37_yjg7h"]
 [ext_resource type="Texture2D" uid="uid://ctv0smm8uvk8" path="res://Graphics/Foddia_title_demo6.png" id="38_boo8b"]
+[ext_resource type="Texture2D" uid="uid://c8yslxrr0v7po" path="res://Graphics/Foddia_title_card3.png" id="38_nw5ht"]
+[ext_resource type="Texture2D" uid="uid://c0ykveeypjk6g" path="res://Graphics/Foddia_title_card4.png" id="39_u5u3x"]
+[ext_resource type="Texture2D" uid="uid://cq25b0fkmh2hg" path="res://Graphics/Foddia_title_card5.png" id="40_mkmhj"]
+[ext_resource type="Texture2D" uid="uid://vdnjm52ken70" path="res://Graphics/Foddia_title_card6.png" id="41_pcea2"]
+[ext_resource type="PackedScene" uid="uid://3q354dpufygl" path="res://Menus/ButtonsDisplay.tscn" id="48_52n57"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
 shader = ExtResource("18_78h05")
@@ -112,10 +119,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1376.0
-offset_top = -8.0
-offset_right = -1212.0
-offset_bottom = 163.0
+offset_left = -1374.0
+offset_top = -37.0
+offset_right = -1210.0
+offset_bottom = 134.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2.1, 2.1)
@@ -123,7 +130,6 @@ theme_override_constants/margin_left = 50
 
 [node name="DialogueBox" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_i63vp")]
 unique_name_in_owner = true
-visible = false
 offset = Vector2(0, -450)
 transform = Transform2D(1, 0, 0, 1, 0, -450)
 
@@ -139,7 +145,7 @@ theme = ExtResource("2_qp85b")
 theme_override_fonts/font = ExtResource("3_8g8yg")
 text = "New  Hike"
 script = ExtResource("4_h5eoc")
-metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty  from                     the  base  of  the  mountain."
+metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while  holding  no  items  and  starting  at  the  base  of  the  mountain."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/New Game"]
 scale = Vector2(-1.42075, 1)
@@ -152,7 +158,7 @@ layout_mode = 2
 theme = ExtResource("2_qp85b")
 text = "Continue  Hike"
 script = ExtResource("4_h5eoc")
-metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty  from  where                  the  hike  left  off,  if  there  was  a  previous  hike."
+metadata/Tooltip = "Load  a  game  with  the  selected  climb  difficulty,  holding  all  items  that  were  collected  during  that  climb  and  starting  from  where  the  hike  left  off,  if  there  was  a  previous  hike."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/Start Game"]
 stream = ExtResource("6_731h4")
@@ -173,9 +179,21 @@ popup/item_1/id = 1
 popup/item_2/text = "Permadeath"
 popup/item_2/id = 2
 script = ExtResource("4_h5eoc")
-metadata/Tooltip = "Relaxed:  Checkpoints  are  available  and  plentiful.  A  stroll.                     Foddian:  No  fall  damage,  but  lots  of  emotional  damage.                     Permadeath:  One  mistake  allowed.  Like  real  life."
+metadata/Tooltip = "Relaxed:  Checkpoints  are  available  and  plentiful.  A  stroll.  Foddian:  No  fall  damage,  but  lots  of  emotional  damage.  Permadeath:  Only one  mistake  allowed.  Like  real  life."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty"]
+stream = ExtResource("6_731h4")
+
+[node name="ControllerLayout" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_qp85b")
+text = "Controller Layout"
+script = ExtResource("4_h5eoc")
+metadata/Tooltip = "Opens  up  a  layout  of  the  controller/  keyboard  functions."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout"]
 stream = ExtResource("6_731h4")
 
 [node name="Go to Display Menu" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
@@ -280,9 +298,9 @@ texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.4875
-anchor_top = 14.9984
+anchor_top = 13.6984
 anchor_right = 2.4875
-anchor_bottom = 15.2984
+anchor_bottom = 13.9984
 offset_left = -27.5
 offset_top = -25.9375
 offset_right = 124.5
@@ -306,9 +324,9 @@ texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.4875
-anchor_top = 15.7234
+anchor_top = 14.4234
 anchor_right = 2.4875
-anchor_bottom = 16.0234
+anchor_bottom = 14.7234
 offset_left = -27.5
 offset_top = -25.9375
 offset_right = 124.5
@@ -321,7 +339,7 @@ theme_override_font_sizes/font_size = 28
 text = "Tooltips"
 script = ExtResource("4_h5eoc")
 metadata/_edit_use_anchors_ = true
-metadata/Tooltip = "View  tips  for  many  of  the  options  in  the  main  menu.  Also  adds                                         in-game  post-it  boards  to  assist  with  game                                        knowledge."
+metadata/Tooltip = "View  tips  for  many  of  the  options  in  the  main  menu.  Also  adds  in-game  post-it  boards  to  assist  with  game  knowledge."
 
 [node name="OptionSelect" type="AudioStreamPlayer2D" parent="CanvasLayer3/Control/TooltipsCheckBox"]
 stream = ExtResource("6_731h4")
@@ -586,9 +604,14 @@ unique_name_in_owner = true
 [node name="Title" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(878, 400)
-texture = ExtResource("33_jynr7")
-metadata/Titles = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource("35_b3emr"), ExtResource("36_y1dnm"), ExtResource("37_yjg7h"), ExtResource("38_boo8b")]
+position = Vector2(880, 400)
+texture = ExtResource("36_0547j")
+metadata/Titles = [ExtResource("36_0547j"), ExtResource("37_raem0"), ExtResource("38_nw5ht"), ExtResource("39_u5u3x"), ExtResource("40_mkmhj"), ExtResource("41_pcea2")]
+metadata/Titles_demo = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource("35_b3emr"), ExtResource("36_y1dnm"), ExtResource("37_yjg7h"), ExtResource("38_boo8b")]
+
+[node name="ButtonsDisplay" parent="." instance=ExtResource("48_52n57")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="CanvasLayer/MarginContainer/VBoxContainer/New Game" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/New Game" to="CanvasLayer/MarginContainer/VBoxContainer/New Game" method="_on_mouse_exited"]
@@ -601,6 +624,9 @@ metadata/Titles = [ExtResource("33_jynr7"), ExtResource("34_y61eo"), ExtResource
 [connection signal="item_selected" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="." method="_on_change_difficulty_item_selected"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" to="CanvasLayer/MarginContainer/VBoxContainer/ChangeDifficulty" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout" to="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout" to="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/ControllerLayout" to="." method="_on_controller_layout_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]

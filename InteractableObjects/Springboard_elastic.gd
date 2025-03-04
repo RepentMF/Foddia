@@ -42,6 +42,8 @@ func _on_body_entered(body):
 		if !hasBeenUsed:
 			if !body.hasJetpack:
 				body.velocity.y =  -1 * abs(body.velocity.y)
+				if body.velocity.x == 0:
+					body.velocity.x = 40
 			body.wasBouncing = true
 			body.countHangTime = 0
 			body.countBounces += 1

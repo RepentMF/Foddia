@@ -53,3 +53,7 @@ func change_colors():
 		%Billboard.modulate = Color(.901, .651, .780)
 		%TutorialCapture.modulate = Color(.901, .651, .780)
 	pass
+
+func _on_finished():
+	%TutorialCapture.visible = true
+	pass # Replace with function body.

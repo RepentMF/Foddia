@@ -75,6 +75,16 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	if player.isInteracting:
+		deadLanded.stop()
+		hardLanded.stop()
+		jumping.stop()
+		rocketJumped.stop()
+		ropeClimbed.stop()
+		ropeGrabbed.stop()
+		running.stop()
+		softLanded.stop()
+		walking.stop()
 	if player.countRocketJumps == player.maxRocketJumps:
 		rocketCount = 2
 
@@ -144,10 +154,20 @@ func _physics_process(delta):
 		ropeGrabbed.play(0)
 	
 	if player.swingRope != null:
-		if player.isHoldingRope && player.swingRope.get_parent().name.contains("Static") && !ropeClimbed.is_playing && (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down")):
-			ropeClimbed.play(0)
-		elif ropeCount == 0 || (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down")):
+		ropeClimbed.pitch_scale = rng.randf_range(1.0, 1.5)
+		if (!player.isKicking || player.swingRope.get_parent().name.contains("Static")) && !player.is_on_floor() && (Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down")):
+			if  Input.is_action_pressed("ui_up") && !ropeClimbed.is_playing():
+				ropeClimbed.play(0)
+			elif Input.is_action_pressed("ui_down") && !ropeClimbed.is_playing():
+				ropeClimbed.play(0)
+		elif ropeClimbed.is_playing() || !player.isHoldingRope:
 			ropeClimbed.stop()
+			ropeGrabbed.stop()
+			ropeCount = 0
+	else:
+		if ropeClimbed.is_playing() || !player.isHoldingRope:
+			ropeClimbed.stop()
+			ropeGrabbed.stop()
 			ropeCount = 0
 	
 	if !player.isInElevator && !player.isInZeroG:

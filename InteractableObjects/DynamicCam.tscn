@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bt65ya8287kdp"]
+
+[node name="DynamicCam" type="Camera2D"]

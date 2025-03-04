@@ -40,7 +40,12 @@ func _physics_process(delta):
 			temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
 			SFX.volume_db = temp_volume
 	else:
-		if temp_volume != %SFXVolumeHandler.SFX_volume:
-			temp_volume = %SFXVolumeHandler.SFX_volume
-			SFX.volume_db = temp_volume
+		if !get_owner().name.contains("Space"):
+			if temp_volume != %SFXVolumeHandler.SFX_volume:
+				temp_volume = %SFXVolumeHandler.SFX_volume
+				SFX.volume_db = temp_volume
+		else:
+			if temp_volume != %OSTVolumeHandler.OST_volume:
+				temp_volume = %OSTVolumeHandler.OST_volume
+				SFX.volume_db = temp_volume
 	pass

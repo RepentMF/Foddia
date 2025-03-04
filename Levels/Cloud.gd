@@ -1,5 +1,7 @@
 extends Area2D
 
+var user_prefs: UserPreferences
+
 var alpha
 var cloud_speed
 var golden_ratio
@@ -10,6 +12,7 @@ var v_color_modifier
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	user_prefs = UserPreferences.load_or_create()
 	if abs(position.y) > 11000 && z_index > 0:
 		alpha = .6
 	else:
@@ -19,10 +22,16 @@ func _ready():
 	starting_position = -735
 	if abs(position.y) > 11000 && z_index < 0:
 		h_color_modifier = 0
-		s_color_modifier = 0
+		if user_prefs.difficulty_dropdown_index == 0 || user_prefs.difficulty_dropdown_index == 2:
+			s_color_modifier = 0
+		elif user_prefs.difficulty_dropdown_index == 1:
+			s_color_modifier = (golden_ratio * 2) + .3
 		v_color_modifier = 1
 	else:
-		s_color_modifier = golden_ratio
+		if user_prefs.difficulty_dropdown_index == 0 || user_prefs.difficulty_dropdown_index == 2:
+			s_color_modifier = golden_ratio
+		elif user_prefs.difficulty_dropdown_index == 1:
+			s_color_modifier = (golden_ratio * 2) + .3
 		v_color_modifier = 1 - (golden_ratio / 10)
 	scale.x = scale.x + (golden_ratio * 10)
 	scale.y = scale.y + (golden_ratio * 10)

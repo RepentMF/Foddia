@@ -20,13 +20,14 @@ offset_left = -123.0
 offset_top = -121.0
 offset_right = 1797.0
 offset_bottom = 967.0
+scale = Vector2(1.49223, 1.51186)
 script = ExtResource("2_melhe")
 
 [node name="TutorialCapture" type="Sprite2D" parent="Node2D2"]
 unique_name_in_owner = true
-z_index = 1
-texture_filter = 2
-position = Vector2(837.5, 418.421)
+texture_filter = 1
+position = Vector2(830, 426.316)
+scale = Vector2(0.995, 1)
 texture = ExtResource("2_lj0mg")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -44,3 +45,5 @@ texture_filter = 1
 position = Vector2(632, 381)
 scale = Vector2(20, 15)
 texture = ExtResource("6_krbvl")
+
+[connection signal="finished" from="Node2D2/VideoStreamPlayer" to="Node2D2/VideoStreamPlayer" method="_on_finished"]

@@ -1,6 +1,6 @@
 class_name UserPreferences extends Resource
 
-@export var demo: bool = true
+@export var demo: bool = false
 
 @export var new_game: bool = false
 @export_range(0, 2, 1) var difficulty_dropdown_index: int = 1
@@ -88,6 +88,24 @@ class_name UserPreferences extends Resource
 @export var permadeath_m: int = 0
 @export var permadeath_h: int = 0
 @export var permadeath_save: Vector2 = Vector2(260, 130)
+
+@export var dialogue_count: int = 0
+@export var hasMP3: bool = false
+@export var hasSong1: bool = false
+@export var hasSong2: bool = false
+@export var hasSong3: bool = false
+@export var hasSong4: bool = false
+@export var hasSong5: bool = false
+@export var hasSong6: bool = false
+@export var hasSong7: bool = false
+@export var hasSong8: bool = false
+@export var rel_last_area: String = ""
+@export var rel_last_song: String = ""
+@export var fod_last_area: String = ""
+@export var fod_last_song: String = ""
+@export var per_last_area: String = ""
+@export var per_last_song: String = ""
+@export var teleportersAvailable: bool = false
 
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")

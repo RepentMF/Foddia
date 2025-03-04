@@ -13,6 +13,7 @@ func _ready():
 		get_window().mode = Window.MODE_WINDOWED
 	rs = RenderingServer
 	rs.set_default_clear_color(Color (0, 0, 0, 1))
+	%TBG_video.volume_db = %Control.OST_volume
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -6,16 +6,25 @@ var album
 var audio_changeable
 var current
 var current_rand
+var current_song
+var current_string
 var commercialIsPlaying
+var foreverAlbum: Array[Node] = []
+var foreverRadioAlbum: Array[Node] = []
 var itemIsPlaying
+var itemWasPlaying
 var master_album: Array[Node] = []
 var max_volume
+var mp3Selected = -1
+var mp3Song = false
 var player
+var previous
 var radio_sound
 var radio_static
 var rand_num
 var rng
 var selected
+var selected_song
 var song1
 var song2
 var song3
@@ -25,21 +34,34 @@ var song6
 var song7
 var song8
 var song9
-var songIsPlaying
+var songHasStarted
 var staticIsPlaying
+var style_changed
 
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	audio_changeable = false
+	current = -1
 	current_rand = -1
+	if user_prefs.difficulty_dropdown_index == 0:
+		current_string = user_prefs.rel_last_song
+	elif user_prefs.difficulty_dropdown_index == 1:
+		current_string = user_prefs.fod_last_song
+	elif user_prefs.difficulty_dropdown_index == 2:
+		current_string = user_prefs.per_last_song
+	if current_string == "":
+		current_string = "LostAgain"
 	itemIsPlaying = false
+	itemWasPlaying = false
 	player = get_parent()
 	radio_static = get_node("RadioStatic")
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	rand_num = rng.randi_range(1, 3)
-	songIsPlaying = false
-	staticIsPlaying = false
+	selected_song = ""
+	songHasStarted = false
+	staticIsPlaying = true
+	style_changed = false
 	store_all_songs()
 	change_style()
 	change_loops()
@@ -49,111 +71,82 @@ func _physics_process(delta):
 	#print_values()
 	if max_volume != %OSTVolumeHandler.OST_volume:
 		max_volume = %OSTVolumeHandler.OST_volume
-	
-	if itemIsPlaying:
+	# Handle Song Change in Background
+	change_style()
+	change_loops()
+	if current_song != current_string && !mp3Song:
+		current_song = current_string
 		album[current].stop()
-		songIsPlaying = false
+		if current != -1:
+			previous = current
+		for n in album.size():
+			if album[n].get_meta("name").contains(current_song):
+				current = n
+		staticIsPlaying = true
+		radio_static.play()
+		songHasStarted = false
+	elif mp3Song && mp3Selected != %PauseMenu.get_node("MarginContainer/AudioOptions/Node2D/ChangeSong").selected:
+		choose_mp3()
+	
+	# Gameplan
+	# -Static plays
+	# Then an RNG or a list of variables choose whether or not a commerical or song should play
+	# Then commercial or song plays
+	# -Loop back to static playing, repeat process
+	# If new song appears during commercial, save song into variable and leave it until needed use
+	# If new song appears during current song, save song into variable and play static- then new song
+	# -If an item jingle needs to play, stop everything, play the jingle, then go back to static
+	
+	# If an item jingle needs to play, stop everything, play the jingle, then go back to static
+	if itemIsPlaying:
+		stop_other_songs()
+		album[current].stop()
+		itemWasPlaying = true
+		songHasStarted = false
 		commercialIsPlaying = false
-		staticIsPlaying = false
+	elif itemWasPlaying:
+		itemWasPlaying = false
+		staticIsPlaying = true
+		radio_static.play()
 	else:
-		if current != selected || current == null:
-			if current != null:
-				if songIsPlaying:
-					album[current].volume_db -= 1
-					if album[current].volume_db <= -60:
-						album[current].stop()
-						songIsPlaying = false
-						audio_changeable = false
-						current = selected
-					elif album[current].volume_db <= -30 && !staticIsPlaying:
-						staticIsPlaying = true
-						radio_static.play()
-						radio_static.volume_db = -80
-						audio_changeable = false
-						rand_num = rng.randi_range(1, 3)
-					if staticIsPlaying && radio_static.volume_db < max_volume:
-						radio_static.volume_db += 2
-						audio_changeable = false
-					elif staticIsPlaying && radio_static.volume_db > max_volume:
-						radio_static.volume_db = max_volume
-						audio_changeable = true
+		# Song plays
+		if songHasStarted && !commercialIsPlaying && !staticIsPlaying && !mp3Song:
+			if !album[current].is_playing():
+				album[current].play()
+				foreverRadioAlbum[mp3Selected - 1].stop()
+				foreverAlbum[mp3Selected - 1].stop()
+				songHasStarted = false
+		elif mp3Song && mp3Selected != -1:
+			album[current].stop()
+			if radio_sound:
+				if !foreverRadioAlbum[mp3Selected - 1].is_playing():
+					foreverRadioAlbum[mp3Selected - 1].play()
 			else:
-				current = selected
+				if !foreverAlbum[mp3Selected - 1].is_playing():
+					foreverAlbum[mp3Selected - 1].play()
 		
-		if !staticIsPlaying && !songIsPlaying:
-			radio_static.play()
+		if current != -1:
+			if album[current].volume_db != max_volume:
+				album[current].volume_db = max_volume
+		if staticIsPlaying:
 			radio_static.volume_db = max_volume
-			staticIsPlaying = true
-			audio_changeable = true
-		elif staticIsPlaying && radio_static.volume_db <= -80:
-			# Start playing desired track or commercial
-			if current != null:
-				album[current].play(0)
-				album[current].volume_db = max_volume
-				staticIsPlaying = false
-				songIsPlaying = true
-				audio_changeable = true
-		elif staticIsPlaying && radio_static.get_playback_position() > 2.13:
-			radio_static.volume_db -= 1
-			audio_changeable = false
-		
-		if songIsPlaying:
-			if album[current].volume_db <= -60:
-				songIsPlaying = false
-				album[current].stop()
-				audio_changeable = false
-				radio_static.volume_db = max_volume
-			elif album[current].get_playback_position() > album[current].stream.get_length() - 1 || current != selected:
-				album[current].volume_db -= 1
-				audio_changeable = false
-		
-		#if (player.position.y > 750) || player.hasMacguffin2:
-			# Pandemonium 2
-		#	selected = 8
-		if player.position.x > -90 && player.position.x < 26850 && player.position.y < 130 && player.position.y > -1970:
-			# Areas 1, 2, and 3
-			selected = 0
-		elif player.position.x > 2200 && player.position.x < 26850 && player.position.y < -3300 && player.position.y > -6350:
-			# Areas 4 and 5
-			selected = 1
-		elif player.position.x > 6200 && player.position.x < 17990 && player.position.y < -6350 && player.position.y > -12410:
-			# Areas 6 and 7
-			selected = 2
-		elif player.position.x > 7100 && player.position.x < 22090 && player.position.y < -12410 && player.position.y > -17300:
-			# Area 8
-			selected = 3
-		elif player.position.x > 10800 && player.position.x < 17400 && player.position.y < -17300 && player.position.y > -22530:
-			# Areas 9 and 10
-			selected = 4
-		elif player.position.x > 15760 && player.position.x < 16525 && player.position.y < -22530 && player.position.y > -22850:
-			# Area 11
-			selected = 5
-		#elif player.position.x > -90 && player.position.x < 26850 && player.position.y < -23000:
-			# Space, change song to radio static later on
-		#	selected = 6
-		#	if current == 6:
-		#		album[current].stop()
-		#elif player.position.x > 17500 && player.position.x < 26850 && player.position.y < 750 && player.position.y > -12250:
-			# Pandemonium 1
-		#	selected = 7
-		
-		if audio_changeable:
-			if songIsPlaying:
-				album[current].volume_db = max_volume
-			if staticIsPlaying:
-				radio_static.volume_db = max_volume
-		
-		change_style()
-		change_loops()
+		#print_values()
 	pass
 	
 func change_style():
 	if radio_sound != user_prefs.radio_songs_bool_check:
 		radio_sound = user_prefs.radio_songs_bool_check
+		style_changed = true
 	pass
 
 func change_loops():
-	if current_rand != rand_num:
+	if current_rand != rand_num || style_changed:
+		if current != -1:
+			if (album[current].to_string().contains("Radio") && !radio_sound) || (!album[current].to_string().contains("Radio") && radio_sound):
+				songHasStarted = false
+				commercialIsPlaying = false
+			album[current].stop()
+			radio_static.play()
 		if rand_num == 1:
 			if radio_sound:
 				song1 = get_node("LostAgainRadio")
@@ -205,11 +198,24 @@ func change_loops():
 				song5 = get_node("CantTurnBack3")
 				song8 = get_node("PainfulLonging3")
 				song9 = get_node("GnawingDesires3")
+		song6 = get_node("SummitAir")
+		song7 = get_node("MaytheStarsFollowYou")
 		album = [song1, song2, song3, song4, song5, song6, song7, song8, song9]
 		current_rand = rand_num
-		if current != null:
-			stop_other_songs()
+		style_changed = false
+		if current != -1:
+			for n in album.size():
+				if album[n].get_meta("name").contains(current_song):
+					current = n
 	pass
+
+func choose_mp3():
+	var i = 0
+	for AudioStreamPlayer2D in foreverAlbum:
+		foreverAlbum[i].stop()
+		foreverRadioAlbum[i].stop()
+		i += 1
+	mp3Selected = %PauseMenu.get_node("MarginContainer/AudioOptions/Node2D/ChangeSong").selected
 
 func store_all_songs():
 	master_album.push_front(get_node("LostAgainRadio"))
@@ -248,20 +254,68 @@ func store_all_songs():
 	master_album.push_front(get_node("GnawingDesires2"))
 	master_album.push_front(get_node("PainfulLonging3"))
 	master_album.push_front(get_node("GnawingDesires3"))
+	
+	foreverAlbum.push_front(get_node("GnawingDesiresForever"))
+	foreverAlbum.push_front(get_node("MaytheStarsFollowYouForever"))
+	foreverAlbum.push_front(get_node("PainfulLongingForever"))
+	foreverAlbum.push_front(get_node("CantTurnBackForever"))
+	foreverAlbum.push_front(get_node("TrialsAboundForever"))
+	foreverAlbum.push_front(get_node("TestofPatienceForever"))
+	foreverAlbum.push_front(get_node("DontLookDownForever"))
+	foreverAlbum.push_front(get_node("LostAgainForever"))
+	
+	foreverRadioAlbum.push_front(get_node("GnawingDesiresForever"))
+	foreverRadioAlbum.push_front(get_node("MaytheStarsFollowYouForever"))
+	foreverRadioAlbum.push_front(get_node("PainfulLongingForever"))
+	foreverRadioAlbum.push_front(get_node("CantTurnBackRadioForever"))
+	foreverRadioAlbum.push_front(get_node("TrialsAboundRadioForever"))
+	foreverRadioAlbum.push_front(get_node("TestofPatienceRadioForever"))
+	foreverRadioAlbum.push_front(get_node("DontLookDownRadioForever"))
+	foreverRadioAlbum.push_front(get_node("LostAgainRadioForever"))
 	pass
 
 func stop_other_songs():
 	for n in master_album.size():
-		if master_album[n].name != album[current].name:
+		if !master_album[n].name.contains(current_song):
 			master_album[n].stop()
+	radio_static.stop()
 	pass
 
-#func print_values():
-	#print(" ")
-	#print("Audio is changeable: ", audio_changeable)
-	#print("Current: ", current)
-	#print("Current Random Loops: ", current_rand)
-	#print("Commercial is playing: ", commercialIsPlaying)
-	#print("Item jingle is playing: ", itemIsPlaying)
-	#print("Song is playing: ", songIsPlaying)
-	#print("Radio static is playing: ", staticIsPlaying)
+func print_values():
+	print(" ")
+	print("Audio is changeable: ", audio_changeable)
+	print("Current song number: ", current)
+	print("What is current song supposed to be?")
+	print(current_song)
+	if current != -1:
+		print("Name: ", album[current].get_meta("name"))
+	print("Is radio filter turned on?")
+	if current != -1:
+		if album[current].to_string().contains("Radio"):
+			print("Yes")
+		else:
+			print("No")
+	print("Should radio filter be turned on?")
+	if radio_sound:
+		print("Yes")
+	else:
+		print("No")
+	print("Current Random Loops: ", current_rand)
+	print("Commercial is playing: ", commercialIsPlaying)
+	print("Item jingle is playing: ", itemIsPlaying)
+	print("Song has started: ", songHasStarted)
+	print("Radio static is playing: ", staticIsPlaying)
+
+func _on_radio_static_finished():
+	if !player.game_start:
+		if !mp3Song:
+			songHasStarted = true
+		staticIsPlaying = false
+		# func roll for song or commercial
+	pass # Replace with function body.
+
+func _on_song_finished():
+	staticIsPlaying = true
+	# Static plays when commercial is finished or when a song is finished
+	radio_static.play()
+	pass

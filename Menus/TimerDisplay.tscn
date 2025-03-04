@@ -3,10 +3,12 @@
 [ext_resource type="Script" path="res://Menus/TimerDisplay.gd" id="1_bk1t2"]
 
 [node name="TimerDisplay" type="RichTextLabel"]
+clip_contents = false
 offset_left = -815.0
 offset_top = -171.0
 offset_right = -775.0
 offset_bottom = -131.0
+text = "adsfasdf"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

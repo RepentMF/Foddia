@@ -6,61 +6,76 @@
 position = Vector2(-72, 257)
 
 [node name="WindCurrent1" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(14442, -9954)
 scale = Vector2(165.991, 46.64)
 
 [node name="WindCurrent8" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(11698, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent7" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(13120, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent9" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(14514, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent12" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(17468, -15135)
 scale = Vector2(9.50001, 50)
 
 [node name="WindCurrent11" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(19215, -15135)
 scale = Vector2(11.38, 50)
 
 [node name="WindCurrent13" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(20823, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent6" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(10304, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent4" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(8910, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent5" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(7516, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent10" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(15922, -15135)
 scale = Vector2(7.5, 50)
 
 [node name="WindCurrent14" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(16872, -20201)
 scale = Vector2(7.74, 50)
 
 [node name="WindCurrent3" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(15697, -18588)
 scale = Vector2(14.14, 17.68)
 
 [node name="WindCurrent15" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(15661, -21587)
 scale = Vector2(14.14, 26.7589)
 
 [node name="WindCurrent2" parent="." instance=ExtResource("3_cti2m")]
+visible = true
 position = Vector2(14201, -18310)
 scale = Vector2(14.14, 11.92)

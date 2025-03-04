@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmjiv6nlca2jj"]
+[gd_scene load_steps=6 format=3 uid="uid://dmjiv6nlca2jj"]
 
 [ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_narsn"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="2_cogs6"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="3_y6l3s"]
+[ext_resource type="Texture2D" uid="uid://dejdwo4q7j4fc" path="res://Graphics/MultipleArrow.png" id="4_s7hbt"]
+[ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="6_tr7n4"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
@@ -90,6 +92,15 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Keep  Hiking"
 
+[node name="Reset Checkpoint" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
+text = "Reset to Last Flag"
+
 [node name="Go to Display Menu" type="Button" parent="MarginContainer/PauseOptions"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -137,6 +148,7 @@ layout_mode = 2
 
 [node name="Return to Pause Menu" type="Button" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -145,6 +157,7 @@ text = "Back  to  thinking..."
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("3_y6l3s")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -154,6 +167,7 @@ text = "Fullscreen"
 
 [node name="CRTFilterCheckBox" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("3_y6l3s")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -163,6 +177,7 @@ text = "CRT  Filter"
 
 [node name="SpeedrunCheckButton" type="CheckBox" parent="MarginContainer/GraphicsOptions"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("3_y6l3s")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -237,7 +252,6 @@ autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D6" type="Node2D" parent="MarginContainer/AudioOptions"]
-visible = false
 position = Vector2(34.5822, 99.1354)
 scale = Vector2(1.3, 1.04)
 
@@ -255,7 +269,7 @@ text = "Voice  Acting"
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D7" type="Node2D" parent="MarginContainer/AudioOptions"]
-position = Vector2(34.5822, 96.83)
+position = Vector2(34.5821, 122.767)
 scale = Vector2(1.3, 1.04)
 
 [node name="RadioSongsCheckBox" type="CheckBox" parent="MarginContainer/AudioOptions/Node2D7"]
@@ -271,8 +285,75 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Radio  Filtered  OST"
 metadata/_edit_use_anchors_ = true
 
+[node name="Node2D" type="Node2D" parent="MarginContainer/AudioOptions"]
+visible = false
+position = Vector2(34.5821, 129.107)
+
+[node name="ChangeSong" type="OptionButton" parent="MarginContainer/AudioOptions/Node2D"]
+unique_name_in_owner = true
+texture_filter = 1
+theme = ExtResource("3_y6l3s")
+theme_override_icons/arrow = ExtResource("4_s7hbt")
+toggle_mode = false
+alignment = 1
+selected = 0
+item_count = 9
+popup/item_0/text = "Radio"
+popup/item_1/text = "   ??????"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "   ??????"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "   ??????"
+popup/item_3/id = 3
+popup/item_3/disabled = true
+popup/item_4/text = "   ??????"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+popup/item_5/text = "   ??????"
+popup/item_5/id = 5
+popup/item_5/disabled = true
+popup/item_6/text = "   ??????"
+popup/item_6/id = 6
+popup/item_6/disabled = true
+popup/item_7/text = "   ??????"
+popup/item_7/id = 7
+popup/item_7/disabled = true
+popup/item_8/text = "   ??????"
+popup/item_8/id = 8
+popup/item_8/disabled = true
+metadata/Tooltip = ""
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="MarginContainer/AudioOptions/Node2D/ChangeSong"]
+stream = ExtResource("6_tr7n4")
+
+[node name="Node2D8" type="Node2D" parent="MarginContainer/AudioOptions"]
+visible = false
+position = Vector2(11.5274, 136.023)
+scale = Vector2(0.5, 0.399)
+
+[node name="MP3" type="RichTextLabel" parent="MarginContainer/AudioOptions/Node2D8"]
+unique_name_in_owner = true
+clip_contents = false
+offset_left = -34.0725
+offset_top = -6.50001
+offset_right = 57.9275
+offset_bottom = 64.5
+theme = ExtResource("3_y6l3s")
+theme_override_colors/default_color = Color(0.871094, 0.871094, 0.871094, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 42
+text = "MP3"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/Reset Checkpoint" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/Reset Checkpoint" to="." method="_on_reset_checkpoint_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_mouse_entered"]
@@ -301,3 +382,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D6/VoiceActingCheckBox" to="." method="_on_voice_acting_check_button_toggled"]
 [connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_radio_songs_check_box_toggled"]
+[connection signal="button_up" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_button_up"]
+[connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_mouse_exited"]

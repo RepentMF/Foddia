@@ -68,11 +68,15 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_menu"):
+	if Input.is_action_just_pressed("ui_menu") && !%Player.pausePressed:
+		visible = true
+	elif Input.is_action_just_pressed("ui_menu") && %Player.pausePressed:
 		_on_keep_hiking_pressed()
 	
 	use_keyboard_or_gamepad()
 	
+	if user_prefs.difficulty_dropdown_index == 0 && !%"Reset Checkpoint".visible:
+		%"Reset Checkpoint".visible = true
 	if spoof_fullscreen_bool != user_prefs.fullscreen_bool_check:
 		fullscreen_changed = true
 	if fullscreen_changed:
@@ -83,6 +87,40 @@ func _process(delta):
 			get_window().mode = Window.MODE_WINDOWED
 			spoof_fullscreen_bool = false
 		fullscreen_changed = false
+	
+	if user_prefs.hasMP3:
+		%ChangeSong.get_parent().visible = true
+		%MP3.get_parent().visible = true
+		if user_prefs.hasSong1:
+			%ChangeSong.set_item_text(1, "Lost Again")
+			%ChangeSong.set_item_disabled(1, false)
+		if user_prefs.hasSong2:
+			%ChangeSong.set_item_text(2, "Don't Look Down")
+			%ChangeSong.set_item_disabled(2, false)
+		if user_prefs.hasSong3:
+			%ChangeSong.set_item_text(3, "Test of Patience")
+			%ChangeSong.set_item_disabled(3, false)
+		if user_prefs.hasSong4:
+			%ChangeSong.set_item_text(4, "Trials Abound")
+			%ChangeSong.set_item_disabled(4, false)
+		if user_prefs.hasSong5:
+			%ChangeSong.set_item_text(5, "Can't Turn Back")
+			%ChangeSong.set_item_disabled(5, false)
+		if user_prefs.hasSong6:
+			%ChangeSong.set_item_text(6, "Painful Longing")
+			%ChangeSong.set_item_disabled(6, false)
+		if user_prefs.hasSong7:
+			%ChangeSong.set_item_text(7, "May the Stars Follow You")
+			%ChangeSong.set_item_disabled(7, false)
+		if user_prefs.hasSong8:
+			%ChangeSong.set_item_text(8, "Gnawing Desires")
+			%ChangeSong.set_item_disabled(8, false)
+		if %ChangeSong.selected != 0:
+			%RadioPlayer.mp3Song = true
+			%RadioPlayer.songHasStarted = false
+		elif %ChangeSong.selected == 0:
+			%RadioPlayer.mp3Song = false
+			%RadioPlayer.songHasStarted = true
 	pass
 
 func use_keyboard_or_gamepad():
@@ -91,6 +129,7 @@ func use_keyboard_or_gamepad():
 	elif cursor_highlighted == -101:
 		if %PauseOptions.visible:
 			%"Keep Hiking".release_focus()
+			%"Reset Checkpoint".release_focus()
 			%"Go to Display Menu".release_focus()
 			%"Go to Audio Menu".release_focus()
 			%"New Game".release_focus()
@@ -113,21 +152,40 @@ func use_keyboard_or_gamepad():
 			if cursor_highlighted > -1:
 				if Input.is_action_just_pressed("ui_up"):
 					cursor_highlighted -= 1
-			if cursor_highlighted < 5:
-				if Input.is_action_just_pressed("ui_down"):
-					cursor_highlighted += 1
-			if cursor_highlighted == 0:
-				%"Keep Hiking".grab_focus()
-			elif cursor_highlighted == 1:
-				%"Go to Display Menu".grab_focus()
-			elif cursor_highlighted == 2:
-				%"Go to Audio Menu".grab_focus()
-			elif cursor_highlighted == 3:
-				%"New Game".grab_focus()
-			elif cursor_highlighted == 4:
-				%"Back to the Car".grab_focus()
-			elif cursor_highlighted == 5:
-				%"Quit Game".grab_focus()
+			if user_prefs.difficulty_dropdown_index == 0:
+				if cursor_highlighted < 6:
+					if Input.is_action_just_pressed("ui_down"):
+						cursor_highlighted += 1
+				if cursor_highlighted == 0:
+					%"Keep Hiking".grab_focus()
+				elif cursor_highlighted == 1:
+					%"Reset Checkpoint".grab_focus()
+				elif cursor_highlighted == 2:
+					%"Go to Display Menu".grab_focus()
+				elif cursor_highlighted == 3:
+					%"Go to Audio Menu".grab_focus()
+				elif cursor_highlighted == 4:
+					%"New Game".grab_focus()
+				elif cursor_highlighted == 5:
+					%"Back to the Car".grab_focus()
+				elif cursor_highlighted == 6:
+					%"Quit Game".grab_focus()
+			else:
+				if cursor_highlighted < 5:
+					if Input.is_action_just_pressed("ui_down"):
+						cursor_highlighted += 1
+				if cursor_highlighted == 0:
+					%"Keep Hiking".grab_focus()
+				elif cursor_highlighted == 1:
+					%"Go to Display Menu".grab_focus()
+				elif cursor_highlighted == 2:
+					%"Go to Audio Menu".grab_focus()
+				elif cursor_highlighted == 3:
+					%"New Game".grab_focus()
+				elif cursor_highlighted == 4:
+					%"Back to the Car".grab_focus()
+				elif cursor_highlighted == 5:
+					%"Quit Game".grab_focus()
 		elif %GraphicsOptions.visible:
 			if cursor_highlighted > -1:
 				if Input.is_action_just_pressed("ui_up"):
@@ -164,6 +222,7 @@ func use_keyboard_or_gamepad():
 func _on_keep_hiking_pressed():
 	if  name == "PauseMenu" && get_tree().paused && %Player.pausePressed:
 		cursor_highlighted = -100
+		%AreaTitleCard.visible = true
 		get_tree().paused = false
 		visible = false
 	pass # Replace with function body.
@@ -245,6 +304,69 @@ func _on_return_to_main_menu_pressed():
 
 func _on_new_game_pressed():
 	user_prefs.new_game = true
+	user_prefs.bad_ending = false
+	user_prefs.dialogue_count = 0
+	user_prefs.teleportersAvailable = false
+	if user_prefs.difficulty_dropdown_index == 0:
+		user_prefs.relaxed_checkpoint = Vector2(260, 130)
+		user_prefs.relaxed_save = Vector2(260, 130)
+		user_prefs.relaxed_boots_flag = false
+		user_prefs.relaxed_rockets_flag = false
+		user_prefs.relaxed_jetpack_flag = false
+		user_prefs.relaxed_fuel_count = 1000
+		user_prefs.relaxed_macguffin_flag = false
+		user_prefs.relaxed_macguffin2_flag = false
+		user_prefs.relaxed_macguffin3_flag = false
+		user_prefs.relaxed_ms = 0
+		user_prefs.relaxed_s = 0
+		user_prefs.relaxed_m = 0
+		user_prefs.relaxed_h = 0
+		user_prefs.relaxed_flag1 = false
+		user_prefs.relaxed_flag2 = false
+		user_prefs.relaxed_flag3 = false
+		user_prefs.relaxed_flag4 = false
+		user_prefs.relaxed_flag5 = false
+		user_prefs.relaxed_flag6 = false
+		user_prefs.relaxed_flag7 = false
+		user_prefs.relaxed_flag8 = false
+		user_prefs.relaxed_flag9 = false
+		user_prefs.relaxed_flag10 = false
+		user_prefs.relaxed_flag11 = false
+		user_prefs.relaxed_flag12 = false
+		user_prefs.relaxed_flag13 = false
+		user_prefs.relaxed_flag14 = false
+		user_prefs.rel_last_song = "LostAgain"
+		user_prefs.rel_last_area = ""
+	if user_prefs.difficulty_dropdown_index == 1:
+		user_prefs.foddian_save = Vector2(260, 130)
+		user_prefs.foddian_boots_flag = false
+		user_prefs.foddian_rockets_flag = false
+		user_prefs.foddian_jetpack_flag = false
+		user_prefs.foddian_fuel_count = 1000
+		user_prefs.foddian_macguffin_flag = false
+		user_prefs.foddian_macguffin2_flag = false
+		user_prefs.foddian_macguffin3_flag = false
+		user_prefs.foddian_ms = 0
+		user_prefs.foddian_s = 0
+		user_prefs.foddian_m = 0
+		user_prefs.foddian_h = 0
+		user_prefs.fod_last_song = "LostAgain"
+		user_prefs.fod_last_area = ""
+	if user_prefs.difficulty_dropdown_index == 2:
+		user_prefs.permadeath_save = Vector2(260, 130)
+		user_prefs.permadeath_boots_flag = false
+		user_prefs.permadeath_rockets_flag = false
+		user_prefs.permadeath_jetpack_flag = false
+		user_prefs.permadeath_fuel_count = 1000
+		user_prefs.permadeath_macguffin_flag = false
+		user_prefs.permadeath_macguffin2_flag = false
+		user_prefs.permadeath_macguffin3_flag = false
+		user_prefs.permadeath_ms = 0
+		user_prefs.permadeath_s = 0
+		user_prefs.permadeath_m = 0
+		user_prefs.permadeath_h = 0
+		user_prefs.per_last_song = "LostAgain"
+		user_prefs.per_last_area = ""
 	user_prefs.save()
 	get_tree().paused = false
 	visible = false
@@ -309,4 +431,12 @@ func _save_player_info():
 
 func _on_mouse_entered():
 	cursor_highlighted = -101
+	pass # Replace with function body.
+
+func _on_reset_checkpoint_pressed() -> void:
+	%Player.forceDied = true
+	if  name == "PauseMenu" && get_tree().paused && %Player.pausePressed:
+		cursor_highlighted = -100
+		get_tree().paused = false
+		visible = false
 	pass # Replace with function body.

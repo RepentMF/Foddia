@@ -20,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if !user_prefs.demo:
+	if !user_prefs.demo && Steam.isSteamRunning():
 		if user_prefs.achievement_dice:
 			if dice_opposite:
 				handle_dice_achievement()
@@ -37,7 +37,7 @@ func handle_dice_achievement():
 	if !Steam.getAchievement("ACHIEVEMENT_DICE")["achieved"]:
 		Steam.setAchievement("ACHIEVEMENT_DICE")
 		Steam.storeStats()
-		user_prefs.save()
+	user_prefs.save()
 	pass
 
 func handle_dipper_achievement():

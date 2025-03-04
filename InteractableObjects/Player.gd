@@ -37,15 +37,17 @@ const JetpackSpeed = 750
 const RocketJumpSpeed = 250
 const Up = Vector2(0, -1)
 
+var areaName = ""
 var checkpoint = Vector2(260, 130)
 var count = 0
 var countAirTime = 0
 var countBounces = 0
 var countHangTime = 0
 var countJetpackFuel = 1000.0
+var countNoKicks = 0
 var countRocketJumps = 2
 
-var fadeInCount = 100
+var fadeInCount = 200
 var game_start = true
 var pausePressed = false
 
@@ -71,6 +73,7 @@ var hasJetpack = false
 var hasMacguffin = false
 var hasMacguffin2 = false
 var hasMacguffin3 = false
+var hasMP3 = false
 var hasNewLegs = false
 var hasRocketJump = false
 var hasRocketed = false
@@ -82,6 +85,7 @@ var isDead = false
 var isInElevator = false
 var isInteracting = false
 var isJetpacking = false
+var isKicking = true
 var isFreefalling = false
 var isGrabbingLedge = false
 var isInWindCurrent = false
@@ -108,6 +112,7 @@ var maxRunSpeed = 400
 var minRunSpeed = 125
 var runSpeed = 125
 var smokeCount = 30
+var staticSwingingChecked = false
 var swingSpeed = 0
 var swingRope = null
 var ropeBottom
@@ -232,6 +237,7 @@ func _ready():
 		timer.h = user_prefs.foddian_h
 	# Loading Permadeath Playthrough
 	elif user_prefs.difficulty_dropdown_index == 2:
+		rs.set_default_clear_color(Color (.33, .22, .718, 1))
 		global_position = user_prefs.permadeath_save
 		if user_prefs.permadeath_boots_flag:
 			hasNewLegs = true
@@ -251,6 +257,8 @@ func _ready():
 		timer.s = user_prefs.permadeath_s
 		timer.m = user_prefs.permadeath_m
 		timer.h = user_prefs.permadeath_h
+	if user_prefs.hasMP3:
+		hasMP3 = true
 	# Case Robot
 	if hasNewLegs && hasRocketJump && hasJetpack:
 		anim_norm.visible = false
@@ -348,12 +356,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if isInElevator:
+		set_collision_layer(4)
+	else:
+		set_collision_layer(1)
+	
 	check_controls()
 	check_swinging()
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
 		temp_volume = %SFXVolumeHandler.SFX_volume
 		get_node("GrabLedge").volume_db = temp_volume
 	fuel.value = (countJetpackFuel / maxJetpackFuel) * 100
+	if isHoldingRope:
+		isGrabbingLedge = false
 	if hasJetpack:
 		fuel.visible = true
 		jetpack.visible = true
@@ -479,13 +494,13 @@ func _process(delta):
 		anim = anim_norm
 	if !isInteracting:
 		if Input.is_action_just_pressed("ui_menu") && !pausePressed:
+			%AreaTitleCard.visible = false
 			%PauseMenu.visible = true
 			pausePressed = true
 			get_tree().paused = true
 		elif Input.is_action_just_pressed("ui_menu") && pausePressed:
 			pausePressed = false
 		CRT.visible = user_prefs.crt_bool_check
-		timer.visible = user_prefs.speedrun_bool_check
 		# Temporary static rope fix that will probably be permanent
 		if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
 			if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
@@ -494,21 +509,30 @@ func _process(delta):
 		if !landedSoft && !landedHard && !isGrabbingLedge && !isClimbingLedge:
 			# Process player grounded animations
 			if is_on_floor():
-				if is_on_floor() && velocity.x == 0:
-					anim.play("idle")
-				elif is_on_floor() && abs(velocity.x) > minRunSpeed:
-					anim.play("run")
-				elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
-					anim.play("walk")
+				if !isHoldingRope:
+					if is_on_floor() && velocity.x == 0:
+						anim.play("idle")
+					elif is_on_floor() && abs(velocity.x) > minRunSpeed:
+						anim.play("run")
+					elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
+						anim.play("walk")
+				elif isHoldingRope:
+					anim.stop()
+					if Input.is_action_pressed("ui_up") && !isKicking:
+						anim.play("up_rope")
+					elif Input.is_action_pressed("ui_down") && !isKicking:
+						anim.play("down_rope")
+					else:
+						anim.play("hold_rope")
 				if hasRocketJump:
 					get_node("Rocket_1").visible = true
 					get_node("Rocket_2").visible = true
 			# Process player rope animations
 			elif isHoldingRope && swingRope != null:
 				# FIX NEEDED: cannot press up when on swinging rope
-				if Input.is_action_pressed("ui_up") && swingRope.get_parent().name.contains("Static"):
+				if Input.is_action_pressed("ui_up") && !isKicking:
 					anim.play("up_rope")
-				elif Input.is_action_pressed("ui_down") && swingRope.get_parent().name.contains("Static"):
+				elif Input.is_action_pressed("ui_down") && !isKicking:
 					anim.play("down_rope")
 				else:
 					anim.play("hold_rope")
@@ -554,12 +578,18 @@ func _process(delta):
 
 func _physics_process(delta):
 	if game_start:
+		CRT.visible = user_prefs.crt_bool_check
+		if fadeInCount < 173:
+			%Loading.visible = true
 		if fadeInCount > 0:
 			fadeInCount -= 1
+			timer.visible = false
 		elif fadeInCount == 0:
 			game_start = false
 			%FadeInPanel.visible = false
-	if !isInteracting:
+			%Loading.visible = false
+			%AreaTitleCard.visible = true
+	if !isInteracting && fadeInCount <= 50:
 		if forceDied:
 			isDead = true
 		if direction != sign(velocity.x) && velocity.x != 0:
@@ -592,7 +622,7 @@ func _physics_process(delta):
 				get_tree().quit()
 			else:
 				isDead = false
-		elif %FadeInPanel.visible && !isInZeroG && !anEnding:
+		elif %FadeInPanel.visible && !isInZeroG && !anEnding && !game_start:
 			if %FadeInPanel.color == Color(0, 0, 0, 1):
 				%FadeInPanel.visible = false
 				deadFadeCount = 0
@@ -605,7 +635,7 @@ func _physics_process(delta):
 		var zoomTemp = (0.5 * ((ElevationHigh - abs(global_position.y)) / ElevationHigh)) + 0.6
 		cam.zoom = Vector2(zoomTemp, zoomTemp)
 		# Handle grabbing rope
-		if Input.is_action_pressed("ui_cancel") && isNearRope && (!hasJetpack && countJetpackFuel > 0):
+		if Input.is_action_pressed("ui_cancel") && isNearRope && (!hasJetpack && countJetpackFuel > 0) && !isInElevator && (!is_on_floor() || (is_on_floor() && global_position.y < ropeTop.global_position.y + 24)):
 			isHoldingRope = true
 			isOnIce = false
 			countRocketJumps = maxRocketJumps
@@ -649,35 +679,70 @@ func _physics_process(delta):
 						$Rocket_1.rotation = 3.14159
 						$Rocket_2.rotation = 3.14159
 		# Handle physics on a rope
-		if !hasJetpack && swingRope != null && isHoldingRope:
+		if !hasJetpack && swingRope != null && isHoldingRope && ((!is_on_floor() && global_position.y > ropeTop.global_position.y - 26) || (is_on_floor() && global_position.y < ropeTop.global_position.y + 26)):
 			countHangTime = 0
+			if Input.is_action_just_pressed("ui_right") || Input.is_action_just_pressed("ui_left"):
+				isKicking = true
+				countNoKicks = 0
+				staticSwingingChecked = false
+			elif swingRope.get_parent().get_node("RopeLinkageBottom") != null:
+				if round(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x) == 0:
+					countNoKicks += 1
+					if countNoKicks > 20:
+						isKicking = false
 			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
-				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
-				if swingRope.get_parent().name.contains("Falling"):
-					if swingRope.get_parent().get_node("PinJoint2D") != null:
-						swingRope.get_parent().get_node("PinJoint2D").willFall = true
-						if swingRope.get_parent().get_node("PinJoint2D").count == 0:
-							velocity.x = 0
-							velocity.y = 0
-				if Input.is_action_just_pressed("ui_right"):
-					swingRope.apply_impulse(Vector2(15, 0))
-				elif Input.is_action_just_pressed("ui_left"):
-					swingRope.apply_impulse(Vector2(-15, 0))
-				elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
-					if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
-						velocity = ropeBottom.linear_velocity
-						if isInWindCurrent:
-							velocity.y = ropeBottom.linear_velocity.y * 1.6
-						swingRope = null
-					else:
-						velocity = ropeBottom.linear_velocity / 2
-						if isInWindCurrent:
-							velocity.y = ropeBottom.linear_velocity.y * 1.3
-						swingRope = null
-			elif isHoldingRope && swingRope.get_parent().name.contains("Static"):
+				if isKicking:
+					global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
+					if swingRope.get_parent().name.contains("Falling"):
+						if swingRope.get_parent().get_node("PinJoint2D") != null:
+							swingRope.get_parent().get_node("PinJoint2D").willFall = true
+							if swingRope.get_parent().get_node("PinJoint2D").count == 0:
+								velocity.x = 0
+								velocity.y = 0
+					if Input.is_action_just_pressed("ui_right"):
+						swingRope.apply_impulse(Vector2(15, 0))
+					elif Input.is_action_just_pressed("ui_left"):
+						swingRope.apply_impulse(Vector2(-15, 0))
+					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
+						if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
+							velocity = ropeBottom.linear_velocity
+							if isInWindCurrent:
+								velocity.y = ropeBottom.linear_velocity.y * 1.6
+							swingRope = null
+						else:
+							velocity = ropeBottom.linear_velocity / 2
+							if isInWindCurrent:
+								velocity.y = ropeBottom.linear_velocity.y * 1.3
+							swingRope = null
+				else:
+					if !staticSwingingChecked:
+						ropeTempPosition.x = swingRope.global_position.x
+						ropeTempPosition.y = swingRope.global_position.y
+						staticSwingingChecked = true
+					global_position = Vector2(ropeTempPosition.x, ropeTempPosition.y)
+					velocity = Vector2(0, 0)
+					if global_position.y > ropeBottom.global_position.y + 20 || global_position.y < ropeTop.global_position.y - 26 || Input.is_action_just_released("ui_cancel"):
+						hasReleasedRope = true
+					elif Input.is_action_pressed("ui_up"):
+						global_position.y = ropeTempPosition.y - 2
+						ropeTempPosition.y = global_position.y
+						if global_position.y < ropeTop.global_position.y - 26:
+							global_position.y = ropeTop.global_position.y - 26
+							ropeTempPosition.y = ropeTop.global_position.y - 26
+							runSpeed = minRunSpeed
+					elif Input.is_action_pressed("ui_down"):
+						global_position.y = ropeTempPosition.y + 2
+						ropeTempPosition.y = global_position.y
+						if global_position.y > ropeBottom.global_position.y + 20:
+							hasReleasedRope = true
+							countAirTime = 10
+							countNoKicks = 0
+							staticSwingingChecked = false
+			elif isHoldingRope && (swingRope.get_parent().name.contains("Static")):
 				global_position = global_position.move_toward(Vector2(ropeTempPosition.x, ropeTempPosition.y), 10)
+				velocity = Vector2(0, 0)
+				# If player is higher than top of rope/ lower than bottom of rope/ releases grab button, do next
 				if global_position.y > ropeBottom.global_position.y + 20 || global_position.y < ropeTop.global_position.y - 26 || Input.is_action_just_released("ui_cancel"):
-					velocity = swingRope.linear_velocity
 					hasReleasedRope = true
 				elif Input.is_action_pressed("ui_up"):
 					global_position.y = ropeTempPosition.y - 2
@@ -685,14 +750,15 @@ func _physics_process(delta):
 					if global_position.y < ropeTop.global_position.y - 26:
 						global_position.y = ropeTop.global_position.y - 26
 						ropeTempPosition.y = ropeTop.global_position.y - 26
-						velocity.x = 0
 						runSpeed = minRunSpeed
+						velocity.x = runSpeed
 				elif Input.is_action_pressed("ui_down"):
 					global_position.y = ropeTempPosition.y + 2
 					ropeTempPosition.y = global_position.y
 					if global_position.y > ropeBottom.global_position.y + 20:
 						hasReleasedRope = true
 						countAirTime = 10
+						velocity = Vector2(0, 0)
 		# Handle climbing a ledge
 		elif isGrabbingLedge:
 			velocity.x = 0
@@ -816,6 +882,9 @@ func _physics_process(delta):
 							$Rocket_2.rotation = -2.35619
 		# Handle grounded movement
 		else:
+			isKicking = true
+			countNoKicks = 0
+			staticSwingingChecked = false
 			countBounces = 0
 			hasRocketed = false
 			smokeCount = 30
@@ -900,9 +969,14 @@ func _physics_process(delta):
 		if !hasJetpack:
 			if abs(velocity.x) > 600:
 				velocity.x = 600 * sign(velocity.x)
-				
+		
 		move_and_slide()
-					
+		
+		if swingRope != null:
+			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
+					if isKicking:
+						global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
+		
 		if isHoldingRope && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
 			if swingRope.get_parent().name.contains("Swinging"):
@@ -922,6 +996,7 @@ func _physics_process(delta):
 					rotation = 0
 		timer.rotation = 0
 	pass
+
 
 func ascend_ledge():
 	global_position = global_position.move_toward(Vector2(global_position.x, climbYValue), 1)
@@ -995,22 +1070,30 @@ func use_hands(body):
 		isGrabbingLedge = true
 		isFreefalling = false
 		get_node("GrabLedge").play()
-	elif body.name.contains("RopeLinkage") && swingRope == null:
+	elif body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
 		isNearRope = true
 		if !isHoldingRope:
 			swingRope = body
+			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
 			if swingRope.get_parent().name.contains("Swinging"):
 				var ropeImpulse = Vector2(0.5 * swingSpeed, 1)
 				if abs(ropeImpulse.x) > 130:
 					ropeImpulse.x = sign(ropeImpulse.x) * 130
 				body.apply_impulse(ropeImpulse)
-			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
+				ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
 			ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
 			ropeTop = body.get_parent().get_node("RopeLinkageTop")
+	elif body.name.contains("RopeLinkage") && swingRope != null && !isKicking:
+		swingRope = body
+		ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
+		if swingRope.get_parent().name.contains("Static"):
+			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
+		ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
+		ropeTop = body.get_parent().get_node("RopeLinkageTop")
 	pass
 
 func use_legs(body):
-	if body.name.contains("RopeLinkage") && swingRope == null:
+	if body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
 		isNearRope = true
 		if !isHoldingRope:
 			swingRope = body

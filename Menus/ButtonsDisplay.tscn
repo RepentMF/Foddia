@@ -1,0 +1,553 @@
+[gd_scene load_steps=27 format=3 uid="uid://3q354dpufygl"]
+
+[ext_resource type="Texture2D" uid="uid://ca88gfu784eg7" path="res://Graphics/ControllerMap_Base.png" id="1_3oahe"]
+[ext_resource type="Script" path="res://Menus/ButtonsDisplay.gd" id="1_gmxwe"]
+[ext_resource type="Texture2D" uid="uid://c3ahmnf0k1krp" path="res://Graphics/TopFace_display.png" id="2_dx7qy"]
+[ext_resource type="Script" path="res://Menus/RevealTooltip.gd" id="3_ftbo6"]
+[ext_resource type="Texture2D" uid="uid://cdkvno4mpqlst" path="res://Graphics/Shoulders_display.png" id="4_xmv7q"]
+[ext_resource type="Texture2D" uid="uid://d1rs6wo0rx2mu" path="res://Graphics/Select_display.png" id="5_tbiot"]
+[ext_resource type="Texture2D" uid="uid://bihmy8h6mbdu2" path="res://Graphics/R3_display.png" id="6_7670v"]
+[ext_resource type="Texture2D" uid="uid://ca5axbngxre0f" path="res://Graphics/Pause_display.png" id="7_7lgil"]
+[ext_resource type="Texture2D" uid="uid://mefupy1uym8n" path="res://Graphics/DPAD_display.png" id="8_77dik"]
+[ext_resource type="Texture2D" uid="uid://dpq56sc62b5na" path="res://Graphics/BottomFace_display.png" id="9_5l7ou"]
+[ext_resource type="Texture2D" uid="uid://ctl7hhbafhip0" path="res://Graphics/RightFace_display.png" id="10_wyggt"]
+[ext_resource type="Texture2D" uid="uid://qysplyo5u0o8" path="res://Graphics/KeyboardMap_Base.png" id="11_5qr0l"]
+[ext_resource type="Texture2D" uid="uid://b88xo6bn72nmn" path="res://Graphics/X_display.png" id="12_41k3h"]
+[ext_resource type="Texture2D" uid="uid://c8dm7bhqf3gv" path="res://Graphics/WASD_display.png" id="13_y61ul"]
+[ext_resource type="Texture2D" uid="uid://cwvxkj520avmj" path="res://Graphics/Space_display.png" id="14_1b7it"]
+[ext_resource type="Texture2D" uid="uid://bou6osv5gaf4b" path="res://Graphics/M_display.png" id="16_uyoel"]
+[ext_resource type="Texture2D" uid="uid://cir7tny63kqcm" path="res://Graphics/Escape_display.png" id="17_ifg6d"]
+[ext_resource type="Texture2D" uid="uid://b2vgfbq6vspe8" path="res://Graphics/Enter_display.png" id="18_s8x2s"]
+[ext_resource type="Texture2D" uid="uid://dmsogq8efen0b" path="res://Graphics/C_display.png" id="19_g63ji"]
+[ext_resource type="Texture2D" uid="uid://cvaijeqmyt0sp" path="res://Graphics/Arrows_display.png" id="20_v602n"]
+[ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="21_f7ylj"]
+[ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="22_pnybo"]
+[ext_resource type="Texture2D" uid="uid://cummjfspntthy" path="res://Graphics/DisplaySwap.png" id="23_54qsi"]
+[ext_resource type="Texture2D" uid="uid://b3wrkru84daa8" path="res://Graphics/DisplaySwap_pressed.png" id="23_cfx6a"]
+[ext_resource type="Texture2D" uid="uid://b5yp85pv3o552" path="res://Graphics/DisplaySwap_hovered.png" id="24_yuouh"]
+[ext_resource type="Script" path="res://Menus/BackButton.gd" id="25_aw8xi"]
+
+[node name="ButtonsDisplay" type="CanvasLayer"]
+script = ExtResource("1_gmxwe")
+
+[node name="ControllerDisplay" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(624, 480)
+scale = Vector2(2, 2)
+texture = ExtResource("1_3oahe")
+
+[node name="TopFace" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("2_dx7qy")
+metadata/Tooltip = "Top-face  button:  Reach  and  grab  /  Release  grip"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/TopFace"]
+offset_left = 55.0
+offset_top = -70.0
+offset_right = 95.0
+offset_bottom = -30.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="Triggers_LeftFace" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("4_xmv7q")
+metadata/Tooltip = "Trigger  buttons  /  left-face  button:  Run"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = 36.0
+offset_top = -51.0
+offset_right = 76.0
+offset_bottom = -11.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip2" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = -112.0
+offset_top = -104.0
+offset_right = -72.0
+offset_bottom = -64.0
+scale = Vector2(1, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip3" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = -112.0
+offset_top = -96.0
+offset_right = -72.0
+offset_bottom = -56.0
+scale = Vector2(0.800011, 0.599995)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip4" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = -120.0
+offset_top = -80.0
+offset_right = -80.0
+offset_bottom = -40.0
+scale = Vector2(0.599991, 0.599995)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip5" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = 72.0
+offset_top = -104.0
+offset_right = 112.0
+offset_bottom = -64.0
+scale = Vector2(1, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip6" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = 80.0
+offset_top = -96.0
+offset_right = 120.0
+offset_bottom = -56.0
+scale = Vector2(0.800001, 0.599995)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip7" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+offset_left = 96.0
+offset_top = -80.0
+offset_right = 136.0
+offset_bottom = -40.0
+scale = Vector2(0.599991, 0.599995)
+script = ExtResource("3_ftbo6")
+
+[node name="Select" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("5_tbiot")
+metadata/Tooltip = "Select  button:  Map"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/Select"]
+offset_left = -24.0
+offset_top = -51.0
+offset_right = 16.0
+offset_bottom = -11.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="AnalogRight" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("6_7670v")
+metadata/Tooltip = "Right-analog:  Move  camera"
+
+[node name="RevealTooltip2" type="TextureButton" parent="ControllerDisplay/AnalogRight"]
+offset_left = 39.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 44.0
+scale = Vector2(0.839991, 0.840009)
+script = ExtResource("3_ftbo6")
+
+[node name="Pause" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("7_7lgil")
+metadata/Tooltip = "Pause-button:  Pause  Menu"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/Pause"]
+offset_left = 12.0
+offset_top = -51.0
+offset_right = 52.0
+offset_bottom = -11.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="Analog_DPAD_Shoulders" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("8_77dik")
+metadata/Tooltip = "Left-analog  /  D-Pad:  Move                                                                                          D-Pad  Left, D-Pad  Right  /  Left-bumper,  Right-bumper:  Swing  left  or  right  on  swing  ropes"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/Analog_DPAD_Shoulders"]
+offset_left = -58.0
+offset_top = 1.0
+offset_right = -18.0
+offset_bottom = 41.0
+scale = Vector2(0.320001, 1.12)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip2" type="TextureButton" parent="ControllerDisplay/Analog_DPAD_Shoulders"]
+offset_left = -75.0
+offset_top = -61.0
+offset_right = -35.0
+offset_bottom = -21.0
+scale = Vector2(0.839991, 0.840009)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip3" type="TextureButton" parent="ControllerDisplay/Analog_DPAD_Shoulders"]
+offset_left = -72.0
+offset_top = -112.0
+offset_right = -32.0
+offset_bottom = -72.0
+scale = Vector2(1.18688, 0.600002)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip4" type="TextureButton" parent="ControllerDisplay/Analog_DPAD_Shoulders"]
+offset_left = 25.0
+offset_top = -112.0
+offset_right = 65.0
+offset_bottom = -72.0
+scale = Vector2(1.18688, 0.600002)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip5" type="TextureButton" parent="ControllerDisplay/Analog_DPAD_Shoulders"]
+offset_left = -74.0
+offset_top = 17.0
+offset_right = -34.0
+offset_bottom = 57.0
+scale = Vector2(1.08922, 0.299818)
+script = ExtResource("3_ftbo6")
+
+[node name="BottomFace" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("9_5l7ou")
+metadata/Tooltip = "Bottom-face  button:  Interact  with  items  or  talk  to  people"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/BottomFace"]
+offset_left = 55.0
+offset_top = -32.0
+offset_right = 95.0
+offset_bottom = 8.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="RightFace" type="Sprite2D" parent="ControllerDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("10_wyggt")
+metadata/Tooltip = "Right-face  button:  Jump  or  use  specific  items"
+
+[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/RightFace"]
+offset_left = 74.0
+offset_top = -51.0
+offset_right = 114.0
+offset_bottom = -11.0
+scale = Vector2(0.320001, 0.319999)
+script = ExtResource("3_ftbo6")
+
+[node name="KeyboardDisplay" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(632, 480)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_5qr0l")
+
+[node name="X" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("12_41k3h")
+metadata/Tooltip = "X-key:  Reach  and  grab  /  Release  grip"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/X"]
+offset_left = -120.0
+offset_top = -24.0
+offset_right = -80.0
+offset_bottom = 16.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="WASD" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("13_y61ul")
+metadata/Tooltip = "WASD-keys:  Move  camera"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/WASD"]
+offset_left = -72.0
+offset_top = -120.0
+offset_right = -32.0
+offset_bottom = -80.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip8" type="TextureButton" parent="KeyboardDisplay/WASD"]
+offset_left = -72.0
+offset_top = -72.0
+offset_right = -32.0
+offset_bottom = -32.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip9" type="TextureButton" parent="KeyboardDisplay/WASD"]
+offset_left = -120.0
+offset_top = -72.0
+offset_right = -80.0
+offset_bottom = -32.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip10" type="TextureButton" parent="KeyboardDisplay/WASD"]
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 16.0
+offset_bottom = -32.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="Space" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+position = Vector2(0, 0.000230789)
+texture = ExtResource("14_1b7it")
+metadata/Tooltip = "Space-key:  Jump  or  use  specific  items"
+
+[node name="RevealTooltip10" type="TextureButton" parent="KeyboardDisplay/Space"]
+offset_left = -104.0
+offset_top = 72.0
+offset_right = -64.0
+offset_bottom = 112.0
+scale = Vector2(4.39956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="M" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("16_uyoel")
+metadata/Tooltip = "M-key:  Map"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/M"]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="Escape" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("17_ifg6d")
+metadata/Tooltip = "Escape-key:  Pause  Menu"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/Escape"]
+offset_left = -120.0
+offset_top = -120.0
+offset_right = -80.0
+offset_bottom = -80.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="Enter" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("18_s8x2s")
+metadata/Tooltip = "Enter-key:  Interact  with  items  or  talk  to  people"
+
+[node name="RevealTooltip10" type="TextureButton" parent="KeyboardDisplay/Enter"]
+offset_left = -24.0
+offset_top = -120.0
+offset_right = 16.0
+offset_bottom = -80.0
+scale = Vector2(3.59956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="C" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("19_g63ji")
+metadata/Tooltip = "C-key:  Run"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/C"]
+offset_left = -72.0
+offset_top = -24.0
+offset_right = -32.0
+offset_bottom = 16.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="Arrows" type="Sprite2D" parent="KeyboardDisplay"]
+modulate = Color(0.65098, 0.619608, 1, 0)
+texture_filter = 1
+texture = ExtResource("20_v602n")
+metadata/Tooltip = "Arrow-keys:  Move                                                                                                            Arrow-key  Right,  Arrow-key  Left:  Swing  left  or  right  on  swing  ropes"
+
+[node name="RevealTooltip7" type="TextureButton" parent="KeyboardDisplay/Arrows"]
+offset_left = 24.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = 16.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip8" type="TextureButton" parent="KeyboardDisplay/Arrows"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip9" type="TextureButton" parent="KeyboardDisplay/Arrows"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 16.0
+offset_bottom = 64.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="RevealTooltip10" type="TextureButton" parent="KeyboardDisplay/Arrows"]
+offset_left = 72.0
+offset_top = 24.0
+offset_right = 112.0
+offset_bottom = 64.0
+scale = Vector2(1.19956, 1.19999)
+script = ExtResource("3_ftbo6")
+
+[node name="DisplaySwap" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 936.0
+offset_top = 384.0
+offset_right = 1035.0
+offset_bottom = 466.0
+scale = Vector2(1.76, 1.84)
+texture_normal = ExtResource("23_54qsi")
+texture_pressed = ExtResource("23_cfx6a")
+texture_hover = ExtResource("24_yuouh")
+script = ExtResource("3_ftbo6")
+
+[node name="BackToHikeSetup" type="Button" parent="."]
+texture_filter = 1
+offset_left = 56.0
+offset_top = 440.0
+offset_right = 172.0
+offset_bottom = 461.0
+scale = Vector2(2.12757, 2.24)
+theme = ExtResource("21_f7ylj")
+theme_override_fonts/font = ExtResource("22_pnybo")
+text = "Back  to  Hike  Setup"
+script = ExtResource("25_aw8xi")
+metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while  holding  no  items  and  starting  at  the  base  of  the  mountain."
+
+[connection signal="focus_entered" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/AnalogRight/RevealTooltip2" to="ControllerDisplay/AnalogRight/RevealTooltip2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/AnalogRight/RevealTooltip2" to="ControllerDisplay/AnalogRight/RevealTooltip2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/AnalogRight/RevealTooltip2" to="ControllerDisplay/AnalogRight/RevealTooltip2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/AnalogRight/RevealTooltip2" to="ControllerDisplay/AnalogRight/RevealTooltip2" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Pause/RevealTooltip" to="ControllerDisplay/Pause/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Pause/RevealTooltip" to="ControllerDisplay/Pause/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Pause/RevealTooltip" to="ControllerDisplay/Pause/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Pause/RevealTooltip" to="ControllerDisplay/Pause/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip2" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip3" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip4" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" to="ControllerDisplay/Analog_DPAD_Shoulders/RevealTooltip5" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/BottomFace/RevealTooltip" to="ControllerDisplay/BottomFace/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/BottomFace/RevealTooltip" to="ControllerDisplay/BottomFace/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/BottomFace/RevealTooltip" to="ControllerDisplay/BottomFace/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/BottomFace/RevealTooltip" to="ControllerDisplay/BottomFace/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/RightFace/RevealTooltip" to="ControllerDisplay/RightFace/RevealTooltip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/RightFace/RevealTooltip" to="ControllerDisplay/RightFace/RevealTooltip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/RightFace/RevealTooltip" to="ControllerDisplay/RightFace/RevealTooltip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/RightFace/RevealTooltip" to="ControllerDisplay/RightFace/RevealTooltip" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/X/RevealTooltip7" to="KeyboardDisplay/X/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/X/RevealTooltip7" to="KeyboardDisplay/X/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/X/RevealTooltip7" to="KeyboardDisplay/X/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/X/RevealTooltip7" to="KeyboardDisplay/X/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/WASD/RevealTooltip7" to="KeyboardDisplay/WASD/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/WASD/RevealTooltip7" to="KeyboardDisplay/WASD/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/WASD/RevealTooltip7" to="KeyboardDisplay/WASD/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/WASD/RevealTooltip7" to="KeyboardDisplay/WASD/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/WASD/RevealTooltip8" to="KeyboardDisplay/WASD/RevealTooltip8" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/WASD/RevealTooltip8" to="KeyboardDisplay/WASD/RevealTooltip8" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/WASD/RevealTooltip8" to="KeyboardDisplay/WASD/RevealTooltip8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/WASD/RevealTooltip8" to="KeyboardDisplay/WASD/RevealTooltip8" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/WASD/RevealTooltip9" to="KeyboardDisplay/WASD/RevealTooltip9" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/WASD/RevealTooltip9" to="KeyboardDisplay/WASD/RevealTooltip9" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/WASD/RevealTooltip9" to="KeyboardDisplay/WASD/RevealTooltip9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/WASD/RevealTooltip9" to="KeyboardDisplay/WASD/RevealTooltip9" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/WASD/RevealTooltip10" to="KeyboardDisplay/WASD/RevealTooltip10" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/WASD/RevealTooltip10" to="KeyboardDisplay/WASD/RevealTooltip10" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/WASD/RevealTooltip10" to="KeyboardDisplay/WASD/RevealTooltip10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/WASD/RevealTooltip10" to="KeyboardDisplay/WASD/RevealTooltip10" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Space/RevealTooltip10" to="KeyboardDisplay/Space/RevealTooltip10" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Space/RevealTooltip10" to="KeyboardDisplay/Space/RevealTooltip10" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Space/RevealTooltip10" to="KeyboardDisplay/Space/RevealTooltip10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Space/RevealTooltip10" to="KeyboardDisplay/Space/RevealTooltip10" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/M/RevealTooltip7" to="KeyboardDisplay/M/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/M/RevealTooltip7" to="KeyboardDisplay/M/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/M/RevealTooltip7" to="KeyboardDisplay/M/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/M/RevealTooltip7" to="KeyboardDisplay/M/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Escape/RevealTooltip7" to="KeyboardDisplay/Escape/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Escape/RevealTooltip7" to="KeyboardDisplay/Escape/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Escape/RevealTooltip7" to="KeyboardDisplay/Escape/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Escape/RevealTooltip7" to="KeyboardDisplay/Escape/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Enter/RevealTooltip10" to="KeyboardDisplay/Enter/RevealTooltip10" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Enter/RevealTooltip10" to="KeyboardDisplay/Enter/RevealTooltip10" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Enter/RevealTooltip10" to="KeyboardDisplay/Enter/RevealTooltip10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Enter/RevealTooltip10" to="KeyboardDisplay/Enter/RevealTooltip10" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/C/RevealTooltip7" to="KeyboardDisplay/C/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/C/RevealTooltip7" to="KeyboardDisplay/C/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/C/RevealTooltip7" to="KeyboardDisplay/C/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/C/RevealTooltip7" to="KeyboardDisplay/C/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Arrows/RevealTooltip7" to="KeyboardDisplay/Arrows/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Arrows/RevealTooltip7" to="KeyboardDisplay/Arrows/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Arrows/RevealTooltip7" to="KeyboardDisplay/Arrows/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Arrows/RevealTooltip7" to="KeyboardDisplay/Arrows/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Arrows/RevealTooltip8" to="KeyboardDisplay/Arrows/RevealTooltip8" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Arrows/RevealTooltip8" to="KeyboardDisplay/Arrows/RevealTooltip8" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Arrows/RevealTooltip8" to="KeyboardDisplay/Arrows/RevealTooltip8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Arrows/RevealTooltip8" to="KeyboardDisplay/Arrows/RevealTooltip8" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Arrows/RevealTooltip9" to="KeyboardDisplay/Arrows/RevealTooltip9" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Arrows/RevealTooltip9" to="KeyboardDisplay/Arrows/RevealTooltip9" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Arrows/RevealTooltip9" to="KeyboardDisplay/Arrows/RevealTooltip9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Arrows/RevealTooltip9" to="KeyboardDisplay/Arrows/RevealTooltip9" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="KeyboardDisplay/Arrows/RevealTooltip10" to="KeyboardDisplay/Arrows/RevealTooltip10" method="_on_focus_entered"]
+[connection signal="focus_exited" from="KeyboardDisplay/Arrows/RevealTooltip10" to="KeyboardDisplay/Arrows/RevealTooltip10" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="KeyboardDisplay/Arrows/RevealTooltip10" to="KeyboardDisplay/Arrows/RevealTooltip10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="KeyboardDisplay/Arrows/RevealTooltip10" to="KeyboardDisplay/Arrows/RevealTooltip10" method="_on_mouse_exited"]
+[connection signal="pressed" from="DisplaySwap" to="DisplaySwap" method="_on_pressed"]
+[connection signal="pressed" from="BackToHikeSetup" to="BackToHikeSetup" method="_on_pressed"]

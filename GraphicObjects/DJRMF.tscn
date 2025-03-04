@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcpdu7hy4375w"]
+
+[ext_resource type="SpriteFrames" uid="uid://b4rtgnvsuy6pl" path="res://GraphicObjects/DJRMF.tres" id="1_2u6cs"]
+
+[node name="DJRMF" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = ExtResource("1_2u6cs")
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.348236

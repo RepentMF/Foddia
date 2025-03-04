@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=172 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -1127,19 +1127,23 @@ shader_parameter/scanline_count = 50.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhdvc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ofme"]
+radius = 250.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4o1sr"]
+radius = 275.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p84k7"]
+radius = 300.0
+
 [node name="Player" type="CharacterBody2D"]
+physics_interpolation_mode = 1
 z_index = 3
-position = Vector2(-4, -1)
 script = ExtResource("1_hgfsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4ufxu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.25, 0.3125)
-texture = ExtResource("2_x77fk")
 
 [node name="HandsArea2D" type="Area2D" parent="."]
 position = Vector2(3, -8)
@@ -1252,6 +1256,7 @@ z_index = 1
 position = Vector2(-5, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DLeft" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1263,6 +1268,7 @@ collision_mask = 4
 position = Vector2(0, 6)
 node_a = NodePath("../HairLinkage")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DLeft/PinJoint2DLeft2" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1274,6 +1280,7 @@ collision_mask = 4
 position = Vector2(0, 12)
 node_a = NodePath("../PinJoint2DLeft2/HairLinkage")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DLeft/PinJoint2DLeft3" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1286,6 +1293,7 @@ visible = false
 position = Vector2(5, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DRight" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1297,6 +1305,7 @@ collision_mask = 8
 position = Vector2(0, 6)
 node_a = NodePath("../HairLinkage")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DRight/PinJoint2DRight2" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1308,6 +1317,7 @@ collision_mask = 8
 position = Vector2(0, 12)
 node_a = NodePath("../PinJoint2DRight2/HairLinkage")
 node_b = NodePath("HairLinkage")
+bias = 0.5
 
 [node name="HairLinkage" parent="PinJoint2DRight/PinJoint2DRight3" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1321,7 +1331,7 @@ z_index = 1
 position = Vector2(-5, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DLeftAir" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1334,7 +1344,7 @@ inertia = 0.1
 position = Vector2(0, 6)
 node_a = NodePath("../HairLinkage")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DLeftAir/PinJoint2DLeft2" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1347,7 +1357,7 @@ inertia = 0.1
 position = Vector2(0, 12)
 node_a = NodePath("../PinJoint2DLeft2/HairLinkage")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DLeftAir/PinJoint2DLeft3" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1361,7 +1371,7 @@ visible = false
 position = Vector2(5, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DRightAir" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1374,7 +1384,7 @@ inertia = 0.1
 position = Vector2(0, 6)
 node_a = NodePath("../HairLinkage")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DRightAir/PinJoint2DRight2" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1387,7 +1397,7 @@ inertia = 0.1
 position = Vector2(0, 12)
 node_a = NodePath("../PinJoint2DRight2/HairLinkage")
 node_b = NodePath("HairLinkage")
-softness = 0.25
+softness = 0.4
 
 [node name="HairLinkage" parent="PinJoint2DRightAir/PinJoint2DRight3" instance=ExtResource("5_n1usa")]
 z_index = -1
@@ -1435,6 +1445,7 @@ volume_db = 5.0
 [node name="SoftAir" type="AudioStreamPlayer2D" parent="AudioPlayer"]
 stream = ExtResource("21_p4slo")
 volume_db = -10.0
+metadata/_edit_group_ = true
 
 [node name="HardAir" type="AudioStreamPlayer2D" parent="AudioPlayer"]
 stream = ExtResource("22_egw0g")
@@ -1454,6 +1465,24 @@ volume_db = 5.0
 
 [node name="AchievementHandler" type="Node2D" parent="."]
 script = ExtResource("26_w3cgf")
+
+[node name="CamCircle1" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle1"]
+shape = SubResource("CircleShape2D_4ofme")
+
+[node name="CamCircle2" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle2"]
+shape = SubResource("CircleShape2D_4o1sr")
+
+[node name="CamCircle3" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle3"]
+shape = SubResource("CircleShape2D_p84k7")
 
 [connection signal="body_entered" from="HandsArea2D" to="." method="_on_grab_with_hands"]
 [connection signal="body_exited" from="HandsArea2D" to="." method="_on_release_with_hands"]

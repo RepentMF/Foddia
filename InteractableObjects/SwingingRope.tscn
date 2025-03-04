@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://d140swyckf05s"]
+[gd_scene load_steps=47 format=3 uid="uid://d140swyckf05s"]
 
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_as6d8"]
 [ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_jsp82"]
 [ext_resource type="PackedScene" uid="uid://b1xtej1vo82ej" path="res://InteractableObjects/RopeLinkage.tscn" id="2_83sdi"]
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_e6u8o"]
 [ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="2_t7c8r"]
+[ext_resource type="Script" path="res://InteractableObjects/RopeManager.gd" id="6_3y8do"]
 [ext_resource type="Texture2D" uid="uid://d020os3nkdnkt" path="res://Graphics/ui_leftrow_press.png" id="6_jwle0"]
 [ext_resource type="Texture2D" uid="uid://bduciq1mx7x5u" path="res://Graphics/ui_left_press.png" id="7_fm12n"]
 [ext_resource type="Texture2D" uid="uid://dk1kwcax1d6by" path="res://Graphics/ui_lb_press.png" id="8_sq5tt"]
@@ -268,9 +269,8 @@ size = Vector2(63, 131)
 script = ExtResource("1_jsp82")
 
 [node name="Floor" parent="." instance=ExtResource("1_as6d8")]
-visible = false
-position = Vector2(0, -10)
-scale = Vector2(1, 0.360002)
+position = Vector2(0, -12)
+scale = Vector2(1, 0.15)
 mass = 1.0
 gravity_scale = 1.0
 
@@ -295,7 +295,6 @@ position = Vector2(0, 17)
 node_a = NodePath("../Floor")
 node_b = NodePath("../RopeLinkageTop")
 bias = 0.9
-disable_collision = false
 
 [node name="RopeLinkageTop" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 21)
@@ -307,7 +306,6 @@ position = Vector2(0, 26)
 node_a = NodePath("../RopeLinkageTop")
 node_b = NodePath("../RopeLinkage2")
 bias = 0.9
-disable_collision = false
 
 [node name="RopeLinkage2" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 31)
@@ -317,7 +315,6 @@ freeze_mode = 1
 position = Vector2(0, 36)
 node_a = NodePath("../RopeLinkage2")
 node_b = NodePath("../RopeLinkage3")
-disable_collision = false
 
 [node name="RopeLinkage3" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 41)
@@ -327,7 +324,6 @@ freeze_mode = 1
 position = Vector2(0, 46)
 node_a = NodePath("../RopeLinkage3")
 node_b = NodePath("../RopeLinkage4")
-disable_collision = false
 
 [node name="RopeLinkage4" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 51)
@@ -337,7 +333,6 @@ freeze_mode = 1
 position = Vector2(0, 56)
 node_a = NodePath("../RopeLinkage4")
 node_b = NodePath("../RopeLinkage5")
-disable_collision = false
 
 [node name="RopeLinkage5" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 61)
@@ -347,7 +342,6 @@ freeze_mode = 1
 position = Vector2(0, 66)
 node_a = NodePath("../RopeLinkage5")
 node_b = NodePath("../RopeLinkage6")
-disable_collision = false
 
 [node name="RopeLinkage6" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 71)
@@ -357,7 +351,6 @@ freeze_mode = 1
 position = Vector2(0, 76)
 node_a = NodePath("../RopeLinkage6")
 node_b = NodePath("../RopeLinkage7")
-disable_collision = false
 
 [node name="RopeLinkage7" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 81)
@@ -367,7 +360,6 @@ freeze_mode = 1
 position = Vector2(0, 86)
 node_a = NodePath("../RopeLinkage7")
 node_b = NodePath("../RopeLinkage8")
-disable_collision = false
 
 [node name="RopeLinkage8" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 91)
@@ -377,7 +369,6 @@ freeze_mode = 1
 position = Vector2(0, 96)
 node_a = NodePath("../RopeLinkage8")
 node_b = NodePath("../RopeLinkage9")
-disable_collision = false
 
 [node name="RopeLinkage9" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 101)
@@ -387,7 +378,6 @@ freeze_mode = 1
 position = Vector2(0, 106)
 node_a = NodePath("../RopeLinkage9")
 node_b = NodePath("../RopeLinkage10")
-disable_collision = false
 
 [node name="RopeLinkage10" parent="." instance=ExtResource("2_83sdi")]
 position = Vector2(0, 111)
@@ -397,12 +387,13 @@ freeze_mode = 1
 position = Vector2(0, 116)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkageBottom")
-disable_collision = false
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("2_83sdi")]
-position = Vector2(0, 121)
+position = Vector2(0, 123)
+script = ExtResource("6_3y8do")
 
 [node name="UI_Keyboard_left" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-18, -49)
 sprite_frames = SubResource("SpriteFrames_hvrb2")
@@ -423,6 +414,7 @@ sprite_frames = SubResource("SpriteFrames_4nfkh")
 animation = &"pressed"
 
 [node name="UI_Keyboard_right" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(18, -49)
 sprite_frames = SubResource("SpriteFrames_1a22h")

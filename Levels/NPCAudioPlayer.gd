@@ -18,13 +18,13 @@ func _process(delta):
 	if user_prefs.voice_acting_bool_check:
 		if temp_volume != %OSTVolumeHandler.OST_volume:
 			temp_volume = %OSTVolumeHandler.OST_volume
-			dialogue.volume_db = temp_volume
 		if get_parent().interacting:
 			if get_parent().indexer != 0:
 				if !dialogue[get_parent().indexer - 1] is String:
 					if audioIndexer != get_parent().indexer - 1:
 						audioIndexer = get_parent().indexer - 1
 						stream = dialogue[audioIndexer]
+						volume_db = temp_volume
 						looped = false
 					if !is_playing() && !looped:
 						play()

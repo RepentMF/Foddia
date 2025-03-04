@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://qdiiqff1tbjg"]
+
+[ext_resource type="Script" path="res://InteractableObjects/RevealTile.gd" id="1_qdjmi"]
+[ext_resource type="Texture2D" uid="uid://d4d8h4l1oxi0p" path="res://Graphics/RadioHouse.png" id="2_jxvwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28w0l"]
+size = Vector2(344, 156)
+
+[node name="RevealTile_TheJort" type="Area2D"]
+script = ExtResource("1_qdjmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(184, -81)
+shape = SubResource("RectangleShape2D_28w0l")
+
+[node name="TileMap" type="Sprite2D" parent="."]
+light_mask = 4
+texture_filter = 1
+position = Vector2(179, -105)
+texture = ExtResource("2_jxvwj")
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_2d_body_exited"]

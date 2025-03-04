@@ -165,7 +165,7 @@ scale = Vector2(4, 0.1)
 script = ExtResource("1_qooh2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 4
+z_index = 3
 texture_filter = 1
 position = Vector2(0, 130)
 scale = Vector2(0.25, 10)
@@ -182,18 +182,26 @@ texture = ExtResource("3_wkt8b")
 [node name="ElevatorRoof" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(0, -670)
 scale = Vector2(1.5, 10)
+collision_layer = 9
+collision_mask = 9
 
 [node name="ElevatorFloor" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(0, 930)
 scale = Vector2(1.5, 10)
+collision_layer = 9
+collision_mask = 9
 
 [node name="ElevatorWall1" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(-20, -640)
 scale = Vector2(0.25, 59)
+collision_layer = 9
+collision_mask = 9
 
 [node name="ElevatorWall2" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(20, -640)
 scale = Vector2(0.25, 59)
+collision_layer = 9
+collision_mask = 9
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 390)

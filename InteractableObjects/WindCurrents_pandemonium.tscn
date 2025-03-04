@@ -6,17 +6,31 @@
 position = Vector2(-336, 96)
 
 [node name="WindCurrent3" parent="." instance=ExtResource("1_kej2c")]
+visible = true
 position = Vector2(23144, -70)
 scale = Vector2(22.32, 6)
 
 [node name="WindCurrent4" parent="." instance=ExtResource("1_kej2c")]
+visible = true
 position = Vector2(25632, -70)
 scale = Vector2(22.32, 6)
 
+[node name="WindCurrent5" parent="." instance=ExtResource("1_kej2c")]
+visible = true
+position = Vector2(22728, -1873)
+scale = Vector2(84, 8)
+
 [node name="WindCurrent2" parent="." instance=ExtResource("1_kej2c")]
+visible = true
 position = Vector2(9086, 1059)
 scale = Vector2(28, 6)
 
 [node name="WindCurrent1" parent="." instance=ExtResource("1_kej2c")]
+visible = true
 position = Vector2(3480, 2892)
 scale = Vector2(78.8, 42)
+
+[node name="WindCurrent6" parent="." instance=ExtResource("1_kej2c")]
+visible = true
+position = Vector2(17680, 3532)
+scale = Vector2(200, 25)

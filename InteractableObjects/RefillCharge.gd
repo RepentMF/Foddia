@@ -11,24 +11,27 @@ var countTime = 120
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if temp_volume != %SFXVolumeHandler.SFX_volume:
-		temp_volume = %SFXVolumeHandler.SFX_volume
-		get_node("Refill").volume_db = temp_volume
-	if anim.animation == "break" && anim.frame == 4:
-		anim.play("used")
-	elif hasBeenUsed && !anim.animation == "break" && !anim.animation == "used" && countTime >= 110:
-		anim.play("break")
-	elif hasBeenUsed && anim.animation == "used"  && anim.animation != "combine" && countTime <= 15:
-		anim.play("combine")
-	elif !hasBeenUsed:
-		anim.play("idle")
-	
-	if hasBeenUsed:
-		if countTime > 0:
-				countTime -= 1
-		elif countTime <= 0:
-			hasBeenUsed = false
-			countTime = InitialTime
+	if %Player.hasRocketJump || %Player.hasJetpack && !get_parent().visible:
+		get_parent().visible = true
+	elif get_parent().visible:
+		if temp_volume != %SFXVolumeHandler.SFX_volume:
+			temp_volume = %SFXVolumeHandler.SFX_volume
+			get_node("Refill").volume_db = temp_volume
+		if anim.animation == "break" && anim.frame == 4:
+			anim.play("used")
+		elif hasBeenUsed && !anim.animation == "break" && !anim.animation == "used" && countTime >= 110:
+			anim.play("break")
+		elif hasBeenUsed && anim.animation == "used"  && anim.animation != "combine" && countTime <= 15:
+			anim.play("combine")
+		elif !hasBeenUsed:
+			anim.play("idle")
+		
+		if hasBeenUsed:
+			if countTime > 0:
+					countTime -= 1
+			elif countTime <= 0:
+				hasBeenUsed = false
+				countTime = InitialTime
 	pass
 
 func _on_body_entered(body):
