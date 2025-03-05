@@ -5,7 +5,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'del+ta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if abs(rotation) < 2.35:
 		if round(linear_velocity.x) > 0 && round(linear_velocity.x) < 75:
 			if abs(linear_velocity.x) < 75 && abs(linear_velocity.x) > 50:

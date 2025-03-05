@@ -67,7 +67,7 @@ func _ready():
 		get_node("ColorRect6").visible = true
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_menu") && !%Player.pausePressed:
 		visible = true
 	elif Input.is_action_just_pressed("ui_menu") && %Player.pausePressed:
@@ -132,6 +132,7 @@ func use_keyboard_or_gamepad():
 			%"Reset Checkpoint".release_focus()
 			%"Go to Display Menu".release_focus()
 			%"Go to Audio Menu".release_focus()
+			%ControllerLayout.release_focus()
 			%"New Game".release_focus()
 			%"Back to the Car".release_focus()
 			%"Quit Game".release_focus()
@@ -153,7 +154,7 @@ func use_keyboard_or_gamepad():
 				if Input.is_action_just_pressed("ui_up"):
 					cursor_highlighted -= 1
 			if user_prefs.difficulty_dropdown_index == 0:
-				if cursor_highlighted < 6:
+				if cursor_highlighted < 7:
 					if Input.is_action_just_pressed("ui_down"):
 						cursor_highlighted += 1
 				if cursor_highlighted == 0:
@@ -165,13 +166,15 @@ func use_keyboard_or_gamepad():
 				elif cursor_highlighted == 3:
 					%"Go to Audio Menu".grab_focus()
 				elif cursor_highlighted == 4:
-					%"New Game".grab_focus()
+					%ControllerLayout.grab_focus()
 				elif cursor_highlighted == 5:
-					%"Back to the Car".grab_focus()
+					%"New Game".grab_focus()
 				elif cursor_highlighted == 6:
+					%"Back to the Car".grab_focus()
+				elif cursor_highlighted == 7:
 					%"Quit Game".grab_focus()
 			else:
-				if cursor_highlighted < 5:
+				if cursor_highlighted < 6:
 					if Input.is_action_just_pressed("ui_down"):
 						cursor_highlighted += 1
 				if cursor_highlighted == 0:
@@ -181,10 +184,12 @@ func use_keyboard_or_gamepad():
 				elif cursor_highlighted == 2:
 					%"Go to Audio Menu".grab_focus()
 				elif cursor_highlighted == 3:
-					%"New Game".grab_focus()
+					%ControllerLayout.grab_focus()
 				elif cursor_highlighted == 4:
-					%"Back to the Car".grab_focus()
+					%"New Game".grab_focus()
 				elif cursor_highlighted == 5:
+					%"Back to the Car".grab_focus()
+				elif cursor_highlighted == 6:
 					%"Quit Game".grab_focus()
 		elif %GraphicsOptions.visible:
 			if cursor_highlighted > -1:
@@ -367,6 +372,8 @@ func _on_new_game_pressed():
 		user_prefs.permadeath_h = 0
 		user_prefs.per_last_song = "LostAgain"
 		user_prefs.per_last_area = ""
+	user_prefs.teleportersAvailable = false
+	user_prefs.dialogue_count = 0
 	user_prefs.save()
 	get_tree().paused = false
 	visible = false
@@ -433,10 +440,16 @@ func _on_mouse_entered():
 	cursor_highlighted = -101
 	pass # Replace with function body.
 
-func _on_reset_checkpoint_pressed() -> void:
+func _on_reset_checkpoint_pressed():
 	%Player.forceDied = true
 	if  name == "PauseMenu" && get_tree().paused && %Player.pausePressed:
 		cursor_highlighted = -100
 		get_tree().paused = false
 		visible = false
+	pass # Replace with function body.
+
+func _on_controller_layout_pressed():
+	%ButtonsDisplay.visible = true
+	get_tree().root.get_node("Overworld/UIHolder/DialogueBox").visible = true
+	get_parent().get_node("PauseMenu/MarginContainer/PauseOptions").visible = false
 	pass # Replace with function body.

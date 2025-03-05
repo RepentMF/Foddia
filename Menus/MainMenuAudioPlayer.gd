@@ -24,15 +24,16 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
 		temp_volume = %SFXVolumeHandler.SFX_volume
 		change_all_volumes()
-	if %StartGame.volume_db != %OSTVolumeHandler.OST_volume:
-		if %StartGame.volume_db > 0:
-			startGame.volume_db = temp_volume - 10
-		else:
-			startGame.volume_db = temp_volume - 15
+	if !get_parent().name.contains("Ending"):
+		if %StartGame.volume_db != %OSTVolumeHandler.OST_volume:
+			if %StartGame.volume_db > 0:
+				startGame.volume_db = temp_volume - 10
+			else:
+				startGame.volume_db = temp_volume - 15
 	if user_prefs.screenshake_bool_check || get_parent().name.contains("Ending"):
 		if !engineStart:
 			carEngineStart.play()

@@ -9,7 +9,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if %RadioInfo.newSong && (%AreaTitleCard.fadeOutCount == %AreaTitleCard.fadeOutMax - 1 || %AreaTitleCard.fadeOutCount == %AreaTitleCard.fadeOutMax - 2):
 		start = true
 	

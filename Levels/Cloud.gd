@@ -22,16 +22,20 @@ func _ready():
 	starting_position = -735
 	if abs(position.y) > 11000 && z_index < 0:
 		h_color_modifier = 0
-		if user_prefs.difficulty_dropdown_index == 0 || user_prefs.difficulty_dropdown_index == 2:
+		if user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = 0
 		elif user_prefs.difficulty_dropdown_index == 1:
 			s_color_modifier = (golden_ratio * 2) + .3
+		elif user_prefs.difficulty_dropdown_index == 2:
+			s_color_modifier = (golden_ratio * 2) + .6
 		v_color_modifier = 1
 	else:
-		if user_prefs.difficulty_dropdown_index == 0 || user_prefs.difficulty_dropdown_index == 2:
+		if user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = golden_ratio
 		elif user_prefs.difficulty_dropdown_index == 1:
 			s_color_modifier = (golden_ratio * 2) + .3
+		elif user_prefs.difficulty_dropdown_index == 2:
+			s_color_modifier = (golden_ratio * 1.5) + .7
 		v_color_modifier = 1 - (golden_ratio / 10)
 	scale.x = scale.x + (golden_ratio * 10)
 	scale.y = scale.y + (golden_ratio * 10)
@@ -39,6 +43,6 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	position.x += cloud_speed
 	pass

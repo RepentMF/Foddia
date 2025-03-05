@@ -16,7 +16,3 @@ func _ready():
 			var id = Steam.getSteamID()
 			var name = Steam.getFriendPersonaName(id)
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

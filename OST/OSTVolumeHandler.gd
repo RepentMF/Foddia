@@ -11,7 +11,7 @@ func _ready():
 		OST_volume = -80
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if user_prefs.music_audio_level > 0:
 		OST_volume = (0.48 * user_prefs.music_audio_level) - 24
 	elif user_prefs.music_audio_level == 0:

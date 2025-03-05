@@ -23,14 +23,14 @@ func _ready():
 		isOpened = false
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	var temp_volume = %SFXVolumeHandler.SFX_volume + 15
 	openFlag.volume_db = temp_volume
 	passFlag.volume_db = temp_volume
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if isWaving:
 		anim.play("flag_waving")
 	elif !isOpened:

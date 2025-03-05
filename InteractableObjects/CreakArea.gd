@@ -7,7 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if temp_volume != get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume:
 		temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
 		get_node("RopeReleased").volume_db = temp_volume

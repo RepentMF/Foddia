@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if hasBeenEntered && tilemap.modulate.a > 0:
 		tilemap.modulate.a -= .03
 	elif !hasBeenEntered && tilemap.modulate.a < 1 && name.contains("TheJort"):

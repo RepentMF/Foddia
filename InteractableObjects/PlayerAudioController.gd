@@ -59,7 +59,7 @@ func _ready():
 	ropeCount = 0
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if temp_volume != get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume:
 		temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
 		change_all_volumes()
@@ -74,7 +74,7 @@ func _process(delta):
 		hardAir2.volume_db = temp_volume - 15
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player.isInteracting:
 		deadLanded.stop()
 		hardLanded.stop()

@@ -46,7 +46,7 @@ func _ready():
 		%Macguffin3.visible = true
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !load:
 		use_keyboard_or_gamepad()
 	
@@ -203,6 +203,8 @@ func _on_new_game_pressed():
 			user_prefs.per_last_song = "LostAgain"
 			user_prefs.per_last_area = ""
 			user_prefs.save()
+		user_prefs.teleportersAvailable = false
+		user_prefs.dialogue_count = 0
 		load = true
 	pass # Replace with function body.
 
@@ -301,6 +303,6 @@ func load_game():
 			elif user_prefs.difficulty_dropdown_index == 2:
 				get_tree().change_scene_to_file("res://Levels/OverworldPermadeath.tscn")
 
-func _on_change_difficulty_item_focused(index):
-	cursor_highlighted = 6
+func _on_change_difficulty_item_focused(_index):
+	cursor_highlighted = 7
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://3q354dpufygl"]
+[gd_scene load_steps=28 format=3 uid="uid://3q354dpufygl"]
 
 [ext_resource type="Texture2D" uid="uid://ca88gfu784eg7" path="res://Graphics/ControllerMap_Base.png" id="1_3oahe"]
 [ext_resource type="Script" path="res://Menus/ButtonsDisplay.gd" id="1_gmxwe"]
@@ -24,6 +24,7 @@
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="22_pnybo"]
 [ext_resource type="Texture2D" uid="uid://cummjfspntthy" path="res://Graphics/DisplaySwap.png" id="23_54qsi"]
 [ext_resource type="Texture2D" uid="uid://b3wrkru84daa8" path="res://Graphics/DisplaySwap_pressed.png" id="23_cfx6a"]
+[ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="24_uok4v"]
 [ext_resource type="Texture2D" uid="uid://b5yp85pv3o552" path="res://Graphics/DisplaySwap_hovered.png" id="24_yuouh"]
 [ext_resource type="Script" path="res://Menus/BackButton.gd" id="25_aw8xi"]
 
@@ -408,6 +409,9 @@ texture_pressed = ExtResource("23_cfx6a")
 texture_hover = ExtResource("24_yuouh")
 script = ExtResource("3_ftbo6")
 
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="DisplaySwap"]
+stream = ExtResource("24_uok4v")
+
 [node name="BackToHikeSetup" type="Button" parent="."]
 texture_filter = 1
 offset_left = 56.0
@@ -420,6 +424,9 @@ theme_override_fonts/font = ExtResource("22_pnybo")
 text = "Back  to  Hike  Setup"
 script = ExtResource("25_aw8xi")
 metadata/Tooltip = "Start  a  new  game  with  the  selected   climb  difficulty,  while  holding  no  items  and  starting  at  the  base  of  the  mountain."
+
+[node name="OptionSelect" type="AudioStreamPlayer2D" parent="BackToHikeSetup"]
+stream = ExtResource("24_uok4v")
 
 [connection signal="focus_entered" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_focus_entered"]
 [connection signal="focus_exited" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_focus_exited"]

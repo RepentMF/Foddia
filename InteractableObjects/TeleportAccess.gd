@@ -16,7 +16,7 @@ var interacting = false
 var isNearTeleport = false
 var isReady = false
 var originalColor
-var teleportSpot = Vector2(24112, -3688)
+var teleportSpot = Vector2(24116, -3688)
 var useable = false
 
 # Called when the node enters the scene tree for the first time.
@@ -26,8 +26,8 @@ func _ready():
 	change_colors()
 	pass # Replace with function body.
 
-func _physics_process(delta):
-	if user_prefs.teleportersAvailable:
+func _physics_process(_delta):
+	if user_prefs.teleportersAvailable && user_prefs.dialogue_count > 0:
 		if name.contains("0"):
 			useable = true
 			visible = true
@@ -55,10 +55,13 @@ func _physics_process(delta):
 		elif name.contains("8") && user_prefs.hasSong8:
 			useable = true
 			visible = true
+	else:
+		visible = false
+		useable = false
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	areaName = player.areaName
 	if %Player.changeControls:
 		change_icons()

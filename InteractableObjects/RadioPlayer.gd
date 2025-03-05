@@ -67,7 +67,7 @@ func _ready():
 	change_loops()
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#print_values()
 	if max_volume != %OSTVolumeHandler.OST_volume:
 		max_volume = %OSTVolumeHandler.OST_volume
@@ -254,6 +254,7 @@ func store_all_songs():
 	master_album.push_front(get_node("GnawingDesires2"))
 	master_album.push_front(get_node("PainfulLonging3"))
 	master_album.push_front(get_node("GnawingDesires3"))
+	master_album.push_front(get_node("SummitAir"))
 	
 	foreverAlbum.push_front(get_node("GnawingDesiresForever"))
 	foreverAlbum.push_front(get_node("MaytheStarsFollowYouForever"))

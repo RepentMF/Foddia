@@ -10,7 +10,7 @@ var hasBeenUsed = false
 var countTime = 120
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if %Player.hasRocketJump || %Player.hasJetpack && !get_parent().visible:
 		get_parent().visible = true
 	elif get_parent().visible:
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	pass
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" && get_parent().visible:
 		if !hasBeenUsed:
 			#if !body.hasRocketJump && !body.hasJetpack:
 			#	body.velocity.y = -2 * body.jumpSpeed

@@ -20,7 +20,7 @@ func _ready():
 	lightGreen.enabled = true
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
 		temp_volume = %SFXVolumeHandler.SFX_volume
 		get_node("Switched").volume_db = temp_volume
@@ -29,7 +29,7 @@ func _process(delta):
 		get_node("UpDown").volume_db = temp_volume
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Player has hit button
 	if hasBeenUsed:
 		get_node("ElevatorWall1").process_mode = Node.PROCESS_MODE_INHERIT
@@ -77,6 +77,7 @@ func _physics_process(delta):
 						anim.pause()
 				elif countTime3 == 80:
 					%Player.isInElevator = false
+					%Player.set_collision_layer(1)
 					hasBeenUsed = false
 					countTime = 0
 					countTime2 = 0
@@ -98,4 +99,5 @@ func _on_area_2d_body_entered(body):
 	hasBeenUsed = true
 	if body.name == "Player":
 		body.isInElevator = true
+		body.set_collision_layer(4)
 	pass # Replace with function body

@@ -355,12 +355,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if isInElevator:
-		set_collision_layer(4)
-	else:
-		set_collision_layer(1)
-	
+func _process(_delta):
 	check_controls()
 	check_swinging()
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
@@ -371,6 +366,7 @@ func _process(delta):
 		isGrabbingLedge = false
 	if hasJetpack:
 		fuel.visible = true
+		%FuelContainer.visible = true
 		jetpack.visible = true
 	else:
 		fuel.visible = false
@@ -1231,3 +1227,48 @@ func _notification(what):
 		user_prefs.save()
 		get_tree().quit()
 	pass
+
+func save_game():
+	if user_prefs.difficulty_dropdown_index == 0:
+		user_prefs.relaxed_save = global_position
+		user_prefs.relaxed_checkpoint = checkpoint
+		user_prefs.relaxed_boots_flag = hasNewLegs
+		user_prefs.relaxed_rockets_flag = hasRocketJump
+		user_prefs.relaxed_jetpack_flag = hasJetpack
+		user_prefs.relaxed_fuel_count = countJetpackFuel
+		user_prefs.relaxed_macguffin_flag = hasMacguffin
+		user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+		user_prefs.relaxed_macguffin3_flag = hasMacguffin3
+		user_prefs.relaxed_ms = timer.ms
+		user_prefs.relaxed_s = timer.s
+		user_prefs.relaxed_m = timer.m
+		user_prefs.relaxed_h = timer.h
+	elif user_prefs.difficulty_dropdown_index == 1:
+		user_prefs.foddian_save = global_position
+		user_prefs.foddian_checkpoint = checkpoint
+		user_prefs.foddian_boots_flag = hasNewLegs
+		user_prefs.foddian_rockets_flag = hasRocketJump
+		user_prefs.foddian_jetpack_flag = hasJetpack
+		user_prefs.foddian_fuel_count = countJetpackFuel
+		user_prefs.foddian_macguffin_flag = hasMacguffin
+		user_prefs.foddian_macguffin2_flag = hasMacguffin2
+		user_prefs.foddian_macguffin3_flag = hasMacguffin3
+		user_prefs.foddian_ms = timer.ms
+		user_prefs.foddian_s = timer.s
+		user_prefs.foddian_m = timer.m
+		user_prefs.foddian_h = timer.h
+	elif user_prefs.difficulty_dropdown_index == 2:
+		user_prefs.permadeath_save = global_position
+		user_prefs.permadeath_boots_flag = hasNewLegs
+		user_prefs.permadeath_rockets_flag = hasRocketJump
+		user_prefs.permadeath_jetpack_flag = hasJetpack
+		user_prefs.permadeath_fuel_count = countJetpackFuel
+		user_prefs.permadeath_macguffin_flag = hasMacguffin
+		user_prefs.permadeath_macguffin2_flag = hasMacguffin2
+		user_prefs.permadeath_macguffin3_flag = hasMacguffin3
+		user_prefs.permadeath_ms = timer.ms
+		user_prefs.permadeath_s = timer.s
+		user_prefs.permadeath_m = timer.m
+		user_prefs.permadeath_h = timer.h
+	user_prefs.save()
+	

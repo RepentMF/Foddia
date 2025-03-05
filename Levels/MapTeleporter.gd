@@ -10,7 +10,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if get_parent().visible:
 		if user_prefs.teleportersAvailable:
 			if name.contains("1") && user_prefs.hasSong1:

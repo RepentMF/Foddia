@@ -150,6 +150,7 @@ color = Color(0, 0, 0, 1)
 [node name="DialogueBox" parent="." instance=ExtResource("4_kprul")]
 unique_name_in_owner = true
 layer = 2
+visible = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0
@@ -171,7 +172,7 @@ scale = Vector2(7.23, 5.84)
 texture = ExtResource("9_eeuhh")
 script = ExtResource("10_oc5si")
 metadata/Macguffin3 = ["When  I  first  lost  you,  those  around  me  told  me  it  would  be  helpful  to  forget.", "They  told  me  I  needed  to  get  my  mind  off  of  you.  That  obsessing  over  your  death  would  be  the  end  of  me.", "I  think  they  were  right.  But  I  couldn't  just  forget  you  completely.  You  were  our  everything.", "And  then  I  started  taking  what  they  said  to  heart.  I  was  numb.", "But  coming  back  here  to  our  home  taught  me  that  I  am  capable  of  more  than  I  thought  I  was.", "I  am  still  capable  of  sadness.  I  am  still  capable  of  joy.", "I  am  capable  of  mourning  you  and  still  moving  forward-  living  my  life.  Because  that's  what  you  wanted  for  us.", "That's  what  you  still  want  for  me,  isn't  it?  You  want  me  to  live  my  life  for  the  both  of  us.", "That's  what  I'll do.  I'll  live  life  and  never  forget  you  all  the  while."]
-metadata/Macguffin = ["I  don't  know  if  I  made  the  right  choice.  I  think  I've  never  been                less  sure  of  anything  in  my  life.", "But  when  I  think  about  the  horrible  \"what-if\"s  like  usual... this  SHOULD  count  as  a  positive.", "But  my  pain  is  still  there.  I'm  starting  to  think  it  won't  ever  leave.", "It's  the  worst  pain  I've  ever  known.", "So  this  memento...  Our  family  crest.  I  need  more  of  this  going  forward.", "A  sense  of  connection  to  them.  They   don't  have  to  be  here  for  me  to  keep  loving  them.", "I  miss  them-  more  than  anything-  but  respecting  them.  Honoring  them.  Remembering  them.", "That's  enough,  now."]
+metadata/Macguffin = ["I  don't  know  if  I  made  the  right  choice.  I  think  I've  never  been  less  sure  of  anything  in  my  life.", "But  when  I  think  about  the  horrible  \"what-if\"s  like  usual... this  SHOULD  count  as  a  positive.", "But  my  pain  is  still  there.  I'm  starting  to  think  it  won't  ever  leave.", "It's  the  worst  pain  I've  ever  known.", "So  this  memento...  Our  family  crest.  I  need  more  of  this  going  forward.", "A  sense  of  connection  to  them.  They   don't  have  to  be  here  for  me  to  keep  loving  them.", "I  miss  them-  more  than  anything-  but  respecting  them.  Honoring  them.  Remembering  them.", "That's  enough,  now."]
 
 [node name="Macguffin" type="AnimatedSprite2D" parent="MainMenuBg"]
 unique_name_in_owner = true

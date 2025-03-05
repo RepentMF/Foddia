@@ -16,13 +16,13 @@ func _ready():
 	bounce = get_node("Bounce")
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	if bounce.volume_db != %SFXVolumeHandler.SFX_volume:
 		bounce.volume_db = %SFXVolumeHandler.SFX_volume
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if hasBeenUsed:
 		if countTime > 0:
 			if countTime == InitialTime:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmjiv6nlca2jj"]
+[gd_scene load_steps=7 format=3 uid="uid://dmjiv6nlca2jj"]
 
 [ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_narsn"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="2_cogs6"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="3_y6l3s"]
 [ext_resource type="Texture2D" uid="uid://dejdwo4q7j4fc" path="res://Graphics/MultipleArrow.png" id="4_s7hbt"]
+[ext_resource type="PackedScene" uid="uid://3q354dpufygl" path="res://Menus/ButtonsDisplay.tscn" id="6_d3jgc"]
 [ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="6_tr7n4"]
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -116,6 +117,14 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_cogs6")
 text = "Change  Tunes"
+
+[node name="ControllerLayout" type="Button" parent="MarginContainer/PauseOptions"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_cogs6")
+text = "Controller  Layout"
 
 [node name="New Game" type="Button" parent="MarginContainer/PauseOptions"]
 unique_name_in_owner = true
@@ -269,6 +278,7 @@ text = "Voice  Acting"
 metadata/_edit_use_anchors_ = true
 
 [node name="Node2D7" type="Node2D" parent="MarginContainer/AudioOptions"]
+visible = false
 position = Vector2(34.5821, 122.767)
 scale = Vector2(1.3, 1.04)
 
@@ -350,6 +360,12 @@ scroll_active = false
 autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="ButtonsDisplay" parent="." instance=ExtResource("6_d3jgc")]
+unique_name_in_owner = true
+visible = false
+offset = Vector2(0, -221.195)
+transform = Transform2D(1, 0, 0, 1, 0, -221.195)
+
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Keep Hiking" to="." method="_on_keep_hiking_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Reset Checkpoint" to="." method="_on_mouse_entered"]
@@ -358,6 +374,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Display Menu" to="." method="_on_go_to_display_menu_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/Go to Audio Menu" to="." method="_on_go_to_audio_menu_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/PauseOptions/ControllerLayout" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/PauseOptions/ControllerLayout" to="." method="_on_controller_layout_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/New Game" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/PauseOptions/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/PauseOptions/Back to the Car" to="." method="_on_mouse_entered"]

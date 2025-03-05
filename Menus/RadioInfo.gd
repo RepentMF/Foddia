@@ -15,7 +15,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if %RadioMover.move:
 		count += 1
 	if count % 6 == 0 && count != 0 && !stop:

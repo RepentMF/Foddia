@@ -20,9 +20,9 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player.swingRope != null:
-		if player.swingRope.get_parent().name == name:
+		if player.swingRope.get_parent() == self:
 			if currentSwingMethod != player.currentSwingMethod:
 				change_icons()
 			left.visible = true

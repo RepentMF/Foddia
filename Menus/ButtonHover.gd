@@ -13,7 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_node("OptionSelect") != null:
 		get_node("OptionSelect").volume_db = %SFXVolumeHandler.SFX_volume
 	if user_prefs.tooltips_bool_check:

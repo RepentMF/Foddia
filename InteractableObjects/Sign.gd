@@ -30,11 +30,11 @@ func _ready():
 	if name.contains("BillBoard") || name.contains("Truck"):
 		UI_keyboard.position.y = -80
 		UI_controller.position.y = -100
-		if !user_prefs.tooltips_bool_check:
+		if !user_prefs.tooltips_bool_check && name.contains("BillBoard"):
 			visible = false
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if drivingEnding:
 		%FadeInPanel.visible = true
 		if endingCount == 0:
@@ -45,6 +45,7 @@ func _physics_process(delta):
 		elif %FadeInPanel.color.a < 1:
 			endingCount += 1
 		elif %FadeInPanel.color.a >= 1:
+			player.save_game()
 			get_tree().change_scene_to_file("res://Menus/DrivingEnding.tscn")
 	elif summitEnding:
 		%FadeInPanel.visible = true
@@ -56,11 +57,12 @@ func _physics_process(delta):
 		elif %FadeInPanel.color.a < 1:
 			endingCount += 1
 		elif %FadeInPanel.color.a >= 1:
+			player.save_game()
 			get_tree().change_scene_to_file("res://Menus/SummitEnding.tscn")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if %Player.changeControls:
 		change_icons()
 	
@@ -148,21 +150,27 @@ func _important_npc_check():
 		if dialogueCount == 1 && %Player.hasMP3:
 			dialogue = get_meta("Dialogue2")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Dialogue2")
 		elif dialogueCount == 2:
 			dialogue = get_meta("Dialogue3")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Dialogue3")
 		elif dialogueCount == 3:
 			dialogue = get_meta("Dialogue4")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Dialogue4")
 		elif dialogueCount == 4:
 			dialogue = get_meta("Dialogue5")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Dialogue5")
 		elif dialogueCount == 5:
 			dialogue = get_meta("Dialogue6")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Dialogue6")
 		elif dialogueCount == 6:
 			dialogue = get_meta("Repeat")
 			textCount = dialogue.size()
+			get_node("RMF_dialogue").dialogue = get_node("RMF_dialogue").get_meta("Repeat")
 	pass
 
 func change_colors():

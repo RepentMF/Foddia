@@ -10,7 +10,7 @@ var player
 #	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player != null:
 			if player.position.y < -25031:
 				airCount += 1
@@ -24,6 +24,7 @@ func _physics_process(delta):
 				elif fadeInPanel.color.a <= 0:
 					fadeInPanel.color.a = 1
 				if airCount > 1100 && fadeInPanel.color.a >= 1:
+					player.save_game()
 					get_tree().change_scene_to_file("res://Menus/SpaceEnding.tscn")
 	pass
 

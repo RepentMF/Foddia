@@ -18,7 +18,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (user_prefs.screenshake_bool_check || (get_parent().name == "DrivingEnding")) && speed != null:
 		position.x -= speed
 		if position.x == looping_position:

@@ -16,7 +16,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if !initialPositionSet:
 		camLocked = true
 		initialPositionSet = true
@@ -60,7 +60,6 @@ func isManualCamUsed():
 		return true
 	else:
 		return false
-	pass
 
 func _on_area_entered(area):
 	if area.name == "CamCircle1":

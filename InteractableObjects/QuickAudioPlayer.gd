@@ -18,7 +18,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if endingIsPlaying:
 		if !SFX.is_playing():
 			SFX.play()
@@ -34,7 +34,7 @@ func _process(delta):
 		queue_free()
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !get_parent().name.contains("Ending"):
 		if temp_volume != get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume:
 			temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
