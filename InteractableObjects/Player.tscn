@@ -1170,6 +1170,7 @@ position = Vector2(-3.8147e-06, 0)
 shape = SubResource("RectangleShape2D_ml0cj")
 
 [node name="Player_normal" parent="." instance=ExtResource("3_qj7n8")]
+position = Vector2(2.38419e-07, -1)
 sprite_frames = ExtResource("3_ftl0r")
 animation = &"idle"
 autoplay = "idle"
@@ -1326,9 +1327,8 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="PinJoint2DLeftAir" type="PinJoint2D" parent="."]
-visible = false
 z_index = 1
-position = Vector2(-5, -14)
+position = Vector2(-4, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
 softness = 0.4
@@ -1338,6 +1338,7 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 16
 collision_mask = 16
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DLeft2" type="PinJoint2D" parent="PinJoint2DLeftAir"]
@@ -1351,6 +1352,8 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 16
 collision_mask = 16
+mass = 0.3
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DLeft3" type="PinJoint2D" parent="PinJoint2DLeftAir"]
@@ -1364,11 +1367,11 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 16
 collision_mask = 16
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DRightAir" type="PinJoint2D" parent="."]
-visible = false
-position = Vector2(5, -14)
+position = Vector2(4, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
 softness = 0.4
@@ -1378,6 +1381,7 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 32
 collision_mask = 32
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DRight2" type="PinJoint2D" parent="PinJoint2DRightAir"]
@@ -1391,6 +1395,8 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 32
 collision_mask = 32
+mass = 0.3
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DRight3" type="PinJoint2D" parent="PinJoint2DRightAir"]
@@ -1404,6 +1410,7 @@ z_index = -1
 position = Vector2(0, 3)
 collision_layer = 32
 collision_mask = 32
+gravity_scale = 0.0
 inertia = 0.1
 
 [node name="AudioPlayer" type="Node2D" parent="."]

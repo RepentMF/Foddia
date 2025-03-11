@@ -11,7 +11,7 @@ var countTime = 120
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	if %Player.hasRocketJump || %Player.hasJetpack && !get_parent().visible:
+	if (%Player.hasRocketJump || %Player.hasJetpack) && !get_parent().visible:
 		get_parent().visible = true
 	elif get_parent().visible:
 		if temp_volume != %SFXVolumeHandler.SFX_volume:

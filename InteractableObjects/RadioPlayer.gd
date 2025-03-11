@@ -128,6 +128,10 @@ func _physics_process(_delta):
 		if current != -1:
 			if album[current].volume_db != max_volume:
 				album[current].volume_db = max_volume
+			if foreverAlbum[mp3Selected - 1].volume_db != max_volume:
+				foreverAlbum[mp3Selected - 1].volume_db = max_volume
+			if foreverRadioAlbum[mp3Selected - 1].volume_db != max_volume:
+				foreverRadioAlbum[mp3Selected - 1].volume_db = max_volume
 		if staticIsPlaying:
 			radio_static.volume_db = max_volume
 		#print_values()

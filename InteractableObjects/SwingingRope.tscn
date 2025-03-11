@@ -269,6 +269,7 @@ size = Vector2(63, 131)
 script = ExtResource("1_jsp82")
 
 [node name="Floor" parent="." instance=ExtResource("1_as6d8")]
+visible = false
 position = Vector2(0, -12)
 scale = Vector2(1, 0.15)
 mass = 1.0
@@ -387,9 +388,12 @@ freeze_mode = 1
 position = Vector2(0, 116)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkageBottom")
+bias = 0.7
+angular_limit_lower = -3.14159
+angular_limit_upper = 3.14159
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("2_83sdi")]
-position = Vector2(0, 123)
+position = Vector2(0, 121)
 script = ExtResource("6_3y8do")
 
 [node name="UI_Keyboard_left" type="AnimatedSprite2D" parent="."]

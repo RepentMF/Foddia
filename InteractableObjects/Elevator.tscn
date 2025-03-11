@@ -182,26 +182,26 @@ texture = ExtResource("3_wkt8b")
 [node name="ElevatorRoof" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(0, -670)
 scale = Vector2(1.5, 10)
-collision_layer = 9
-collision_mask = 9
+collision_layer = 129
+collision_mask = 129
 
 [node name="ElevatorFloor" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(0, 930)
 scale = Vector2(1.5, 10)
-collision_layer = 9
-collision_mask = 9
+collision_layer = 129
+collision_mask = 129
 
 [node name="ElevatorWall1" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(-20, -640)
 scale = Vector2(0.25, 59)
-collision_layer = 9
-collision_mask = 9
+collision_layer = 129
+collision_mask = 129
 
 [node name="ElevatorWall2" parent="." instance=ExtResource("1_nv3tv")]
 position = Vector2(20, -640)
 scale = Vector2(0.25, 59)
-collision_layer = 9
-collision_mask = 9
+collision_layer = 129
+collision_mask = 129
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 390)

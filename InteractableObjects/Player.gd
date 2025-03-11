@@ -94,6 +94,7 @@ var isNearRope = false
 var isOnIce = false
 var isRunning = false
 var isHoldingRope = false
+var jortTeleport = false
 
 var landedHard = false
 var landedSoft = false
@@ -573,6 +574,9 @@ func _process(_delta):
 	pass
 
 func _physics_process(delta):
+	if !isInElevator:
+		collision_layer = 1
+		collision_mask = 1
 	if game_start:
 		CRT.visible = user_prefs.crt_bool_check
 		if fadeInCount < 173:
@@ -599,21 +603,6 @@ func _physics_process(delta):
 			%FadeInPanel.color = Color(1, 0, 0, 1)
 			if badEnding:
 				user_prefs.bad_ending = true
-				user_prefs.save()
-				get_tree().quit()
-			elif user_prefs.difficulty_dropdown_index == 2:
-				user_prefs.permadeath_save = Vector2(260, 130)
-				user_prefs.permadeath_boots_flag = false
-				user_prefs.permadeath_rockets_flag = false
-				user_prefs.permadeath_jetpack_flag = false
-				user_prefs.permadeath_fuel_count = 1000
-				user_prefs.permadeath_macguffin_flag = false
-				user_prefs.permadeath_macguffin2_flag = false
-				user_prefs.permadeath_macguffin3_flag = false
-				user_prefs.permadeath_ms = 0
-				user_prefs.permadeath_s = 0
-				user_prefs.permadeath_m = 0
-				user_prefs.permadeath_h = 0
 				user_prefs.save()
 				get_tree().quit()
 			else:
@@ -682,7 +671,7 @@ func _physics_process(delta):
 				countNoKicks = 0
 				staticSwingingChecked = false
 			elif swingRope.get_parent().get_node("RopeLinkageBottom") != null:
-				if round(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x) == 0:
+				if round(abs(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x)) <= 1:
 					countNoKicks += 1
 					if countNoKicks > 20:
 						isKicking = false
@@ -697,6 +686,7 @@ func _physics_process(delta):
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
 						swingRope.apply_impulse(Vector2(15, 0))
+						
 					elif Input.is_action_just_pressed("ui_left"):
 						swingRope.apply_impulse(Vector2(-15, 0))
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
@@ -1022,9 +1012,9 @@ func handle_ponytail():
 		if !isHoldingRope && !is_on_floor():
 			get_node("PinJoint2DLeft").visible = false
 			get_node("PinJoint2DLeftAir").visible = true
-			if wasBouncing || wasSwinging:
-				get_node("PinJoint2DLeft").visible = true
-				get_node("PinJoint2DLeftAir").visible = false
+			#if wasBouncing || wasSwinging:
+			#	get_node("PinJoint2DLeft").visible = true
+			#	get_node("PinJoint2DLeftAir").visible = false
 	else:
 		get_node("PinJoint2DLeft").visible = false
 		get_node("PinJoint2DRight").visible = true
@@ -1033,9 +1023,9 @@ func handle_ponytail():
 		if !isHoldingRope && !is_on_floor():
 			get_node("PinJoint2DRight").visible = false
 			get_node("PinJoint2DRightAir").visible = true
-			if wasBouncing || wasSwinging:
-				get_node("PinJoint2DRight").visible = true
-				get_node("PinJoint2DRightAir").visible = false
+			#if wasBouncing || wasSwinging:
+			#	get_node("PinJoint2DRight").visible = true
+			#	get_node("PinJoint2DRightAir").visible = false
 		
 	get_node("PinJoint2DLeft").z_index = 0
 	get_node("PinJoint2DRight").z_index = 0

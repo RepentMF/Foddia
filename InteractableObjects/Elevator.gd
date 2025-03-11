@@ -77,7 +77,6 @@ func _physics_process(_delta):
 						anim.pause()
 				elif countTime3 == 80:
 					%Player.isInElevator = false
-					%Player.set_collision_layer(1)
 					hasBeenUsed = false
 					countTime = 0
 					countTime2 = 0
@@ -99,5 +98,5 @@ func _on_area_2d_body_entered(body):
 	hasBeenUsed = true
 	if body.name == "Player":
 		body.isInElevator = true
-		body.set_collision_layer(4)
+		body.set_collision_mask(128)
 	pass # Replace with function body

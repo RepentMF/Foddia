@@ -92,7 +92,7 @@ func use_keyboard_or_gamepad():
 				if cursor_highlighted > -2:
 					if Input.is_action_just_pressed("ui_up"):
 						cursor_highlighted -= 1
-				if cursor_highlighted < 5:
+				if cursor_highlighted < 6:
 					if Input.is_action_just_pressed("ui_down"):
 						cursor_highlighted += 1
 			if user_prefs.tooltips_bool_check && !%Credits.visible:

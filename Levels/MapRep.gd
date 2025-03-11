@@ -9,18 +9,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_map") && !player.isInteracting:
+	if Input.is_action_just_pressed("ui_map") && !player.isInteracting && !player.jortTeleport:
 		if !visible:
 			visible = true
 			%InteractiveMap.visible = true
 			%AreaTitleCard.visible = false
+			%TeleportMap.visible = false
 			player.isInteracting = true
-	elif Input.is_action_just_pressed("ui_map") && visible:
+	elif Input.is_action_just_pressed("ui_map") && visible && !player.jortTeleport:
 		visible = false
 		%InteractiveMap.visible = false
 		%AreaTitleCard.visible = true
 		player.isInteracting = false
-	
 	if visible:
 		determine_position()
 	pass

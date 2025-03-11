@@ -23,6 +23,7 @@ var useable = false
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	UI.visible = false
+	isNearTeleport = false
 	change_colors()
 	pass # Replace with function body.
 
@@ -70,12 +71,12 @@ func _process(_delta):
 		%InteractiveMap.visible = false
 		%TeleportMap.visible = false
 		%MapPlayerRep.visible = false
-	
 	if name == "TeleportAccess0" && !isReady:
 		if isNearTeleport && Input.is_action_just_pressed("ui_map") && !interacting:
 			interacting = true
 			%InteractiveMap.visible = true
 			%TeleportMap.visible = true
+			player.jortTeleport = true
 		elif isNearTeleport && Input.is_action_just_pressed("ui_map") && interacting:
 			interacting = false
 			%InteractiveMap.visible = false
@@ -165,15 +166,19 @@ func change_icons():
 	pass
 
 func _on_body_entered(body):
-	isNearTeleport = true
-	UI.visible = true
+	if body.name == "Player" && !player.game_start:
+		isNearTeleport = true
+		UI.visible = true
 	pass # Replace with function body.
 
 func _on_body_exited(body):
-	isNearTeleport = false
-	UI.visible = false
-	UI_keyboard.visible = false
-	UI_controller.visible = false
+	if body.name == "Player" && !player.game_start:
+		isNearTeleport = false
+		UI.visible = false
+		UI_keyboard.visible = false
+		UI_controller.visible = false
+		if name == "TeleportAccess0":
+			player.jortTeleport = false
 	pass # Replace with function body.
 
 func _on_teleport_finished():
@@ -181,41 +186,49 @@ func _on_teleport_finished():
 	pass # Replace with function body.
 
 func _on_teleporter1_pressed():
-	teleportSpot = Vector2(6002, -203)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(6002, -203)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter2_pressed():
-	teleportSpot = Vector2(20389, -3307)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(20389, -3307)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter3_pressed():
-	teleportSpot = Vector2(10293, -6105)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(10293, -6105)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter4_pressed():
-	teleportSpot = Vector2(19232, -9546)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(19232, -9546)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter5_pressed():
-	teleportSpot = Vector2(16176, -18809)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(16176, -18809)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter6_pressed():
-	teleportSpot = Vector2(26784, -1751)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(26784, -1751)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter7_pressed():
-	teleportSpot = Vector2(24152, -4196)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(24152, -4196)
+		isReady = true
 	pass # Replace with function body.
 
 func _on_teleporter8_pressed():
-	teleportSpot = Vector2(22856, 2024)
-	isReady = true
+	if name == "TeleportAccess0":
+		teleportSpot = Vector2(22856, 2024)
+		isReady = true
 	pass # Replace with function body.

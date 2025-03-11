@@ -106,6 +106,8 @@ animations = [{
 
 [node name="CheckFlag" type="Area2D"]
 script = ExtResource("1_7jqv0")
+metadata/area_name = ""
+metadata/song_name = ""
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

@@ -48,6 +48,7 @@ height = 32
 fill_to = Vector2(0, 1)
 
 [node name="Aurora" type="GPUParticles2D"]
+z_index = 1
 position = Vector2(-816, -776)
 scale = Vector2(1, 3.08)
 amount = 50

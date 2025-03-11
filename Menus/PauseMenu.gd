@@ -75,7 +75,7 @@ func _process(_delta):
 	
 	use_keyboard_or_gamepad()
 	
-	if user_prefs.difficulty_dropdown_index == 0 && !%"Reset Checkpoint".visible:
+	if (user_prefs.difficulty_dropdown_index == 0  || user_prefs.difficulty_dropdown_index == 2) &&  !%"Reset Checkpoint".visible:
 		%"Reset Checkpoint".visible = true
 	if spoof_fullscreen_bool != user_prefs.fullscreen_bool_check:
 		fullscreen_changed = true
