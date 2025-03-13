@@ -676,8 +676,8 @@ func _physics_process(delta):
 					if countNoKicks > 20:
 						isKicking = false
 			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
+				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 				if isKicking:
-					global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 					if swingRope.get_parent().name.contains("Falling"):
 						if swingRope.get_parent().get_node("PinJoint2D") != null:
 							swingRope.get_parent().get_node("PinJoint2D").willFall = true
@@ -686,7 +686,6 @@ func _physics_process(delta):
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
 						swingRope.apply_impulse(Vector2(15, 0))
-						
 					elif Input.is_action_just_pressed("ui_left"):
 						swingRope.apply_impulse(Vector2(-15, 0))
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
