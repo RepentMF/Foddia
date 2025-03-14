@@ -388,7 +388,7 @@ freeze_mode = 1
 position = Vector2(0, 116)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkageBottom")
-bias = 0.7
+bias = 0.9
 angular_limit_lower = -3.14159
 angular_limit_upper = 3.14159
 

@@ -601,6 +601,7 @@ func _physics_process(delta):
 			countJetpackFuel = maxJetpackFuel
 			%FadeInPanel.visible = true
 			%FadeInPanel.color = Color(1, 0, 0, 1)
+			%CamMesh.isDead = true
 			if badEnding:
 				user_prefs.bad_ending = true
 				user_prefs.save()
@@ -671,13 +672,13 @@ func _physics_process(delta):
 				countNoKicks = 0
 				staticSwingingChecked = false
 			elif swingRope.get_parent().get_node("RopeLinkageBottom") != null:
-				if round(abs(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x)) <= 1:
+				if round(abs(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x)) <= 0:
 					countNoKicks += 1
-					if countNoKicks > 20:
+					if countNoKicks > 30:
 						isKicking = false
 			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
-				global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 				if isKicking:
+					global_position = Vector2(swingRope.global_position.x, swingRope.global_position.y)
 					if swingRope.get_parent().name.contains("Falling"):
 						if swingRope.get_parent().get_node("PinJoint2D") != null:
 							swingRope.get_parent().get_node("PinJoint2D").willFall = true
@@ -686,8 +687,10 @@ func _physics_process(delta):
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
 						swingRope.apply_impulse(Vector2(15, 0))
+						smoke()
 					elif Input.is_action_just_pressed("ui_left"):
 						swingRope.apply_impulse(Vector2(-15, 0))
+						smoke()
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
 						if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
 							velocity = ropeBottom.linear_velocity
@@ -966,6 +969,8 @@ func _physics_process(delta):
 			swingSpeed = swingRope.linear_velocity.x
 			if swingRope.get_parent().name.contains("Swinging"):
 				rotation = swingRope.rotation
+				if abs(rotation) > 1.2:
+					rotation = sign(rotation) * 1.2
 		else:
 			swingSpeed = velocity.x
 			

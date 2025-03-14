@@ -6,6 +6,7 @@ var addX = 5
 var addY = 5
 var breakAway = false
 var camLocked = false
+var isDead = false
 var lockedPosition = Vector2(0, 0)
 var minusX = 5
 var minusY = 5
@@ -23,40 +24,48 @@ func _process(_delta):
 		lockedPosition = player.position - Vector2(337, -95)
 		position = lockedPosition
 		position = position.round()
+	
 	if !player.game_start && !player.isInteracting:
-		lockedPosition = player.position - Vector2(337, -95)
-		if Input.is_action_pressed("camera_left") && position.x > lockedPosition.x - 321 && !breakAway:
-			camLocked = false
-			position.x -= minusX
-		elif Input.is_action_pressed("camera_right") && position.x < lockedPosition.x + 321 && !breakAway:
-			camLocked = false
-			position.x += addX
-		elif camLocked && !breakAway:
+		if isDead:
+			camLocked = true
+			lockedPosition = player.position - Vector2(337, -95)
 			position = lockedPosition
-		elif (!isManualCamUsed() && !camLocked) || breakAway:
-			var tempVar = 30
-			var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
-			position.x = position.x + tempSpeed.x
-		
-		if Input.is_action_pressed("camera_up") && position.y > lockedPosition.y - 321 && !breakAway:
-			camLocked = false
-			position.y -= minusY
-		elif Input.is_action_pressed("camera_down") && position.y < lockedPosition.y + 321 && !breakAway:
-			camLocked = false
-			position.y += addY
-		elif camLocked && !breakAway:
-			position = lockedPosition
-		elif (!isManualCamUsed() && !camLocked) || breakAway:
-			var tempVar = 30
-			var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
-			position.y = position.y + tempSpeed.y
-		
-		if abs(player.position.x - 337 - position.x) >= 500 || abs(player.position.y + 95 - position.y) >= 500:
-			breakAway = true
+			position = position.round()
+			isDead = false
+		else:
+			lockedPosition = player.position - Vector2(337, -95)
+			if Input.is_action_pressed("camera_left") && position.x > lockedPosition.x - 321 && !breakAway:
+				camLocked = false
+				position.x -= minusX
+			elif Input.is_action_pressed("camera_right") && position.x < lockedPosition.x + 321 && !breakAway:
+				camLocked = false
+				position.x += addX
+			elif camLocked && !breakAway:
+				position = lockedPosition
+			elif (!isManualCamUsed() && !camLocked) || breakAway:
+				var tempVar = 40
+				var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
+				position.x = position.x + tempSpeed.x
+			
+			if Input.is_action_pressed("camera_up") && position.y > lockedPosition.y - 321 && !breakAway:
+				camLocked = false
+				position.y -= minusY
+			elif Input.is_action_pressed("camera_down") && position.y < lockedPosition.y + 321 && !breakAway:
+				camLocked = false
+				position.y += addY
+			elif camLocked && !breakAway:
+				position = lockedPosition
+			elif (!isManualCamUsed() && !camLocked) || breakAway:
+				var tempVar = 70
+				var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
+				position.y = position.y + tempSpeed.y
+			
+			if abs(player.position.x - 337 - position.x) >= 500 || abs(player.position.y + 95 - position.y) >= 500 || player.isFreefalling:
+				breakAway = true
 	pass
 
 func isManualCamUsed():
-	if Input.is_action_pressed("camera_left") || Input.is_action_pressed("camera_right") || Input.is_action_pressed("camera_up") || Input.is_action_pressed("camera_down"):
+	if !camLocked && Input.is_action_pressed("camera_left") || Input.is_action_pressed("camera_right") || Input.is_action_pressed("camera_up") || Input.is_action_pressed("camera_down"):
 		return true
 	else:
 		return false
