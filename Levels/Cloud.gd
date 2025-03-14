@@ -22,18 +22,20 @@ func _ready():
 	starting_position = -735
 	if abs(position.y) > 11000 && z_index < 0:
 		h_color_modifier = 0
+		v_color_modifier = 1
 		if user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = 0
 		elif user_prefs.difficulty_dropdown_index == 1:
-			s_color_modifier = (golden_ratio * 2) + .3
+			h_color_modifier = .6
+			s_color_modifier = golden_ratio
+			v_color_modifier = 1 - (golden_ratio / 7)
 		elif user_prefs.difficulty_dropdown_index == 2:
 			s_color_modifier = (golden_ratio * 2) + .6
-		v_color_modifier = 1
 	else:
 		if user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = golden_ratio
 		elif user_prefs.difficulty_dropdown_index == 1:
-			s_color_modifier = (golden_ratio * 2) + .3
+			s_color_modifier = (golden_ratio * .5) + .3
 		elif user_prefs.difficulty_dropdown_index == 2:
 			s_color_modifier = (golden_ratio * 1.5) + .7
 		v_color_modifier = 1 - (golden_ratio / 10)

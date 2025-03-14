@@ -32,7 +32,6 @@
 script = ExtResource("1_gmxwe")
 
 [node name="ControllerDisplay" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(624, 480)
 scale = Vector2(2, 2)
@@ -52,21 +51,13 @@ offset_bottom = -30.0
 scale = Vector2(0.320001, 0.319999)
 script = ExtResource("3_ftbo6")
 
-[node name="Triggers_LeftFace" type="Sprite2D" parent="ControllerDisplay"]
+[node name="Triggers" type="Sprite2D" parent="ControllerDisplay"]
 modulate = Color(0.65098, 0.619608, 1, 0)
 texture_filter = 1
 texture = ExtResource("4_xmv7q")
-metadata/Tooltip = "Trigger  buttons  /  left-face  button:  Run"
+metadata/Tooltip = "Trigger  buttons:  Run"
 
-[node name="RevealTooltip" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
-offset_left = 36.0
-offset_top = -51.0
-offset_right = 76.0
-offset_bottom = -11.0
-scale = Vector2(0.320001, 0.319999)
-script = ExtResource("3_ftbo6")
-
-[node name="RevealTooltip2" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip2" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = -112.0
 offset_top = -104.0
 offset_right = -72.0
@@ -74,7 +65,7 @@ offset_bottom = -64.0
 scale = Vector2(1, 0.319999)
 script = ExtResource("3_ftbo6")
 
-[node name="RevealTooltip3" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip3" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = -112.0
 offset_top = -96.0
 offset_right = -72.0
@@ -82,7 +73,7 @@ offset_bottom = -56.0
 scale = Vector2(0.800011, 0.599995)
 script = ExtResource("3_ftbo6")
 
-[node name="RevealTooltip4" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip4" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = -120.0
 offset_top = -80.0
 offset_right = -80.0
@@ -90,7 +81,7 @@ offset_bottom = -40.0
 scale = Vector2(0.599991, 0.599995)
 script = ExtResource("3_ftbo6")
 
-[node name="RevealTooltip5" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip5" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = 72.0
 offset_top = -104.0
 offset_right = 112.0
@@ -98,7 +89,7 @@ offset_bottom = -64.0
 scale = Vector2(1, 0.319999)
 script = ExtResource("3_ftbo6")
 
-[node name="RevealTooltip6" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip6" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = 80.0
 offset_top = -96.0
 offset_right = 120.0
@@ -106,7 +97,7 @@ offset_bottom = -56.0
 scale = Vector2(0.800001, 0.599995)
 script = ExtResource("3_ftbo6")
 
-[node name="RevealTooltip7" type="TextureButton" parent="ControllerDisplay/Triggers_LeftFace"]
+[node name="RevealTooltip7" type="TextureButton" parent="ControllerDisplay/Triggers"]
 offset_left = 96.0
 offset_top = -80.0
 offset_right = 136.0
@@ -231,6 +222,7 @@ scale = Vector2(0.320001, 0.319999)
 script = ExtResource("3_ftbo6")
 
 [node name="KeyboardDisplay" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(632, 480)
 scale = Vector2(1.75, 1.75)
@@ -432,34 +424,30 @@ stream = ExtResource("24_uok4v")
 [connection signal="focus_exited" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ControllerDisplay/TopFace/RevealTooltip" to="ControllerDisplay/TopFace/RevealTooltip" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip2" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip3" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip4" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip5" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip6" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_focus_entered"]
-[connection signal="focus_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" to="ControllerDisplay/Triggers_LeftFace/RevealTooltip7" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip2" to="ControllerDisplay/Triggers/RevealTooltip2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip2" to="ControllerDisplay/Triggers/RevealTooltip2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip2" to="ControllerDisplay/Triggers/RevealTooltip2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip2" to="ControllerDisplay/Triggers/RevealTooltip2" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip3" to="ControllerDisplay/Triggers/RevealTooltip3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip3" to="ControllerDisplay/Triggers/RevealTooltip3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip3" to="ControllerDisplay/Triggers/RevealTooltip3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip3" to="ControllerDisplay/Triggers/RevealTooltip3" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip4" to="ControllerDisplay/Triggers/RevealTooltip4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip4" to="ControllerDisplay/Triggers/RevealTooltip4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip4" to="ControllerDisplay/Triggers/RevealTooltip4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip4" to="ControllerDisplay/Triggers/RevealTooltip4" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip5" to="ControllerDisplay/Triggers/RevealTooltip5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip5" to="ControllerDisplay/Triggers/RevealTooltip5" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip5" to="ControllerDisplay/Triggers/RevealTooltip5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip5" to="ControllerDisplay/Triggers/RevealTooltip5" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip6" to="ControllerDisplay/Triggers/RevealTooltip6" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip6" to="ControllerDisplay/Triggers/RevealTooltip6" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip6" to="ControllerDisplay/Triggers/RevealTooltip6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip6" to="ControllerDisplay/Triggers/RevealTooltip6" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="ControllerDisplay/Triggers/RevealTooltip7" to="ControllerDisplay/Triggers/RevealTooltip7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ControllerDisplay/Triggers/RevealTooltip7" to="ControllerDisplay/Triggers/RevealTooltip7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ControllerDisplay/Triggers/RevealTooltip7" to="ControllerDisplay/Triggers/RevealTooltip7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControllerDisplay/Triggers/RevealTooltip7" to="ControllerDisplay/Triggers/RevealTooltip7" method="_on_mouse_exited"]
 [connection signal="focus_entered" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_focus_entered"]
 [connection signal="focus_exited" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="ControllerDisplay/Select/RevealTooltip" to="ControllerDisplay/Select/RevealTooltip" method="_on_mouse_entered"]

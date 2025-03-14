@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=182 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dj0n1hrsyai0f" path="res://GraphicObjects/Player_normal.tres" id="3_ftl0r"]
 [ext_resource type="PackedScene" uid="uid://db61dodwgqnau" path="res://GraphicObjects/Player_legs.tscn" id="3_qj7n8"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="4_ivckg"]
+[ext_resource type="Texture2D" uid="uid://xgusner8kjue" path="res://Graphics/Dizzied.png" id="5_i2j4n"]
 [ext_resource type="PackedScene" uid="uid://jv111jl66k22" path="res://GraphicObjects/Player_rocket.tscn" id="5_lpefd"]
 [ext_resource type="PackedScene" uid="uid://c3vljarx2p1ca" path="res://InteractableObjects/HairLinkage.tscn" id="5_n1usa"]
 [ext_resource type="PackedScene" uid="uid://docbaui7xy8dg" path="res://GraphicObjects/Player_jetpack.tscn" id="6_6oruf"]
@@ -37,6 +38,70 @@ size = Vector2(65, 25.205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
 size = Vector2(27.5, 123.303)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b61kp"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(0, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm7b8"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(25, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsdaa"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(50, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn1je"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(75, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m3fg"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(100, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sskdd"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(0, 37, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7rs7"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(25, 37, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxqc8"]
+atlas = ExtResource("5_i2j4n")
+region = Rect2(50, 37, 25, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hs313"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b61kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm7b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsdaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn1je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m3fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sskdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7rs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxqc8")
+}],
+"loop": true,
+"name": &"dizzied",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uptyf"]
 atlas = ExtResource("7_y4pvf")
@@ -1174,6 +1239,13 @@ position = Vector2(2.38419e-07, -1)
 sprite_frames = ExtResource("3_ftl0r")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Player_dizzied" parent="." instance=ExtResource("3_qj7n8")]
+visible = false
+position = Vector2(2.38419e-07, -5)
+sprite_frames = SubResource("SpriteFrames_hs313")
+animation = &"dizzied"
+frame_progress = 0.69146
 
 [node name="Player_legs" parent="." instance=ExtResource("3_qj7n8")]
 visible = false

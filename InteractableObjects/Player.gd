@@ -13,6 +13,7 @@ var temp_volume
 @onready var anim_robot = $Player_robot
 @onready var cam = %Camera2D
 @onready var CRT = $CanvasLayer
+@onready var dizzy = $Player_dizzied
 @onready var timer = %TimerDisplay
 @onready var fuel = %FuelDisplay
 @onready var jetpack = %JetpackDisplay
@@ -490,12 +491,12 @@ func _process(_delta):
 		anim_robot.visible = false
 		anim = anim_norm
 	if !isInteracting:
-		if Input.is_action_just_pressed("ui_menu") && !pausePressed:
+		if !jortTeleport && Input.is_action_just_pressed("ui_menu") && !pausePressed:
 			%AreaTitleCard.visible = false
 			%PauseMenu.visible = true
 			pausePressed = true
 			get_tree().paused = true
-		elif Input.is_action_just_pressed("ui_menu") && pausePressed:
+		elif !jortTeleport && Input.is_action_just_pressed("ui_menu") && pausePressed:
 			pausePressed = false
 		CRT.visible = user_prefs.crt_bool_check
 		# Temporary static rope fix that will probably be permanent
@@ -540,12 +541,12 @@ func _process(_delta):
 				elif wasFalling && !anim.animation == "freefall_transition" && !anim.animation == "n_jump" && !anim.animation == "arms_up":
 					anim.play("freefall_transition")
 				
-				if wasFalling && Input.is_action_pressed("ui_cancel"):
+				if wasFalling && Input.is_action_pressed("ui_cancel") && !dizzy.visible:
 					anim.play("arms_out")
 					if hasRocketJump:
 						get_node("Rocket_1").visible = false
 						get_node("Rocket_2").visible = false
-				elif Input.is_action_just_released("ui_cancel"):
+				elif Input.is_action_just_released("ui_cancel") || dizzy.visible:
 					anim.play("arms_up")
 					if hasRocketJump:
 						get_node("Rocket_1").visible = true
@@ -686,10 +687,10 @@ func _physics_process(delta):
 								velocity.x = 0
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
-						swingRope.apply_impulse(Vector2(15, 0))
+						swingRope.apply_impulse(Vector2(18, 0))
 						smoke()
 					elif Input.is_action_just_pressed("ui_left"):
-						swingRope.apply_impulse(Vector2(-15, 0))
+						swingRope.apply_impulse(Vector2(-18, 0))
 						smoke()
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
 						if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
@@ -778,7 +779,10 @@ func _physics_process(delta):
 			if velocity.y > 500 && !isJetpacking:
 				if velocity.y > 800:
 					velocity.y = 800
-					isFreefalling = true
+					if countHangTime > 700:
+						isFreefalling = true
+						dizzy.play()
+						dizzy.visible = true
 			# Handle jetpack or rocket jumps
 			if !isFreefalling:
 				if hasJetpack:
@@ -886,6 +890,8 @@ func _physics_process(delta):
 			wasSwinging = false
 			if isFreefalling:
 				isFreefalling = false
+				dizzy.stop()
+				dizzy.visible = false
 			elif wasJumping:
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					landedSoft = true
@@ -969,8 +975,8 @@ func _physics_process(delta):
 			swingSpeed = swingRope.linear_velocity.x
 			if swingRope.get_parent().name.contains("Swinging"):
 				rotation = swingRope.rotation
-				if abs(rotation) > 1.2:
-					rotation = sign(rotation) * 1.2
+				if swingRope.name == "RopeLinkageBottom":
+					rotation = swingRope.get_parent().get_node("RopeLinkage10").rotation
 		else:
 			swingSpeed = velocity.x
 			
@@ -1053,13 +1059,19 @@ func smoke():
 	pass
 
 func use_hands(body):
-	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel"):
+	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel") && !dizzy.visible:
 		#if velocity.x != maxRunSpeed:
 		climbYValue = body.global_position.y + 1
 		climbXValue = body.global_position.x
 		isGrabbingLedge = true
 		isFreefalling = false
+		dizzy.stop()
+		dizzy.visible = false
 		get_node("GrabLedge").play()
+	elif body.name.contains("Wall") && !Input.is_action_pressed("ui_cancel") && !isGrabbingLedge:
+		isFreefalling = true
+		dizzy.play()
+		dizzy.visible = true
 	elif body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
 		isNearRope = true
 		if !isHoldingRope:

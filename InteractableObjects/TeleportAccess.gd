@@ -72,7 +72,7 @@ func _process(_delta):
 		%TeleportMap.visible = false
 		%MapPlayerRep.visible = false
 	if name == "TeleportAccess0" && !isReady:
-		if isNearTeleport && Input.is_action_just_pressed("ui_map") && !interacting:
+		if isNearTeleport && Input.is_action_just_pressed("ui_map") && !interacting && player.velocity.x == 0 && player.is_on_floor():
 			interacting = true
 			%InteractiveMap.visible = true
 			%TeleportMap.visible = true

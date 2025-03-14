@@ -56,7 +56,9 @@ func _process(_delta):
 			elif camLocked && !breakAway:
 				position = lockedPosition
 			elif (!isManualCamUsed() && !camLocked) || breakAway:
-				var tempVar = 70
+				var tempVar = 40
+				if player.isFreefalling:
+					tempVar = 70
 				var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
 				position.y = position.y + tempSpeed.y
 			
