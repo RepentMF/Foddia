@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=185 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -29,6 +29,8 @@
 [ext_resource type="AudioStream" uid="uid://34hlglxyrvf0" path="res://SFX/JetpackPuff.mp3" id="26_6nbl2"]
 [ext_resource type="AudioStream" uid="uid://h7u2xt6w2dxy" path="res://SFX/JetpackHiss.mp3" id="26_k2tlt"]
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Player.gd" id="26_w3cgf"]
+[ext_resource type="AudioStream" uid="uid://c23eyjfrprpcn" path="res://SFX/Dizzy.mp3" id="29_tj2up"]
+[ext_resource type="AudioStream" uid="uid://dpfsafkmxnjlc" path="res://SFX/IceSkating.mp3" id="30_os254"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
 size = Vector2(11, 39)
@@ -38,6 +40,9 @@ size = Vector2(65, 25.205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
 size = Vector2(27.5, 123.303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gid2h"]
+size = Vector2(17, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b61kp"]
 atlas = ExtResource("5_i2j4n")
@@ -1213,7 +1218,7 @@ shape = SubResource("RectangleShape2D_4ufxu")
 [node name="HandsArea2D" type="Area2D" parent="."]
 position = Vector2(3, -8)
 scale = Vector2(0.279999, 0.300075)
-collision_mask = 3
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandsArea2D"]
 position = Vector2(4.17232e-06, 10.725)
@@ -1234,8 +1239,17 @@ collision_mask = 3
 position = Vector2(-3.8147e-06, 0)
 shape = SubResource("RectangleShape2D_ml0cj")
 
+[node name="BonkArea2D" type="Area2D" parent="."]
+position = Vector2(0, -15)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BonkArea2D"]
+position = Vector2(0, -1)
+scale = Vector2(0.999999, 1)
+shape = SubResource("RectangleShape2D_gid2h")
+
 [node name="Player_normal" parent="." instance=ExtResource("3_qj7n8")]
-position = Vector2(2.38419e-07, -1)
+position = Vector2(0, -1)
 sprite_frames = ExtResource("3_ftl0r")
 animation = &"idle"
 autoplay = "idle"
@@ -1334,8 +1348,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DLeft" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 1048576
+collision_mask = 1048576
 
 [node name="PinJoint2DLeft2" type="PinJoint2D" parent="PinJoint2DLeft"]
 position = Vector2(0, 6)
@@ -1346,8 +1360,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DLeft/PinJoint2DLeft2" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2097152
+collision_mask = 2097152
 
 [node name="PinJoint2DLeft3" type="PinJoint2D" parent="PinJoint2DLeft"]
 position = Vector2(0, 12)
@@ -1358,8 +1372,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DLeft/PinJoint2DLeft3" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 4194304
+collision_mask = 4194304
 
 [node name="PinJoint2DRight" type="PinJoint2D" parent="."]
 visible = false
@@ -1371,8 +1385,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DRight" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 8
-collision_mask = 8
+collision_layer = 8388608
+collision_mask = 8388608
 
 [node name="PinJoint2DRight2" type="PinJoint2D" parent="PinJoint2DRight"]
 position = Vector2(0, 6)
@@ -1383,8 +1397,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DRight/PinJoint2DRight2" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 8
-collision_mask = 8
+collision_layer = 16777216
+collision_mask = 16777216
 
 [node name="PinJoint2DRight3" type="PinJoint2D" parent="PinJoint2DRight"]
 position = Vector2(0, 12)
@@ -1395,8 +1409,8 @@ bias = 0.5
 [node name="HairLinkage" parent="PinJoint2DRight/PinJoint2DRight3" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 8
-collision_mask = 8
+collision_layer = 33554432
+collision_mask = 33554432
 
 [node name="PinJoint2DLeftAir" type="PinJoint2D" parent="."]
 z_index = 1
@@ -1408,8 +1422,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DLeftAir" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 16
-collision_mask = 16
+collision_layer = 67108864
+collision_mask = 67108864
 gravity_scale = 0.0
 inertia = 0.1
 
@@ -1422,8 +1436,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DLeftAir/PinJoint2DLeft2" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 16
-collision_mask = 16
+collision_layer = 134217728
+collision_mask = 134217728
 mass = 0.3
 gravity_scale = 0.0
 inertia = 0.1
@@ -1437,8 +1451,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DLeftAir/PinJoint2DLeft3" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 16
-collision_mask = 16
+collision_layer = 268435456
+collision_mask = 268435456
 gravity_scale = 0.0
 inertia = 0.1
 
@@ -1451,8 +1465,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DRightAir" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 32
-collision_mask = 32
+collision_layer = 536870912
+collision_mask = 536870912
 gravity_scale = 0.0
 inertia = 0.1
 
@@ -1465,8 +1479,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DRightAir/PinJoint2DRight2" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 32
-collision_mask = 32
+collision_layer = 1073741824
+collision_mask = 1073741824
 mass = 0.3
 gravity_scale = 0.0
 inertia = 0.1
@@ -1480,8 +1494,8 @@ softness = 0.4
 [node name="HairLinkage" parent="PinJoint2DRightAir/PinJoint2DRight3" instance=ExtResource("5_n1usa")]
 z_index = -1
 position = Vector2(0, 3)
-collision_layer = 32
-collision_mask = 32
+collision_layer = 2147483648
+collision_mask = 2147483648
 gravity_scale = 0.0
 inertia = 0.1
 
@@ -1542,6 +1556,14 @@ volume_db = 5.0
 stream = ExtResource("26_6nbl2")
 volume_db = 5.0
 
+[node name="Dizzy" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("29_tj2up")
+volume_db = 5.0
+
+[node name="IceSkating" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("30_os254")
+volume_db = 5.0
+
 [node name="AchievementHandler" type="Node2D" parent="."]
 script = ExtResource("26_w3cgf")
 
@@ -1567,3 +1589,7 @@ shape = SubResource("CircleShape2D_p84k7")
 [connection signal="body_exited" from="HandsArea2D" to="." method="_on_release_with_hands"]
 [connection signal="body_entered" from="LegsArea2D" to="." method="on_grab_with_legs"]
 [connection signal="body_exited" from="LegsArea2D" to="." method="_on_release_with_legs"]
+[connection signal="body_entered" from="BonkArea2D" to="." method="bonk"]
+[connection signal="body_exited" from="BonkArea2D" to="." method="leave_wall"]
+[connection signal="finished" from="AudioPlayer/Dizzy" to="AudioPlayer" method="_on_dizzy_finished"]
+[connection signal="finished" from="AudioPlayer/IceSkating" to="AudioPlayer" method="_on_ice_skating_finished"]

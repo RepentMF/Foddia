@@ -80,6 +80,7 @@ var hasRocketJump = false
 var hasRocketed = false
 var hasReleasedRope = false
 
+var isAgainstWall = false
 var isClimbingLedge = false
 var isCrawlingLedge = false
 var isDead = false
@@ -508,11 +509,11 @@ func _process(_delta):
 			# Process player grounded animations
 			if is_on_floor():
 				if !isHoldingRope:
-					if is_on_floor() && velocity.x == 0:
+					if is_on_floor() && velocity.x == 0 || isAgainstWall:
 						anim.play("idle")
-					elif is_on_floor() && abs(velocity.x) > minRunSpeed:
+					elif is_on_floor() && abs(velocity.x) > minRunSpeed && !isAgainstWall:
 						anim.play("run")
-					elif is_on_floor() && abs(velocity.x) <= minRunSpeed:
+					elif is_on_floor() && abs(velocity.x) <= minRunSpeed && !isAgainstWall:
 						anim.play("walk")
 				elif isHoldingRope:
 					anim.stop()
@@ -625,6 +626,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_cancel") && isNearRope && (!hasJetpack && countJetpackFuel > 0) && !isInElevator && (!is_on_floor() || (is_on_floor() && global_position.y < ropeTop.global_position.y + 24)):
 			isHoldingRope = true
 			isOnIce = false
+			get_node("AudioPlayer/IceSkating").stop()
 			countRocketJumps = maxRocketJumps
 			rocket1.modulate = Color(1, 1, 1, 1)
 			rocket2.modulate = Color(1, 1, 1, 1)
@@ -673,9 +675,9 @@ func _physics_process(delta):
 				countNoKicks = 0
 				staticSwingingChecked = false
 			elif swingRope.get_parent().get_node("RopeLinkageBottom") != null:
-				if round(abs(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x)) <= 0:
+				if round(abs(swingRope.get_parent().get_node("RopeLinkageBottom").linear_velocity.x)) <= 1:
 					countNoKicks += 1
-					if countNoKicks > 30:
+					if countNoKicks > 20:
 						isKicking = false
 			if isHoldingRope && swingRope.get_parent().name.contains("Swinging"):
 				if isKicking:
@@ -687,10 +689,10 @@ func _physics_process(delta):
 								velocity.x = 0
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
-						swingRope.apply_impulse(Vector2(18, 0))
+						swingRope.apply_impulse(Vector2(15, 0))
 						smoke()
 					elif Input.is_action_just_pressed("ui_left"):
-						swingRope.apply_impulse(Vector2(-18, 0))
+						swingRope.apply_impulse(Vector2(-15, 0))
 						smoke()
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
 						if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
@@ -781,8 +783,11 @@ func _physics_process(delta):
 					velocity.y = 800
 					if countHangTime > 700:
 						isFreefalling = true
+						velocity = Vector2(0, 0)
 						dizzy.play()
 						dizzy.visible = true
+						get_node("AudioPlayer/HardLanded").play()
+						get_node("AudioPlayer/Dizzy").play()
 			# Handle jetpack or rocket jumps
 			if !isFreefalling:
 				if hasJetpack:
@@ -874,6 +879,8 @@ func _physics_process(delta):
 							$Rocket_2.rotation = -2.35619
 		# Handle grounded movement
 		else:
+			if !isOnIce:
+				get_node("AudioPlayer/IceSkating").stop()
 			isKicking = true
 			countNoKicks = 0
 			staticSwingingChecked = false
@@ -892,9 +899,13 @@ func _physics_process(delta):
 				isFreefalling = false
 				dizzy.stop()
 				dizzy.visible = false
+				velocity = Vector2(0, 0)
+				get_node("AudioPlayer/Dizzy").stop()
+				landedHard = true
 			elif wasJumping:
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
-					landedSoft = true
+					if !landedHard:
+						landedSoft = true
 				wasJumping = false
 			if isOnIce && !landedSoft && !landedHard:
 				# Handle moving left and right speeds
@@ -908,6 +919,14 @@ func _physics_process(delta):
 						velocity.x += -8
 					else:
 						velocity.x += -3
+				else:
+					anim.play("idle")
+					get_node("AudioPlayer/Running").stop()
+					get_node("AudioPlayer/Walking").stop()
+					if !get_node("AudioPlayer/IceSkating").is_playing():
+						get_node("AudioPlayer/IceSkating").play()
+				if velocity.x == 0:
+					get_node("AudioPlayer/IceSkating").stop()
 				if abs(velocity.x) > maxIceRunSpeed:
 					velocity.x = maxIceRunSpeed * sign(velocity.x)
 				# Handle jumping
@@ -975,8 +994,6 @@ func _physics_process(delta):
 			swingSpeed = swingRope.linear_velocity.x
 			if swingRope.get_parent().name.contains("Swinging"):
 				rotation = swingRope.rotation
-				if swingRope.name == "RopeLinkageBottom":
-					rotation = swingRope.get_parent().get_node("RopeLinkage10").rotation
 		else:
 			swingSpeed = velocity.x
 			
@@ -1058,8 +1075,28 @@ func smoke():
 	add_child(instance)
 	pass
 
+func bonk(body):
+	if (body.name.contains("Wall") || body.name.contains("Ice") || body.name.contains("Floor")) && !isGrabbingLedge && !isFreefalling:
+		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 150 && !is_on_floor()):
+			isFreefalling = true
+			dizzy.play()
+			dizzy.visible = true
+			get_node("AudioPlayer/HardLanded").play()
+			get_node("AudioPlayer/Dizzy").play()
+		elif abs(velocity.x) <= 395 && is_on_floor():
+			isAgainstWall = true
+		velocity = Vector2(0, 0)
+		runSpeed = minRunSpeed
+	pass
+
+func leave_wall(body):
+	if (body.name.contains("Wall") || body.name.contains("Ice") || body.name.contains("Floor")) && !isGrabbingLedge && !isFreefalling:
+		if isAgainstWall:
+			isAgainstWall = false
+	pass # Replace with function body.
+
 func use_hands(body):
-	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel") && !dizzy.visible:
+	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel") && !isFreefalling:
 		#if velocity.x != maxRunSpeed:
 		climbYValue = body.global_position.y + 1
 		climbXValue = body.global_position.x
@@ -1068,10 +1105,6 @@ func use_hands(body):
 		dizzy.stop()
 		dizzy.visible = false
 		get_node("GrabLedge").play()
-	elif body.name.contains("Wall") && !Input.is_action_pressed("ui_cancel") && !isGrabbingLedge:
-		isFreefalling = true
-		dizzy.play()
-		dizzy.visible = true
 	elif body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
 		isNearRope = true
 		if !isHoldingRope:
@@ -1111,6 +1144,7 @@ func use_legs(body):
 		isOnIce = true
 	elif !body.name.contains("Ice") && body.name.contains("Floor"):
 		isOnIce = false
+		get_node("AudioPlayer/IceSkating").stop()
 	pass
 	
 func _on_grab_with_hands(body):
@@ -1134,7 +1168,8 @@ func on_grab_with_legs(body):
 			landedHard = false
 		elif countHangTime >= 50 && countHangTime < 106 && (!isRunning) || (countHangTime >= 150 && countHangTime < 249 && isInWindCurrent):
 			# Apply soft landing lag
-			landedSoft = true
+			if !landedHard:
+				landedSoft = true
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
@@ -1277,4 +1312,3 @@ func save_game():
 		user_prefs.permadeath_m = timer.m
 		user_prefs.permadeath_h = timer.h
 	user_prefs.save()
-	

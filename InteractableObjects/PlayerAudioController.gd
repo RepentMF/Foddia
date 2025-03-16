@@ -4,10 +4,12 @@ var temp_volume
 
 var rng
 var deadLanded
+var dizzy
 var hardAir
 var hardAir2
 var hardAirMax
 var hardLanded
+var iceSkating
 var jetpackPuffed
 var jetpackHissed
 var jumping
@@ -35,9 +37,11 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	deadLanded = get_node("DeadLanded")
+	dizzy = get_node("Dizzy")
 	hardAir = get_node("HardAir")
 	hardAir2 = get_node("HardAir2")
 	hardLanded = get_node("HardLanded")
+	iceSkating = get_node("IceSkating")
 	jetpackHissed = get_node("JetpackHiss")
 	jetpackPuffed = get_node("JetpackPuff")
 	jumping = get_node("Jumping")
@@ -127,17 +131,17 @@ func _physics_process(_delta):
 		jetpackPuffed.stop()
 		jetpackHissed.stop()
 	
-	if !walking.is_playing() && player.is_on_floor() && abs(player.velocity.x) < 126 && abs(player.velocity.x) > 0:
+	if !walking.is_playing() && player.is_on_floor() && abs(player.velocity.x) < 126 && abs(player.velocity.x) > 0 && !player.isAgainstWall:
 		walking.pitch_scale = rng.randf_range(1.0, 1.2)
 		walking.play(0.09)
-	elif !player.is_on_floor() || !abs(player.velocity.x) > 0:
+	elif !player.is_on_floor() || !abs(player.velocity.x) > 0 || player.isAgainstWall:
 		walking.stop()
 		
-	if player.isRunning && !running.is_playing() && player.is_on_floor() && abs(player.velocity.x) > 125:
+	if player.isRunning && !running.is_playing() && player.is_on_floor() && abs(player.velocity.x) > 125 && !player.isAgainstWall:
 		walking.stop()
 		running.pitch_scale = rng.randf_range(1.0, 1.2)
 		running.play(0)
-	elif abs(player.velocity.x) < 126 || !player.is_on_floor() || !abs(player.velocity.x) > 0:
+	elif abs(player.velocity.x) < 126 || !player.is_on_floor() || !abs(player.velocity.x) > 0 || player.isAgainstWall:
 		running.stop()
 	
 	if justJumped && !jumping.is_playing():
@@ -203,7 +207,9 @@ func _physics_process(_delta):
 
 func change_all_volumes():
 	deadLanded.volume_db = temp_volume
+	dizzy.volume_db = temp_volume
 	hardLanded.volume_db = temp_volume
+	iceSkating.volume_db = temp_volume
 	jumping.volume_db = temp_volume
 	rocketJumped.volume_db = temp_volume
 	ropeClimbed.volume_db = temp_volume
@@ -214,3 +220,11 @@ func change_all_volumes():
 	softAirMax = temp_volume
 	hardAirMax = temp_volume
 	pass
+
+func _on_dizzy_finished() -> void:
+	dizzy.pitch_scale = rng.randf_range(.9, 1.1)
+	pass # Replace with function body.
+
+func _on_ice_skating_finished() -> void:
+	iceSkating.pitch_scale = rng.randf_range(1.2, 1.4)
+	pass # Replace with function body.

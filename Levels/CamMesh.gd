@@ -57,12 +57,12 @@ func _process(_delta):
 				position = lockedPosition
 			elif (!isManualCamUsed() && !camLocked) || breakAway:
 				var tempVar = 40
-				if player.isFreefalling:
+				if player.isFreefalling && player.velocity.y > 400:
 					tempVar = 70
 				var tempSpeed = tempVar * (player.position - Vector2(337, -95) - position).normalized()
 				position.y = position.y + tempSpeed.y
 			
-			if abs(player.position.x - 337 - position.x) >= 500 || abs(player.position.y + 95 - position.y) >= 500 || player.isFreefalling:
+			if abs(player.position.x - 337 - position.x) >= 500 || abs(player.position.y + 95 - position.y) >= 500 || (player.isFreefalling && player.velocity.y > 400):
 				breakAway = true
 	pass
 
