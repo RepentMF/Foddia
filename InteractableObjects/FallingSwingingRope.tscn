@@ -391,7 +391,6 @@ node_b = NodePath("../RopeLinkage10")
 [node name="RopeLinkage10" parent="." instance=ExtResource("3_cswfh")]
 position = Vector2(0, 111)
 freeze_mode = 1
-script = ExtResource("9_75rmg")
 
 [node name="PinJoint2D11" type="PinJoint2D" parent="."]
 position = Vector2(0, 116)
@@ -400,6 +399,7 @@ node_b = NodePath("../RopeLinkageBottom")
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("3_cswfh")]
 position = Vector2(0, 123)
+script = ExtResource("9_75rmg")
 
 [node name="UI_Keyboard_left" type="AnimatedSprite2D" parent="."]
 visible = false

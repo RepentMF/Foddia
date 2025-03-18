@@ -39,10 +39,10 @@ size = Vector2(11, 39)
 size = Vector2(65, 25.205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
-size = Vector2(27.5, 123.303)
+size = Vector2(50, 123.303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gid2h"]
-size = Vector2(17, 14)
+size = Vector2(17, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b61kp"]
 atlas = ExtResource("5_i2j4n")
@@ -1236,15 +1236,16 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D"]
-position = Vector2(-3.8147e-06, 0)
+position = Vector2(7.45058e-08, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ml0cj")
 
 [node name="BonkArea2D" type="Area2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -4)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BonkArea2D"]
-position = Vector2(0, -1)
+position = Vector2(0, 5.5)
 scale = Vector2(0.999999, 1)
 shape = SubResource("RectangleShape2D_gid2h")
 
@@ -1263,13 +1264,13 @@ frame_progress = 0.69146
 
 [node name="Player_legs" parent="." instance=ExtResource("3_qj7n8")]
 visible = false
-animation = &"idle"
+animation = &"kick_right"
 autoplay = "idle"
 
 [node name="Player_rocket" parent="." instance=ExtResource("5_lpefd")]
 visible = false
 position = Vector2(0, -1)
-animation = &"walk"
+animation = &"kick_left"
 autoplay = "idle"
 
 [node name="Player_jetpack" parent="." instance=ExtResource("6_6oruf")]
@@ -1286,7 +1287,7 @@ autoplay = "idle"
 [node name="Player_legs_rocket" parent="." instance=ExtResource("7_0d882")]
 visible = false
 position = Vector2(0, -1)
-animation = &"idle"
+animation = &"kick_left"
 autoplay = "idle"
 
 [node name="Player_rocket_jetpack" parent="." instance=ExtResource("7_0d882")]
@@ -1413,6 +1414,7 @@ collision_layer = 33554432
 collision_mask = 33554432
 
 [node name="PinJoint2DLeftAir" type="PinJoint2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-4, -14)
 node_a = NodePath("..")
@@ -1457,6 +1459,7 @@ gravity_scale = 0.0
 inertia = 0.1
 
 [node name="PinJoint2DRightAir" type="PinJoint2D" parent="."]
+visible = false
 position = Vector2(4, -14)
 node_a = NodePath("..")
 node_b = NodePath("HairLinkage")
@@ -1500,6 +1503,7 @@ gravity_scale = 0.0
 inertia = 0.1
 
 [node name="AudioPlayer" type="Node2D" parent="."]
+visible = false
 script = ExtResource("1_nmi0e")
 
 [node name="Running" type="AudioStreamPlayer2D" parent="AudioPlayer"]
@@ -1565,6 +1569,7 @@ stream = ExtResource("30_os254")
 volume_db = 5.0
 
 [node name="AchievementHandler" type="Node2D" parent="."]
+visible = false
 script = ExtResource("26_w3cgf")
 
 [node name="CamCircle1" type="Area2D" parent="."]
@@ -1591,5 +1596,9 @@ shape = SubResource("CircleShape2D_p84k7")
 [connection signal="body_exited" from="LegsArea2D" to="." method="_on_release_with_legs"]
 [connection signal="body_entered" from="BonkArea2D" to="." method="bonk"]
 [connection signal="body_exited" from="BonkArea2D" to="." method="leave_wall"]
+[connection signal="animation_finished" from="Player_normal" to="." method="on_animation_finished"]
+[connection signal="animation_finished" from="Player_legs" to="." method="on_animation_finished"]
+[connection signal="animation_finished" from="Player_rocket" to="." method="on_animation_finished"]
+[connection signal="animation_finished" from="Player_legs_rocket" to="." method="on_animation_finished"]
 [connection signal="finished" from="AudioPlayer/Dizzy" to="AudioPlayer" method="_on_dizzy_finished"]
 [connection signal="finished" from="AudioPlayer/IceSkating" to="AudioPlayer" method="_on_ice_skating_finished"]

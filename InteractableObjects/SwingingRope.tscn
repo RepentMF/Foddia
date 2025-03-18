@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d140swyckf05s"]
+[gd_scene load_steps=47 format=3 uid="uid://d140swyckf05s"]
 
 [ext_resource type="PackedScene" uid="uid://bqwytx7eh7xy5" path="res://InteractableObjects/RopeBlock.tscn" id="1_as6d8"]
 [ext_resource type="Script" path="res://InteractableObjects/SwingingRope.gd" id="1_jsp82"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnklhkqwhdfaq" path="res://InteractableObjects/LedgeGrabLeft.tscn" id="2_e6u8o"]
 [ext_resource type="Texture2D" uid="uid://cl0e4gxm2m5uc" path="res://Graphics/overworld_tileset.png" id="2_t7c8r"]
 [ext_resource type="Texture2D" uid="uid://d020os3nkdnkt" path="res://Graphics/ui_leftrow_press.png" id="6_jwle0"]
+[ext_resource type="Script" path="res://InteractableObjects/RopeManager.gd" id="6_qaqru"]
 [ext_resource type="Texture2D" uid="uid://bduciq1mx7x5u" path="res://Graphics/ui_left_press.png" id="7_fm12n"]
 [ext_resource type="Texture2D" uid="uid://dk1kwcax1d6by" path="res://Graphics/ui_lb_press.png" id="8_sq5tt"]
 [ext_resource type="Script" path="res://InteractableObjects/CreakArea.gd" id="8_xke76"]
@@ -377,13 +378,20 @@ position = Vector2(0, 111)
 position = Vector2(0, 116)
 node_a = NodePath("../RopeLinkage10")
 node_b = NodePath("../RopeLinkageBottom")
-angular_limit_lower = -1.5708
-angular_limit_upper = 1.5708
+angular_limit_lower = -2.44346
+angular_limit_upper = 2.44346
+
+[node name="PinJoint2D12" type="PinJoint2D" parent="."]
+position = Vector2(0, 116)
+node_a = NodePath("../RopeLinkage10")
+node_b = NodePath("../RopeLinkageBottom")
+angular_limit_lower = -2.44346
+angular_limit_upper = 2.44346
 
 [node name="RopeLinkageBottom" parent="." instance=ExtResource("2_83sdi")]
-position = Vector2(0, 121)
+position = Vector2(0, 122)
 freeze_mode = 1
-continuous_cd = 1
+script = ExtResource("6_qaqru")
 
 [node name="UI_Keyboard_left" type="AnimatedSprite2D" parent="."]
 visible = false

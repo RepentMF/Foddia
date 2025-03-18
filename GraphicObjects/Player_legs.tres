@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=71 format=3 uid="uid://cpsokpept56f6"]
+[gd_resource type="SpriteFrames" load_steps=73 format=3 uid="uid://cpsokpept56f6"]
 
 [ext_resource type="Texture2D" uid="uid://baxhcp567glqg" path="res://Graphics/player_legs.png" id="2_6br1k"]
 
@@ -161,6 +161,14 @@ region = Rect2(0, 155, 25, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmanc"]
 atlas = ExtResource("2_6br1k")
 region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30qrd"]
+atlas = ExtResource("2_6br1k")
+region = Rect2(25, 155, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g008"]
+atlas = ExtResource("2_6br1k")
+region = Rect2(100, 155, 25, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o652e"]
 atlas = ExtResource("2_6br1k")
@@ -449,6 +457,22 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30qrd")
+}],
+"loop": false,
+"name": &"kick_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g008")
+}],
+"loop": false,
+"name": &"kick_right",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

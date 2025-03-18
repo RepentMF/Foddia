@@ -35,20 +35,20 @@ func _process(_delta):
 				right.play("pressed")
 			elif Input.is_action_just_released("ui_right"):
 				right.play("idle")
-			if !disabled:
-				for Node2D in get_children():
-					if Node2D.name.contains("Pinjoint"):
-						Node2D.disable_collision = true
-				disabled = true
+			#if !disabled:
+			#	for Node2D in get_children():
+			#		if Node2D.name.contains("Pinjoint"):
+			#			Node2D.disable_collision = true
+			#	disabled = true
 	elif left.visible && right.visible: #elif check if left and right are already playing idle; if they are, do nothing
 		left.play("idle")
 		right.play("idle")
 		left.visible = false
 		right.visible = false
-		for Node2D in get_children():
-			if Node2D.name.contains("Pinjoint"):
-				Node2D.disable_collision = true
-		disabled = false
+		#for Node2D in get_children():
+		#	if Node2D.name.contains("Pinjoint"):
+		#		Node2D.disable_collision = true
+		#disabled = false
 	pass
 
 func change_colors():

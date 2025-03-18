@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=63 format=3 uid="uid://kh0y4c0iksdr"]
+[gd_resource type="SpriteFrames" load_steps=65 format=3 uid="uid://kh0y4c0iksdr"]
 
 [ext_resource type="Texture2D" uid="uid://epf6sqoblc71" path="res://Graphics/player_rocket_+_legs.png" id="1_bnmc0"]
 
@@ -129,6 +129,14 @@ region = Rect2(0, 155, 25, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcnf5"]
 atlas = ExtResource("1_bnmc0")
 region = Rect2(0, 0, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ry5"]
+atlas = ExtResource("1_bnmc0")
+region = Rect2(25, 155, 25, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1n8s"]
+atlas = ExtResource("1_bnmc0")
+region = Rect2(100, 155, 25, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odcy1"]
 atlas = ExtResource("1_bnmc0")
@@ -383,6 +391,22 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2ry5")
+}],
+"loop": false,
+"name": &"kick_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1n8s")
+}],
+"loop": true,
+"name": &"kick_right",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

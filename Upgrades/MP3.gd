@@ -138,3 +138,13 @@ func _on_body_exited(body):
 		UI_keyboard.visible = false
 		UI_controller.visible = false
 	pass # Replace with function body.
+
+func _on_area_entered(area):
+	if area.name.contains("Reveal"):
+		get_node("PointLight2D").visible = false
+	pass # Replace with function body.
+
+func _on_area_exited(area):
+	if area.name.contains("Reveal"):
+		get_node("PointLight2D").visible = true
+	pass # Replace with function body.

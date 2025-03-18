@@ -63,6 +63,11 @@ func _physics_process(_delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	if name == "TeleportAccess0" && interacting:
+		player.isInteracting = true
+	elif name == "TeleportAccess0" && !interacting && isNearTeleport:
+		player.isInteracting = false
 	areaName = player.areaName
 	if %Player.changeControls:
 		change_icons()

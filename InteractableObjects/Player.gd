@@ -52,10 +52,14 @@ var fadeInCount = 200
 var game_start = true
 var pausePressed = false
 
+var prev_pos
+var prev_vel
+
 var changeControls = false
 var changeSwinging = false
 var climbXValue = 0
 var climbYValue = 0
+var climbCount = 0
 var currentConfirmMethod
 var currentMoveMethod
 var currentSwingMethod
@@ -359,6 +363,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if swingRope != null:
+		climbCount += 1
+	elif climbCount != 0:
+		climbCount = 0
 	check_controls()
 	check_swinging()
 	if temp_volume != %SFXVolumeHandler.SFX_volume:
@@ -528,14 +536,17 @@ func _process(_delta):
 					get_node("Rocket_2").visible = true
 			# Process player rope animations
 			elif isHoldingRope && swingRope != null:
-				# FIX NEEDED: cannot press up when on swinging rope
-				if Input.is_action_pressed("ui_up") && !isKicking:
+				if Input.is_action_just_pressed("ui_left") && swingRope.get_parent().name.contains("Swinging"):
+					anim.play("kick_left")
+				elif Input.is_action_just_pressed("ui_right") && swingRope.get_parent().name.contains("Swinging"):
+					anim.play("kick_right")
+				elif Input.is_action_pressed("ui_up") && !isKicking:
 					anim.play("up_rope")
 				elif Input.is_action_pressed("ui_down") && !isKicking:
 					anim.play("down_rope")
-				else:
+				elif anim.animation != "kick_left" && anim.animation != "kick_right":
 					anim.play("hold_rope")
-			# Process player floor animations
+			# Process player air animations
 			elif !is_on_floor():
 				if wasJumping && !anim.animation == "n_jump" && !anim.animation == "arms_up" && !anim.animation == "arms_out":
 					anim.play("n_jump")
@@ -555,7 +566,7 @@ func _process(_delta):
 				#elif wasFalling && !Input.is_action_pressed("ui_cancel") && anim.animation == "arms_out":
 				#	anim.play("arms_up")
 				
-		elif landedSoft && !anim.animation == "soft_land":
+		elif landedSoft && !anim.animation == "soft_land" && !anim.animation == "hard_land":
 			anim.play("soft_land")
 		elif landedHard && !anim.animation == "hard_land":
 			anim.play("hard_land")
@@ -689,10 +700,10 @@ func _physics_process(delta):
 								velocity.x = 0
 								velocity.y = 0
 					if Input.is_action_just_pressed("ui_right"):
-						swingRope.apply_impulse(Vector2(15, 0))
+						swingRope.apply_impulse(Vector2(19, 0))
 						smoke()
 					elif Input.is_action_just_pressed("ui_left"):
-						swingRope.apply_impulse(Vector2(-15, 0))
+						swingRope.apply_impulse(Vector2(-19, 0))
 						smoke()
 					elif hasReleasedRope || !swingRope.name.contains("RopeLinkage"):
 						if swingRope.name.contains("Bottom") || swingRope.name.contains("10") || swingRope.name.contains("9") || swingRope.name.contains("8") || swingRope.name.contains("7"):
@@ -906,6 +917,10 @@ func _physics_process(delta):
 				if (Input.is_action_pressed("ui_right") && lastGroundDirection == -1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == 1):
 					if !landedHard:
 						landedSoft = true
+				elif (Input.is_action_pressed("ui_right") && lastGroundDirection == 1) || (Input.is_action_pressed("ui_left") && lastGroundDirection == -1):
+					landedSoft
+				else:
+					velocity = Vector2(0, 0)
 				wasJumping = false
 			if isOnIce && !landedSoft && !landedHard:
 				# Handle moving left and right speeds
@@ -993,7 +1008,10 @@ func _physics_process(delta):
 		if isHoldingRope && swingRope != null:
 			swingSpeed = swingRope.linear_velocity.x
 			if swingRope.get_parent().name.contains("Swinging"):
-				rotation = swingRope.rotation
+				if !swingRope.name.contains("Bottom"):
+					rotation = swingRope.rotation
+				else:
+					rotation = swingRope.get_parent().get_child(23).rotation
 		else:
 			swingSpeed = velocity.x
 			
@@ -1077,7 +1095,7 @@ func smoke():
 
 func bonk(body):
 	if (body.name.contains("Wall") || body.name.contains("Ice") || body.name.contains("Floor")) && !isGrabbingLedge && !isFreefalling:
-		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 150 && !is_on_floor()):
+		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 125 && !is_on_floor()):
 			isFreefalling = true
 			dizzy.play()
 			dizzy.visible = true
@@ -1096,35 +1114,39 @@ func leave_wall(body):
 	pass # Replace with function body.
 
 func use_hands(body):
-	if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel") && !isFreefalling:
-		#if velocity.x != maxRunSpeed:
-		climbYValue = body.global_position.y + 1
-		climbXValue = body.global_position.x
-		isGrabbingLedge = true
-		isFreefalling = false
-		dizzy.stop()
-		dizzy.visible = false
-		get_node("GrabLedge").play()
-	elif body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
-		isNearRope = true
-		if !isHoldingRope:
+	if !dizzy.visible:
+		if !hasRocketJump && !hasJetpack && body.name.contains("LedgeGrab") && Input.is_action_pressed("ui_cancel") && !isFreefalling:
+			#if velocity.x != maxRunSpeed:
+			climbYValue = body.global_position.y + 1
+			climbXValue = body.global_position.x
+			isGrabbingLedge = true
+			isFreefalling = false
+			dizzy.stop()
+			dizzy.visible = false
+			get_node("GrabLedge").play()
+		elif body.name.contains("RopeLinkage") && swingRope == null && !isInElevator:
+			isNearRope = true
+			if !isHoldingRope:
+				swingRope = body
+				ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
+				if swingRope.get_parent().name.contains("Swinging"):
+					var ropeImpulse = Vector2(0.5 * swingSpeed, 1)
+					if abs(ropeImpulse.x) > 130:
+						ropeImpulse.x = sign(ropeImpulse.x) * 130
+					if swingRope.name.contains("Bottom"):
+						swingRope.get_parent().get_child(23).apply_impulse(ropeImpulse)
+					else:
+						body.apply_impulse(ropeImpulse)
+					ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
+				ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
+				ropeTop = body.get_parent().get_node("RopeLinkageTop")
+		elif body.name.contains("RopeLinkage") && swingRope != null && !isKicking:
 			swingRope = body
-			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
-			if swingRope.get_parent().name.contains("Swinging"):
-				var ropeImpulse = Vector2(0.5 * swingSpeed, 1)
-				if abs(ropeImpulse.x) > 130:
-					ropeImpulse.x = sign(ropeImpulse.x) * 130
-				body.apply_impulse(ropeImpulse)
-				ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
+			ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
+			if swingRope.get_parent().name.contains("Static"):
+				ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
 			ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
 			ropeTop = body.get_parent().get_node("RopeLinkageTop")
-	elif body.name.contains("RopeLinkage") && swingRope != null && !isKicking:
-		swingRope = body
-		ropeTempPosition = Vector2(swingRope.global_position.x, global_position.y)
-		if swingRope.get_parent().name.contains("Static"):
-			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
-		ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
-		ropeTop = body.get_parent().get_node("RopeLinkageTop")
 	pass
 
 func use_legs(body):
@@ -1136,7 +1158,10 @@ func use_legs(body):
 				var ropeImpulse = Vector2(0.5 * swingSpeed, 1)
 				if abs(ropeImpulse.x) > 130:
 					ropeImpulse.x = sign(ropeImpulse.x) * 130
-				body.apply_impulse(ropeImpulse)
+				if swingRope.name.contains("Bottom"):
+					swingRope.get_parent().get_child(23).apply_impulse(ropeImpulse)
+				else:
+					body.apply_impulse(ropeImpulse)
 			ropeTempPosition = Vector2(swingRope.global_position.x - 4, global_position.y)
 			ropeBottom = body.get_parent().get_node("RopeLinkageBottom")
 			ropeTop = body.get_parent().get_node("RopeLinkageTop")
@@ -1312,3 +1337,8 @@ func save_game():
 		user_prefs.permadeath_m = timer.m
 		user_prefs.permadeath_h = timer.h
 	user_prefs.save()
+
+func on_animation_finished():
+	if anim.animation == "kick_left" || anim.animation == "kick_right":
+		anim.play("hold_rope")
+	pass # Replace with function body.
