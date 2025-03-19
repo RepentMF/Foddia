@@ -9,6 +9,9 @@ var user_prefs: UserPreferences
 func _ready():
 	user_prefs = UserPreferences.load_or_create()
 	change_colors()
+	
+	if get_node("Node2D/DialogueBox").texture != get_meta("Boxes")[user_prefs.title_color_index]:
+		get_node("Node2D/DialogueBox").texture = get_meta("Boxes")[user_prefs.title_color_index]
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,9 +20,17 @@ func _process(_delta):
 		if %Player.changeControls:
 			change_icons()
 			UI.visible = true
-	
-	if get_node("Node2D/DialogueBox").texture != get_meta("Boxes")[user_prefs.title_color_index]:
-		get_node("Node2D/DialogueBox").texture = get_meta("Boxes")[user_prefs.title_color_index]
+	elif get_parent().name.contains("Ending"):
+		if Input.is_action_just_pressed("ui_accept") && !Input.is_key_pressed(KEY_ENTER):
+			UI = UI_controller
+			UI_keyboard.visible = false
+			UI_controller.visible = true
+			UI.visible = true
+		elif Input.is_key_pressed(KEY_ENTER):
+			UI = UI_keyboard
+			UI_keyboard.visible = true
+			UI_controller.visible = false
+			UI.visible = true
 	pass
 
 func change_colors():

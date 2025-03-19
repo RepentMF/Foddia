@@ -48,4 +48,6 @@ func _on_pressed():
 		get_parent().get_node("KeyboardDisplay").visible = false
 		get_parent().get_node("ControllerDisplay").visible = true
 	get_node("OptionSelect").play()
+	get_parent().controls = "Mouse"
+	get_parent().current_selected = ""
 	pass # Replace with function body.

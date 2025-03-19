@@ -68,10 +68,11 @@ func _ready():
 	pass
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_menu") && !%Player.pausePressed:
-		visible = true
-	elif Input.is_action_just_pressed("ui_menu") && %Player.pausePressed:
-		_on_keep_hiking_pressed()
+	if !%ButtonsDisplay.visible:
+		if Input.is_action_just_pressed("ui_menu") && !%Player.pausePressed:
+			visible = true
+		elif Input.is_action_just_pressed("ui_menu") && %Player.pausePressed:
+			_on_keep_hiking_pressed()
 	
 	use_keyboard_or_gamepad()
 	
@@ -147,6 +148,7 @@ func use_keyboard_or_gamepad():
 			%SFXSlider.release_focus()
 			%VoiceActingCheckBox.release_focus()
 			%RadioSongsCheckBox.release_focus()
+			%MP3.release_focus()
 		cursor_highlighted = -100
 	elif cursor_highlighted != -100:
 		if %PauseOptions.visible:
@@ -207,12 +209,13 @@ func use_keyboard_or_gamepad():
 			elif cursor_highlighted == 3:
 				%SpeedrunCheckButton.grab_focus()
 		elif %AudioOptions.visible:
-			if cursor_highlighted > -1:
-				if Input.is_action_just_pressed("ui_up"):
-					cursor_highlighted -= 1
-			if cursor_highlighted < 4:
-				if Input.is_action_just_pressed("ui_down"):
-					cursor_highlighted += 1
+			if cursor_highlighted != 6:
+				if cursor_highlighted > -1:
+					if Input.is_action_just_pressed("ui_up"):
+						cursor_highlighted -= 1
+				if cursor_highlighted < 5:
+					if Input.is_action_just_pressed("ui_down"):
+						cursor_highlighted += 1
 			if cursor_highlighted == 0:
 				%"Return to Pause Menu 2".grab_focus()
 			elif cursor_highlighted == 1:
@@ -223,6 +226,8 @@ func use_keyboard_or_gamepad():
 				%VoiceActingCheckBox.grab_focus()
 			elif cursor_highlighted == 4:
 				%RadioSongsCheckBox.grab_focus()
+			elif cursor_highlighted == 5:
+				%ChangeSong.grab_focus()
 
 func _on_keep_hiking_pressed():
 	if  name == "PauseMenu" && get_tree().paused && %Player.pausePressed:
@@ -452,4 +457,9 @@ func _on_controller_layout_pressed():
 	%ButtonsDisplay.visible = true
 	get_tree().root.get_node("Overworld/UIHolder/DialogueBox").visible = true
 	get_parent().get_node("PauseMenu/MarginContainer/PauseOptions").visible = false
+	pass # Replace with function body.
+
+
+func _on_change_song_item_focused(_index):
+	cursor_highlighted = 6
 	pass # Replace with function body.

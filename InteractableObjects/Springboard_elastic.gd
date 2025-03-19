@@ -39,6 +39,10 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		body.countHangTime = 0
 		body.countRocketJumps = body.maxRocketJumps
+		body.dizzy.visible = false
+		body.isFreefalling = false
+		body.landedSoft = false
+		body.landedHard = false
 		if !hasBeenUsed:
 			if !body.hasJetpack:
 				body.velocity.y =  -1 * abs(body.velocity.y)

@@ -23,6 +23,7 @@ class_name UserPreferences extends Resource
 @export var achievement_little_dipper: bool = false
 @export var achievement_medal: bool = false
 @export var achievement_mountain: bool = false
+@export var achievement_mp3: bool = false
 @export var achievement_mushroom: bool = false
 @export var achievement_oof: bool = false
 @export var achievement_robot: bool = false

@@ -794,7 +794,6 @@ func _physics_process(delta):
 					velocity.y = 800
 					if countHangTime > 700:
 						isFreefalling = true
-						velocity = Vector2(0, 0)
 						dizzy.play()
 						dizzy.visible = true
 						get_node("AudioPlayer/HardLanded").play()

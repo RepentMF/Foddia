@@ -5,6 +5,7 @@ var user_prefs: UserPreferences
 var dice_opposite
 var dipper_opposite
 var mush_setter
+var mp3_setter
 var oof_setter
 var player
 
@@ -15,6 +16,7 @@ func _ready():
 	#dipper_opposite = (user_prefs.achievement_big_dipper || user_prefs.achievement_little_dipper)
 	mush_setter = user_prefs.achievement_mushroom
 	oof_setter = user_prefs.achievement_oof
+	mp3_setter = user_prefs.achievement_mp3
 	player = get_parent()
 	pass # Replace with function body.
 
@@ -30,6 +32,8 @@ func _physics_process(_delta):
 			handle_mushroom_achievement()
 		if !user_prefs.achievement_oof:
 			handle_oof_achievement()
+		if !user_prefs.achievement_mp3:
+			handle_mp3_achievement()
 	pass
 
 func handle_dice_achievement():
@@ -58,6 +62,11 @@ func handle_mushroom_achievement():
 			user_prefs.achievement_mushroom = true
 			user_prefs.save()
 	pass
+
+func handle_mp3_achievement():
+	for child in get_tree().root.get_node("Overworld/MP3s").get_children():
+		if child.name.contains("MP3"):
+			true # Finish this later
 
 func handle_oof_achievement():
 	if player.countHangTime > 1190:

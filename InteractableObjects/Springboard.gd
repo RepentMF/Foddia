@@ -38,6 +38,11 @@ func _physics_process(_delta):
 func _on_body_entered(body):
 	if body.name == "Player":
 		body.countRocketJumps = body.maxRocketJumps
+		body.countHangTime = 0
+		body.dizzy.visible = false
+		body.isFreefalling = false
+		body.landedSoft = false
+		body.landedHard = false
 		if !hasBeenUsed:
 			if !body.hasJetpack:
 				if snappedf(rotation, 0.01) == 1.57:

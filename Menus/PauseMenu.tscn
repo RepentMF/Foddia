@@ -81,6 +81,7 @@ scale = Vector2(1.735, 1.735)
 
 [node name="PauseOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.745098)
 layout_mode = 2
 size_flags_vertical = 4
@@ -196,7 +197,6 @@ text = "Speedrun  Timer"
 
 [node name="AudioOptions" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Return to Pause Menu 2" type="Button" parent="MarginContainer/AudioOptions"]
@@ -398,5 +398,6 @@ transform = Transform2D(1, 0, 0, 1, 0, -221.195)
 [connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_mouse_entered"]
 [connection signal="toggled" from="MarginContainer/AudioOptions/Node2D7/RadioSongsCheckBox" to="." method="_on_radio_songs_check_box_toggled"]
 [connection signal="button_up" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_button_up"]
+[connection signal="item_focused" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="." method="_on_change_song_item_focused"]
 [connection signal="mouse_entered" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/AudioOptions/Node2D/ChangeSong" to="MarginContainer/AudioOptions/Node2D/ChangeSong" method="_on_mouse_exited"]
