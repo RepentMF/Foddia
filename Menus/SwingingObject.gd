@@ -1,6 +1,5 @@
 extends Sprite2D
 
-var user_prefs: UserPreferences
 var item_string
 
 var rotation_diff
@@ -9,8 +8,7 @@ var swing_right = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
-	if user_prefs.achievement_dice:
+	if %UserPrefsController.user_prefs.achievement_dice:
 		get_parent().visible = true
 	else:
 		get_parent().visible = false
@@ -19,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	item_string = get_parent()
-	if user_prefs.screenshake_bool_check:
+	if %UserPrefsController.user_prefs.screenshake_bool_check:
 		item_string.play("swinging")
 		if swing_right:
 			rotation_diff = -0.0349066

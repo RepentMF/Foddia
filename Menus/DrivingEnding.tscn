@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://5qgb1rmcwvmq"]
+[gd_scene load_steps=40 format=3 uid="uid://5qgb1rmcwvmq"]
 
 [ext_resource type="Script" path="res://Menus/DrivingEnding.gd" id="1_ppvel"]
 [ext_resource type="PackedScene" uid="uid://bxd6mc5xyl0o7" path="res://Menus/TimerDisplay.tscn" id="2_u5gd3"]
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Ending.gd" id="2_vuask"]
 [ext_resource type="FontFile" uid="uid://hcb3an67qg80" path="res://Menus/UnderTheFeetOfMany4.otf" id="3_yyik2"]
 [ext_resource type="PackedScene" uid="uid://ykbih12rrilw" path="res://Menus/DialogueBox.tscn" id="4_kprul"]
+[ext_resource type="Script" path="res://Menus/ending_info.gd" id="9_16vfm"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="9_eeuhh"]
 [ext_resource type="Texture2D" uid="uid://dmhete1n30yr2" path="res://Graphics/Macguffin3_Driving.png" id="10_56rcf"]
 [ext_resource type="Script" path="res://Menus/MainMenuBg.gd" id="10_oc5si"]
@@ -30,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dddfdxduqxuwt" path="res://Graphics/MainMenu_Parallax8.png" id="23_g6rih"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="24_e1q37"]
 [ext_resource type="PackedScene" uid="uid://dhaoup6hj3t7l" path="res://SFX/SFXVolumeHandler.tscn" id="30_hkur4"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="32_ulysr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv6m"]
 shader = ExtResource("21_urlx5")
@@ -82,6 +84,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ppvel")
 
+[node name="UserPrefsController" parent="." instance=ExtResource("32_ulysr")]
+unique_name_in_owner = true
+
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 script = ExtResource("2_vuask")
 
@@ -106,6 +111,7 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Quit Game" type="Button" parent="CanvasLayer3/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("24_e1q37")
@@ -127,6 +133,7 @@ stream = ExtResource("19_ewooo")
 
 [node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("2_u5gd3")]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 offset_left = 27.0
 offset_top = 22.0
 offset_right = 67.0
@@ -136,6 +143,21 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("3_yyik2")
 text = " 0:00:00.0"
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="EndingInfoDisplay" parent="CanvasLayer4" instance=ExtResource("2_u5gd3")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 195.0
+offset_bottom = 107.0
+scale = Vector2(1.72, 1.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_yyik2")
+text = ""
+script = ExtResource("9_16vfm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 3

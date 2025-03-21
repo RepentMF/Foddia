@@ -1,7 +1,5 @@
 extends Area2D
 
-var user_prefs: UserPreferences
-
 var alpha
 var cloud_speed
 var golden_ratio
@@ -12,7 +10,6 @@ var v_color_modifier
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	if abs(position.y) > 11000 && z_index > 0:
 		alpha = .6
 	else:
@@ -23,20 +20,20 @@ func _ready():
 	if abs(position.y) > 11000 && z_index < 0:
 		h_color_modifier = 0
 		v_color_modifier = 1
-		if user_prefs.difficulty_dropdown_index == 0:
+		if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = 0
-		elif user_prefs.difficulty_dropdown_index == 1:
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
 			h_color_modifier = .6
 			s_color_modifier = golden_ratio
 			v_color_modifier = 1 - (golden_ratio / 7)
-		elif user_prefs.difficulty_dropdown_index == 2:
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
 			s_color_modifier = (golden_ratio * 2) + .6
 	else:
-		if user_prefs.difficulty_dropdown_index == 0:
+		if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
 			s_color_modifier = golden_ratio
-		elif user_prefs.difficulty_dropdown_index == 1:
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
 			s_color_modifier = (golden_ratio * .5) + .3
-		elif user_prefs.difficulty_dropdown_index == 2:
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
 			s_color_modifier = (golden_ratio * 1.5) + .7
 		v_color_modifier = 1 - (golden_ratio / 10)
 	scale.x = scale.x + (golden_ratio * 10)

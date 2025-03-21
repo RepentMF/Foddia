@@ -1,6 +1,5 @@
 extends AudioStreamPlayer2D
 
-var user_prefs: UserPreferences
 
 var audioIndexer = 0
 var dialogue
@@ -9,13 +8,12 @@ var temp_volume
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	dialogue = get_meta("dialogue")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if user_prefs.voice_acting_bool_check:
+	if %UserPrefsController.user_prefs.voice_acting_bool_check:
 		if temp_volume != %OSTVolumeHandler.OST_volume:
 			temp_volume = %OSTVolumeHandler.OST_volume
 		if get_parent().interacting:

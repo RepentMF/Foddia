@@ -151,6 +151,7 @@ shape = SubResource("CircleShape2D_3goda")
 
 [node name="UI_Controller" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 6
 texture_filter = 1
 position = Vector2(0, -49)
 scale = Vector2(2, 2)
@@ -160,6 +161,7 @@ autoplay = "idle"
 
 [node name="UI_Keyboard" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 6
 texture_filter = 1
 position = Vector2(0, -49)
 scale = Vector2(2, 2)

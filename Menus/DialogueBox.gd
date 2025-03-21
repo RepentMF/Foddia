@@ -4,14 +4,11 @@ extends CanvasLayer
 @onready var UI_controller = $UI_Controller
 @onready var UI = $UI_Keyboard
 
-var user_prefs: UserPreferences
-
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	change_colors()
 	
-	if get_node("Node2D/DialogueBox").texture != get_meta("Boxes")[user_prefs.title_color_index]:
-		get_node("Node2D/DialogueBox").texture = get_meta("Boxes")[user_prefs.title_color_index]
+	if get_node("Node2D/DialogueBox").texture != get_meta("Boxes")[%UserPrefsController.user_prefs.title_color_index]:
+		get_node("Node2D/DialogueBox").texture = get_meta("Boxes")[%UserPrefsController.user_prefs.title_color_index]
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,19 +31,19 @@ func _process(_delta):
 	pass
 
 func change_colors():
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		UI_keyboard.modulate = Color(.945, .494, .095)
 		UI_controller.modulate = Color(.945, .494, .095)
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		UI_keyboard.modulate = Color(1, .980, .267)
 		UI_controller.modulate = Color(1, .980, .267)
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		UI_keyboard.modulate = Color(.059, .369, .969)
 		UI_controller.modulate = Color(.059, .369, .969)
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		UI_keyboard.modulate = Color(.059, .655, .255)
 		UI_controller.modulate = Color(.059, .655, .255)
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		UI_keyboard.modulate = Color(.937, .373, .902)
 		UI_controller.modulate = Color(.937, .373, .902)
 	pass

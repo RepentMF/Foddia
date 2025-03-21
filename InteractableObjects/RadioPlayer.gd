@@ -1,7 +1,5 @@
 extends Node2D
 
-var user_prefs: UserPreferences
-
 var album
 var audio_changeable
 var current
@@ -39,16 +37,15 @@ var staticIsPlaying
 var style_changed
 
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	audio_changeable = false
 	current = -1
 	current_rand = -1
-	if user_prefs.difficulty_dropdown_index == 0:
-		current_string = user_prefs.rel_last_song
-	elif user_prefs.difficulty_dropdown_index == 1:
-		current_string = user_prefs.fod_last_song
-	elif user_prefs.difficulty_dropdown_index == 2:
-		current_string = user_prefs.per_last_song
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+		current_string = %UserPrefsController.user_prefs.rel_last_song
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+		current_string = %UserPrefsController.user_prefs.fod_last_song
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		current_string = %UserPrefsController.user_prefs.per_last_song
 	if current_string == "":
 		current_string = "LostAgain"
 	itemIsPlaying = false
@@ -138,8 +135,8 @@ func _physics_process(_delta):
 	pass
 	
 func change_style():
-	if radio_sound != user_prefs.radio_songs_bool_check:
-		radio_sound = user_prefs.radio_songs_bool_check
+	if radio_sound != %UserPrefsController.user_prefs.radio_songs_bool_check:
+		radio_sound = %UserPrefsController.user_prefs.radio_songs_bool_check
 		style_changed = true
 	pass
 

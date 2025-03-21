@@ -1,7 +1,5 @@
 extends RichTextLabel
 
-var user_prefs: UserPreferences
-
 var fadeInCount
 var fadeInMax
 var fadeOutCount
@@ -19,13 +17,12 @@ var titles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
-	if user_prefs.difficulty_dropdown_index == 0:
-		current_string = user_prefs.rel_last_area
-	elif user_prefs.difficulty_dropdown_index == 1:
-		current_string = user_prefs.fod_last_area
-	elif user_prefs.difficulty_dropdown_index == 2:
-		current_string = user_prefs.per_last_area
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+		current_string = %UserPrefsController.user_prefs.rel_last_area
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+		current_string = %UserPrefsController.user_prefs.fod_last_area
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		current_string = %UserPrefsController.user_prefs.per_last_area
 	fadeInCount = 0
 	fadeInMax = 280
 	fadeOutCount = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://benk0ctn2tvgi"]
+[gd_scene load_steps=77 format=3 uid="uid://benk0ctn2tvgi"]
 
 [ext_resource type="Script" path="res://Menus/SummitEnding.gd" id="1_ngmfc"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_jjrnh"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://bvwjjfcaytj3s" path="res://Graphics/MainMenu_Parallax6.png" id="23_4d4xe"]
 [ext_resource type="Texture2D" uid="uid://dddfdxduqxuwt" path="res://Graphics/MainMenu_Parallax8.png" id="24_js8qs"]
 [ext_resource type="PackedScene" uid="uid://dhaoup6hj3t7l" path="res://SFX/SFXVolumeHandler.tscn" id="24_us7am"]
+[ext_resource type="Script" path="res://Menus/ending_info.gd" id="25_4b8qp"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="26_tml2n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv6m"]
 shader = ExtResource("6_fmriw")
@@ -415,6 +417,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ngmfc")
 
+[node name="UserPrefsController" parent="." instance=ExtResource("26_tml2n")]
+unique_name_in_owner = true
+
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 script = ExtResource("2_s6agb")
 
@@ -448,6 +453,7 @@ text = "Thank you for playing!"
 
 [node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("3_okfui")]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 offset_left = 27.0
 offset_top = 22.0
 offset_right = 67.0
@@ -2579,5 +2585,21 @@ frame_progress = 0.5346
 
 [node name="SFXVolumeHandler" parent="." instance=ExtResource("24_us7am")]
 unique_name_in_owner = true
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="EndingInfoDisplay" parent="CanvasLayer4" instance=ExtResource("3_okfui")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 195.0
+offset_bottom = 107.0
+scale = Vector2(1.72, 1.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_ttaul")
+text = ""
+script = ExtResource("25_4b8qp")
 
 [connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

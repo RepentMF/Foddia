@@ -24,7 +24,6 @@ var temp_volume
 @onready var macguffin3 = %Macguffin3Display
 @onready var dialogue = %DialogueBox
 
-var user_prefs: UserPreferences
 var rs
 var explosion = preload("res://GraphicObjects/Explosion.tscn")
 var smoking = preload("res://GraphicObjects/Smoking.tscn")
@@ -105,8 +104,10 @@ var jortTeleport = false
 var landedHard = false
 var landedSoft = false
 var softCount = 33
-var hardCount = 200
+var hardCount = 165
 
+var bigFall = 0
+var tempBigFall = 0
 var deadFadeCount = 0
 var forceDied = false
 var hairPosition = Vector2(-6, -14)
@@ -131,140 +132,139 @@ var wasFalling = false
 var wasSwinging = false
 
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	rs = RenderingServer
-	if user_prefs.new_game:
-		if user_prefs.difficulty_dropdown_index == 0:
-			user_prefs.relaxed_checkpoint = Vector2(260, 130)
-			user_prefs.relaxed_save = Vector2(260, 130)
-			user_prefs.relaxed_boots_flag = false
-			user_prefs.relaxed_rockets_flag = false
-			user_prefs.relaxed_jetpack_flag = false
-			user_prefs.relaxed_fuel_count = 1000
-			user_prefs.relaxed_macguffin_flag = false
-			user_prefs.relaxed_macguffin2_flag = false
-			user_prefs.relaxed_macguffin3_flag = false
-			user_prefs.relaxed_ms = 0
-			user_prefs.relaxed_s = 0
-			user_prefs.relaxed_m = 0
-			user_prefs.relaxed_h = 0
-			user_prefs.relaxed_flag1 = false
-			user_prefs.relaxed_flag2 = false
-			user_prefs.relaxed_flag3 = false
-			user_prefs.relaxed_flag4 = false
-			user_prefs.relaxed_flag5 = false
-			user_prefs.relaxed_flag6 = false
-			user_prefs.relaxed_flag7 = false
-			user_prefs.relaxed_flag8 = false
-			user_prefs.relaxed_flag9 = false
-			user_prefs.relaxed_flag10 = false
-			user_prefs.relaxed_flag11 = false
-			user_prefs.relaxed_flag12 = false
-			user_prefs.relaxed_flag13 = false
-			user_prefs.relaxed_flag14 = false
-			user_prefs.save()
-		elif user_prefs.difficulty_dropdown_index == 1:
-			user_prefs.foddian_save = Vector2(260, 130)
-			user_prefs.foddian_boots_flag = false
-			user_prefs.foddian_rockets_flag = false
-			user_prefs.foddian_jetpack_flag = false
-			user_prefs.foddian_fuel_count = 1000
-			user_prefs.foddian_macguffin_flag = false
-			user_prefs.foddian_macguffin2_flag = false
-			user_prefs.foddian_macguffin3_flag = false
-			user_prefs.foddian_ms = 0
-			user_prefs.foddian_s = 0
-			user_prefs.foddian_m = 0
-			user_prefs.foddian_h = 0
-			user_prefs.foddian_flag1 = false
-			user_prefs.foddian_flag11 = false
-			user_prefs.save()
-		elif user_prefs.difficulty_dropdown_index == 2:
-			user_prefs.permadeath_save = Vector2(260, 130)
-			user_prefs.permadeath_boots_flag = false
-			user_prefs.permadeath_rockets_flag = false
-			user_prefs.permadeath_jetpack_flag = false
-			user_prefs.permadeath_fuel_count = 1000
-			user_prefs.permadeath_macguffin_flag = false
-			user_prefs.permadeath_macguffin2_flag = false
-			user_prefs.permadeath_macguffin3_flag = false
-			user_prefs.permadeath_ms = 0
-			user_prefs.permadeath_s = 0
-			user_prefs.permadeath_m = 0
-			user_prefs.permadeath_h = 0
-			user_prefs.permadeath_flag1 = false
-			user_prefs.permadeath_flag11 = false
-			user_prefs.save()
-		user_prefs.new_game = false
-		user_prefs.save()
+	if %UserPrefsController.user_prefs.new_game:
+		if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+			%UserPrefsController.user_prefs.relaxed_checkpoint = Vector2(260, 130)
+			%UserPrefsController.user_prefs.relaxed_save = Vector2(260, 130)
+			%UserPrefsController.user_prefs.relaxed_boots_flag = false
+			%UserPrefsController.user_prefs.relaxed_rockets_flag = false
+			%UserPrefsController.user_prefs.relaxed_jetpack_flag = false
+			%UserPrefsController.user_prefs.relaxed_fuel_count = 1000
+			%UserPrefsController.user_prefs.relaxed_macguffin_flag = false
+			%UserPrefsController.user_prefs.relaxed_macguffin2_flag = false
+			%UserPrefsController.user_prefs.relaxed_macguffin3_flag = false
+			%UserPrefsController.user_prefs.relaxed_ms = 0
+			%UserPrefsController.user_prefs.relaxed_s = 0
+			%UserPrefsController.user_prefs.relaxed_m = 0
+			%UserPrefsController.user_prefs.relaxed_h = 0
+			%UserPrefsController.user_prefs.relaxed_flag1 = false
+			%UserPrefsController.user_prefs.relaxed_flag2 = false
+			%UserPrefsController.user_prefs.relaxed_flag3 = false
+			%UserPrefsController.user_prefs.relaxed_flag4 = false
+			%UserPrefsController.user_prefs.relaxed_flag5 = false
+			%UserPrefsController.user_prefs.relaxed_flag6 = false
+			%UserPrefsController.user_prefs.relaxed_flag7 = false
+			%UserPrefsController.user_prefs.relaxed_flag8 = false
+			%UserPrefsController.user_prefs.relaxed_flag9 = false
+			%UserPrefsController.user_prefs.relaxed_flag10 = false
+			%UserPrefsController.user_prefs.relaxed_flag11 = false
+			%UserPrefsController.user_prefs.relaxed_flag12 = false
+			%UserPrefsController.user_prefs.relaxed_flag13 = false
+			%UserPrefsController.user_prefs.relaxed_flag14 = false
+			%UserPrefsController.user_prefs.save()
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+			%UserPrefsController.user_prefs.foddian_save = Vector2(260, 130)
+			%UserPrefsController.user_prefs.foddian_boots_flag = false
+			%UserPrefsController.user_prefs.foddian_rockets_flag = false
+			%UserPrefsController.user_prefs.foddian_jetpack_flag = false
+			%UserPrefsController.user_prefs.foddian_fuel_count = 1000
+			%UserPrefsController.user_prefs.foddian_macguffin_flag = false
+			%UserPrefsController.user_prefs.foddian_macguffin2_flag = false
+			%UserPrefsController.user_prefs.foddian_macguffin3_flag = false
+			%UserPrefsController.user_prefs.foddian_ms = 0
+			%UserPrefsController.user_prefs.foddian_s = 0
+			%UserPrefsController.user_prefs.foddian_m = 0
+			%UserPrefsController.user_prefs.foddian_h = 0
+			%UserPrefsController.user_prefs.foddian_flag1 = false
+			%UserPrefsController.user_prefs.foddian_flag11 = false
+			%UserPrefsController.user_prefs.save()
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+			%UserPrefsController.user_prefs.permadeath_save = Vector2(260, 130)
+			%UserPrefsController.user_prefs.permadeath_boots_flag = false
+			%UserPrefsController.user_prefs.permadeath_rockets_flag = false
+			%UserPrefsController.user_prefs.permadeath_jetpack_flag = false
+			%UserPrefsController.user_prefs.permadeath_fuel_count = 1000
+			%UserPrefsController.user_prefs.permadeath_macguffin_flag = false
+			%UserPrefsController.user_prefs.permadeath_macguffin2_flag = false
+			%UserPrefsController.user_prefs.permadeath_macguffin3_flag = false
+			%UserPrefsController.user_prefs.permadeath_ms = 0
+			%UserPrefsController.user_prefs.permadeath_s = 0
+			%UserPrefsController.user_prefs.permadeath_m = 0
+			%UserPrefsController.user_prefs.permadeath_h = 0
+			%UserPrefsController.user_prefs.permadeath_flag1 = false
+			%UserPrefsController.user_prefs.permadeath_flag11 = false
+			%UserPrefsController.user_prefs.save()
+		%UserPrefsController.user_prefs.new_game = false
+		%UserPrefsController.user_prefs.save()
 	# Loading Relaxed Playthrough
-	if user_prefs.difficulty_dropdown_index == 0:
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
 		rs.set_default_clear_color(Color (.52, .74, .99, 1))
-		global_position = user_prefs.relaxed_save
-		checkpoint = user_prefs.relaxed_checkpoint
-		if user_prefs.relaxed_boots_flag:
+		global_position = %UserPrefsController.user_prefs.relaxed_save
+		checkpoint = %UserPrefsController.user_prefs.relaxed_checkpoint
+		if %UserPrefsController.user_prefs.relaxed_boots_flag:
 			hasNewLegs = true
 			maxRunSpeed *= 1.2
-		if user_prefs.relaxed_rockets_flag:
+		if %UserPrefsController.user_prefs.relaxed_rockets_flag:
 			hasRocketJump = true
-		if user_prefs.relaxed_jetpack_flag:
+		if %UserPrefsController.user_prefs.relaxed_jetpack_flag:
 			hasJetpack = true
-			countJetpackFuel = user_prefs.relaxed_fuel_count
-		if user_prefs.relaxed_macguffin_flag:
+			countJetpackFuel = %UserPrefsController.user_prefs.relaxed_fuel_count
+		if %UserPrefsController.user_prefs.relaxed_macguffin_flag:
 			hasMacguffin = true
-		if user_prefs.relaxed_macguffin2_flag:
+		if %UserPrefsController.user_prefs.relaxed_macguffin2_flag:
 			hasMacguffin2 = true
-		if user_prefs.relaxed_macguffin3_flag:
+		if %UserPrefsController.user_prefs.relaxed_macguffin3_flag:
 			hasMacguffin3 = true
-		timer.ms = user_prefs.relaxed_ms
-		timer.s = user_prefs.relaxed_s
-		timer.m = user_prefs.relaxed_m
-		timer.h = user_prefs.relaxed_h
+		timer.ms = %UserPrefsController.user_prefs.relaxed_ms
+		timer.s = %UserPrefsController.user_prefs.relaxed_s
+		timer.m = %UserPrefsController.user_prefs.relaxed_m
+		timer.h = %UserPrefsController.user_prefs.relaxed_h
 	# Loading Foddian Playthrough
-	elif user_prefs.difficulty_dropdown_index == 1:
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
 		rs.set_default_clear_color(Color (.06, .17, .31, 1))
-		global_position = user_prefs.foddian_save
-		if user_prefs.foddian_boots_flag:
+		global_position = %UserPrefsController.user_prefs.foddian_save
+		if %UserPrefsController.user_prefs.foddian_boots_flag:
 			hasNewLegs = true
 			maxRunSpeed *= 1.2
-		if user_prefs.foddian_rockets_flag:
+		if %UserPrefsController.user_prefs.foddian_rockets_flag:
 			hasRocketJump = true
-		if user_prefs.foddian_jetpack_flag:
+		if %UserPrefsController.user_prefs.foddian_jetpack_flag:
 			hasJetpack = true
-			countJetpackFuel = user_prefs.foddian_fuel_count
-		if user_prefs.foddian_macguffin_flag:
+			countJetpackFuel = %UserPrefsController.user_prefs.foddian_fuel_count
+		if %UserPrefsController.user_prefs.foddian_macguffin_flag:
 			hasMacguffin = true
-		if user_prefs.foddian_macguffin2_flag:
+		if %UserPrefsController.user_prefs.foddian_macguffin2_flag:
 			hasMacguffin2 = true
-		if user_prefs.foddian_macguffin3_flag:
+		if %UserPrefsController.user_prefs.foddian_macguffin3_flag:
 			hasMacguffin3 = true
-		timer.ms = user_prefs.foddian_ms
-		timer.s = user_prefs.foddian_s
-		timer.m = user_prefs.foddian_m
-		timer.h = user_prefs.foddian_h
+		timer.ms = %UserPrefsController.user_prefs.foddian_ms
+		timer.s = %UserPrefsController.user_prefs.foddian_s
+		timer.m = %UserPrefsController.user_prefs.foddian_m
+		timer.h = %UserPrefsController.user_prefs.foddian_h
 	# Loading Permadeath Playthrough
-	elif user_prefs.difficulty_dropdown_index == 2:
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
 		rs.set_default_clear_color(Color (.33, .22, .718, 1))
-		global_position = user_prefs.permadeath_save
-		if user_prefs.permadeath_boots_flag:
+		global_position = %UserPrefsController.user_prefs.permadeath_save
+		if %UserPrefsController.user_prefs.permadeath_boots_flag:
 			hasNewLegs = true
 			maxRunSpeed *= 1.2
-		if user_prefs.permadeath_rockets_flag:
+		if %UserPrefsController.user_prefs.permadeath_rockets_flag:
 			hasRocketJump = true
-		if user_prefs.permadeath_jetpack_flag:
+		if %UserPrefsController.user_prefs.permadeath_jetpack_flag:
 			hasJetpack = true
-			countJetpackFuel = user_prefs.permadeath_fuel_count
-		if user_prefs.permadeath_macguffin_flag:
+			countJetpackFuel = %UserPrefsController.user_prefs.permadeath_fuel_count
+		if %UserPrefsController.user_prefs.permadeath_macguffin_flag:
 			hasMacguffin = true
-		if user_prefs.permadeath_macguffin2_flag:
+		if %UserPrefsController.user_prefs.permadeath_macguffin2_flag:
 			hasMacguffin2 = true
-		if user_prefs.permadeath_macguffin3_flag:
+		if %UserPrefsController.user_prefs.permadeath_macguffin3_flag:
 			hasMacguffin3 = true
-		timer.ms = user_prefs.permadeath_ms
-		timer.s = user_prefs.permadeath_s
-		timer.m = user_prefs.permadeath_m
-		timer.h = user_prefs.permadeath_h
-	if user_prefs.hasMP3:
+		timer.ms = %UserPrefsController.user_prefs.permadeath_ms
+		timer.s = %UserPrefsController.user_prefs.permadeath_s
+		timer.m = %UserPrefsController.user_prefs.permadeath_m
+		timer.h = %UserPrefsController.user_prefs.permadeath_h
+	if %UserPrefsController.user_prefs.hasMP3:
 		hasMP3 = true
 	# Case Robot
 	if hasNewLegs && hasRocketJump && hasJetpack:
@@ -507,7 +507,7 @@ func _process(_delta):
 			get_tree().paused = true
 		elif !jortTeleport && Input.is_action_just_pressed("ui_menu") && pausePressed:
 			pausePressed = false
-		CRT.visible = user_prefs.crt_bool_check
+		CRT.visible = %UserPrefsController.user_prefs.crt_bool_check
 		# Temporary static rope fix that will probably be permanent
 		if (isHoldingRope && ropeTempPosition.x != null && swingRope != null):
 			if (global_position.x != ropeTempPosition.x + 3 && swingRope.get_parent().name.contains("Static")):
@@ -587,11 +587,13 @@ func _process(_delta):
 	pass
 
 func _physics_process(delta):
+	if (landedHard || landedSoft) && tempBigFall > bigFall:
+		bigFall = tempBigFall
 	if !isInElevator:
 		collision_layer = 1
 		collision_mask = 1
 	if game_start:
-		CRT.visible = user_prefs.crt_bool_check
+		CRT.visible = %UserPrefsController.user_prefs.crt_bool_check
 		if fadeInCount < 173:
 			%Loading.visible = true
 		if fadeInCount > 0:
@@ -616,8 +618,8 @@ func _physics_process(delta):
 			%FadeInPanel.color = Color(1, 0, 0, 1)
 			%CamMesh.isDead = true
 			if badEnding:
-				user_prefs.bad_ending = true
-				user_prefs.save()
+				%UserPrefsController.user_prefs.bad_ending = true
+				%UserPrefsController.user_prefs.save()
 				get_tree().quit()
 			else:
 				isDead = false
@@ -992,7 +994,7 @@ func _physics_process(delta):
 				hardCount -= 1
 				if hardCount <= 0:
 					landedHard = false
-					hardCount = 200
+					hardCount = 165
 		if !hasJetpack:
 			if abs(velocity.x) > 600:
 				velocity.x = 600 * sign(velocity.x)
@@ -1025,6 +1027,8 @@ func _physics_process(delta):
 				if rotation > 0:
 					rotation = 0
 		timer.rotation = 0
+		if countHangTime > 0:
+			tempBigFall = countHangTime
 	pass
 
 
@@ -1094,15 +1098,18 @@ func smoke():
 
 func bonk(body):
 	if (body.name.contains("Wall") || body.name.contains("Ice") || body.name.contains("Floor")) && !isGrabbingLedge && !isFreefalling:
+		#print(position.x, ", ", velocity.y)
 		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 125 && !is_on_floor()):
 			isFreefalling = true
 			dizzy.play()
 			dizzy.visible = true
 			get_node("AudioPlayer/HardLanded").play()
 			get_node("AudioPlayer/Dizzy").play()
+			countHangTime = 0
+			velocity = Vector2(0, 0)
 		elif abs(velocity.x) <= 395 && is_on_floor():
 			isAgainstWall = true
-		velocity = Vector2(0, 0)
+			velocity = Vector2(0, 0)
 		runSpeed = minRunSpeed
 	pass
 
@@ -1197,9 +1204,9 @@ func on_grab_with_legs(body):
 		elif countHangTime >= 106 || (countHangTime >= 250 && isInWindCurrent):
 			# Apply hard landing lag
 			landedHard = true
-		if (((countHangTime >= 137 * (countBounces + 1) * 4 / 5 && countBounces > 0) || (countHangTime >= 140 && countBounces > 0)) || (countHangTime >= 137 && countBounces == 0)) && !isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
+		if (((countHangTime >= 137 * (countBounces + 1) * 4 / 5 && countBounces > 0) || (countHangTime >= 140 && countBounces > 0)) || (countHangTime >= 137 && countBounces == 0)) && !isInWindCurrent && %UserPrefsController.user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
-		elif countHangTime >= 400 && isInWindCurrent && user_prefs.difficulty_dropdown_index != 1:
+		elif countHangTime >= 400 && isInWindCurrent && %UserPrefsController.user_prefs.difficulty_dropdown_index != 1:
 			isDead = true
 	if isInElevator:
 		isDead = false
@@ -1248,94 +1255,100 @@ func check_swinging():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:	
-		if user_prefs.difficulty_dropdown_index == 0:
-			user_prefs.relaxed_save = global_position
-			user_prefs.relaxed_checkpoint = checkpoint
-			user_prefs.relaxed_boots_flag = hasNewLegs
-			user_prefs.relaxed_rockets_flag = hasRocketJump
-			user_prefs.relaxed_jetpack_flag = hasJetpack
-			user_prefs.relaxed_fuel_count = countJetpackFuel
-			user_prefs.relaxed_macguffin_flag = hasMacguffin
-			user_prefs.relaxed_macguffin2_flag = hasMacguffin2
-			user_prefs.relaxed_macguffin3_flag = hasMacguffin3
-			user_prefs.relaxed_ms = timer.ms
-			user_prefs.relaxed_s = timer.s
-			user_prefs.relaxed_m = timer.m
-			user_prefs.relaxed_h = timer.h
-		elif user_prefs.difficulty_dropdown_index == 1:
-			user_prefs.foddian_save = global_position
-			user_prefs.foddian_checkpoint = checkpoint
-			user_prefs.foddian_boots_flag = hasNewLegs
-			user_prefs.foddian_rockets_flag = hasRocketJump
-			user_prefs.foddian_jetpack_flag = hasJetpack
-			user_prefs.foddian_fuel_count = countJetpackFuel
-			user_prefs.foddian_macguffin_flag = hasMacguffin
-			user_prefs.foddian_macguffin2_flag = hasMacguffin2
-			user_prefs.foddian_macguffin3_flag = hasMacguffin3
-			user_prefs.foddian_ms = timer.ms
-			user_prefs.foddian_s = timer.s
-			user_prefs.foddian_m = timer.m
-			user_prefs.foddian_h = timer.h
-		elif user_prefs.difficulty_dropdown_index == 2:
-			user_prefs.permadeath_save = global_position
-			user_prefs.permadeath_boots_flag = hasNewLegs
-			user_prefs.permadeath_rockets_flag = hasRocketJump
-			user_prefs.permadeath_jetpack_flag = hasJetpack
-			user_prefs.permadeath_fuel_count = countJetpackFuel
-			user_prefs.permadeath_macguffin_flag = hasMacguffin
-			user_prefs.permadeath_macguffin2_flag = hasMacguffin2
-			user_prefs.permadeath_macguffin3_flag = hasMacguffin3
-			user_prefs.permadeath_ms = timer.ms
-			user_prefs.permadeath_s = timer.s
-			user_prefs.permadeath_m = timer.m
-			user_prefs.permadeath_h = timer.h
-		user_prefs.save()
+		if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+			%UserPrefsController.user_prefs.relaxed_save = global_position
+			%UserPrefsController.user_prefs.relaxed_checkpoint = checkpoint
+			%UserPrefsController.user_prefs.relaxed_boots_flag = hasNewLegs
+			%UserPrefsController.user_prefs.relaxed_rockets_flag = hasRocketJump
+			%UserPrefsController.user_prefs.relaxed_jetpack_flag = hasJetpack
+			%UserPrefsController.user_prefs.relaxed_fuel_count = countJetpackFuel
+			%UserPrefsController.user_prefs.relaxed_macguffin_flag = hasMacguffin
+			%UserPrefsController.user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+			%UserPrefsController.user_prefs.relaxed_macguffin3_flag = hasMacguffin3
+			%UserPrefsController.user_prefs.relaxed_ms = timer.ms
+			%UserPrefsController.user_prefs.relaxed_s = timer.s
+			%UserPrefsController.user_prefs.relaxed_m = timer.m
+			%UserPrefsController.user_prefs.relaxed_h = timer.h
+			%UserPrefsController.user_prefs.biggest_relaxed_fall = round(bigFall)
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+			%UserPrefsController.user_prefs.foddian_save = global_position
+			%UserPrefsController.user_prefs.foddian_checkpoint = checkpoint
+			%UserPrefsController.user_prefs.foddian_boots_flag = hasNewLegs
+			%UserPrefsController.user_prefs.foddian_rockets_flag = hasRocketJump
+			%UserPrefsController.user_prefs.foddian_jetpack_flag = hasJetpack
+			%UserPrefsController.user_prefs.foddian_fuel_count = countJetpackFuel
+			%UserPrefsController.user_prefs.foddian_macguffin_flag = hasMacguffin
+			%UserPrefsController.user_prefs.foddian_macguffin2_flag = hasMacguffin2
+			%UserPrefsController.user_prefs.foddian_macguffin3_flag = hasMacguffin3
+			%UserPrefsController.user_prefs.foddian_ms = timer.ms
+			%UserPrefsController.user_prefs.foddian_s = timer.s
+			%UserPrefsController.user_prefs.foddian_m = timer.m
+			%UserPrefsController.user_prefs.foddian_h = timer.h
+			%UserPrefsController.user_prefs.biggest_foddian_fall = round(bigFall)
+		elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+			%UserPrefsController.user_prefs.permadeath_save = global_position
+			%UserPrefsController.user_prefs.permadeath_boots_flag = hasNewLegs
+			%UserPrefsController.user_prefs.permadeath_rockets_flag = hasRocketJump
+			%UserPrefsController.user_prefs.permadeath_jetpack_flag = hasJetpack
+			%UserPrefsController.user_prefs.permadeath_fuel_count = countJetpackFuel
+			%UserPrefsController.user_prefs.permadeath_macguffin_flag = hasMacguffin
+			%UserPrefsController.user_prefs.permadeath_macguffin2_flag = hasMacguffin2
+			%UserPrefsController.user_prefs.permadeath_macguffin3_flag = hasMacguffin3
+			%UserPrefsController.user_prefs.permadeath_ms = timer.ms
+			%UserPrefsController.user_prefs.permadeath_s = timer.s
+			%UserPrefsController.user_prefs.permadeath_m = timer.m
+			%UserPrefsController.user_prefs.permadeath_h = timer.h
+			%UserPrefsController.user_prefs.biggest_permadeath_fall = round(bigFall)
+		%UserPrefsController.user_prefs.save()
 		get_tree().quit()
 	pass
 
 func save_game():
-	if user_prefs.difficulty_dropdown_index == 0:
-		user_prefs.relaxed_save = global_position
-		user_prefs.relaxed_checkpoint = checkpoint
-		user_prefs.relaxed_boots_flag = hasNewLegs
-		user_prefs.relaxed_rockets_flag = hasRocketJump
-		user_prefs.relaxed_jetpack_flag = hasJetpack
-		user_prefs.relaxed_fuel_count = countJetpackFuel
-		user_prefs.relaxed_macguffin_flag = hasMacguffin
-		user_prefs.relaxed_macguffin2_flag = hasMacguffin2
-		user_prefs.relaxed_macguffin3_flag = hasMacguffin3
-		user_prefs.relaxed_ms = timer.ms
-		user_prefs.relaxed_s = timer.s
-		user_prefs.relaxed_m = timer.m
-		user_prefs.relaxed_h = timer.h
-	elif user_prefs.difficulty_dropdown_index == 1:
-		user_prefs.foddian_save = global_position
-		user_prefs.foddian_checkpoint = checkpoint
-		user_prefs.foddian_boots_flag = hasNewLegs
-		user_prefs.foddian_rockets_flag = hasRocketJump
-		user_prefs.foddian_jetpack_flag = hasJetpack
-		user_prefs.foddian_fuel_count = countJetpackFuel
-		user_prefs.foddian_macguffin_flag = hasMacguffin
-		user_prefs.foddian_macguffin2_flag = hasMacguffin2
-		user_prefs.foddian_macguffin3_flag = hasMacguffin3
-		user_prefs.foddian_ms = timer.ms
-		user_prefs.foddian_s = timer.s
-		user_prefs.foddian_m = timer.m
-		user_prefs.foddian_h = timer.h
-	elif user_prefs.difficulty_dropdown_index == 2:
-		user_prefs.permadeath_save = global_position
-		user_prefs.permadeath_boots_flag = hasNewLegs
-		user_prefs.permadeath_rockets_flag = hasRocketJump
-		user_prefs.permadeath_jetpack_flag = hasJetpack
-		user_prefs.permadeath_fuel_count = countJetpackFuel
-		user_prefs.permadeath_macguffin_flag = hasMacguffin
-		user_prefs.permadeath_macguffin2_flag = hasMacguffin2
-		user_prefs.permadeath_macguffin3_flag = hasMacguffin3
-		user_prefs.permadeath_ms = timer.ms
-		user_prefs.permadeath_s = timer.s
-		user_prefs.permadeath_m = timer.m
-		user_prefs.permadeath_h = timer.h
-	user_prefs.save()
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+		%UserPrefsController.user_prefs.relaxed_save = global_position
+		%UserPrefsController.user_prefs.relaxed_checkpoint = checkpoint
+		%UserPrefsController.user_prefs.relaxed_boots_flag = hasNewLegs
+		%UserPrefsController.user_prefs.relaxed_rockets_flag = hasRocketJump
+		%UserPrefsController.user_prefs.relaxed_jetpack_flag = hasJetpack
+		%UserPrefsController.user_prefs.relaxed_fuel_count = countJetpackFuel
+		%UserPrefsController.user_prefs.relaxed_macguffin_flag = hasMacguffin
+		%UserPrefsController.user_prefs.relaxed_macguffin2_flag = hasMacguffin2
+		%UserPrefsController.user_prefs.relaxed_macguffin3_flag = hasMacguffin3
+		%UserPrefsController.user_prefs.relaxed_ms = timer.ms
+		%UserPrefsController.user_prefs.relaxed_s = timer.s
+		%UserPrefsController.user_prefs.relaxed_m = timer.m
+		%UserPrefsController.user_prefs.relaxed_h = timer.h
+		%UserPrefsController.user_prefs.biggest_relaxed_fall = round(bigFall)
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+		%UserPrefsController.user_prefs.foddian_save = global_position
+		%UserPrefsController.user_prefs.foddian_checkpoint = checkpoint
+		%UserPrefsController.user_prefs.foddian_boots_flag = hasNewLegs
+		%UserPrefsController.user_prefs.foddian_rockets_flag = hasRocketJump
+		%UserPrefsController.user_prefs.foddian_jetpack_flag = hasJetpack
+		%UserPrefsController.user_prefs.foddian_fuel_count = countJetpackFuel
+		%UserPrefsController.user_prefs.foddian_macguffin_flag = hasMacguffin
+		%UserPrefsController.user_prefs.foddian_macguffin2_flag = hasMacguffin2
+		%UserPrefsController.user_prefs.foddian_macguffin3_flag = hasMacguffin3
+		%UserPrefsController.user_prefs.foddian_ms = timer.ms
+		%UserPrefsController.user_prefs.foddian_s = timer.s
+		%UserPrefsController.user_prefs.foddian_m = timer.m
+		%UserPrefsController.user_prefs.foddian_h = timer.h
+		%UserPrefsController.user_prefs.biggest_foddian_fall = round(bigFall)
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		%UserPrefsController.user_prefs.permadeath_save = global_position
+		%UserPrefsController.user_prefs.permadeath_boots_flag = hasNewLegs
+		%UserPrefsController.user_prefs.permadeath_rockets_flag = hasRocketJump
+		%UserPrefsController.user_prefs.permadeath_jetpack_flag = hasJetpack
+		%UserPrefsController.user_prefs.permadeath_fuel_count = countJetpackFuel
+		%UserPrefsController.user_prefs.permadeath_macguffin_flag = hasMacguffin
+		%UserPrefsController.user_prefs.permadeath_macguffin2_flag = hasMacguffin2
+		%UserPrefsController.user_prefs.permadeath_macguffin3_flag = hasMacguffin3
+		%UserPrefsController.user_prefs.permadeath_ms = timer.ms
+		%UserPrefsController.user_prefs.permadeath_s = timer.s
+		%UserPrefsController.user_prefs.permadeath_m = timer.m
+		%UserPrefsController.user_prefs.permadeath_h = timer.h
+		%UserPrefsController.user_prefs.biggest_permadeath_fall = round(bigFall)
+	%UserPrefsController.user_prefs.save()
 
 func on_animation_finished():
 	if anim.animation == "kick_left" || anim.animation == "kick_right":

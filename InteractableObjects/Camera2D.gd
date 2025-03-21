@@ -8,6 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	position = %CamMesh.position
+	global_position = %CamMesh.global_position
 	position = position.round()
 	pass

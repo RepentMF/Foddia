@@ -36,13 +36,13 @@
 size = Vector2(11, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opmy"]
-size = Vector2(65, 25.205)
+size = Vector2(64.643, 53.32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml0cj"]
-size = Vector2(50, 123.303)
+size = Vector2(25, 123.303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gid2h"]
-size = Vector2(17, 27)
+size = Vector2(18, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b61kp"]
 atlas = ExtResource("5_i2j4n")
@@ -1221,7 +1221,7 @@ scale = Vector2(0.279999, 0.300075)
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandsArea2D"]
-position = Vector2(4.17232e-06, 10.725)
+position = Vector2(-0.178512, 13.33)
 shape = SubResource("RectangleShape2D_1opmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="HandsArea2D"]
@@ -1236,8 +1236,6 @@ scale = Vector2(0.4, 0.300075)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LegsArea2D"]
-position = Vector2(7.45058e-08, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ml0cj")
 
 [node name="BonkArea2D" type="Area2D" parent="."]
@@ -1245,7 +1243,7 @@ position = Vector2(0, -4)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BonkArea2D"]
-position = Vector2(0, 5.5)
+position = Vector2(2.68221e-07, -4)
 scale = Vector2(0.999999, 1)
 shape = SubResource("RectangleShape2D_gid2h")
 
@@ -1264,7 +1262,8 @@ frame_progress = 0.69146
 
 [node name="Player_legs" parent="." instance=ExtResource("3_qj7n8")]
 visible = false
-animation = &"kick_right"
+position = Vector2(-8.47033e-22, -1)
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Player_rocket" parent="." instance=ExtResource("5_lpefd")]

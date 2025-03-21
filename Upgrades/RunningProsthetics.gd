@@ -4,7 +4,6 @@ extends Area2D
 @onready var UI_controller = $UI_Controller
 @onready var UI = $UI_Keyboard
 
-var user_prefs: UserPreferences
 var dialogue
 var indexer = 0
 var interacting = false
@@ -14,7 +13,6 @@ var textCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	dialogue = get_meta("DIALOGUE")
 	textCount = dialogue.size()
 	UI.visible = false
@@ -26,11 +24,11 @@ func _process(_delta):
 		change_icons()
 		change_colors()
 		
-	if user_prefs.relaxed_boots_flag && user_prefs.difficulty_dropdown_index == 0:
+	if %UserPrefsController.user_prefs.relaxed_boots_flag && %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
 		queue_free()
-	elif user_prefs.foddian_boots_flag && user_prefs.difficulty_dropdown_index == 1:
+	elif %UserPrefsController.user_prefs.foddian_boots_flag && %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
 		queue_free()
-	elif user_prefs.permadeath_boots_flag && user_prefs.difficulty_dropdown_index == 2:
+	elif %UserPrefsController.user_prefs.permadeath_boots_flag && %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
 		queue_free()
 		
 	if interacting && Input.is_action_just_released("ui_click"):
@@ -61,19 +59,19 @@ func _process(_delta):
 	pass
 
 func change_colors():
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		UI_keyboard.modulate = Color(.945, .494, .095)
 		UI_controller.modulate = Color(.945, .494, .095)
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		UI_keyboard.modulate = Color(1, .980, .267)
 		UI_controller.modulate = Color(1, .980, .267)
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		UI_keyboard.modulate = Color(.059, .369, .969)
 		UI_controller.modulate = Color(.059, .369, .969)
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		UI_keyboard.modulate = Color(.059, .655, .255)
 		UI_controller.modulate = Color(.059, .655, .255)
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		UI_keyboard.modulate = Color(.937, .373, .902)
 		UI_controller.modulate = Color(.937, .373, .902)
 	pass

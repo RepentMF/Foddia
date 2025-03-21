@@ -1,14 +1,10 @@
 extends Button
 
-var user_prefs: UserPreferences
-
 var tooltip
 var tooltip_txt
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
-	
 	tooltip_txt = get_meta("Tooltip")
 	pass # Replace with function body.
 
@@ -16,7 +12,7 @@ func _ready():
 func _physics_process(_delta):
 	if get_node("OptionSelect") != null:
 		get_node("OptionSelect").volume_db = %SFXVolumeHandler.SFX_volume
-	if user_prefs.tooltips_bool_check:
+	if %UserPrefsController.user_prefs.tooltips_bool_check:
 		tooltip = true
 	else:
 		tooltip = false

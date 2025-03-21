@@ -23,14 +23,14 @@ func _process(_delta):
 		initialPositionSet = true
 		lockedPosition = player.position - Vector2(337, -95)
 		position = lockedPosition
-		position = position.round()
+		#position = position.round()
 	
 	if !player.game_start && !player.isInteracting:
 		if isDead:
 			camLocked = true
 			lockedPosition = player.position - Vector2(337, -95)
 			position = lockedPosition
-			position = position.round()
+			#position = position.round()
 			isDead = false
 		else:
 			lockedPosition = player.position - Vector2(337, -95)

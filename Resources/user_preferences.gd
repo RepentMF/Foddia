@@ -57,8 +57,10 @@ class_name UserPreferences extends Resource
 @export var relaxed_s: int = 0
 @export var relaxed_m: int = 0
 @export var relaxed_h: int = 0
+@export var biggest_relaxed_fall: int = 0
 @export var relaxed_fuel_count: int = 1000
 @export var relaxed_checkpoint: Vector2 = Vector2(260, 130)
+@export var relaxed_checkname: String = ""
 @export var relaxed_save: Vector2 = Vector2(260, 130)
 
 @export var foddian_boots_flag: bool = false
@@ -74,6 +76,7 @@ class_name UserPreferences extends Resource
 @export var foddian_s: int = 0
 @export var foddian_m: int = 0
 @export var foddian_h: int = 0
+@export var biggest_foddian_fall: int = 0
 @export var foddian_checkpoint: Vector2 = Vector2(260, 130)
 @export var foddian_save: Vector2 = Vector2(260, 130)
 
@@ -88,8 +91,13 @@ class_name UserPreferences extends Resource
 @export var permadeath_s: int = 0
 @export var permadeath_m: int = 0
 @export var permadeath_h: int = 0
+@export var biggest_permadeath_fall: int = 0
 @export var permadeath_save: Vector2 = Vector2(260, 130)
 
+@export var speedrunPB_ms: int = 9
+@export var speedrunPB_s: int = 59
+@export var speedrunPB_m: int = 59
+@export var speedrunPB_h: int = 99
 @export var dialogue_count: int = 0
 @export var hasMP3: bool = false
 @export var hasSong1: bool = false

@@ -7,7 +7,6 @@ extends Area2D
 @onready var UI_Select = $UI_Select
 @onready var UI = $UI_Keyboard
 
-var user_prefs: UserPreferences
 var areaName = ""
 var fadeInCount = 75
 var finished = false
@@ -21,39 +20,38 @@ var useable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	UI.visible = false
 	isNearTeleport = false
 	change_colors()
 	pass # Replace with function body.
 
 func _physics_process(_delta):
-	if user_prefs.teleportersAvailable && user_prefs.dialogue_count > 0:
+	if %UserPrefsController.user_prefs.teleportersAvailable && %UserPrefsController.user_prefs.dialogue_count > 0:
 		if name.contains("0"):
 			useable = true
 			visible = true
-		if name.contains("1") && user_prefs.hasSong1:
+		if name.contains("1") && %UserPrefsController.user_prefs.hasSong1:
 			useable = true
 			visible = true
-		elif name.contains("2") && user_prefs.hasSong2:
+		elif name.contains("2") && %UserPrefsController.user_prefs.hasSong2:
 			useable = true
 			visible = true
-		elif name.contains("3") && user_prefs.hasSong3:
+		elif name.contains("3") && %UserPrefsController.user_prefs.hasSong3:
 			useable = true
 			visible = true
-		elif name.contains("4") && user_prefs.hasSong4:
+		elif name.contains("4") && %UserPrefsController.user_prefs.hasSong4:
 			useable = true
 			visible = true
-		elif name.contains("5") && user_prefs.hasSong5:
+		elif name.contains("5") && %UserPrefsController.user_prefs.hasSong5:
 			useable = true
 			visible = true
-		elif name.contains("6") && user_prefs.hasSong6:
+		elif name.contains("6") && %UserPrefsController.user_prefs.hasSong6:
 			useable = true
 			visible = true
-		elif name.contains("7") && user_prefs.hasSong7:
+		elif name.contains("7") && %UserPrefsController.user_prefs.hasSong7:
 			useable = true
 			visible = true
-		elif name.contains("8") && user_prefs.hasSong8:
+		elif name.contains("8") && %UserPrefsController.user_prefs.hasSong8:
 			useable = true
 			visible = true
 	else:
@@ -132,27 +130,27 @@ func _process(_delta):
 	pass
 
 func change_colors():
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		UI_keyboard.modulate = Color(.945, .494, .095)
 		UI_controller.modulate = Color(.945, .494, .095)
 		UI_M.modulate = Color(.945, .494, .095)
 		UI_Select.modulate = Color(.945, .494, .095)
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		UI_keyboard.modulate = Color(1, .980, .267)
 		UI_controller.modulate = Color(1, .980, .267)
 		UI_M.modulate = Color(1, .980, .267)
 		UI_Select.modulate = Color(1, .980, .267)
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		UI_keyboard.modulate = Color(.059, .369, .969)
 		UI_controller.modulate = Color(.059, .369, .969)
 		UI_M.modulate = Color(.059, .369, .969)
 		UI_Select.modulate = Color(.059, .369, .969)
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		UI_keyboard.modulate = Color(.059, .655, .255)
 		UI_controller.modulate = Color(.059, .655, .255)
 		UI_M.modulate = Color(.059, .655, .255)
 		UI_Select.modulate = Color(.059, .655, .255)
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		UI_keyboard.modulate = Color(.937, .373, .902)
 		UI_controller.modulate = Color(.937, .373, .902)
 		UI_M.modulate = Color(.937, .373, .902)

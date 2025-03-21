@@ -10,25 +10,22 @@ extends Control
 var cursor_highlighted = -100
 var temp_volume
 
-var user_prefs: UserPreferences
-
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	get_node("OptionSelect").play()
 	if crt_checkbox:
-		crt_checkbox.button_pressed = user_prefs.crt_bool_check
+		crt_checkbox.button_pressed = %UserPrefsController.user_prefs.crt_bool_check
 	if fullscreen_checkbox:
-		fullscreen_checkbox.button_pressed = user_prefs.fullscreen_bool_check
+		fullscreen_checkbox.button_pressed = %UserPrefsController.user_prefs.fullscreen_bool_check
 	if speedrun_checkbox:
-		speedrun_checkbox.button_pressed = user_prefs.speedrun_bool_check
+		speedrun_checkbox.button_pressed = %UserPrefsController.user_prefs.speedrun_bool_check
 	if screenshake_checkbox:
-		screenshake_checkbox.button_pressed = user_prefs.screenshake_bool_check
-	if user_prefs.crt_bool_check:
+		screenshake_checkbox.button_pressed = %UserPrefsController.user_prefs.screenshake_bool_check
+	if %UserPrefsController.user_prefs.crt_bool_check:
 		crt.visible = true
 	else:
 		crt.visible = false
 	if title_color:
-		title_color.selected = user_prefs.title_color_index
+		title_color.selected = %UserPrefsController.user_prefs.title_color_index
 	pass
 
 func _process(delta):
@@ -83,38 +80,38 @@ func _on_return_to_main_menu_pressed():
 	pass # Replace with function body.
 
 func _on_fullscreen_check_box_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.fullscreen_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.fullscreen_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 	
 func _on_crt_filter_check_box_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.crt_bool_check = button_pressed
-		if user_prefs.crt_bool_check:
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.crt_bool_check = button_pressed
+		if %UserPrefsController.user_prefs.crt_bool_check:
 			crt.visible = true
 		else:
 			crt.visible = false
-		user_prefs.save()
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_speedrun_check_button_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.speedrun_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.speedrun_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 	
 func _on_screenshake_check_button_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.screenshake_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.screenshake_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_change_title_color_item_selected(index):
 	cursor_highlighted = -101
-	if user_prefs:
-		user_prefs.title_color_index = index
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.title_color_index = index
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_change_title_color_item_focused(index):

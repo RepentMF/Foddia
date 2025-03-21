@@ -4,7 +4,6 @@ extends Node2D
 @onready var up = $UI_Keyboard_up
 @onready var right = $UI_Keyboard_right
 @onready var down = $UI_Keyboard_down
-var user_prefs: UserPreferences
 
 var currentSwingMethod
 var disabled
@@ -18,7 +17,6 @@ var pink = Color(.937, .373, .902)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	left.visible = false
 	right.visible = false
 	disabled = false
@@ -66,7 +64,7 @@ func _process(_delta):
 
 func change_colors():
 	# Orange
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		$UI_Keyboard_left.modulate = orange
 		$UI_Keyboard_up.modulate = orange
 		$UI_Keyboard_right.modulate = orange
@@ -78,7 +76,7 @@ func change_colors():
 		$UI_Controller_left.modulate = orange
 		$UI_Controller_right.modulate = orange
 	# Yellow
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		$UI_Keyboard_left.modulate = yellow
 		$UI_Keyboard_up.modulate = yellow
 		$UI_Keyboard_right.modulate = yellow
@@ -90,7 +88,7 @@ func change_colors():
 		$UI_Controller_left.modulate = yellow
 		$UI_Controller_right.modulate = yellow
 	# Blue
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		$UI_Keyboard_left.modulate = blue
 		$UI_Keyboard_up.modulate = blue
 		$UI_Keyboard_right.modulate = blue
@@ -102,7 +100,7 @@ func change_colors():
 		$UI_Controller_left.modulate = blue
 		$UI_Controller_right.modulate = blue
 	# Green
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		$UI_Keyboard_left.modulate = green
 		$UI_Keyboard_up.modulate = green
 		$UI_Keyboard_right.modulate = green
@@ -114,7 +112,7 @@ func change_colors():
 		$UI_Controller_left.modulate = green
 		$UI_Controller_right.modulate = green
 	# Pink
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		$UI_Keyboard_left.modulate = pink
 		$UI_Keyboard_up.modulate = pink
 		$UI_Keyboard_right.modulate = pink

@@ -6,6 +6,7 @@ var dice_opposite
 var dipper_opposite
 var mush_setter
 var mp3_setter
+var mp3_count = 0
 var oof_setter
 var player
 
@@ -66,7 +67,15 @@ func handle_mushroom_achievement():
 func handle_mp3_achievement():
 	for child in get_tree().root.get_node("Overworld/MP3s").get_children():
 		if child.name.contains("MP3"):
-			true # Finish this later
+			mp3_count += 1
+		elif child.name.contains("MP3"):
+			mp3_count -= 1
+	if mp3_count == -8 || mp3_setter:
+		if !Steam.getAchievement("ACHIEVEMENT_MP3")["achieved"]:
+			Steam.setAchievement("ACHIEVEMENT_MP3")
+			Steam.storeStats()
+			user_prefs.achievement_mp3 = true
+			user_prefs.save()
 
 func handle_oof_achievement():
 	if player.countHangTime > 1190:

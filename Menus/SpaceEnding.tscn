@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=3 uid="uid://c3bpw5had3jpd"]
+[gd_scene load_steps=218 format=3 uid="uid://c3bpw5had3jpd"]
 
 [ext_resource type="Script" path="res://Menus/SpaceEnding.gd" id="1_3ml7q"]
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Ending.gd" id="2_a18q4"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://80cq1ehkff6b" path="res://InteractableObjects/QuickAudioPlayer.tscn" id="24_6pmqp"]
 [ext_resource type="AudioStream" uid="uid://h0xax2kesele" path="res://OST/TheStarsWillFollowYou_foddia.mp3" id="25_8dffb"]
 [ext_resource type="PackedScene" uid="uid://blu7xsab8vmp4" path="res://OST/OSTVolumeHandler.tscn" id="26_torx1"]
+[ext_resource type="Script" path="res://Menus/ending_info.gd" id="27_lhyy8"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="28_56xiw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1layx"]
 atlas = ExtResource("4_yfwg7")
@@ -1389,11 +1391,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ml7q")
 
+[node name="UserPrefsController" parent="." instance=ExtResource("28_56xiw")]
+unique_name_in_owner = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_a18q4")
 
 [node name="TimerDisplay" parent="CanvasLayer" instance=ExtResource("14_1003h")]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 offset_left = 27.0
 offset_top = 22.0
 offset_right = 67.0
@@ -1771,5 +1777,21 @@ stream = ExtResource("25_8dffb")
 
 [node name="OSTVolumeHandler" parent="." instance=ExtResource("26_torx1")]
 unique_name_in_owner = true
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="EndingInfoDisplay" parent="CanvasLayer4" instance=ExtResource("14_1003h")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 195.0
+offset_bottom = 107.0
+scale = Vector2(1.72, 1.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("15_kxmj0")
+text = ""
+script = ExtResource("27_lhyy8")
 
 [connection signal="pressed" from="CanvasLayer3/MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

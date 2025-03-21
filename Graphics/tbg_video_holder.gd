@@ -1,13 +1,11 @@
 extends Node2D
 
-var user_prefs: UserPreferences
 var rs
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Engine.max_fps = 60
-	user_prefs = UserPreferences.load_or_create()
-	if user_prefs.fullscreen_bool_check:
+	Engine.max_fps = 240
+	if %UserPrefsController.user_prefs.fullscreen_bool_check:
 		get_window().mode = Window.MODE_FULLSCREEN
 	else:
 		get_window().mode = Window.MODE_WINDOWED

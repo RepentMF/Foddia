@@ -9,7 +9,6 @@ var endingCount = 0
 var drivingEnding = false
 var summitEnding = false
 
-var user_prefs: UserPreferences
 var dialogue
 var dialogueCount = 0
 var hasReadDialogue = false
@@ -20,9 +19,8 @@ var textCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	dialogue = get_meta("DIALOGUE")
-	dialogueCount = user_prefs.dialogue_count
+	dialogueCount = %UserPrefsController.user_prefs.dialogue_count
 	textCount = dialogue.size()
 	UI.visible = false
 	change_colors()
@@ -30,7 +28,7 @@ func _ready():
 	if name.contains("BillBoard") || name.contains("Truck"):
 		UI_keyboard.position.y = -80
 		UI_controller.position.y = -100
-		if !user_prefs.tooltips_bool_check && name.contains("BillBoard"):
+		if !%UserPrefsController.user_prefs.tooltips_bool_check && name.contains("BillBoard"):
 			visible = false
 	pass # Replace with function body.
 
@@ -89,7 +87,7 @@ func _process(_delta):
 			if player.hasMacguffin || player.hasMacguffin3:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
-		elif !name.contains("Sign") && !name.contains("Truck"):
+		elif !name.contains("Sign") && !name.contains("Truck") && !name.contains("BillBoard"):
 			if player.hasMacguffin:
 				dialogue = get_meta("Relieved")
 				textCount = dialogue.size()
@@ -124,12 +122,12 @@ func _process(_delta):
 			if name == "RMF":
 				hasReadDialogue = true
 				if dialogueCount < 6:
-					if dialogueCount >= 1 && user_prefs.hasMP3:
-						user_prefs.teleportersAvailable = true
-						user_prefs.save()
+					if dialogueCount >= 1 && %UserPrefsController.user_prefs.hasMP3:
+						%UserPrefsController.user_prefs.teleportersAvailable = true
+						%UserPrefsController.user_prefs.save()
 					dialogueCount += 1
-					user_prefs.dialogue_count = dialogueCount
-					user_prefs.save()
+					%UserPrefsController.user_prefs.dialogue_count = dialogueCount
+					%UserPrefsController.user_prefs.save()
 	pass
 
 func _important_npc_check():
@@ -174,19 +172,19 @@ func _important_npc_check():
 	pass
 
 func change_colors():
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		UI_keyboard.modulate = Color(.945, .494, .095)
 		UI_controller.modulate = Color(.945, .494, .095)
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		UI_keyboard.modulate = Color(1, .980, .267)
 		UI_controller.modulate = Color(1, .980, .267)
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		UI_keyboard.modulate = Color(.059, .369, .969)
 		UI_controller.modulate = Color(.059, .369, .969)
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		UI_keyboard.modulate = Color(.059, .655, .255)
 		UI_controller.modulate = Color(.059, .655, .255)
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		UI_keyboard.modulate = Color(.937, .373, .902)
 		UI_controller.modulate = Color(.937, .373, .902)
 	pass
@@ -204,7 +202,7 @@ func _on_body_entered(body):
 			isNearSign = true
 			UI.visible = true
 	else:
-		if user_prefs.tooltips_bool_check:
+		if %UserPrefsController.user_prefs.tooltips_bool_check:
 			if body.name == "Player":
 				isNearSign = true
 				UI.visible = true
@@ -218,7 +216,7 @@ func _on_body_exited(body):
 			UI_keyboard.visible = false
 			UI_controller.visible = false
 	else:
-		if user_prefs.tooltips_bool_check:
+		if %UserPrefsController.user_prefs.tooltips_bool_check:
 			if body.name == "Player":
 				isNearSign = false
 				UI.visible = false

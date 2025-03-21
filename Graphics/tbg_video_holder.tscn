@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy6nhk0iw0jj"]
+[gd_scene load_steps=5 format=3 uid="uid://dy6nhk0iw0jj"]
 
 [ext_resource type="VideoStream" path="res://Graphics/TBG_logo.ogv" id="1_ac0rv"]
 [ext_resource type="Script" path="res://Graphics/tbg_video_holder.gd" id="1_qbtum"]
 [ext_resource type="Script" path="res://OST/OSTVolumeHandler.gd" id="2_jpwol"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="4_pfon2"]
 
 [node name="TBG_video_holder" type="Node2D"]
 script = ExtResource("1_qbtum")
+
+[node name="UserPrefsController" parent="." instance=ExtResource("4_pfon2")]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="."]
 unique_name_in_owner = true

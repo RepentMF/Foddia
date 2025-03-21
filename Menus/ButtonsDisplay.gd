@@ -6,11 +6,8 @@ var current_selected = ""
 var cursor_highlighted = -100
 var started = false
 
-var user_prefs: UserPreferences
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -136,7 +133,6 @@ func use_keyboard():
 			get_tree().root.get_node("MainMenu/CanvasLayer/MarginContainer/DialogueBox").get_node("RichTextLabel").text = get_node("KeyboardDisplay/WASD").get_meta("Tooltip")
 		else:
 			get_tree().root.get_node("Overworld/UIHolder/DialogueBox").get_node("RichTextLabel").text = get_node("KeyboardDisplay/WASD").get_meta("Tooltip")
-	print(controls)
 	pass
 
 func use_controller():

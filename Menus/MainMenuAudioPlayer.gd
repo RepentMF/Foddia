@@ -1,7 +1,5 @@
 extends Node2D
 
-var user_prefs: UserPreferences
-
 var carEngine
 var carEngine2
 var carEngineStart
@@ -12,13 +10,12 @@ var engineStart = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	carEngine = get_node("CarEngine")
 	carEngine2 = get_node("CarEngine2")
 	carEngineStart = get_node("CarEngineStart")
 	startGame = get_node("StartGame")
 	
-	if user_prefs.screenshake_bool_check && !get_parent().name.contains("Ending"):
+	if %UserPrefsController.user_prefs.screenshake_bool_check && !get_parent().name.contains("Ending"):
 		carEngine2.play()
 		engineStart = true
 	pass # Replace with function body.
@@ -34,7 +31,7 @@ func _physics_process(_delta):
 				startGame.volume_db = temp_volume - 10
 			else:
 				startGame.volume_db = temp_volume - 15
-	if user_prefs.screenshake_bool_check || get_parent().name.contains("Ending"):
+	if %UserPrefsController.user_prefs.screenshake_bool_check || get_parent().name.contains("Ending"):
 		if !engineStart:
 			carEngineStart.play()
 			engineStart = true

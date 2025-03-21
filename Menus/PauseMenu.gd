@@ -8,57 +8,54 @@ extends CanvasLayer
 @onready var voice_acting_checkbox = %VoiceActingCheckBox
 @onready var radio_songs_checkbox = %RadioSongsCheckBox
 
-var user_prefs: UserPreferences
-
 var cursor_highlighted = -100
 var spoof_fullscreen_bool
 var fullscreen_changed
 
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	fullscreen_changed = false
-	if user_prefs.fullscreen_bool_check:
+	if %UserPrefsController.user_prefs.fullscreen_bool_check:
 		get_window().mode = Window.MODE_FULLSCREEN
 		spoof_fullscreen_bool = true
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 		spoof_fullscreen_bool = false
-	if user_prefs.title_color_index == 0:
+	if %UserPrefsController.user_prefs.title_color_index == 0:
 		get_node("ColorRect1").visible = true
 		get_node("ColorRect2").visible = false
 		get_node("ColorRect3").visible = false
 		get_node("ColorRect4").visible = false
 		get_node("ColorRect5").visible = false
 		get_node("ColorRect6").visible = false
-	elif user_prefs.title_color_index == 1:
+	elif %UserPrefsController.user_prefs.title_color_index == 1:
 		get_node("ColorRect1").visible = false
 		get_node("ColorRect2").visible = true
 		get_node("ColorRect3").visible = false
 		get_node("ColorRect4").visible = false
 		get_node("ColorRect5").visible = false
 		get_node("ColorRect6").visible = false
-	elif user_prefs.title_color_index == 2:
+	elif %UserPrefsController.user_prefs.title_color_index == 2:
 		get_node("ColorRect1").visible = false
 		get_node("ColorRect2").visible = false
 		get_node("ColorRect3").visible = true
 		get_node("ColorRect4").visible = false
 		get_node("ColorRect5").visible = false
 		get_node("ColorRect6").visible = false
-	elif user_prefs.title_color_index == 3:
+	elif %UserPrefsController.user_prefs.title_color_index == 3:
 		get_node("ColorRect1").visible = false
 		get_node("ColorRect2").visible = false
 		get_node("ColorRect3").visible = false
 		get_node("ColorRect4").visible = true
 		get_node("ColorRect5").visible = false
 		get_node("ColorRect6").visible = false
-	elif user_prefs.title_color_index == 4:
+	elif %UserPrefsController.user_prefs.title_color_index == 4:
 		get_node("ColorRect1").visible = false
 		get_node("ColorRect2").visible = false
 		get_node("ColorRect3").visible = false
 		get_node("ColorRect4").visible = false
 		get_node("ColorRect5").visible = true
 		get_node("ColorRect6").visible = false
-	elif user_prefs.title_color_index == 5:
+	elif %UserPrefsController.user_prefs.title_color_index == 5:
 		get_node("ColorRect1").visible = false
 		get_node("ColorRect2").visible = false
 		get_node("ColorRect3").visible = false
@@ -76,12 +73,12 @@ func _process(_delta):
 	
 	use_keyboard_or_gamepad()
 	
-	if (user_prefs.difficulty_dropdown_index == 0  || user_prefs.difficulty_dropdown_index == 2) &&  !%"Reset Checkpoint".visible:
+	if (%UserPrefsController.user_prefs.difficulty_dropdown_index == 0  || %UserPrefsController.user_prefs.difficulty_dropdown_index == 2) &&  !%"Reset Checkpoint".visible:
 		%"Reset Checkpoint".visible = true
-	if spoof_fullscreen_bool != user_prefs.fullscreen_bool_check:
+	if spoof_fullscreen_bool != %UserPrefsController.user_prefs.fullscreen_bool_check:
 		fullscreen_changed = true
 	if fullscreen_changed:
-		if user_prefs.fullscreen_bool_check:
+		if %UserPrefsController.user_prefs.fullscreen_bool_check:
 			get_window().mode = Window.MODE_FULLSCREEN
 			spoof_fullscreen_bool = true
 		else:
@@ -89,31 +86,31 @@ func _process(_delta):
 			spoof_fullscreen_bool = false
 		fullscreen_changed = false
 	
-	if user_prefs.hasMP3:
+	if %UserPrefsController.user_prefs.hasMP3:
 		%ChangeSong.get_parent().visible = true
 		%MP3.get_parent().visible = true
-		if user_prefs.hasSong1:
+		if %UserPrefsController.user_prefs.hasSong1:
 			%ChangeSong.set_item_text(1, "Lost Again")
 			%ChangeSong.set_item_disabled(1, false)
-		if user_prefs.hasSong2:
+		if %UserPrefsController.user_prefs.hasSong2:
 			%ChangeSong.set_item_text(2, "Don't Look Down")
 			%ChangeSong.set_item_disabled(2, false)
-		if user_prefs.hasSong3:
+		if %UserPrefsController.user_prefs.hasSong3:
 			%ChangeSong.set_item_text(3, "Test of Patience")
 			%ChangeSong.set_item_disabled(3, false)
-		if user_prefs.hasSong4:
+		if %UserPrefsController.user_prefs.hasSong4:
 			%ChangeSong.set_item_text(4, "Trials Abound")
 			%ChangeSong.set_item_disabled(4, false)
-		if user_prefs.hasSong5:
+		if %UserPrefsController.user_prefs.hasSong5:
 			%ChangeSong.set_item_text(5, "Can't Turn Back")
 			%ChangeSong.set_item_disabled(5, false)
-		if user_prefs.hasSong6:
+		if %UserPrefsController.user_prefs.hasSong6:
 			%ChangeSong.set_item_text(6, "Painful Longing")
 			%ChangeSong.set_item_disabled(6, false)
-		if user_prefs.hasSong7:
+		if %UserPrefsController.user_prefs.hasSong7:
 			%ChangeSong.set_item_text(7, "May the Stars Follow You")
 			%ChangeSong.set_item_disabled(7, false)
-		if user_prefs.hasSong8:
+		if %UserPrefsController.user_prefs.hasSong8:
 			%ChangeSong.set_item_text(8, "Gnawing Desires")
 			%ChangeSong.set_item_disabled(8, false)
 		if %ChangeSong.selected != 0:
@@ -155,7 +152,7 @@ func use_keyboard_or_gamepad():
 			if cursor_highlighted > -1:
 				if Input.is_action_just_pressed("ui_up"):
 					cursor_highlighted -= 1
-			if user_prefs.difficulty_dropdown_index == 0:
+			if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
 				if cursor_highlighted < 7:
 					if Input.is_action_just_pressed("ui_down"):
 						cursor_highlighted += 1
@@ -242,29 +239,29 @@ func _on_go_to_display_menu_pressed():
 	%GraphicsOptions.visible = true
 	cursor_highlighted = -100
 	if crt_checkbox:
-		crt_checkbox.button_pressed = user_prefs.crt_bool_check
+		crt_checkbox.button_pressed = %UserPrefsController.user_prefs.crt_bool_check
 	if fullscreen_checkbox:
-		fullscreen_checkbox.button_pressed = user_prefs.fullscreen_bool_check
+		fullscreen_checkbox.button_pressed = %UserPrefsController.user_prefs.fullscreen_bool_check
 	if speedrun_checkbox:
-		speedrun_checkbox.button_pressed = user_prefs.speedrun_bool_check
+		speedrun_checkbox.button_pressed = %UserPrefsController.user_prefs.speedrun_bool_check
 	pass # Replace with function body.
 
 func _on_fullscreen_check_box_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.fullscreen_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.fullscreen_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 	
 func _on_crt_filter_check_box_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.crt_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.crt_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_speedrun_check_button_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.speedrun_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.speedrun_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_go_to_audio_menu_pressed():
@@ -272,37 +269,37 @@ func _on_go_to_audio_menu_pressed():
 	%AudioOptions.visible = true
 	cursor_highlighted = -100
 	if music_slider:
-		music_slider.value = user_prefs.music_audio_level
+		music_slider.value = %UserPrefsController.user_prefs.music_audio_level
 	if sfx_slider:
-		sfx_slider.value = user_prefs.sfx_audio_level
+		sfx_slider.value = %UserPrefsController.user_prefs.sfx_audio_level
 	if voice_acting_checkbox:
-		voice_acting_checkbox.button_pressed = user_prefs.voice_acting_bool_check
+		voice_acting_checkbox.button_pressed = %UserPrefsController.user_prefs.voice_acting_bool_check
 	if radio_songs_checkbox:
-		radio_songs_checkbox.button_pressed = user_prefs.radio_songs_bool_check
+		radio_songs_checkbox.button_pressed = %UserPrefsController.user_prefs.radio_songs_bool_check
 	pass # Replace with function body.
 
 func _on_music_slider_value_changed(value):
-	if user_prefs:
-		user_prefs.music_audio_level = value
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.music_audio_level = value
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_sfx_slider_value_changed(value):
-	if user_prefs:
-		user_prefs.sfx_audio_level = value
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.sfx_audio_level = value
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_voice_acting_check_button_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.voice_acting_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.voice_acting_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass # Replace with function body.
 
 func _on_radio_songs_check_box_toggled(button_pressed):
-	if user_prefs:
-		user_prefs.radio_songs_bool_check = button_pressed
-		user_prefs.save()
+	if %UserPrefsController.user_prefs:
+		%UserPrefsController.user_prefs.radio_songs_bool_check = button_pressed
+		%UserPrefsController.user_prefs.save()
 	pass
 
 func _on_return_to_main_menu_pressed():
@@ -313,73 +310,73 @@ func _on_return_to_main_menu_pressed():
 	pass # Replace with function body.
 
 func _on_new_game_pressed():
-	user_prefs.new_game = true
-	user_prefs.bad_ending = false
-	user_prefs.dialogue_count = 0
-	user_prefs.teleportersAvailable = false
-	if user_prefs.difficulty_dropdown_index == 0:
-		user_prefs.relaxed_checkpoint = Vector2(260, 130)
-		user_prefs.relaxed_save = Vector2(260, 130)
-		user_prefs.relaxed_boots_flag = false
-		user_prefs.relaxed_rockets_flag = false
-		user_prefs.relaxed_jetpack_flag = false
-		user_prefs.relaxed_fuel_count = 1000
-		user_prefs.relaxed_macguffin_flag = false
-		user_prefs.relaxed_macguffin2_flag = false
-		user_prefs.relaxed_macguffin3_flag = false
-		user_prefs.relaxed_ms = 0
-		user_prefs.relaxed_s = 0
-		user_prefs.relaxed_m = 0
-		user_prefs.relaxed_h = 0
-		user_prefs.relaxed_flag1 = false
-		user_prefs.relaxed_flag2 = false
-		user_prefs.relaxed_flag3 = false
-		user_prefs.relaxed_flag4 = false
-		user_prefs.relaxed_flag5 = false
-		user_prefs.relaxed_flag6 = false
-		user_prefs.relaxed_flag7 = false
-		user_prefs.relaxed_flag8 = false
-		user_prefs.relaxed_flag9 = false
-		user_prefs.relaxed_flag10 = false
-		user_prefs.relaxed_flag11 = false
-		user_prefs.relaxed_flag12 = false
-		user_prefs.relaxed_flag13 = false
-		user_prefs.relaxed_flag14 = false
-		user_prefs.rel_last_song = "LostAgain"
-		user_prefs.rel_last_area = ""
-	if user_prefs.difficulty_dropdown_index == 1:
-		user_prefs.foddian_save = Vector2(260, 130)
-		user_prefs.foddian_boots_flag = false
-		user_prefs.foddian_rockets_flag = false
-		user_prefs.foddian_jetpack_flag = false
-		user_prefs.foddian_fuel_count = 1000
-		user_prefs.foddian_macguffin_flag = false
-		user_prefs.foddian_macguffin2_flag = false
-		user_prefs.foddian_macguffin3_flag = false
-		user_prefs.foddian_ms = 0
-		user_prefs.foddian_s = 0
-		user_prefs.foddian_m = 0
-		user_prefs.foddian_h = 0
-		user_prefs.fod_last_song = "LostAgain"
-		user_prefs.fod_last_area = ""
-	if user_prefs.difficulty_dropdown_index == 2:
-		user_prefs.permadeath_save = Vector2(260, 130)
-		user_prefs.permadeath_boots_flag = false
-		user_prefs.permadeath_rockets_flag = false
-		user_prefs.permadeath_jetpack_flag = false
-		user_prefs.permadeath_fuel_count = 1000
-		user_prefs.permadeath_macguffin_flag = false
-		user_prefs.permadeath_macguffin2_flag = false
-		user_prefs.permadeath_macguffin3_flag = false
-		user_prefs.permadeath_ms = 0
-		user_prefs.permadeath_s = 0
-		user_prefs.permadeath_m = 0
-		user_prefs.permadeath_h = 0
-		user_prefs.per_last_song = "LostAgain"
-		user_prefs.per_last_area = ""
-	user_prefs.teleportersAvailable = false
-	user_prefs.dialogue_count = 0
-	user_prefs.save()
+	%UserPrefsController.user_prefs.new_game = true
+	%UserPrefsController.user_prefs.bad_ending = false
+	%UserPrefsController.user_prefs.dialogue_count = 0
+	%UserPrefsController.user_prefs.teleportersAvailable = false
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+		%UserPrefsController.user_prefs.relaxed_checkpoint = Vector2(260, 130)
+		%UserPrefsController.user_prefs.relaxed_save = Vector2(260, 130)
+		%UserPrefsController.user_prefs.relaxed_boots_flag = false
+		%UserPrefsController.user_prefs.relaxed_rockets_flag = false
+		%UserPrefsController.user_prefs.relaxed_jetpack_flag = false
+		%UserPrefsController.user_prefs.relaxed_fuel_count = 1000
+		%UserPrefsController.user_prefs.relaxed_macguffin_flag = false
+		%UserPrefsController.user_prefs.relaxed_macguffin2_flag = false
+		%UserPrefsController.user_prefs.relaxed_macguffin3_flag = false
+		%UserPrefsController.user_prefs.relaxed_ms = 0
+		%UserPrefsController.user_prefs.relaxed_s = 0
+		%UserPrefsController.user_prefs.relaxed_m = 0
+		%UserPrefsController.user_prefs.relaxed_h = 0
+		%UserPrefsController.user_prefs.relaxed_flag1 = false
+		%UserPrefsController.user_prefs.relaxed_flag2 = false
+		%UserPrefsController.user_prefs.relaxed_flag3 = false
+		%UserPrefsController.user_prefs.relaxed_flag4 = false
+		%UserPrefsController.user_prefs.relaxed_flag5 = false
+		%UserPrefsController.user_prefs.relaxed_flag6 = false
+		%UserPrefsController.user_prefs.relaxed_flag7 = false
+		%UserPrefsController.user_prefs.relaxed_flag8 = false
+		%UserPrefsController.user_prefs.relaxed_flag9 = false
+		%UserPrefsController.user_prefs.relaxed_flag10 = false
+		%UserPrefsController.user_prefs.relaxed_flag11 = false
+		%UserPrefsController.user_prefs.relaxed_flag12 = false
+		%UserPrefsController.user_prefs.relaxed_flag13 = false
+		%UserPrefsController.user_prefs.relaxed_flag14 = false
+		%UserPrefsController.user_prefs.rel_last_song = "LostAgain"
+		%UserPrefsController.user_prefs.rel_last_area = ""
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+		%UserPrefsController.user_prefs.foddian_save = Vector2(260, 130)
+		%UserPrefsController.user_prefs.foddian_boots_flag = false
+		%UserPrefsController.user_prefs.foddian_rockets_flag = false
+		%UserPrefsController.user_prefs.foddian_jetpack_flag = false
+		%UserPrefsController.user_prefs.foddian_fuel_count = 1000
+		%UserPrefsController.user_prefs.foddian_macguffin_flag = false
+		%UserPrefsController.user_prefs.foddian_macguffin2_flag = false
+		%UserPrefsController.user_prefs.foddian_macguffin3_flag = false
+		%UserPrefsController.user_prefs.foddian_ms = 0
+		%UserPrefsController.user_prefs.foddian_s = 0
+		%UserPrefsController.user_prefs.foddian_m = 0
+		%UserPrefsController.user_prefs.foddian_h = 0
+		%UserPrefsController.user_prefs.fod_last_song = "LostAgain"
+		%UserPrefsController.user_prefs.fod_last_area = ""
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		%UserPrefsController.user_prefs.permadeath_save = Vector2(260, 130)
+		%UserPrefsController.user_prefs.permadeath_boots_flag = false
+		%UserPrefsController.user_prefs.permadeath_rockets_flag = false
+		%UserPrefsController.user_prefs.permadeath_jetpack_flag = false
+		%UserPrefsController.user_prefs.permadeath_fuel_count = 1000
+		%UserPrefsController.user_prefs.permadeath_macguffin_flag = false
+		%UserPrefsController.user_prefs.permadeath_macguffin2_flag = false
+		%UserPrefsController.user_prefs.permadeath_macguffin3_flag = false
+		%UserPrefsController.user_prefs.permadeath_ms = 0
+		%UserPrefsController.user_prefs.permadeath_s = 0
+		%UserPrefsController.user_prefs.permadeath_m = 0
+		%UserPrefsController.user_prefs.permadeath_h = 0
+		%UserPrefsController.user_prefs.per_last_song = "LostAgain"
+		%UserPrefsController.user_prefs.per_last_area = ""
+	%UserPrefsController.user_prefs.teleportersAvailable = false
+	%UserPrefsController.user_prefs.dialogue_count = 0
+	%UserPrefsController.user_prefs.save()
 	get_tree().paused = false
 	visible = false
 	get_tree().reload_current_scene()
@@ -398,48 +395,48 @@ func _on_quit_game_pressed():
 	pass # Replace with function body.
 
 func _save_player_info():
-	if user_prefs.difficulty_dropdown_index == 0:
-		user_prefs.relaxed_save = %Player.global_position
-		user_prefs.relaxed_checkpoint = %Player.checkpoint
-		user_prefs.relaxed_boots_flag = %Player.hasNewLegs
-		user_prefs.relaxed_rockets_flag = %Player.hasRocketJump
-		user_prefs.relaxed_jetpack_flag = %Player.hasJetpack
-		user_prefs.relaxed_fuel_count = %Player.countJetpackFuel
-		user_prefs.relaxed_macguffin_flag = %Player.hasMacguffin
-		user_prefs.relaxed_macguffin2_flag = %Player.hasMacguffin2
-		user_prefs.relaxed_macguffin3_flag = %Player.hasMacguffin3
-		user_prefs.relaxed_ms = %Player.timer.ms
-		user_prefs.relaxed_s = %Player.timer.s
-		user_prefs.relaxed_m = %Player.timer.m
-		user_prefs.relaxed_h = %Player.timer.h
-	elif user_prefs.difficulty_dropdown_index == 1:
-		user_prefs.foddian_save = %Player.global_position
-		user_prefs.foddian_checkpoint = %Player.checkpoint
-		user_prefs.foddian_boots_flag = %Player.hasNewLegs
-		user_prefs.foddian_rockets_flag = %Player.hasRocketJump
-		user_prefs.foddian_jetpack_flag = %Player.hasJetpack
-		user_prefs.foddian_fuel_count = %Player.countJetpackFuel
-		user_prefs.foddian_macguffin_flag = %Player.hasMacguffin
-		user_prefs.foddian_macguffin2_flag = %Player.hasMacguffin2
-		user_prefs.foddian_macguffin3_flag = %Player.hasMacguffin3
-		user_prefs.foddian_ms = %Player.timer.ms
-		user_prefs.foddian_s = %Player.timer.s
-		user_prefs.foddian_m = %Player.timer.m
-		user_prefs.foddian_h = %Player.timer.h
-	elif user_prefs.difficulty_dropdown_index == 2:
-		user_prefs.permadeath_save = %Player.global_position
-		user_prefs.permadeath_boots_flag = %Player.hasNewLegs
-		user_prefs.permadeath_rockets_flag = %Player.hasRocketJump
-		user_prefs.permadeath_jetpack_flag = %Player.hasJetpack
-		user_prefs.permadeath_fuel_count = %Player.countJetpackFuel
-		user_prefs.permadeath_macguffin_flag = %Player.hasMacguffin
-		user_prefs.permadeath_macguffin2_flag = %Player.hasMacguffin2
-		user_prefs.permadeath_macguffin3_flag = %Player.hasMacguffin3
-		user_prefs.permadeath_ms = %Player.timer.ms
-		user_prefs.permadeath_s = %Player.timer.s
-		user_prefs.permadeath_m = %Player.timer.m
-		user_prefs.permadeath_h = %Player.timer.h
-	user_prefs.save()
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 0:
+		%UserPrefsController.user_prefs.relaxed_save = %Player.global_position
+		%UserPrefsController.user_prefs.relaxed_checkpoint = %Player.checkpoint
+		%UserPrefsController.user_prefs.relaxed_boots_flag = %Player.hasNewLegs
+		%UserPrefsController.user_prefs.relaxed_rockets_flag = %Player.hasRocketJump
+		%UserPrefsController.user_prefs.relaxed_jetpack_flag = %Player.hasJetpack
+		%UserPrefsController.user_prefs.relaxed_fuel_count = %Player.countJetpackFuel
+		%UserPrefsController.user_prefs.relaxed_macguffin_flag = %Player.hasMacguffin
+		%UserPrefsController.user_prefs.relaxed_macguffin2_flag = %Player.hasMacguffin2
+		%UserPrefsController.user_prefs.relaxed_macguffin3_flag = %Player.hasMacguffin3
+		%UserPrefsController.user_prefs.relaxed_ms = %Player.timer.ms
+		%UserPrefsController.user_prefs.relaxed_s = %Player.timer.s
+		%UserPrefsController.user_prefs.relaxed_m = %Player.timer.m
+		%UserPrefsController.user_prefs.relaxed_h = %Player.timer.h
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 1:
+		%UserPrefsController.user_prefs.foddian_save = %Player.global_position
+		%UserPrefsController.user_prefs.foddian_checkpoint = %Player.checkpoint
+		%UserPrefsController.user_prefs.foddian_boots_flag = %Player.hasNewLegs
+		%UserPrefsController.user_prefs.foddian_rockets_flag = %Player.hasRocketJump
+		%UserPrefsController.user_prefs.foddian_jetpack_flag = %Player.hasJetpack
+		%UserPrefsController.user_prefs.foddian_fuel_count = %Player.countJetpackFuel
+		%UserPrefsController.user_prefs.foddian_macguffin_flag = %Player.hasMacguffin
+		%UserPrefsController.user_prefs.foddian_macguffin2_flag = %Player.hasMacguffin2
+		%UserPrefsController.user_prefs.foddian_macguffin3_flag = %Player.hasMacguffin3
+		%UserPrefsController.user_prefs.foddian_ms = %Player.timer.ms
+		%UserPrefsController.user_prefs.foddian_s = %Player.timer.s
+		%UserPrefsController.user_prefs.foddian_m = %Player.timer.m
+		%UserPrefsController.user_prefs.foddian_h = %Player.timer.h
+	elif %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		%UserPrefsController.user_prefs.permadeath_save = %Player.global_position
+		%UserPrefsController.user_prefs.permadeath_boots_flag = %Player.hasNewLegs
+		%UserPrefsController.user_prefs.permadeath_rockets_flag = %Player.hasRocketJump
+		%UserPrefsController.user_prefs.permadeath_jetpack_flag = %Player.hasJetpack
+		%UserPrefsController.user_prefs.permadeath_fuel_count = %Player.countJetpackFuel
+		%UserPrefsController.user_prefs.permadeath_macguffin_flag = %Player.hasMacguffin
+		%UserPrefsController.user_prefs.permadeath_macguffin2_flag = %Player.hasMacguffin2
+		%UserPrefsController.user_prefs.permadeath_macguffin3_flag = %Player.hasMacguffin3
+		%UserPrefsController.user_prefs.permadeath_ms = %Player.timer.ms
+		%UserPrefsController.user_prefs.permadeath_s = %Player.timer.s
+		%UserPrefsController.user_prefs.permadeath_m = %Player.timer.m
+		%UserPrefsController.user_prefs.permadeath_h = %Player.timer.h
+	%UserPrefsController.user_prefs.save()
 
 func _on_mouse_entered():
 	cursor_highlighted = -101

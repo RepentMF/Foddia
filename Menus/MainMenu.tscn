@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://k1ipgbfjhoex"]
+[gd_scene load_steps=57 format=3 uid="uid://k1ipgbfjhoex"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_wf5ce"]
 [ext_resource type="Texture2D" uid="uid://dlsidcxns8i4o" path="res://Graphics/MainMenu_bg.png" id="2_au53e"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cq25b0fkmh2hg" path="res://Graphics/Foddia_title_card5.png" id="40_mkmhj"]
 [ext_resource type="Texture2D" uid="uid://vdnjm52ken70" path="res://Graphics/Foddia_title_card6.png" id="41_pcea2"]
 [ext_resource type="PackedScene" uid="uid://3q354dpufygl" path="res://Menus/ButtonsDisplay.tscn" id="48_52n57"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="49_ajr06"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1n0o6"]
 shader = ExtResource("18_78h05")
@@ -99,6 +100,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wf5ce")
+
+[node name="UserPrefsController" parent="." instance=ExtResource("49_ajr06")]
+unique_name_in_owner = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 2

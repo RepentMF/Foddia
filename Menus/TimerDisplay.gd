@@ -1,7 +1,5 @@
 extends RichTextLabel
 
-var user_prefs: UserPreferences
-
 var count = 0
 var ending = false
 
@@ -15,7 +13,6 @@ var min = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_prefs = UserPreferences.load_or_create()
 	if ms > 9:
 		s += 1
 		ms = 0
@@ -40,7 +37,7 @@ func _ready():
 func _physics_process(_delta):
 	if !get_owner().name.contains("Ending"):
 		if %Player.fadeInCount <= 0:
-			visible = user_prefs.speedrun_bool_check
+			visible = %UserPrefsController.user_prefs.speedrun_bool_check
 			if count < 1:
 				if ms > 9:
 					s += 1
@@ -62,7 +59,7 @@ func _physics_process(_delta):
 					min = str(m)
 				set_text(str(h) + ":" + min + ":" + sec + "." + str(ms))
 	else:
-		visible = user_prefs.speedrun_bool_check
+		#visible = %UserPrefsController.user_prefs.speedrun_bool_check
 		if count < 1:
 			if ms > 9:
 				s += 1
@@ -83,7 +80,17 @@ func _physics_process(_delta):
 			else:
 				min = str(m)
 			set_text(str(h) + ":" + min + ":" + sec + "." + str(ms))
-		
+		if h < %UserPrefsController.user_prefs.speedrunPB_h:
+			set_new_PB()
+		elif h == %UserPrefsController.user_prefs.speedrunPB_h:
+			if m < %UserPrefsController.user_prefs.speedrunPB_m:
+				set_new_PB()
+			elif m == %UserPrefsController.user_prefs.speedrunPB_m:
+				if s < %UserPrefsController.user_prefs.speedrunPB_s:
+					set_new_PB()
+				elif s == %UserPrefsController.user_prefs.speedrunPB_s:
+					if ms < %UserPrefsController.user_prefs.speedrunPB_ms:
+						set_new_PB()
 		if ending:
 			count += 1
 	pass
@@ -92,3 +99,11 @@ func _on_timer_timeout():
 	if !ending:
 		ms += 1
 	pass # Replace with function body.
+
+func set_new_PB():
+	%UserPrefsController.user_prefs.speedrunPB_h = h
+	%UserPrefsController.user_prefs.speedrunPB_m = m
+	%UserPrefsController.user_prefs.speedrunPB_s = s
+	%UserPrefsController.user_prefs.speedrunPB_ms = ms
+	%UserPrefsController.user_prefs.save()
+	pass
