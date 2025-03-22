@@ -4,10 +4,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global_position = player.global_position
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	global_position = %CamMesh.global_position
-	position = position.round()
+	if !player.game_start:
+		if %CamMesh.camLocked:
+			global_position = player.global_position
+		else:
+			global_position = %CamMesh.global_position
 	pass

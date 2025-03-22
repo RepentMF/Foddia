@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=187 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -1197,14 +1197,20 @@ shader_parameter/scanline_count = 50.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bhdvc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2d7r"]
+radius = 13.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ofme"]
-radius = 250.0
+radius = 243.074
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o1sr"]
 radius = 275.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p84k7"]
 radius = 300.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_midvc"]
+radius = 335.0
 
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
@@ -1571,23 +1577,30 @@ volume_db = 5.0
 visible = false
 script = ExtResource("26_w3cgf")
 
+[node name="CamCircle0" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle0"]
+shape = SubResource("CircleShape2D_l2d7r")
+
 [node name="CamCircle1" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle1"]
 shape = SubResource("CircleShape2D_4ofme")
 
 [node name="CamCircle2" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle2"]
 shape = SubResource("CircleShape2D_4o1sr")
 
 [node name="CamCircle3" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle3"]
 shape = SubResource("CircleShape2D_p84k7")
+
+[node name="CamCircle4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle4"]
+shape = SubResource("CircleShape2D_midvc")
 
 [connection signal="body_entered" from="HandsArea2D" to="." method="_on_grab_with_hands"]
 [connection signal="body_exited" from="HandsArea2D" to="." method="_on_release_with_hands"]
