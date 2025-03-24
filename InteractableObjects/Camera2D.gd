@@ -12,6 +12,8 @@ func _physics_process(_delta):
 	if !player.game_start:
 		if %CamMesh.camLocked:
 			global_position = player.global_position
+			%CamMesh.temp_posX = global_position.x
+			%CamMesh.temp_posY = global_position.y
 		else:
 			global_position = %CamMesh.global_position
 	pass

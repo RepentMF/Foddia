@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://du61x5ylly6aa"]
+[gd_scene load_steps=18 format=3 uid="uid://du61x5ylly6aa"]
 
 [ext_resource type="Script" path="res://Menus/GraphicsMenu.gd" id="1_xvuvy"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_n8g5v"]
 [ext_resource type="Texture2D" uid="uid://dso16gxluy5vj" path="res://Graphics/GraphicsMenu_bg.png" id="2_spgtw"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="2_xbtf5"]
 [ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="4_mq0sg"]
 [ext_resource type="Script" path="res://Menus/GraphicsMenuBg.gd" id="5_3r2gb"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="6_dwkfd"]
@@ -29,6 +30,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xvuvy")
+
+[node name="UserPrefsController" parent="." instance=ExtResource("2_xbtf5")]
+unique_name_in_owner = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

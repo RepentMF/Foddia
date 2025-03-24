@@ -2,14 +2,14 @@ extends Area2D
 
 @onready var player = %Player
 
-var addX = 8
-var addY = 8
+var addX = -1
+var addY = -1
 var breakAway = false
 var camLocked = false
 var isDead = false
 var lockedPosition = Vector2(0, 0)
-var minusX = 8
-var minusY = 8
+var minusX = -1
+var minusY = -1
 var temp_posX
 var temp_posY
 var initialPositionSet = false
@@ -26,6 +26,11 @@ func _process(_delta):
 			temp_posX = global_position.x
 			temp_posY = global_position.y
 			initialPositionSet = true
+		elif addX == -1:
+			addX = 8
+			addY = 8
+			minusX = 8
+			minusY = 8
 		
 		if isManualCamUsed() && !breakAway:
 			camLocked = false
@@ -115,44 +120,46 @@ func isManualCamUsed():
 			return false
 
 func _on_area_entered(area):
-	if area.name == "CamCircle0":
-		if !isManualCamUsed():
-			global_position.x = round(player.global_position.x)
-			global_position.y = round(player.global_position.y)
-			camLocked = true
-	elif area.name == "CamCircle3":
-		minusX = 3
-		addX = 3
-		minusY = 3
-		addY = 3
-	elif area.name == "CamCircle2":
-		minusX = 6
-		addX = 6
-		minusY = 6
-		addY = 6
-	elif area.name == "CamCircle1":
-		minusX = 8
-		addX = 8
-		minusY = 8
-		addY = 8
+	if initialPositionSet && addX != -1:
+		if area.name == "CamCircle0":
+			if !isManualCamUsed():
+				global_position.x = round(player.global_position.x)
+				global_position.y = round(player.global_position.y)
+				camLocked = true
+		elif area.name == "CamCircle3":
+			minusX = 3
+			addX = 3
+			minusY = 3
+			addY = 3
+		elif area.name == "CamCircle2":
+			minusX = 6
+			addX = 6
+			minusY = 6
+			addY = 6
+		elif area.name == "CamCircle1":
+			minusX = 8
+			addX = 8
+			minusY = 8
+			addY = 8
 	pass
 
 func _on_area_exited(area):
-	if area.name == "CamCircle4":
-		breakAway = true
-	elif area.name == "CamCircle3":
-		minusX = 0
-		addX = 0
-		minusY = 0
-		addY = 0
-	elif area.name == "CamCircle2":
-		minusX = 3
-		addX = 3
-		minusY = 3
-		addY = 3
-	elif area.name == "CamCircle1":
-		minusX = 6
-		addX = 6
-		minusY = 6
-		addY = 6
+	if initialPositionSet:
+		if area.name == "CamCircle4":
+			breakAway = true
+		elif area.name == "CamCircle3":
+			minusX = 0
+			addX = 0
+			minusY = 0
+			addY = 0
+		elif area.name == "CamCircle2":
+			minusX = 3
+			addX = 3
+			minusY = 3
+			addY = 3
+		elif area.name == "CamCircle1":
+			minusX = 6
+			addX = 6
+			minusY = 6
+			addY = 6
 	pass # Replace with function body.

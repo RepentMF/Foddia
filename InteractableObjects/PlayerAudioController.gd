@@ -61,6 +61,8 @@ func _ready():
 	justJumped = false
 	rocketCount = 2
 	ropeCount = 0
+	
+	change_all_volumes()
 	pass
 
 func _process(_delta):

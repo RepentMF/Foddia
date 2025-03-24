@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://jcop5yjxgopl"]
+[gd_scene load_steps=17 format=3 uid="uid://jcop5yjxgopl"]
 
 [ext_resource type="Script" path="res://Menus/AudioMenu.gd" id="1_rk3ja"]
+[ext_resource type="PackedScene" uid="uid://b31lh5nf72hh0" path="res://Levels/UserPrefsController.tscn" id="2_dv6w8"]
 [ext_resource type="Shader" path="res://InteractableObjects/Overworld.gdshader" id="2_lxluf"]
 [ext_resource type="Theme" uid="uid://c85e41jmw6i0p" path="res://Menus/NormalButtonTheme.tres" id="2_th3ii"]
 [ext_resource type="Texture2D" uid="uid://djm6f7uxvbqqx" path="res://Graphics/AudioMenu_bg.png" id="3_iu2q5"]
@@ -28,6 +29,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rk3ja")
+
+[node name="UserPrefsController" parent="." instance=ExtResource("2_dv6w8")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0
