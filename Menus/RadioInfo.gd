@@ -1,46 +1,56 @@
 extends RichTextLabel
 
-var blankCount = 0
-var blankString = ""
+var alreadySeenSongs
+var artistName = ""
 var count = 0
-var newSong = false
 var removeChar
 var removeCount = 0
 var songData = ""
+var songName = ""
 var stop = false
-var tempString
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
+	alreadySeenSongs = ["."]
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if %RadioMover.move:
+	if %Radio_bg.visible:
+		%Music_bg.visible = true
+		if count == 0:
+			text = "[center]" + songName + "[/center]"
+			visible = true
+		elif count == 540:
+			text = ""
+			visible = false
+			%PhoneMover.closePhone = true
+			%Music_bg.visible = false
+			count = 0
+		elif count % 60 == 0:
+			if text == "[center]" + songName + "[/center]":
+				text = "[center]by[/center]"
+			elif text == "[center]by[/center]":
+				text = "[center]" + artistName + "[/center]"
+			elif text == "[center]" + artistName + "[/center]":
+				text = "[center]" + songName + "[/center]"
 		count += 1
-	if count % 6 == 0 && count != 0 && !stop:
-		visible_characters += 1
-		if removeChar:
-			blankCount += 1
-			tempString = tempString.right(tempString.length() - blankCount)
-			blankString = " " + blankString
-			tempString = blankString + tempString
-			text = tempString
-			for char in text:
-				if char == " ":
-					removeCount += 1
-					if removeCount == text.length():
-						stop = true
-						%RadioMover.position = Vector2(-8, -408)
-			removeCount = 0
-	if count >= 95:
-		removeChar = true
 	pass
 
-func change_songs(songString):
-	if text != songString:
-		text = songString
-		tempString = songString
-		songData = songString
-		newSong = true
+func change_songs():
+	if songData != %PhoneMover.current_string:
+		for array in get_meta("SongData"):
+			if array[0] == %PhoneMover.current_string:
+				songData = array[0]
+				songName = array[1]
+				artistName = array[2]
+				count = 0
 	pass
+
+func isANewSong(nextRecording):
+	if !alreadySeenSongs.has(nextRecording):
+		alreadySeenSongs.push_front(nextRecording)
+		return true
+	else:
+		return false

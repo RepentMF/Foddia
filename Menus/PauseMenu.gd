@@ -20,6 +20,8 @@ func _ready():
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 		spoof_fullscreen_bool = false
+	if %UserPrefsController.user_prefs.difficulty_dropdown_index == 2:
+		%"Reset Checkpoint".text = "Reset to My Truck"
 	if %UserPrefsController.user_prefs.title_color_index == 0:
 		get_node("ColorRect1").visible = true
 		get_node("ColorRect2").visible = false

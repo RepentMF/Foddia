@@ -186,8 +186,8 @@ collision_layer = 129
 collision_mask = 129
 
 [node name="ElevatorFloor" parent="." instance=ExtResource("1_nv3tv")]
-position = Vector2(0, 930)
-scale = Vector2(1.5, 10)
+position = Vector2(0, 850)
+scale = Vector2(1.5, 5)
 collision_layer = 129
 collision_mask = 129
 

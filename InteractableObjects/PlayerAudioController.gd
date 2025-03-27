@@ -21,6 +21,7 @@ var running
 var softAir
 var softAirMax
 var softLanded
+var switched
 var walking
 
 var dead
@@ -52,6 +53,7 @@ func _ready():
 	running = get_node("Running")
 	softAir = get_node("SoftAir")
 	softLanded = get_node("SoftLanded")
+	switched = get_node("Switched")
 	walking = get_node("Walking")
 	
 	dead = false
@@ -62,7 +64,9 @@ func _ready():
 	rocketCount = 2
 	ropeCount = 0
 	
-	change_all_volumes()
+	if temp_volume != get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume:
+		temp_volume = get_tree().root.get_node("Overworld").get_node("SFXVolumeHandler").SFX_volume
+		change_all_volumes()
 	pass
 
 func _process(_delta):
@@ -219,6 +223,7 @@ func change_all_volumes():
 	running.volume_db = temp_volume
 	softLanded.volume_db = temp_volume
 	walking.volume_db = temp_volume
+	switched.volume_db = temp_volume
 	softAirMax = temp_volume
 	hardAirMax = temp_volume
 	pass

@@ -65,7 +65,8 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
-	#print_values()
+	#if radio_static && songHasStarted:
+	#	print_values()
 	if max_volume != %OSTVolumeHandler.OST_volume:
 		max_volume = %OSTVolumeHandler.OST_volume
 	# Handle Song Change in Background

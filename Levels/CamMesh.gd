@@ -26,6 +26,7 @@ func _process(_delta):
 			temp_posX = global_position.x
 			temp_posY = global_position.y
 			initialPositionSet = true
+			camLocked = true
 		elif addX == -1:
 			addX = 8
 			addY = 8

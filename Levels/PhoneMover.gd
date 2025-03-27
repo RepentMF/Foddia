@@ -1,7 +1,10 @@
 extends AnimatedSprite2D
 
+var closePhone = false
+var current_string = ""
 var openPhone = false
 var start = false
+var stopPhone = false
 var stopVar = false
 
 # Called when the node enters the scene tree for the first time.
@@ -10,54 +13,40 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if %RadioInfo.newSong && (%AreaTitleCard.fadeOutCount == %AreaTitleCard.fadeOutMax - 1 || %AreaTitleCard.fadeOutCount == %AreaTitleCard.fadeOutMax - 2):
-		start = true
-	
-	if start && !%Player.isInteracting:
-		if openPhone && !%Radio_fg.visible && animation != "open_phone":
-			play("open_phone")
-			openPhone = false
-		elif animation == "open_phone" && frame > 8:
-			stop()
-			visible = false
-			%Radio_fg.visible = true
-			%Radio_bg.visible = true
-			%RadioMover.visible = true
-			%RadioMover.move = true
-			start = false
-		
-		if position.y > 624:
+	if start:
+		visible = true
+		if position.y >= 555:
 			position.y -= 4
-		elif position.y <= 624 && !%RadioInfo.stop:
+		elif position.y <= 555:
 			openPhone = true
-		
-	if %RadioInfo.stop && %Radio_fg.visible && animation != "close_phone":
+	elif stopPhone:
+		if position.y <= 752:
+			position.y += 4
+		elif position.y >= 752:
+			stopPhone = false
+	if openPhone:
+		play("open_phone")
+	if closePhone:
 		play("close_phone")
 		visible = true
 		%Radio_fg.visible = false
-		%RadioMover.visible = false
-		%RadioMover.move = false
-	elif animation == "close_phone" && frame > 1 && frame < 4:
 		%Radio_bg.visible = false
-	elif animation == "close_phone" && frame > 8:
-		play("idle")
-		stopVar = true
-	
-	if position.y < 752 && stopVar:
-		position.y += 4
-	elif position.y >= 752 && stopVar:
-		stopVar = false
+		%RadioInfo.visible = false
+	pass
+
+
+func _on_animation_finished():
+	if animation == "open_phone":
+		stop()
 		openPhone = false
 		start = false
-		%RadioInfo.stop = false
-		%RadioInfo.blankCount = 0
-		%RadioInfo.removeChar = false
-		%RadioInfo.count = 0
-		%RadioInfo.blankString = ""
-		%RadioInfo.newSong = false
-		%RadioInfo.removeCount = 0
-		%RadioInfo.songData = ""
-		%RadioInfo.tempString = ""
-		%RadioInfo.visible_characters = 0
-		%RadioMover.move = false
-	pass
+		visible = false
+		%Radio_fg.visible = true
+		%Radio_bg.visible = true
+		%RadioInfo.change_songs()
+	elif animation == "close_phone":
+		stop()
+		closePhone = false
+		stopPhone = true
+		play("idle")
+	pass # Replace with function body.

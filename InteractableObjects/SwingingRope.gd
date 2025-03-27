@@ -31,10 +31,16 @@ func _process(_delta):
 		if player.swingRope.get_parent() == self:
 			if currentSwingMethod != player.currentSwingMethod:
 				change_icons()
-			left.visible = true
-			up.visible = true
-			right.visible = true
-			down.visible = true
+			if currentSwingMethod == "Bumpers":
+				up.visible = false
+				down.visible = false
+				left.visible = true
+				right.visible = true
+			else:
+				up.visible = true
+				down.visible = true
+				left.visible = true
+				right.visible = true
 			if Input.is_action_just_pressed("ui_left"):
 				left.play("pressed")
 			elif Input.is_action_just_released("ui_left"):
@@ -51,6 +57,11 @@ func _process(_delta):
 				down.play("pressed")
 			elif Input.is_action_just_released("ui_down"):
 				down.play("idle")
+		else:
+			up.visible = false
+			down.visible = false
+			left.visible = false
+			right.visible = false
 	elif left.visible && right.visible && up.visible && down.visible: #elif check if left and right are already playing idle; if they are, do nothing
 		left.play("idle")
 		up.play("idle")
@@ -163,6 +174,8 @@ func change_icons():
 	elif player.currentSwingMethod == "Bumpers":
 		left = $UI_Controller_left
 		right = $UI_Controller_right
+		up.visible = false
+		down.visible = false
 		$UI_Arrow_left.visible = false
 		$UI_Arrow_up.visible = false
 		$UI_Arrow_right.visible = false

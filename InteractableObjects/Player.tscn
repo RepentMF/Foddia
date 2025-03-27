@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=3 uid="uid://gpb65m67g1qe"]
+[gd_scene load_steps=188 format=3 uid="uid://gpb65m67g1qe"]
 
 [ext_resource type="Script" path="res://InteractableObjects/Player.gd" id="1_hgfsl"]
 [ext_resource type="Script" path="res://InteractableObjects/PlayerAudioController.gd" id="1_nmi0e"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://InteractableObjects/AchievementHandler_Player.gd" id="26_w3cgf"]
 [ext_resource type="AudioStream" uid="uid://c23eyjfrprpcn" path="res://SFX/Dizzy.mp3" id="29_tj2up"]
 [ext_resource type="AudioStream" uid="uid://dpfsafkmxnjlc" path="res://SFX/IceSkating.mp3" id="30_os254"]
+[ext_resource type="AudioStream" uid="uid://b73mw0hwpmve0" path="res://SFX/OptionSelect.mp3" id="31_ragej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ufxu"]
 size = Vector2(11, 39)
@@ -1508,7 +1509,6 @@ gravity_scale = 0.0
 inertia = 0.1
 
 [node name="AudioPlayer" type="Node2D" parent="."]
-visible = false
 script = ExtResource("1_nmi0e")
 
 [node name="Running" type="AudioStreamPlayer2D" parent="AudioPlayer"]
@@ -1573,31 +1573,40 @@ volume_db = 5.0
 stream = ExtResource("30_os254")
 volume_db = 5.0
 
+[node name="Switched" type="AudioStreamPlayer2D" parent="AudioPlayer"]
+stream = ExtResource("31_ragej")
+volume_db = 5.0
+
 [node name="AchievementHandler" type="Node2D" parent="."]
 visible = false
 script = ExtResource("26_w3cgf")
 
 [node name="CamCircle0" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle0"]
 shape = SubResource("CircleShape2D_l2d7r")
 
 [node name="CamCircle1" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle1"]
 shape = SubResource("CircleShape2D_4ofme")
 
 [node name="CamCircle2" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle2"]
 shape = SubResource("CircleShape2D_4o1sr")
 
 [node name="CamCircle3" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle3"]
 shape = SubResource("CircleShape2D_p84k7")
 
 [node name="CamCircle4" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamCircle4"]
 shape = SubResource("CircleShape2D_midvc")
@@ -1614,3 +1623,4 @@ shape = SubResource("CircleShape2D_midvc")
 [connection signal="animation_finished" from="Player_legs_rocket" to="." method="on_animation_finished"]
 [connection signal="finished" from="AudioPlayer/Dizzy" to="AudioPlayer" method="_on_dizzy_finished"]
 [connection signal="finished" from="AudioPlayer/IceSkating" to="AudioPlayer" method="_on_ice_skating_finished"]
+[connection signal="finished" from="AudioPlayer/Switched" to="AudioPlayer" method="_on_ice_skating_finished"]

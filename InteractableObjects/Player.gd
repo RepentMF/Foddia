@@ -600,6 +600,12 @@ func _physics_process(delta):
 			fadeInCount -= 1
 			timer.visible = false
 		elif fadeInCount == 0:
+			var songName
+			if %RadioPlayer.current_song != null:
+				songName = %RadioPlayer.current_song
+				if %RadioInfo.isANewSong(songName) && !isInElevator:
+					%PhoneMover.start = true
+					%PhoneMover.current_string = songName
 			game_start = false
 			%FadeInPanel.visible = false
 			%Loading.visible = false
@@ -1099,7 +1105,7 @@ func smoke():
 func bonk(body):
 	if (body.name.contains("Wall") || body.name.contains("Ice") || body.name.contains("Floor")) && !isGrabbingLedge && !isFreefalling:
 		#print(position.x, ", ", velocity.y)
-		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 125 && !is_on_floor()):
+		if (abs(velocity.x) > 395 && is_on_floor()) || (abs(velocity.x) > 125 && !is_on_floor() && !Input.is_action_pressed("ui_cancel")):
 			isFreefalling = true
 			dizzy.play()
 			dizzy.visible = true
@@ -1111,6 +1117,8 @@ func bonk(body):
 			isAgainstWall = true
 			velocity = Vector2(0, 0)
 		runSpeed = minRunSpeed
+	if body.name == "ElevatorFloor":
+		forceDied = true
 	pass
 
 func leave_wall(body):

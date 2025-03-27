@@ -11,6 +11,7 @@ var placement = false
 var countTime = 0 
 var countTime2 = 0
 var countTime3 = 0
+var speed = 0
 var temp_volume
 
 # Called when the node enters the scene tree for the first time.
@@ -57,9 +58,10 @@ func _physics_process(_delta):
 			if countTime < 2645: #3104
 				countTime += 1
 				if placement:
-					position.y += 7
+					speed = 7
 				else:
-					position.y -= 7
+					speed = -7
+				position.y += speed
 				anim.play("door_closed")
 				lightGreen.enabled = false
 			# Elevator has reached destination
@@ -69,6 +71,7 @@ func _physics_process(_delta):
 					anim.play("door_opening")
 					lightGreen.enabled = true
 					get_node("Opening").play()
+					get_node("UpDown").stop()
 				elif countTime3 < 80:
 					get_node("ElevatorWall1").global_position.y -= 1
 					get_node("ElevatorWall2").global_position.y -= 1
@@ -92,6 +95,7 @@ func _physics_process(_delta):
 		get_node("ElevatorWall2").process_mode = Node.PROCESS_MODE_DISABLED
 		anim.play("door_open")
 		lightRed.enabled = false
+		speed = 0
 	pass
 
 func _on_area_2d_body_entered(body):

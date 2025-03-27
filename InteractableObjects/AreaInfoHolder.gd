@@ -48,6 +48,9 @@ func assign_info(body):
 func _on_body_entered(body):
 	if body.name == "Player":
 		if !body.game_start:
+			if %RadioInfo.isANewSong(songName) && !body.isInElevator:
+				%PhoneMover.start = true
+				%PhoneMover.current_string = songName
 			if (body.countHangTime < 100 && abs(body.velocity.y) < 200 && !body.isInElevator) || body.isHoldingRope:
 				assign_info(body)
 			else:
